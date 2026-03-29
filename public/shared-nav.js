@@ -23,9 +23,8 @@
       const initial = currentUser.email.charAt(0).toUpperCase();
       authArea.innerHTML = `
         <div class="relative group">
-          <button class="flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">
+          <button class="flex items-center gap-1.5 text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">
             <span class="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center text-white text-xs font-bold">${initial}</span>
-            <span class="hidden lg:inline max-w-[120px] truncate">${currentUser.email}</span>
             <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200 absolute top-full right-0 mt-2 w-64 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
@@ -42,7 +41,7 @@
               Prompt library
             </a>
             <div class="border-t border-gray-100 my-1"></div>
-            <a href="/reset-password" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+            <a href="/prompts?login=1" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors" onclick="event.preventDefault(); sharedLogout(); setTimeout(function(){ window.location.href='/prompts?login=1'; }, 500);">
               <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg>
               Change password
             </a>
@@ -58,7 +57,7 @@
           <div class="border-t border-gray-100 pt-2 mt-1">
             <span class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Account</span>
             <a href="/dashboard" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">My dashboard</a>
-            <a href="/reset-password" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Change password</a>
+            <a href="/prompts?login=1" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2" onclick="event.preventDefault(); sharedLogout(); setTimeout(function(){ window.location.href='/prompts?login=1'; }, 500);">Change password</a>
             <button onclick="sharedLogout()" class="block w-full text-left text-sm font-medium text-gray-600 hover:text-red-600 py-2 pl-2">Log out</button>
           </div>
         `;

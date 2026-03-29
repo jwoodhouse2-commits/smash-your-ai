@@ -13,19 +13,13 @@ async function checkAuth() {
 }
 
 function updateAuthUI() {
-  const navUser = document.getElementById('nav-user');
   const sidebarCta = document.getElementById('sidebar-cta');
 
   if (currentUser) {
-    navUser.textContent = currentUser.email;
-    navUser.classList.remove('hidden');
-    navUser.style.cursor = 'pointer';
-    navUser.onclick = () => { window.location.href = '/dashboard'; };
     // Hide CTA if user has paid
     if (sidebarCta && currentUser.has_paid) sidebarCta.classList.add('hidden');
     else if (sidebarCta) sidebarCta.classList.remove('hidden');
   } else {
-    navUser.classList.add('hidden');
     // Always show CTA for non-logged-in users
     if (sidebarCta) sidebarCta.classList.remove('hidden');
   }
