@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GMMV8EBM39"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GMMV8EBM39');
+  </script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Image Generation for Business: A Practical Guide - Smash Your AI</title>
+  <meta name="description" content="How to use AI image generation tools like DALL-E, Midjourney, and Ideogram for your business. Practical prompting tips, tool comparisons, and real examples from someone who creates AI images every day.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:image" content="/images/blog/ai-image-generation.jpg">
+  <link rel="canonical" href="https://smashyourai.com/blog/ai-image-generation-business">
+  <meta property="og:title" content="AI Image Generation for Business: A Practical Guide - Smash Your AI">
+  <meta property="og:description" content="How to use AI image generation tools like DALL-E, Midjourney, and Ideogram for your business. Practical prompting tips, tool comparisons, and real examples from someone who creates AI images every day.">
+  <meta property="og:url" content="https://smashyourai.com/blog/ai-image-generation-business">
+  <meta property="og:type" content="article">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>tailwind.config = { theme: { extend: { fontFamily: { sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'] } } } }</script>
+  <style>
+    * { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+    .gradient-text { background: linear-gradient(135deg, #8b5cf6, #6366f1, #4f46e5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .gradient-btn { background: linear-gradient(135deg, #8b5cf6, #6366f1); transition: all 0.2s ease; }
+    .gradient-btn:hover { background: linear-gradient(135deg, #7c3aed, #4f46e5); transform: translateY(-1px); box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4); }
+    .section-purple { background: linear-gradient(180deg, rgba(139, 92, 246, 0.03) 0%, rgba(99, 102, 241, 0.06) 50%, rgba(139, 92, 246, 0.03) 100%); }
+    article h2 { scroll-margin-top: 100px; }
+    .prompt-example { border-left: 3px solid #8b5cf6; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI Image Generation for Business: A Practical Guide",
+    "description": "How to use AI image generation tools like DALL-E, Midjourney, and Ideogram for your business. Practical prompting tips, tool comparisons, and real examples.",
+    "author": { "@type": "Person", "name": "James" },
+    "publisher": { "@type": "Organization", "name": "Smash Your AI" },
+    "datePublished": "2026-03-29",
+    "dateModified": "2026-03-29"
+  }
+  </script>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-lg border-b border-gray-100 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5">
+        <img src="/images/logo.png" alt="Smash Your AI" class="h-7 w-auto">
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Home</a>
+        <a href="/#ai-training-services" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Services</a>
+        <span class="text-sm font-medium text-gray-400 cursor-default relative group">Online course
+          <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Coming soon</span>
+        </span>
+        <a href="/#about-us" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">About us</a>
+        <div class="relative group">
+          <button class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors inline-flex items-center gap-1">
+            Resources
+            <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200 absolute top-full right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+            <a href="/prompts/" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              Prompt library
+            </a>
+            <a href="/content-calendars/" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              Content calendars
+            </a>
+            <a href="/quiz" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+              AI readiness quiz
+            </a>
+            <a href="/savings-calculator" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              AI savings calculator
+            </a>
+            <div class="border-t border-gray-100 my-1"></div>
+            <a href="/blog" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+              Blog
+            </a>
+          </div>
+        </div>
+        <a href="/#contact" class="gradient-btn text-white text-sm font-semibold px-5 py-2.5 rounded-xl">Get in touch</a>
+        <div id="shared-auth-area"></div>
+      </div>
+      <button class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3">
+      <a href="/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">Home</a>
+      <a href="/#ai-training-services" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">Services</a>
+      <span class="block text-sm font-medium text-gray-400 py-2">Online course (coming soon)</span>
+      <a href="/#about-us" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">About us</a>
+      <div class="border-t border-gray-100 pt-2 mt-1">
+        <span class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Resources</span>
+        <a href="/prompts/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Prompt library</a>
+        <a href="/content-calendars/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Content calendars</a>
+        <a href="/quiz" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">AI readiness quiz</a>
+        <a href="/savings-calculator" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">AI savings calculator</a>
+        <a href="/blog" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Blog</a>
+      </div>
+      <a href="/#contact" class="block gradient-btn text-white text-sm font-semibold px-5 py-2.5 rounded-xl text-center">Get in touch</a>
+      <div id="shared-auth-area-mobile"></div>
+    </div>
+  </nav>
+
+  <article class="pt-32 pb-20 md:pt-40 md:pb-28">
+    <div class="max-w-3xl mx-auto px-6">
+
+      <!-- Breadcrumb -->
+      <nav class="text-sm text-gray-400 mb-6">
+        <a href="/" class="hover:text-violet-600 transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <a href="/blog" class="hover:text-violet-600 transition-colors">Blog</a>
+        <span class="mx-2">/</span>
+        <span class="text-gray-600">AI image generation</span>
+      </nav>
+
+      <!-- Header -->
+      <div class="mb-10">
+        <span class="text-xs text-violet-600 font-medium px-2.5 py-1 bg-violet-50 rounded-md">Tools</span>
+        <h1 class="text-3xl md:text-4xl font-extrabold mt-4 mb-4">AI image generation for business: a practical guide</h1>
+        <div class="flex items-center gap-4 text-sm text-gray-400 mb-5">
+          <span>29 March 2026</span>
+          <span>-</span>
+          <span>12 min read</span>
+        </div>
+        <div class="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-violet-50 to-indigo-50 border-l-4 border-violet-500">
+          <img src="/images/james-headshot.png" alt="James, co-founder of Smash Your AI" class="w-11 h-11 rounded-full object-cover shrink-0">
+          <div>
+            <p class="font-semibold text-sm text-gray-900">James</p>
+            <p class="text-xs text-gray-500">Co-founder of Smash Your AI - 18 years in education, now helping businesses and individuals get real results from AI.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured image -->
+      <!-- TODO: Add featured image - AI-generated collage showing different styles (photorealistic, illustration, isometric) -->
+      <img src="/images/blog/ai-image-generation.jpg" alt="AI image generation for business - examples of different AI-generated image styles" class="w-full rounded-2xl mb-10">
+
+      <!-- Article content -->
+      <div class="space-y-6 text-gray-700 leading-relaxed">
+
+        <p class="text-lg">Last year, ChatGPT told me I was in the top 0.1% of users worldwide. I have been using AI daily for over four years now. And one of the things that has changed the most in that time is image generation.</p>
+
+        <p>When I first tried DALL-E back in 2022, the results were... interesting. Wonky fingers. Melted faces. Text that looked like it was written by a toddler having a bad day. I used it mostly for a laugh.</p>
+
+        <p>Fast forward to today, and I use AI-generated images almost every day. Social media graphics, blog headers, presentation slides, client mockups, even the images on this website. The quality is genuinely stunning now, and the speed is unbeatable.</p>
+
+        <p>This guide covers everything I have learned about using AI image generation for business. No theory. Just practical stuff that actually works.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="when-ai-images-make-sense">When AI images make sense for business (and when they don't)</h2>
+
+        <p>Let me be upfront. AI image generation is not the answer to everything. Here is when it works brilliantly and when you should avoid it.</p>
+
+        <p><strong>Use AI images for:</strong></p>
+
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Social media graphics and post images</li>
+          <li>Blog headers and featured images</li>
+          <li>Presentation slides and internal documents</li>
+          <li>Concept mockups and early-stage design ideas</li>
+          <li>Illustrations and diagrams</li>
+          <li>Background textures and patterns</li>
+          <li>Quick visuals when you need something in minutes, not days</li>
+        </ul>
+
+        <p><strong>Do not use AI images for:</strong></p>
+
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Your company logo (get a proper designer for this)</li>
+          <li>Photos of real team members (obviously)</li>
+          <li>Product photos where accuracy matters</li>
+          <li>Anything where the image needs to match a real-world location exactly</li>
+          <li>Legal documents or anything where authenticity is critical</li>
+        </ul>
+
+        <p>The sweet spot is when you need a good-looking image quickly and cheaply, and it does not need to be a photograph of something real. That covers a surprising amount of business use cases.</p>
+
+        <!-- TODO: Image suggestion - side-by-side showing a good AI use case (blog header) vs a bad one (trying to generate a realistic team photo) -->
+
+        <h2 class="text-2xl font-bold pt-6" id="tool-comparison">The best AI image tools compared</h2>
+
+        <p>I have used all of the major tools extensively. Here is how they stack up for business use as of early 2026.</p>
+
+        <div class="overflow-x-auto my-6">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead>
+              <tr class="bg-violet-50">
+                <th class="text-left px-5 py-3 font-bold text-gray-900 border-b border-gray-200">Tool</th>
+                <th class="text-left px-5 py-3 font-bold text-gray-900 border-b border-gray-200">Price</th>
+                <th class="text-left px-5 py-3 font-bold text-gray-900 border-b border-gray-200">Best for</th>
+                <th class="text-left px-5 py-3 font-bold text-gray-900 border-b border-gray-200">Quality</th>
+              </tr>
+            </thead>
+            <tbody class="text-gray-600">
+              <tr class="border-b border-gray-100">
+                <td class="px-5 py-3 font-medium text-gray-900">DALL-E 3 (ChatGPT)</td>
+                <td class="px-5 py-3">Included with ChatGPT Plus ($20/mo)</td>
+                <td class="px-5 py-3">All-rounder. Great for quick images, text in images, social media</td>
+                <td class="px-5 py-3">9/10</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="px-5 py-3 font-medium text-gray-900">Midjourney</td>
+                <td class="px-5 py-3">From $10/mo</td>
+                <td class="px-5 py-3">Artistic and photorealistic images. Beautiful aesthetic quality</td>
+                <td class="px-5 py-3">10/10</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="px-5 py-3 font-medium text-gray-900">Ideogram</td>
+                <td class="px-5 py-3">Free tier available. Pro from $8/mo</td>
+                <td class="px-5 py-3">Text in images (best at this). Logos, posters, graphics with words</td>
+                <td class="px-5 py-3">8/10</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="px-5 py-3 font-medium text-gray-900">Adobe Firefly</td>
+                <td class="px-5 py-3">Included with Creative Cloud, or from $5/mo</td>
+                <td class="px-5 py-3">Safe for commercial use. Integrates with Photoshop</td>
+                <td class="px-5 py-3">8/10</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3 font-medium text-gray-900">Canva AI</td>
+                <td class="px-5 py-3">Included with Canva Pro ($13/mo)</td>
+                <td class="px-5 py-3">Quick designs within Canva. Easy for non-designers</td>
+                <td class="px-5 py-3">7/10</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>My recommendation:</strong> if you already pay for ChatGPT Plus (and you should - <a href="/blog/is-paying-for-ai-worth-it" class="text-violet-600 font-medium hover:text-violet-800 transition-colors">here is why</a>), DALL-E 3 is the best starting point. You can generate images right inside your chat conversations. For anything that needs to look truly stunning, Midjourney is worth the extra subscription.</p>
+
+        <p>If you need text in your images (quotes, titles, labels), try Ideogram first. It handles text far better than the others.</p>
+
+        <!-- TODO: Image suggestion - screenshot comparison of the same prompt run through DALL-E, Midjourney, and Ideogram -->
+
+        <h2 class="text-2xl font-bold pt-6" id="how-to-write-image-prompts">How to write good image prompts</h2>
+
+        <p>This is where most people get stuck. They type something vague and get something disappointing. Sound familiar? The same rules that apply to <a href="/blog/chatgpt-prompting-mistakes" class="text-violet-600 font-medium hover:text-violet-800 transition-colors">text prompting</a> apply here too: specificity wins.</p>
+
+        <p>Here is a formula I use for almost every image prompt:</p>
+
+        <div class="bg-violet-50/50 rounded-2xl p-6 my-4">
+          <p class="font-bold text-gray-900 mb-3">The image prompt formula</p>
+          <p class="text-sm text-gray-700"><strong>Subject</strong> + <strong>Style</strong> + <strong>Setting</strong> + <strong>Mood/Lighting</strong> + <strong>Details</strong></p>
+          <p class="text-sm text-gray-500 mt-2">You do not need all five every time, but the more you include, the better your results.</p>
+        </div>
+
+        <p>Let me show you what this looks like in practice.</p>
+
+        <h3 class="text-xl font-bold pt-4">Example 1: Social media graphic</h3>
+
+        <div class="prompt-example bg-red-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-red-800 mb-1">Bad prompt:</p>
+          <p class="text-sm text-red-700 italic">"A picture of someone using a laptop"</p>
+        </div>
+
+        <p>You will get a generic stock-photo-style image. Boring. Forgettable. Could belong to any brand in the world.</p>
+
+        <div class="prompt-example bg-green-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-green-800 mb-1">Good prompt:</p>
+          <p class="text-sm text-green-700 italic">"A flat illustration of a woman working on a laptop at a clean minimal desk with a coffee cup, soft purple and blue tones, white background, modern and friendly style, suitable for a tech company blog header"</p>
+        </div>
+
+        <p>Now you have told the AI the style, the colours, the mood, and the use case. The result will be something you can actually use.</p>
+
+        <h3 class="text-xl font-bold pt-4">Example 2: Blog featured image</h3>
+
+        <div class="prompt-example bg-red-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-red-800 mb-1">Bad prompt:</p>
+          <p class="text-sm text-red-700 italic">"AI brain"</p>
+        </div>
+
+        <div class="prompt-example bg-green-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-green-800 mb-1">Good prompt:</p>
+          <p class="text-sm text-green-700 italic">"An isometric 3D illustration of a glowing brain made of interconnected circuits and nodes, floating above a clean desk with a laptop and notebook, soft gradient background from light purple to white, modern tech aesthetic, no text"</p>
+        </div>
+
+        <h3 class="text-xl font-bold pt-4">Example 3: Presentation slide background</h3>
+
+        <div class="prompt-example bg-red-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-red-800 mb-1">Bad prompt:</p>
+          <p class="text-sm text-red-700 italic">"Professional background"</p>
+        </div>
+
+        <div class="prompt-example bg-green-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-green-800 mb-1">Good prompt:</p>
+          <p class="text-sm text-green-700 italic">"Abstract geometric pattern with soft gradients in navy blue and gold, subtle and professional, minimal design suitable as a widescreen presentation slide background, 16:9 aspect ratio"</p>
+        </div>
+
+        <p>See the pattern? Every good prompt tells the AI <em>what</em> you want, <em>how</em> it should look, and <em>where</em> you plan to use it.</p>
+
+        <!-- TODO: Image suggestion - actual before/after comparison showing the outputs from these prompt pairs -->
+
+        <h2 class="text-2xl font-bold pt-6" id="style-keywords">Style keywords that actually work</h2>
+
+        <p>One of the things I have learned from generating hundreds of images is that certain style keywords consistently produce better results. Here are the ones I use most often.</p>
+
+        <div class="overflow-x-auto my-6">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead>
+              <tr class="bg-violet-50">
+                <th class="text-left px-5 py-3 font-bold text-gray-900 border-b border-gray-200">Style keyword</th>
+                <th class="text-left px-5 py-3 font-bold text-gray-900 border-b border-gray-200">What you get</th>
+                <th class="text-left px-5 py-3 font-bold text-gray-900 border-b border-gray-200">Best for</th>
+              </tr>
+            </thead>
+            <tbody class="text-gray-600">
+              <tr class="border-b border-gray-100">
+                <td class="px-5 py-3 font-medium text-gray-900">Photorealistic</td>
+                <td class="px-5 py-3">Looks like a real photograph</td>
+                <td class="px-5 py-3">Hero images, lifestyle shots</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="px-5 py-3 font-medium text-gray-900">Flat illustration</td>
+                <td class="px-5 py-3">Clean, modern 2D graphics with solid colours</td>
+                <td class="px-5 py-3">Blog headers, social media, icons</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="px-5 py-3 font-medium text-gray-900">Isometric</td>
+                <td class="px-5 py-3">3D-style viewed from an angle, like a video game</td>
+                <td class="px-5 py-3">Tech content, process diagrams, infographics</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="px-5 py-3 font-medium text-gray-900">Watercolour</td>
+                <td class="px-5 py-3">Soft, artistic, hand-painted feel</td>
+                <td class="px-5 py-3">Creative brands, education, wellbeing</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="px-5 py-3 font-medium text-gray-900">Minimalist line art</td>
+                <td class="px-5 py-3">Simple outlines, clean and elegant</td>
+                <td class="px-5 py-3">Professional services, luxury brands</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="px-5 py-3 font-medium text-gray-900">Sketch / hand-drawn</td>
+                <td class="px-5 py-3">Looks like a pencil or pen drawing</td>
+                <td class="px-5 py-3">Education content, whiteboards, informal</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3 font-medium text-gray-900">3D render</td>
+                <td class="px-5 py-3">Glossy, polished 3D objects</td>
+                <td class="px-5 py-3">Product mockups, hero sections, app graphics</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Pro tip:</strong> you can combine style keywords. "Flat illustration with soft watercolour textures" gives you something unique. I use this technique all the time when I want images that do not look like everyone else's AI content.</p>
+
+        <!-- TODO: Image suggestion - grid of 4-6 images showing the same subject (e.g. a lightbulb) in different styles -->
+
+        <h2 class="text-2xl font-bold pt-6" id="practical-use-cases">Practical use cases for your business</h2>
+
+        <p>Here is how I actually use AI images in my day-to-day work. Every single one of these is something I have done in the past month.</p>
+
+        <h3 class="text-xl font-bold pt-4">Social media graphics</h3>
+
+        <p>This is the easiest win. I generate custom images for LinkedIn posts, Instagram carousels, and blog shares in under a minute. Before AI, I would spend ages searching stock photo sites for something that was close enough. Now I describe exactly what I want and get something perfect.</p>
+
+        <p>I built the Smash Your AI social media presence almost entirely with AI-generated graphics. Consistent style, on-brand colours, and I never had to open Photoshop once.</p>
+
+        <h3 class="text-xl font-bold pt-4">Blog headers</h3>
+
+        <p>Every blog post on this site has a custom featured image. Creating them takes about 30 seconds each. I use a consistent prompt template so they all look like they belong together.</p>
+
+        <h3 class="text-xl font-bold pt-4">Product mockups</h3>
+
+        <p>When we were designing our <a href="/prompts/" class="text-violet-600 font-medium hover:text-violet-800 transition-colors">prompt library</a>, I used AI to generate mockup images of what the product could look like before we built it. This saved us from building things that did not look right.</p>
+
+        <h3 class="text-xl font-bold pt-4">Presentation slides</h3>
+
+        <p>I run AI training workshops for businesses. My slides used to be full of boring stock photos. Now every slide has a custom illustration that matches the topic. The feedback difference was immediate. People commented on how professional the slides looked.</p>
+
+        <h3 class="text-xl font-bold pt-4">Client work</h3>
+
+        <p>When I am working with a client on their AI strategy, I often generate concept images to illustrate ideas. "This is what your homepage hero could look like" is much more powerful when you can show them rather than just describe it.</p>
+
+        <!-- TODO: Image suggestion - collage of real examples: social graphic, blog header, presentation slide, product mockup -->
+
+        <h2 class="text-2xl font-bold pt-6" id="copyright">Copyright and usage rights: what you need to know</h2>
+
+        <p>This is the question everyone asks. Can you actually use AI-generated images commercially? The short answer: it depends on the tool.</p>
+
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>DALL-E 3 (ChatGPT):</strong> You own the images you create. Full commercial use rights. This is one of the reasons I recommend it as a starting point.</li>
+          <li><strong>Midjourney:</strong> Commercial use allowed on paid plans. Free tier images are not licensed for commercial use.</li>
+          <li><strong>Ideogram:</strong> Commercial use allowed on paid plans.</li>
+          <li><strong>Adobe Firefly:</strong> Designed to be commercially safe. Trained on licensed content and Adobe Stock. Includes IP indemnification on some plans.</li>
+          <li><strong>Canva AI:</strong> Commercial use allowed under Canva's standard licence.</li>
+        </ul>
+
+        <p><strong>Important caveat:</strong> AI copyright law is still evolving. The rules above are correct as of early 2026, but keep an eye on changes. For anything high-stakes (a national ad campaign, product packaging), it is worth getting legal advice.</p>
+
+        <p>For everyday business use - social media, blogs, presentations, internal documents - you are fine with any of the paid tools listed above.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="consistent-brand-imagery">Getting consistent brand imagery</h2>
+
+        <p>This is the bit that took me the longest to figure out. Generating one good image is easy. Generating twenty images that all look like they belong to the same brand is harder.</p>
+
+        <p>Here are the techniques I use:</p>
+
+        <h3 class="text-xl font-bold pt-4">1. Create a brand prompt template</h3>
+
+        <p>Write a base prompt that describes your brand's visual style. Then reuse it for every image, just changing the subject.</p>
+
+        <div class="prompt-example bg-green-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-green-800 mb-1">Brand prompt template:</p>
+          <p class="text-sm text-green-700 italic">"[SUBJECT]. Flat illustration style, modern and clean, colour palette of soft purple (#8b5cf6), indigo (#4f46e5), and white. Minimal background, friendly and approachable feel, suitable for a tech website."</p>
+        </div>
+
+        <p>I swap out [SUBJECT] and keep everything else the same. This is exactly how I created the images for the Smash Your AI website. Same colours, same style, every time.</p>
+
+        <h3 class="text-xl font-bold pt-4">2. Specify your colours</h3>
+
+        <p>AI tools understand hex colour codes. If your brand colours are specific shades, include them in the prompt. This makes a massive difference to consistency.</p>
+
+        <h3 class="text-xl font-bold pt-4">3. Use reference images</h3>
+
+        <p>Most tools now let you upload a reference image and say "create something in this style." Midjourney and DALL-E both support this. Upload one image you love and use it as the baseline for everything else.</p>
+
+        <h3 class="text-xl font-bold pt-4">4. Keep a prompt library</h3>
+
+        <p>Save every prompt that produces a good result. I have a document with dozens of image prompts organised by use case. When I need a new social media graphic, I do not start from scratch. I grab my best social media prompt and tweak it.</p>
+
+        <p>This is one of the reasons we built our <a href="/prompts/" class="text-violet-600 font-medium hover:text-violet-800 transition-colors">prompt library</a>. It includes image generation prompts for common business use cases, so you do not have to figure all of this out yourself.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="common-mistakes">Common mistakes to avoid</h2>
+
+        <p>After generating thousands of images, here are the mistakes I see people make most often:</p>
+
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Being too vague.</strong> "A nice image" gives you nothing useful. Be specific about style, colours, mood, and composition.</li>
+          <li><strong>Not specifying the aspect ratio.</strong> If you need a landscape image for a blog header, say so. Otherwise you might get a square image that does not fit.</li>
+          <li><strong>Ignoring text.</strong> AI-generated text in images is getting better but can still be unreliable. If you need text, add it afterwards in Canva or Figma. Or use Ideogram, which handles text best.</li>
+          <li><strong>Trying to get photorealistic people.</strong> AI people can look slightly off. For team photos, events, and headshots, use real photos. Every time.</li>
+          <li><strong>Generating once and settling.</strong> Like text prompts, iterate. Generate four variations, pick the best one, then refine it with follow-up instructions.</li>
+          <li><strong>No consistent style.</strong> If your social media has a different art style every post, it looks disjointed. Pick one style and stick with it.</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold pt-6" id="quick-start">Quick-start checklist</h2>
+
+        <p>If you want to start using AI images for your business today, here is what to do:</p>
+
+        <div class="bg-violet-50/50 rounded-2xl p-6">
+          <ol class="list-decimal pl-5 space-y-3">
+            <li><strong>Pick one tool.</strong> If you already have ChatGPT Plus, start there. If not, try Ideogram's free tier.</li>
+            <li><strong>Write a brand prompt template.</strong> Describe your style, colours, and mood. Save it somewhere.</li>
+            <li><strong>Start with social media.</strong> Generate your next five social media post images using AI. See how it feels.</li>
+            <li><strong>Iterate.</strong> Your first attempts will not be perfect. Refine the prompt, regenerate, and compare.</li>
+            <li><strong>Build a prompt library.</strong> Save every prompt that produces something good. You will thank yourself later.</li>
+            <li><strong>Stay consistent.</strong> Use the same style keywords and colour palette across all your images.</li>
+          </ol>
+        </div>
+
+        <p>AI image generation is one of those tools where the gap between people who know how to use it and people who do not is enormous. The difference between a vague prompt and a specific one is the difference between a useless blob and a professional image you are proud to put on your website.</p>
+
+        <p>And the best part? It takes minutes, not hours. Once you get the hang of it, you will wonder how you ever managed without it.</p>
+
+      </div>
+
+      <!-- Related articles -->
+      <div class="mt-12 pt-10 border-t border-gray-100">
+        <h3 class="text-lg font-bold mb-6">You might also like</h3>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <a href="/blog/chatgpt-prompting-mistakes" class="p-5 rounded-xl border border-gray-100 hover:border-violet-200 transition-colors group">
+            <span class="text-xs text-violet-600 font-medium">Prompting</span>
+            <p class="font-bold mt-1 group-hover:text-violet-600 transition-colors">5 ChatGPT prompting mistakes most people make</p>
+          </a>
+          <a href="/blog/chatgpt-vs-claude-vs-gemini" class="p-5 rounded-xl border border-gray-100 hover:border-violet-200 transition-colors group">
+            <span class="text-xs text-violet-600 font-medium">Tools</span>
+            <p class="font-bold mt-1 group-hover:text-violet-600 transition-colors">ChatGPT vs Claude vs Gemini: which AI should you use?</p>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- CTA Banner -->
+  <section class="py-16 section-purple">
+    <div class="max-w-2xl mx-auto px-6 text-center">
+      <h2 class="text-2xl font-extrabold mb-3">Want ready-made image prompts?</h2>
+      <p class="text-gray-500 mb-6">Our prompt library includes image generation prompts for social media, blog headers, presentations, and more. Copy, paste, and start creating.</p>
+      <a href="/prompts/" class="inline-flex gradient-btn text-white text-sm font-semibold px-8 py-3.5 rounded-xl">Browse the prompt library</a>
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 text-gray-400 py-10">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p class="text-sm">&copy; 2026 Smash Your AI. All rights reserved.</p>
+      <div class="flex gap-6 text-sm">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <a href="/blog" class="hover:text-white transition-colors">Blog</a>
+        <a href="/privacy" class="hover:text-white transition-colors">Privacy policy</a>
+        <a href="/terms" class="hover:text-white transition-colors">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+<script src="/shared-nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /prompts/admin
+Sitemap: https://smashyourai.com/sitemap.xml

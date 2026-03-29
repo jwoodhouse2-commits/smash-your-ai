@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GMMV8EBM39"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GMMV8EBM39');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your dashboard - Smash Your AI</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: { extend: { fontFamily: { sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'] } } }
+    }
+  </script>
+  <style>
+    * { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+    .gradient-text { background: linear-gradient(135deg, #8b5cf6, #6366f1, #4f46e5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .gradient-btn { background: linear-gradient(135deg, #8b5cf6, #6366f1); }
+    .gradient-btn:hover { background: linear-gradient(135deg, #7c3aed, #4f46e5); }
+    .card-hover { transition: all 0.2s; }
+    .card-hover:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <!-- Nav -->
+  <nav class="bg-white border-b border-gray-200 sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/">
+        <img src="/images/logo.png" alt="Smash Your AI" class="h-7">
+      </a>
+      <div class="flex items-center gap-4">
+        <span id="user-email" class="text-sm text-gray-500"></span>
+        <button onclick="handleLogout()" class="text-sm text-gray-500 hover:text-gray-700 font-medium">Log out</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Loading state -->
+  <div id="loading" class="flex items-center justify-center py-32">
+    <div class="w-8 h-8 border-3 border-violet-200 border-t-violet-600 rounded-full animate-spin"></div>
+  </div>
+
+  <!-- Not logged in state -->
+  <div id="not-logged-in" class="hidden max-w-md mx-auto text-center py-32 px-6">
+    <h1 class="text-2xl font-extrabold text-gray-900 mb-2">Log in to view your dashboard</h1>
+    <p class="text-gray-500 mb-6">You need to be logged in to access your content.</p>
+    <a href="/prompts?login=1" class="inline-block gradient-btn text-white font-semibold py-2.5 px-8 rounded-xl text-sm">Log in</a>
+  </div>
+
+  <!-- Not paid state -->
+  <div id="not-paid" class="hidden max-w-lg mx-auto text-center py-32 px-6">
+    <div class="w-16 h-16 bg-violet-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+      <svg class="w-8 h-8 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+      </svg>
+    </div>
+    <h1 class="text-2xl font-extrabold text-gray-900 mb-2">Unlock the AI Starter Bundle</h1>
+    <p class="text-gray-500 mb-6">Get instant access to 168 prompts, 2 workbooks, 6 content calendars, and lifetime free updates.</p>
+    <button onclick="startCheckout()" class="inline-block gradient-btn text-white font-semibold py-3 px-8 rounded-xl text-sm">Get the bundle - £14.99</button>
+  </div>
+
+  <!-- Paid dashboard -->
+  <div id="dashboard" class="hidden max-w-6xl mx-auto px-6 py-10">
+    <div class="mb-10">
+      <h1 class="text-3xl font-extrabold text-gray-900 mb-1">Welcome back</h1>
+      <p class="text-gray-500">Here's everything included in your AI Starter Bundle.</p>
+    </div>
+
+    <!-- Prompt library -->
+    <section class="mb-10">
+      <h2 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+        <svg class="w-5 h-5 text-violet-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+        AI prompt library
+      </h2>
+      <a href="/prompts" class="card-hover block bg-white border border-gray-200 rounded-2xl p-6 hover:border-violet-200">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="font-semibold text-gray-900 mb-1">168 expert-written prompts</p>
+            <p class="text-sm text-gray-500">ChatGPT, Claude, Midjourney, DALL-E, custom GPTs, and prompting fundamentals</p>
+          </div>
+          <svg class="w-5 h-5 text-violet-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+    </section>
+
+    <!-- Workbooks -->
+    <section class="mb-10">
+      <h2 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+        <svg class="w-5 h-5 text-violet-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        Workbooks
+      </h2>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <a href="/ai-in-a-day" class="card-hover bg-white border border-gray-200 rounded-2xl p-6 hover:border-violet-200">
+          <p class="font-semibold text-gray-900 mb-1">AI in a Day</p>
+          <p class="text-sm text-gray-500">Beginner-friendly, hands-on workbook to get started with AI</p>
+        </a>
+        <a href="/ai-in-a-day-advanced" class="card-hover bg-white border border-gray-200 rounded-2xl p-6 hover:border-violet-200">
+          <p class="font-semibold text-gray-900 mb-1">AI in a Day - Advanced</p>
+          <p class="text-sm text-gray-500">Level up with advanced techniques, automations, and real workflows</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Content calendars -->
+    <section class="mb-10">
+      <h2 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+        <svg class="w-5 h-5 text-violet-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        Content calendars
+      </h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <a href="/content-calendars/calendar-salons" class="card-hover bg-white border border-gray-200 rounded-2xl p-5 hover:border-violet-200">
+          <p class="font-semibold text-gray-900 text-sm">Hair & beauty salons</p>
+        </a>
+        <a href="/content-calendars/calendar-accountants" class="card-hover bg-white border border-gray-200 rounded-2xl p-5 hover:border-violet-200">
+          <p class="font-semibold text-gray-900 text-sm">Accountants</p>
+        </a>
+        <a href="/content-calendars/calendar-personal-trainers" class="card-hover bg-white border border-gray-200 rounded-2xl p-5 hover:border-violet-200">
+          <p class="font-semibold text-gray-900 text-sm">Personal trainers</p>
+        </a>
+        <a href="/content-calendars/calendar-restaurants" class="card-hover bg-white border border-gray-200 rounded-2xl p-5 hover:border-violet-200">
+          <p class="font-semibold text-gray-900 text-sm">Restaurants & cafes</p>
+        </a>
+        <a href="/content-calendars/calendar-estate-agents" class="card-hover bg-white border border-gray-200 rounded-2xl p-5 hover:border-violet-200">
+          <p class="font-semibold text-gray-900 text-sm">Estate agents</p>
+        </a>
+        <a href="/content-calendars/calendar-universal" class="card-hover bg-white border border-gray-200 rounded-2xl p-5 hover:border-violet-200">
+          <p class="font-semibold text-gray-900 text-sm">Universal (any industry)</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Week 1 action plan -->
+    <section class="mb-10">
+      <h2 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+        <svg class="w-5 h-5 text-violet-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+        Week 1 action plan
+      </h2>
+      <div class="bg-gradient-to-br from-violet-50 to-indigo-50 border border-violet-200 rounded-2xl p-6">
+        <p class="font-semibold text-gray-900 mb-1">7-day plan to get real results</p>
+        <p class="text-sm text-gray-600">A step-by-step plan for your first week using AI in your business. Follow the daily actions and you'll be saving time by day 7.</p>
+      </div>
+    </section>
+
+    <!-- Lifetime updates banner -->
+    <div class="bg-gradient-to-br from-violet-500 to-indigo-600 rounded-2xl p-8 text-white text-center">
+      <h3 class="text-xl font-bold mb-2">Lifetime free updates</h3>
+      <p class="text-violet-100 text-sm max-w-md mx-auto">Every new prompt, workbook, calendar, and resource we add is automatically included in your bundle. No extra charge, ever.</p>
+    </div>
+  </div>
+
+  <script>
+    let currentUser = null;
+
+    async function init() {
+      try {
+        const res = await fetch('/prompts/auth/me');
+        const data = await res.json();
+        currentUser = data.user;
+      } catch (e) {
+        currentUser = null;
+      }
+
+      document.getElementById('loading').classList.add('hidden');
+
+      if (!currentUser) {
+        document.getElementById('not-logged-in').classList.remove('hidden');
+        return;
+      }
+
+      document.getElementById('user-email').textContent = currentUser.email;
+
+      if (currentUser.has_paid || currentUser.is_admin) {
+        document.getElementById('dashboard').classList.remove('hidden');
+      } else {
+        document.getElementById('not-paid').classList.remove('hidden');
+      }
+    }
+
+    async function startCheckout() {
+      try {
+        const res = await fetch('/prompts/checkout/create-session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' }
+        });
+        const data = await res.json();
+        if (data.url) {
+          window.location.href = data.url;
+        } else if (data.redirect) {
+          window.location.href = data.redirect;
+        }
+      } catch (err) {
+        alert('Something went wrong. Please try again.');
+      }
+    }
+
+    async function handleLogout() {
+      await fetch('/prompts/auth/logout', { method: 'POST' });
+      window.location.href = '/';
+    }
+
+    init();
+  </script>
+</body>
+</html>

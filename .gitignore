@@ -1,0 +1,10 @@
+node_modules/
+.env
+.DS_Store
+*.db
+*.db-wal
+*.db-shm
+lead-gen/
+docs/
+Paul Headshot.JPG
+f2953df7*

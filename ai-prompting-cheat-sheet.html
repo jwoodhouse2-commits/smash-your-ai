@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GMMV8EBM39"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GMMV8EBM39');
+  </script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The AI Prompting Cheat Sheet - Smash Your AI</title>
+  <meta name="description" content="7 proven prompting frameworks to get better results from ChatGPT, Claude, and other AI tools. Free printable cheat sheet.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://smashyourai.com/ai-prompting-cheat-sheet">
+  <meta property="og:title" content="The AI Prompting Cheat Sheet - Smash Your AI">
+  <meta property="og:description" content="7 proven prompting frameworks to get better results from ChatGPT, Claude, and other AI tools. Free printable cheat sheet.">
+  <meta property="og:url" content="https://smashyourai.com/ai-prompting-cheat-sheet">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/images/og-default.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+
+    body {
+      background: white;
+      color: #1f2937;
+      font-size: 11pt;
+      line-height: 1.6;
+    }
+
+    /* Print styles */
+    @media print {
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .page { page-break-after: always; }
+      .page:last-child { page-break-after: avoid; }
+      .no-break { page-break-inside: avoid; }
+    }
+
+    /* Screen styles - simulate A4 pages */
+    @media screen {
+      body { background: #e5e7eb; padding: 40px 0; }
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0 auto 40px;
+        background: white;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        border-radius: 4px;
+      }
+    }
+
+    .page {
+      padding: 50px 55px;
+      position: relative;
+    }
+
+    /* Cover page */
+    .cover {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 297mm;
+      background: linear-gradient(180deg, #f5f3ff 0%, #eef2ff 40%, white 100%);
+    }
+
+    .cover-logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #8b5cf6, #4f46e5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .cover-logo svg {
+      width: 32px;
+      height: 32px;
+      color: white;
+    }
+
+    .cover-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(139, 92, 246, 0.1);
+      color: #7c3aed;
+      font-size: 10pt;
+      font-weight: 600;
+      border-radius: 20px;
+      margin-bottom: 32px;
+    }
+
+    .cover h1 {
+      font-size: 32pt;
+      font-weight: 800;
+      color: #111827;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      max-width: 480px;
+    }
+
+    .cover h1 span {
+      background: linear-gradient(135deg, #8b5cf6, #6366f1, #4f46e5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .cover-sub {
+      font-size: 13pt;
+      color: #6b7280;
+      max-width: 400px;
+      margin-bottom: 48px;
+      line-height: 1.7;
+    }
+
+    .cover-footer {
+      position: absolute;
+      bottom: 50px;
+      left: 0;
+      right: 0;
+      text-align: center;
+    }
+
+    .cover-footer p {
+      font-size: 9pt;
+      color: #9ca3af;
+    }
+
+    .cover-footer .brand {
+      font-weight: 700;
+      color: #6366f1;
+      font-size: 11pt;
+    }
+
+    .cover-divider {
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(135deg, #8b5cf6, #4f46e5);
+      border-radius: 2px;
+      margin: 0 auto 48px;
+    }
+
+    /* Page header */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid #f3f4f6;
+    }
+
+    .page-header .brand-name {
+      font-weight: 700;
+      font-size: 10pt;
+      color: #6366f1;
+    }
+
+    .page-header .page-title {
+      font-size: 9pt;
+      color: #9ca3af;
+    }
+
+    /* Section headings */
+    h2 {
+      font-size: 20pt;
+      font-weight: 800;
+      color: #111827;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    h2 span {
+      background: linear-gradient(135deg, #8b5cf6, #6366f1, #4f46e5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    h3 {
+      font-size: 13pt;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 12px;
+      color: #374151;
+    }
+
+    /* Framework card */
+    .framework-card {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin: 14px 0;
+    }
+
+    .framework-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .framework-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #8b5cf6, #4f46e5);
+      color: white;
+      font-weight: 800;
+      font-size: 12pt;
+      flex-shrink: 0;
+    }
+
+    .framework-title {
+      font-size: 13pt;
+      font-weight: 800;
+      color: #111827;
+    }
+
+    .framework-card p {
+      font-size: 10pt;
+      color: #4b5563;
+      margin-bottom: 8px;
+    }
+
+    .framework-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Letter breakdown */
+    .letter-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 4px 12px;
+      margin: 8px 0;
+    }
+
+    .letter-grid .letter {
+      font-weight: 800;
+      color: #7c3aed;
+      font-size: 11pt;
+    }
+
+    .letter-grid .meaning {
+      font-size: 10pt;
+      color: #4b5563;
+    }
+
+    /* Example box */
+    .example-box {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-left: 3px solid #8b5cf6;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin: 8px 0;
+      font-size: 9.5pt;
+      line-height: 1.6;
+      color: #1f2937;
+    }
+
+    .example-box em {
+      color: #7c3aed;
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    .example-label {
+      font-size: 8pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #7c3aed;
+      margin-bottom: 4px;
+      margin-top: 8px;
+    }
+
+    /* Labelled parts */
+    .labelled-part {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin: 4px 0;
+    }
+
+    .part-tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 7.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .part-tag.context { background: #dbeafe; color: #1e40af; }
+    .part-tag.instruction { background: #dcfce7; color: #166534; }
+    .part-tag.constraint { background: #fef3c7; color: #92400e; }
+    .part-tag.role { background: #f3e8ff; color: #7c3aed; }
+    .part-tag.example-tag { background: #fce7f3; color: #9d174d; }
+
+    .labelled-part p {
+      font-size: 9.5pt;
+      color: #374151;
+      margin-bottom: 0;
+    }
+
+    /* Step list */
+    .step-list {
+      list-style: none;
+      padding: 0;
+      margin: 8px 0;
+    }
+
+    .step-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 6px 0;
+      font-size: 10pt;
+      color: #374151;
+    }
+
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #8b5cf6, #4f46e5);
+      color: white;
+      font-weight: 700;
+      font-size: 9pt;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Bullet list */
+    .bullet-list {
+      list-style: none;
+      padding: 0;
+      margin: 6px 0;
+    }
+
+    .bullet-list li {
+      padding: 3px 0 3px 18px;
+      position: relative;
+      font-size: 10pt;
+      color: #374151;
+    }
+
+    .bullet-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      background: linear-gradient(135deg, #8b5cf6, #4f46e5);
+    }
+
+    /* Quote callout */
+    .quote-callout {
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.06), rgba(99, 102, 241, 0.08));
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin: 8px 0;
+      font-size: 10pt;
+      color: #4b5563;
+      font-style: italic;
+    }
+
+    /* Checklist section */
+    .checklist-card {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 22px 26px;
+      margin: 16px 0;
+    }
+
+    .checklist-card h3 {
+      font-size: 12pt;
+      margin-bottom: 14px;
+    }
+
+    .check-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 6px 0;
+    }
+
+    .check-box {
+      width: 18px;
+      height: 18px;
+      border: 2px solid #d1d5db;
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .check-item p {
+      font-size: 10pt;
+      color: #374151;
+      margin-bottom: 0;
+    }
+
+    /* Phrase list */
+    .phrase-card {
+      background: white;
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 22px 26px;
+      margin: 16px 0;
+    }
+
+    .phrase-card h3 {
+      font-size: 12pt;
+      margin-bottom: 14px;
+    }
+
+    .phrase-item {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      padding: 7px 0;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .phrase-item:last-child {
+      border-bottom: none;
+    }
+
+    .phrase-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(99, 102, 241, 0.15));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .phrase-icon svg {
+      width: 14px;
+      height: 14px;
+      color: #7c3aed;
+    }
+
+    .phrase-item code {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-size: 10pt;
+      color: #1f2937;
+      background: none;
+    }
+
+    /* CTA sections */
+    .cta-card {
+      background: linear-gradient(135deg, #8b5cf6, #6366f1, #4f46e5);
+      border-radius: 16px;
+      padding: 28px 32px;
+      color: white;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .cta-card h3 {
+      color: white;
+      font-size: 14pt;
+      margin-bottom: 8px;
+    }
+
+    .cta-card p {
+      color: rgba(255,255,255,0.85);
+      font-size: 10pt;
+      margin-bottom: 12px;
+    }
+
+    .cta-card .cta-link {
+      display: inline-block;
+      background: white;
+      color: #6366f1;
+      font-weight: 700;
+      font-size: 10pt;
+      padding: 10px 24px;
+      border-radius: 10px;
+    }
+
+    .cta-outline {
+      border: 2px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin: 16px 0;
+      text-align: center;
+    }
+
+    .cta-outline h3 {
+      font-size: 13pt;
+      margin-bottom: 6px;
+    }
+
+    .cta-outline p {
+      font-size: 10pt;
+      color: #6b7280;
+      margin-bottom: 8px;
+    }
+
+    .cta-outline .link {
+      color: #7c3aed;
+      font-weight: 700;
+      font-size: 10pt;
+    }
+
+    /* Product grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .product-item {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .product-item h4 {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 6px;
+    }
+
+    .product-item p {
+      font-size: 9pt;
+      color: #6b7280;
+      margin-bottom: 8px;
+    }
+
+    .product-item .price {
+      font-size: 10pt;
+      font-weight: 700;
+      color: #7c3aed;
+    }
+
+    /* Mega-prompt box */
+    .mega-prompt {
+      background: white;
+      border: 2px solid #8b5cf6;
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin: 10px 0;
+    }
+
+    .mega-prompt .section {
+      margin-bottom: 8px;
+    }
+
+    .mega-prompt .section:last-child {
+      margin-bottom: 0;
+    }
+
+    .mega-prompt .section-label {
+      display: inline-block;
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-size: 7pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      margin-bottom: 2px;
+    }
+
+    .mega-prompt .section p {
+      font-size: 9pt;
+      color: #374151;
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    .page-footer {
+      position: absolute;
+      bottom: 30px;
+      left: 55px;
+      right: 55px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 8pt;
+      color: #9ca3af;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1: Cover -->
+  <div class="page cover">
+    <div class="cover-logo">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+    </div>
+    <div class="cover-badge">Free guide from Smash Your AI</div>
+    <h1>The AI prompting <span>cheat sheet</span></h1>
+    <div class="cover-divider"></div>
+    <p class="cover-sub">7 frameworks that work every time. Print it, pin it next to your desk, and never write a bad prompt again.</p>
+    <div class="cover-footer">
+      <p class="brand">Smash Your AI</p>
+      <p>smashyourai.com</p>
+    </div>
+  </div>
+
+  <!-- PAGE 2: The 7 frameworks -->
+  <div class="page">
+    <div class="page-header">
+      <span class="brand-name">Smash Your AI</span>
+      <span class="page-title">The AI prompting cheat sheet</span>
+    </div>
+
+    <h2>The <span>7 frameworks</span></h2>
+
+    <!-- Framework 1 -->
+    <div class="framework-card">
+      <div class="framework-header">
+        <div class="framework-number">1</div>
+        <div class="framework-title">The ROLE framework</div>
+      </div>
+      <div class="letter-grid">
+        <span class="letter">R</span><span class="meaning">Role - who should the AI be?</span>
+        <span class="letter">O</span><span class="meaning">Objective - what do you want?</span>
+        <span class="letter">L</span><span class="meaning">Length - how long should it be?</span>
+        <span class="letter">E</span><span class="meaning">Examples - show what good looks like</span>
+      </div>
+      <p style="margin-top: 6px;">Plus always specify the <strong>format</strong>: bullet points, paragraphs, table, numbered list.</p>
+    </div>
+
+    <!-- Framework 2 -->
+    <div class="framework-card">
+      <div class="framework-header">
+        <div class="framework-number">2</div>
+        <div class="framework-title">The "Act as..." opener</div>
+      </div>
+      <p>Start every prompt with "You are a..." or "Act as a..." to set the AI's expertise and perspective.</p>
+      <div class="example-label">Example</div>
+      <div class="example-box">
+        <em>"You are an experienced marketing copywriter who writes for UK small businesses. Write a LinkedIn post about..."</em>
+      </div>
+    </div>
+
+    <!-- Framework 3 -->
+    <div class="framework-card">
+      <div class="framework-header">
+        <div class="framework-number">3</div>
+        <div class="framework-title">The context sandwich</div>
+      </div>
+      <p>Structure every prompt in three layers: context first, then your instruction, then your constraints.</p>
+      <div class="example-label">Example with labelled parts</div>
+      <div class="example-box" style="padding: 14px 16px;">
+        <div class="labelled-part">
+          <span class="part-tag context">Context</span>
+          <p>"I run a small bakery in Newcastle. We specialise in sourdough and pastries. Our customers are mostly young professionals."</p>
+        </div>
+        <div class="labelled-part" style="margin-top: 6px;">
+          <span class="part-tag instruction">Instruction</span>
+          <p>"Write 3 Instagram captions promoting our new weekend brunch menu."</p>
+        </div>
+        <div class="labelled-part" style="margin-top: 6px;">
+          <span class="part-tag constraint">Constraint</span>
+          <p>"Keep each under 100 words. Use a warm, casual tone. Include a call to action."</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Framework 4 -->
+    <div class="framework-card">
+      <div class="framework-header">
+        <div class="framework-number">4</div>
+        <div class="framework-title">The iterative approach</div>
+      </div>
+      <ul class="step-list">
+        <li><span class="step-num">1</span><span>Give a detailed first prompt</span></li>
+        <li><span class="step-num">2</span><span>Review the output</span></li>
+        <li><span class="step-num">3</span><span>Refine specific parts ("Make the intro punchier" or "Add more detail to point 3")</span></li>
+        <li><span class="step-num">4</span><span>Repeat until you are happy</span></li>
+      </ul>
+      <div class="quote-callout">"Think of it as a conversation, not a vending machine."</div>
+    </div>
+
+    <div class="page-footer">
+      <span>smashyourai.com</span>
+      <span>Page 2</span>
+    </div>
+  </div>
+
+  <!-- PAGE 3: Frameworks 5-7 + Quick reference -->
+  <div class="page">
+    <div class="page-header">
+      <span class="brand-name">Smash Your AI</span>
+      <span class="page-title">The AI prompting cheat sheet</span>
+    </div>
+
+    <!-- Framework 5 -->
+    <div class="framework-card">
+      <div class="framework-header">
+        <div class="framework-number">5</div>
+        <div class="framework-title">The example technique (few-shot)</div>
+      </div>
+      <p>Paste in 1-2 examples of what you want. The AI will match the tone, style, and structure automatically.</p>
+      <p><strong>Works brilliantly for:</strong> emails, social posts, product descriptions, blog intros, or anything with a consistent style you want to replicate.</p>
+    </div>
+
+    <!-- Framework 6 -->
+    <div class="framework-card">
+      <div class="framework-header">
+        <div class="framework-number">6</div>
+        <div class="framework-title">The constraint list</div>
+      </div>
+      <p><strong>Always specify:</strong> length, tone, audience, format</p>
+      <p><strong>Always state what to avoid:</strong> "Do not use jargon", "Do not include an introduction"</p>
+      <div class="example-label">Power move</div>
+      <div class="example-box">
+        <em>"Do not use the following phrases: 'In today's fast-paced world', 'It's important to note', 'game-changer', 'leverage', 'synergy', 'deep dive'."</em>
+      </div>
+    </div>
+
+    <!-- Framework 7 -->
+    <div class="framework-card">
+      <div class="framework-header">
+        <div class="framework-number">7</div>
+        <div class="framework-title">The mega-prompt formula</div>
+      </div>
+      <p>Combine everything above into one powerful prompt: Role + Context + Instruction + Examples + Constraints.</p>
+      <div class="example-label">Full worked example</div>
+      <div class="mega-prompt">
+        <div class="section">
+          <span class="section-label" style="background: #f3e8ff; color: #7c3aed;">Role</span>
+          <p>You are a senior content strategist who specialises in email marketing for e-commerce brands.</p>
+        </div>
+        <div class="section">
+          <span class="section-label" style="background: #dbeafe; color: #1e40af;">Context</span>
+          <p>I sell handmade candles online. My customers are women aged 25-45 who care about sustainability. We are launching a new autumn collection next week.</p>
+        </div>
+        <div class="section">
+          <span class="section-label" style="background: #dcfce7; color: #166534;">Instruction</span>
+          <p>Write a launch email announcing the autumn collection. Include a subject line, preview text, and email body.</p>
+        </div>
+        <div class="section">
+          <span class="section-label" style="background: #fce7f3; color: #9d174d;">Example</span>
+          <p>Here is an email I sent last season that performed well: [paste previous email]</p>
+        </div>
+        <div class="section">
+          <span class="section-label" style="background: #fef3c7; color: #92400e;">Constraints</span>
+          <p>Keep the body under 200 words. Use a warm, personal tone. Do not use the word "luxury". End with a single clear call to action linking to the collection page.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>smashyourai.com</span>
+      <span>Page 3</span>
+    </div>
+  </div>
+
+  <!-- PAGE 4: Quick reference card -->
+  <div class="page">
+    <div class="page-header">
+      <span class="brand-name">Smash Your AI</span>
+      <span class="page-title">The AI prompting cheat sheet</span>
+    </div>
+
+    <h2>Quick <span>reference card</span></h2>
+
+    <p style="color: #6b7280; margin-bottom: 20px;">Print this page and keep it next to your desk.</p>
+
+    <div class="checklist-card">
+      <h3>Before you write any prompt, check:</h3>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <p>Did I <strong>set a role</strong>? ("You are a...")</p>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <p>Did I give <strong>enough context</strong>? (Background, audience, situation)</p>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <p>Did I specify the <strong>format and length</strong>? (Bullets, paragraphs, 200 words)</p>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <p>Did I set the <strong>tone and audience</strong>? (Casual, professional, for managers)</p>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <p>Did I say <strong>what to avoid</strong>? (Jargon, cliches, specific phrases)</p>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <p>Did I include an <strong>example</strong>? (Previous work, desired style)</p>
+      </div>
+    </div>
+
+    <div class="phrase-card">
+      <h3>5 phrases that instantly improve any prompt</h3>
+      <div class="phrase-item">
+        <div class="phrase-icon">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <code>"Keep this under <strong>[X]</strong> words"</code>
+      </div>
+      <div class="phrase-item">
+        <div class="phrase-icon">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <code>"Write in a <strong>[casual / professional / friendly]</strong> tone"</code>
+      </div>
+      <div class="phrase-item">
+        <div class="phrase-icon">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <code>"The audience is <strong>[specific description]</strong>"</code>
+      </div>
+      <div class="phrase-item">
+        <div class="phrase-icon">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <code>"Do not include <strong>[specific things to avoid]</strong>"</code>
+      </div>
+      <div class="phrase-item">
+        <div class="phrase-icon">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <code>"Here is an example of what I want: <strong>[paste example]</strong>"</code>
+      </div>
+    </div>
+
+    <div style="margin-top: 20px; padding: 18px 22px; background: linear-gradient(135deg, rgba(139, 92, 246, 0.06), rgba(99, 102, 241, 0.08)); border-radius: 12px;">
+      <h3 style="font-size: 11pt; color: #7c3aed; margin-bottom: 6px;">The golden rule</h3>
+      <p style="font-size: 10.5pt; color: #374151; margin-bottom: 0;">The more specific you are about what you want, the less time you spend editing what you get. Spending 2 extra minutes on your prompt saves 20 minutes of back-and-forth.</p>
+    </div>
+
+    <div class="page-footer">
+      <span>smashyourai.com</span>
+      <span>Page 4</span>
+    </div>
+  </div>
+
+  <!-- PAGE 5: Promo page -->
+  <div class="page">
+    <div class="page-header">
+      <span class="brand-name">Smash Your AI</span>
+      <span class="page-title">The AI prompting cheat sheet</span>
+    </div>
+
+    <h2>Want to <span>go deeper</span>?</h2>
+
+    <p>You have got 7 frameworks to transform your prompts. But there is so much more you can do with AI when you know how. Here is how to keep building your skills.</p>
+
+    <div class="cta-card" style="text-align: left;">
+      <h3>The complete prompt library</h3>
+      <p>168 ready-made prompts organised by task. Copy, paste, customise, and get results in seconds. Covers marketing, writing, research, planning, HR, customer service, and more.</p>
+      <p style="margin-bottom: 0;"><strong>Included in the AI starter bundle - just £14.99</strong></p>
+      <div style="margin-top: 14px;">
+        <span class="cta-link">smashyourai.com/prompts</span>
+      </div>
+    </div>
+
+    <div class="product-grid">
+      <div class="product-item" style="border-left: 3px solid #8b5cf6;">
+        <h4>Online course</h4>
+        <p>Go from beginner to confident. Covers prompting, automation, research tools, and real-world projects with hands-on exercises.</p>
+        <span class="price">Coming soon</span>
+      </div>
+      <div class="product-item" style="border-left: 3px solid #6366f1;">
+        <h4>AI workshops for teams</h4>
+        <p>Half-day or full-day sessions tailored to your business. Your team leaves with skills they can use the next day.</p>
+        <span class="price">Get in touch for pricing</span>
+      </div>
+      <div class="product-item" style="border-left: 3px solid #8b5cf6;">
+        <h4>Free AI audit</h4>
+        <p>We review your workflows and show you exactly where AI can save you time. No cost, no obligation.</p>
+        <span class="price">Free</span>
+      </div>
+      <div class="product-item" style="border-left: 3px solid #6366f1;">
+        <h4>1:1 consultancy</h4>
+        <p>Hands-on help setting up AI tools and automations for your specific business needs.</p>
+        <span class="price">Get in touch for pricing</span>
+      </div>
+    </div>
+
+    <div class="cta-outline">
+      <h3>Follow us for daily AI tips</h3>
+      <p>Practical tips, new prompts, and tool reviews. No spam, no jargon, just useful stuff you can apply straight away.</p>
+      <div class="link">smashyourai.com</div>
+    </div>
+
+    <div style="margin-top: 28px; text-align: center; padding-top: 20px; border-top: 2px solid #f3f4f6;">
+      <div style="width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, #8b5cf6, #4f46e5); margin-bottom: 10px; display: flex; align-items: center; justify-content: center; margin-left: auto; margin-right: auto;">
+        <svg style="width: 20px; height: 20px; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      </div>
+      <p style="font-size: 9pt; color: #9ca3af;">&copy; 2026 Smash Your AI. All rights reserved.</p>
+    </div>
+
+    <div class="page-footer">
+      <span>smashyourai.com</span>
+      <span>Page 5</span>
+    </div>
+  </div>
+
+</body>
+</html>

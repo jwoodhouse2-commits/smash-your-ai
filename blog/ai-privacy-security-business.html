@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GMMV8EBM39"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GMMV8EBM39');
+  </script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Privacy and Security: What Small Businesses Need to Know - Smash Your AI</title>
+  <meta name="description" content="Worried about AI reading your business data? Learn what is safe to share with AI tools, how to turn off training, GDPR basics, and how to create an AI usage policy for your team.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:image" content="/images/blog/ai-privacy-security.jpg">
+  <link rel="canonical" href="https://smashyourai.com/blog/ai-privacy-security-business">
+  <meta property="og:title" content="AI Privacy and Security: What Small Businesses Need to Know - Smash Your AI">
+  <meta property="og:description" content="Worried about AI reading your business data? Learn what is safe to share with AI tools, how to turn off training, GDPR basics, and how to create an AI usage policy for your team.">
+  <meta property="og:url" content="https://smashyourai.com/blog/ai-privacy-security-business">
+  <meta property="og:type" content="article">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>tailwind.config = { theme: { extend: { fontFamily: { sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'] } } } }</script>
+  <style>
+    * { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+    .gradient-text { background: linear-gradient(135deg, #8b5cf6, #6366f1, #4f46e5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .gradient-btn { background: linear-gradient(135deg, #8b5cf6, #6366f1); transition: all 0.2s ease; }
+    .gradient-btn:hover { background: linear-gradient(135deg, #7c3aed, #4f46e5); transform: translateY(-1px); box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4); }
+    .section-purple { background: linear-gradient(180deg, rgba(139, 92, 246, 0.03) 0%, rgba(99, 102, 241, 0.06) 50%, rgba(139, 92, 246, 0.03) 100%); }
+    article h2 { scroll-margin-top: 100px; }
+    .prompt-example { border-left: 3px solid #8b5cf6; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI Privacy and Security: What Small Businesses Need to Know",
+    "description": "A practical guide to AI privacy, data security, and GDPR compliance for small businesses using AI tools like ChatGPT, Claude, and Gemini.",
+    "author": { "@type": "Person", "name": "James" },
+    "publisher": { "@type": "Organization", "name": "Smash Your AI" },
+    "datePublished": "2026-03-29",
+    "dateModified": "2026-03-29"
+  }
+  </script>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-lg border-b border-gray-100 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5">
+        <img src="/images/logo.png" alt="Smash Your AI" class="h-7 w-auto">
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Home</a>
+        <a href="/#ai-training-services" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Services</a>
+        <span class="text-sm font-medium text-gray-400 cursor-default relative group">Online course
+          <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Coming soon</span>
+        </span>
+        <a href="/#about-us" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">About us</a>
+        <div class="relative group">
+          <button class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors inline-flex items-center gap-1">
+            Resources
+            <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200 absolute top-full right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+            <a href="/prompts/" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              Prompt library
+            </a>
+            <a href="/content-calendars/" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              Content calendars
+            </a>
+            <a href="/quiz" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+              AI readiness quiz
+            </a>
+            <a href="/savings-calculator" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              AI savings calculator
+            </a>
+            <div class="border-t border-gray-100 my-1"></div>
+            <a href="/blog" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+              Blog
+            </a>
+          </div>
+        </div>
+        <a href="/#contact" class="gradient-btn text-white text-sm font-semibold px-5 py-2.5 rounded-xl">Get in touch</a>
+        <div id="shared-auth-area"></div>
+      </div>
+      <button class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3">
+      <a href="/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">Home</a>
+      <a href="/#ai-training-services" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">Services</a>
+      <span class="block text-sm font-medium text-gray-400 py-2">Online course (coming soon)</span>
+      <a href="/#about-us" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">About us</a>
+      <div class="border-t border-gray-100 pt-2 mt-1">
+        <span class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Resources</span>
+        <a href="/prompts/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Prompt library</a>
+        <a href="/content-calendars/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Content calendars</a>
+        <a href="/quiz" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">AI readiness quiz</a>
+        <a href="/savings-calculator" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">AI savings calculator</a>
+        <a href="/blog" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Blog</a>
+      </div>
+      <a href="/#contact" class="block gradient-btn text-white text-sm font-semibold px-5 py-2.5 rounded-xl text-center">Get in touch</a>
+      <div id="shared-auth-area-mobile"></div>
+    </div>
+  </nav>
+
+  <article class="pt-32 pb-20 md:pt-40 md:pb-28">
+    <div class="max-w-3xl mx-auto px-6">
+
+      <!-- Breadcrumb -->
+      <nav class="text-sm text-gray-400 mb-6">
+        <a href="/" class="hover:text-violet-600 transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <a href="/blog" class="hover:text-violet-600 transition-colors">Blog</a>
+        <span class="mx-2">/</span>
+        <span class="text-gray-600">AI privacy and security</span>
+      </nav>
+
+      <!-- Header -->
+      <div class="mb-10">
+        <span class="text-xs text-violet-600 font-medium px-2.5 py-1 bg-violet-50 rounded-md">Business</span>
+        <h1 class="text-3xl md:text-4xl font-extrabold mt-4 mb-4">AI privacy and security: what small businesses need to know</h1>
+        <div class="flex items-center gap-4 text-sm text-gray-400 mb-5">
+          <span>29 March 2026</span>
+          <span>-</span>
+          <span>10 min read</span>
+        </div>
+        <div class="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-violet-50 to-indigo-50 border-l-4 border-violet-500">
+          <img src="/images/james-headshot.png" alt="James, co-founder of Smash Your AI" class="w-11 h-11 rounded-full object-cover shrink-0">
+          <div>
+            <p class="font-semibold text-sm text-gray-900">James</p>
+            <p class="text-xs text-gray-500">Co-founder of Smash Your AI - 18 years in education, now helping businesses and individuals get real results from AI.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured image -->
+      <!-- IMAGE NEEDED: /images/blog/ai-privacy-security.jpg — A clean illustration showing a shield/lock icon with AI elements (brain/circuit), business setting, violet/indigo colour scheme to match brand -->
+      <img src="/images/blog/ai-privacy-security.jpg" alt="AI privacy and security for small businesses" class="w-full rounded-2xl mb-10">
+
+      <!-- Article content -->
+      <div class="space-y-6 text-gray-700 leading-relaxed">
+
+        <p class="text-lg">Last month I ran a workshop for a group of small business owners in Newcastle. I asked what was stopping them from using AI. One woman, who runs an accounting practice, put her hand up and said: "I do not trust it. What if it reads my clients' financial data and leaks it somewhere?"</p>
+
+        <p>She is not alone. In almost every training session I run, privacy is the number one concern. Not how to write better prompts. Not which tool to pick. Privacy. People want to know: <strong>is AI safe to use with my business data?</strong></p>
+
+        <p>The honest answer is: it depends on how you use it. And most people are using it in ways that are riskier than they need to be, simply because nobody has explained the basics.</p>
+
+        <p>This guide will fix that. No jargon. No legal waffle. Just the practical stuff you actually need to know.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="is-ai-reading-my-data">The big question: is AI reading my data?</h2>
+
+        <p>Let us tackle this head-on. When you type something into ChatGPT, Claude, or Gemini, what actually happens to it?</p>
+
+        <p>Here is the simple version. AI tools process your input to generate a response. That part is obvious. The question is: <strong>do they also store your input and use it to train their models?</strong></p>
+
+        <p>The answer depends on three things:</p>
+
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Which tool you are using</strong> (ChatGPT, Claude, Gemini, etc.)</li>
+          <li><strong>Which plan you are on</strong> (free vs paid makes a big difference)</li>
+          <li><strong>Your settings</strong> (most tools let you opt out of training)</li>
+        </ul>
+
+        <p>On free plans, most AI tools <em>can</em> use your conversations to improve their models. This does not mean a human is reading your chats. It means your input might be fed into future training data. Your exact words probably will not appear in someone else's conversation, but your data is not fully private either.</p>
+
+        <p>On paid plans, the picture is much better. Most paid plans do not use your data for training by default. And even on free plans, you can usually turn training off in settings.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="privacy-comparison">Privacy comparison: ChatGPT vs Claude vs Gemini</h2>
+
+        <p>Here is a side-by-side look at how the three most popular AI tools handle your data. This is accurate as of March 2026.</p>
+
+        <!-- IMAGE NEEDED: /images/blog/ai-privacy-comparison.jpg — Optional infographic version of this table for social sharing -->
+
+        <div class="overflow-x-auto my-6">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead>
+              <tr class="bg-violet-50">
+                <th class="text-left p-4 font-bold text-gray-900">Feature</th>
+                <th class="text-left p-4 font-bold text-gray-900">ChatGPT (OpenAI)</th>
+                <th class="text-left p-4 font-bold text-gray-900">Claude (Anthropic)</th>
+                <th class="text-left p-4 font-bold text-gray-900">Gemini (Google)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr>
+                <td class="p-4 font-medium text-gray-900">Free plan trains on your data?</td>
+                <td class="p-4">Yes, by default</td>
+                <td class="p-4">No, not by default</td>
+                <td class="p-4">Yes, by default</td>
+              </tr>
+              <tr class="bg-gray-50/50">
+                <td class="p-4 font-medium text-gray-900">Paid plan trains on your data?</td>
+                <td class="p-4">No (Plus/Team/Enterprise)</td>
+                <td class="p-4">No (Pro/Team)</td>
+                <td class="p-4">No (Advanced/Workspace)</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-medium text-gray-900">Can you opt out of training?</td>
+                <td class="p-4">Yes, in settings</td>
+                <td class="p-4">Already opted out</td>
+                <td class="p-4">Yes, in activity settings</td>
+              </tr>
+              <tr class="bg-gray-50/50">
+                <td class="p-4 font-medium text-gray-900">Data retention</td>
+                <td class="p-4">30 days (then deleted), or kept if training is on</td>
+                <td class="p-4">90 days for safety, not used for training</td>
+                <td class="p-4">Up to 18 months for free plan</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-medium text-gray-900">Team/business plan available?</td>
+                <td class="p-4">Yes (Team and Enterprise)</td>
+                <td class="p-4">Yes (Team and Enterprise)</td>
+                <td class="p-4">Yes (Workspace/Enterprise)</td>
+              </tr>
+              <tr class="bg-gray-50/50">
+                <td class="p-4 font-medium text-gray-900">Best for privacy?</td>
+                <td class="p-4">Good on paid plans</td>
+                <td class="p-4">Strong by default</td>
+                <td class="p-4">Good on paid plans</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>The key takeaway: <strong>if you are on a free plan, your data is probably being used for training unless you change your settings.</strong> Paid plans are significantly more private across the board.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="what-never-to-share">What you should NEVER put into AI</h2>
+
+        <p>Regardless of which tool or plan you are on, some things should never go into an AI chat. Full stop.</p>
+
+        <!-- Red unsafe box -->
+        <div class="bg-red-50 border-l-4 border-red-500 rounded-xl p-6 my-6">
+          <p class="font-bold text-red-800 mb-3 flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
+            Never share these with AI tools
+          </p>
+          <ul class="list-disc pl-6 space-y-2 text-red-700">
+            <li><strong>Client personal data</strong> — names, addresses, phone numbers, email addresses</li>
+            <li><strong>Financial information</strong> — bank details, account numbers, invoices with real figures</li>
+            <li><strong>Passwords or API keys</strong> — never paste credentials into a chat</li>
+            <li><strong>Medical or health records</strong> — yours or anyone else's</li>
+            <li><strong>Confidential contracts</strong> — full agreements with named parties and sensitive terms</li>
+            <li><strong>Employee personal details</strong> — HR records, salary information, disciplinary notes</li>
+            <li><strong>Customer databases</strong> — even partial exports with identifying information</li>
+          </ul>
+        </div>
+
+        <p>I learned this lesson early. When I first started using AI for work, I nearly pasted a full client email into ChatGPT to help me draft a reply. It had the client's name, their company details, and a financial query. I caught myself, but it made me realise how easy it is to share things without thinking.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="what-is-safe">What is perfectly safe to share</h2>
+
+        <p>AI is still incredibly useful. You just need to be smart about what you put in. Here is what is completely fine.</p>
+
+        <!-- Green safe box -->
+        <div class="bg-green-50 border-l-4 border-green-500 rounded-xl p-6 my-6">
+          <p class="font-bold text-green-800 mb-3 flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Safe to share with AI tools
+          </p>
+          <ul class="list-disc pl-6 space-y-2 text-green-700">
+            <li><strong>General business questions</strong> — "How do I write a returns policy?"</li>
+            <li><strong>Generic content</strong> — blog posts, social media ideas, marketing copy</li>
+            <li><strong>Your own writing</strong> — for proofreading, rewriting, or improving</li>
+            <li><strong>Public information</strong> — anything already on your website or published</li>
+            <li><strong>Anonymised data</strong> — numbers and trends with all names removed</li>
+            <li><strong>Templates and frameworks</strong> — "Create a project plan template for a 3-month campaign"</li>
+            <li><strong>Learning and research</strong> — "Explain how corporation tax works for a sole trader"</li>
+          </ul>
+        </div>
+
+        <p>The rule is simple: <strong>if you would not write it on a whiteboard in a shared office, do not paste it into AI.</strong></p>
+
+        <h2 class="text-2xl font-bold pt-6" id="anonymous-rewrite">The anonymous rewrite technique</h2>
+
+        <p>This is something I teach in every workshop and it is probably the single most useful privacy trick.</p>
+
+        <p>Sometimes you need AI to help with something that involves real data. Maybe you want it to draft a tricky email to a client. Or help you analyse some financial figures. The solution is simple: <strong>strip out all identifying information before you paste it in.</strong></p>
+
+        <div class="space-y-4 my-6">
+          <!-- Before box -->
+          <div class="bg-red-50 border-l-4 border-red-400 rounded-xl p-5">
+            <p class="font-bold text-red-800 text-sm mb-2">Unsafe: pasting the real email</p>
+            <p class="text-sm text-red-700 font-mono bg-red-100/50 rounded-lg p-4">"Help me reply to this email from Sarah Thompson at Acme Accounting Ltd. She says their invoice #4521 for £12,450 is overdue and they are considering legal action. Their account number is 45-221-B."</p>
+          </div>
+          <!-- After box -->
+          <div class="bg-green-50 border-l-4 border-green-400 rounded-xl p-5">
+            <p class="font-bold text-green-800 text-sm mb-2">Safe: anonymised version</p>
+            <p class="text-sm text-green-700 font-mono bg-green-100/50 rounded-lg p-4">"Help me reply to an email from a client at an accounting firm. They say their invoice is overdue and they are considering legal action. I want to be professional but firm that we are processing it. Draft a reply."</p>
+          </div>
+        </div>
+
+        <p>Same task. Same quality of output. Zero risk. The AI does not need the real names, numbers, or account details to write a good reply. It just needs the situation.</p>
+
+        <p>Get into the habit of asking yourself: <strong>does the AI actually need this specific detail, or can I describe it generically?</strong> Nine times out of ten, generic works perfectly.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="turn-off-training">How to turn off training on your data</h2>
+
+        <p>If you are using a free plan and want to keep your data private, here is how to opt out on each platform.</p>
+
+        <div class="space-y-4 my-6">
+          <div class="bg-violet-50/50 rounded-xl p-5">
+            <p class="font-bold text-gray-900 mb-2">ChatGPT</p>
+            <ol class="list-decimal pl-5 space-y-1 text-sm text-gray-600">
+              <li>Click your profile icon (bottom left)</li>
+              <li>Go to <strong>Settings</strong></li>
+              <li>Click <strong>Data controls</strong></li>
+              <li>Turn off <strong>"Improve the model for everyone"</strong></li>
+            </ol>
+            <p class="text-xs text-gray-500 mt-2">Note: this disables chat history too on free plans. Paid plans keep history regardless.</p>
+          </div>
+          <div class="bg-violet-50/50 rounded-xl p-5">
+            <p class="font-bold text-gray-900 mb-2">Claude</p>
+            <p class="text-sm text-gray-600">Claude does not use your conversations for training by default, on any plan. No action needed. If you want to double-check, go to <strong>Settings > Privacy</strong> and confirm the training toggle is off.</p>
+          </div>
+          <div class="bg-violet-50/50 rounded-xl p-5">
+            <p class="font-bold text-gray-900 mb-2">Gemini</p>
+            <ol class="list-decimal pl-5 space-y-1 text-sm text-gray-600">
+              <li>Go to <strong>myactivity.google.com</strong></li>
+              <li>Find <strong>Gemini Apps Activity</strong></li>
+              <li>Turn it <strong>off</strong></li>
+              <li>You can also delete past activity from here</li>
+            </ol>
+          </div>
+        </div>
+
+        <p>This takes about two minutes and it is the single most impactful thing you can do for your AI privacy right now. If you do nothing else after reading this article, go and do this.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="gdpr-basics">GDPR basics for using AI in your business</h2>
+
+        <p>GDPR sounds scary. It does not have to be. Here is what you need to know in plain English if you are a UK business using AI tools.</p>
+
+        <p><strong>GDPR applies when you process personal data.</strong> "Personal data" means anything that can identify a real person: a name, an email address, a phone number, even an IP address. If you are putting personal data into AI tools, GDPR is relevant.</p>
+
+        <div class="bg-violet-50/50 rounded-2xl p-6 my-6">
+          <p class="font-bold text-gray-900 mb-3">The 4 GDPR rules that matter most for AI</p>
+          <ol class="list-decimal pl-5 space-y-3">
+            <li>
+              <p><strong>Have a lawful basis.</strong> You need a legitimate reason to process someone's data. For most business uses of AI, this is "legitimate interests" (i.e. running your business). But you cannot just dump customer data into ChatGPT for fun.</p>
+            </li>
+            <li>
+              <p><strong>Minimise the data.</strong> Only share the minimum data needed. This is where the anonymous rewrite technique comes in. If you do not need the person's name for the AI to help you, do not include it.</p>
+            </li>
+            <li>
+              <p><strong>Know where data goes.</strong> Most AI providers are US-based. Under UK GDPR, transferring personal data outside the UK requires appropriate safeguards. Paid business plans usually include these safeguards in their terms. Free plans might not.</p>
+            </li>
+            <li>
+              <p><strong>Update your privacy policy.</strong> If you are using AI to process customer data (even indirectly), your privacy policy should mention it. A simple line about using AI tools for business operations is usually enough.</p>
+            </li>
+          </ol>
+        </div>
+
+        <p>The practical takeaway: <strong>if you anonymise data before putting it into AI, most GDPR concerns disappear.</strong> The simplest way to stay compliant is to not put personal data in at all.</p>
+
+        <p>If your business handles a lot of sensitive data (medical, legal, financial), it is worth getting specific advice. But for most small businesses, the approach above covers it.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="ai-usage-policy">Creating an AI usage policy for your team</h2>
+
+        <p>If you have staff using AI (and they probably are, whether you know it or not), you need a simple AI usage policy. It does not have to be a 20-page document. A one-page checklist is enough.</p>
+
+        <p>Here is what to include:</p>
+
+        <div class="bg-violet-50/50 rounded-2xl p-6 my-6">
+          <p class="font-bold text-gray-900 mb-3">AI usage policy checklist</p>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="text-violet-500 mt-0.5"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></span>
+              <span><strong>Which AI tools are approved</strong> — list the specific tools staff can use (e.g. ChatGPT Plus, Claude Pro)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-violet-500 mt-0.5"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></span>
+              <span><strong>What data must never be shared</strong> — client names, financials, passwords, personal data</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-violet-500 mt-0.5"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></span>
+              <span><strong>The anonymous rewrite rule</strong> — always strip identifying info before pasting into AI</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-violet-500 mt-0.5"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></span>
+              <span><strong>Settings must be correct</strong> — training must be turned off on all accounts</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-violet-500 mt-0.5"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></span>
+              <span><strong>All AI output must be checked</strong> — especially facts, figures, and anything client-facing (see our <a href="/blog/how-to-fact-check-ai" class="text-violet-600 font-medium hover:text-violet-800 transition-colors">fact-checking guide</a>)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-violet-500 mt-0.5"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></span>
+              <span><strong>No client work on free plans</strong> — use paid plans with proper data protections</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-violet-500 mt-0.5"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></span>
+              <span><strong>Report any concerns</strong> — if someone accidentally shares sensitive data, who do they tell?</span>
+            </li>
+          </ul>
+        </div>
+
+        <p>Print this out. Stick it on the wall. Make it part of your onboarding. The biggest risk is not the technology. It is people not knowing the rules.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="team-enterprise-plans">Why team and enterprise plans matter</h2>
+
+        <p>If your business is using AI regularly, the difference between a free plan and a team plan is significant.</p>
+
+        <div class="overflow-x-auto my-6">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead>
+              <tr class="bg-violet-50">
+                <th class="text-left p-4 font-bold text-gray-900">Feature</th>
+                <th class="text-left p-4 font-bold text-gray-900">Free / Personal</th>
+                <th class="text-left p-4 font-bold text-gray-900">Team / Business plan</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr>
+                <td class="p-4 font-medium text-gray-900">Data used for training</td>
+                <td class="p-4">Often yes (by default)</td>
+                <td class="p-4">No</td>
+              </tr>
+              <tr class="bg-gray-50/50">
+                <td class="p-4 font-medium text-gray-900">Admin controls</td>
+                <td class="p-4">None</td>
+                <td class="p-4">Manage users, set permissions</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-medium text-gray-900">Data processing agreements</td>
+                <td class="p-4">Basic terms only</td>
+                <td class="p-4">Full DPA for GDPR compliance</td>
+              </tr>
+              <tr class="bg-gray-50/50">
+                <td class="p-4 font-medium text-gray-900">SSO / security integrations</td>
+                <td class="p-4">No</td>
+                <td class="p-4">Yes (enterprise plans)</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-medium text-gray-900">Shared workspace</td>
+                <td class="p-4">No</td>
+                <td class="p-4">Yes — shared prompts and projects</td>
+              </tr>
+              <tr class="bg-gray-50/50">
+                <td class="p-4 font-medium text-gray-900">Cost</td>
+                <td class="p-4">Free or ~£20/month per person</td>
+                <td class="p-4">~£20-25/month per person</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>For a team of five, the upgrade to a business plan might cost an extra £25-50 per month total. That is a tiny price for proper data protection, admin controls, and peace of mind. If you are handling client data of any kind, it is a no-brainer.</p>
+
+        <!-- Mid-article CTA -->
+        <div class="bg-gradient-to-br from-violet-600 to-indigo-700 rounded-2xl p-7 my-6 text-white relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+          <div class="relative">
+            <p class="font-bold text-lg mb-2">Need help setting up AI safely for your team?</p>
+            <p class="text-violet-100 text-sm mb-4 leading-relaxed">Our AI training workshops cover privacy, security, and practical usage — tailored to your business. We help you pick the right tools, configure them securely, and create a usage policy your team will actually follow.</p>
+            <a href="/#contact" class="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-violet-700 font-semibold text-sm rounded-xl hover:bg-violet-50 transition-colors">
+              Book a workshop
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold pt-6" id="what-to-share-table">Quick reference: what to share vs what not to share</h2>
+
+        <p>Keep this table handy. It covers the most common scenarios I see in small businesses.</p>
+
+        <div class="overflow-x-auto my-6">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead>
+              <tr class="bg-violet-50">
+                <th class="text-left p-4 font-bold text-gray-900">Scenario</th>
+                <th class="text-left p-4 font-bold text-gray-900">Safe?</th>
+                <th class="text-left p-4 font-bold text-gray-900">How to do it safely</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr>
+                <td class="p-4">"Help me write a blog post about our service"</td>
+                <td class="p-4 text-green-600 font-medium">Yes</td>
+                <td class="p-4">Public info, no issues</td>
+              </tr>
+              <tr class="bg-gray-50/50">
+                <td class="p-4">"Draft a reply to this client email" (with full email pasted)</td>
+                <td class="p-4 text-red-600 font-medium">No</td>
+                <td class="p-4">Anonymise first — remove names, figures, company</td>
+              </tr>
+              <tr>
+                <td class="p-4">"Summarise these meeting notes"</td>
+                <td class="p-4 text-yellow-600 font-medium">Depends</td>
+                <td class="p-4">Fine if notes are internal. Remove names if discussing clients</td>
+              </tr>
+              <tr class="bg-gray-50/50">
+                <td class="p-4">"Analyse this spreadsheet of customer data"</td>
+                <td class="p-4 text-red-600 font-medium">No</td>
+                <td class="p-4">Remove all identifying columns first. Keep only the numbers you need</td>
+              </tr>
+              <tr>
+                <td class="p-4">"Write a job description for a marketing role"</td>
+                <td class="p-4 text-green-600 font-medium">Yes</td>
+                <td class="p-4">No personal data involved</td>
+              </tr>
+              <tr class="bg-gray-50/50">
+                <td class="p-4">"Help me with this HR issue about an employee"</td>
+                <td class="p-4 text-red-600 font-medium">No</td>
+                <td class="p-4">Describe the situation generically. "An employee" not "John in sales"</td>
+              </tr>
+              <tr>
+                <td class="p-4">"Create a social media calendar for next month"</td>
+                <td class="p-4 text-green-600 font-medium">Yes</td>
+                <td class="p-4">Public content planning, no issues</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold pt-6" id="practical-steps">5 things to do right now</h2>
+
+        <p>If you have read this far, here is your action list. These five things will cover 90% of your AI privacy risks.</p>
+
+        <ol class="list-decimal pl-6 space-y-3">
+          <li><strong>Turn off training.</strong> Go into settings on every AI tool you use and disable "improve the model" or "activity" settings. Two minutes per tool.</li>
+          <li><strong>Upgrade to paid plans for work use.</strong> If you are using AI for anything involving clients or sensitive data, the £20/month is worth it.</li>
+          <li><strong>Adopt the anonymous rewrite habit.</strong> Before you paste anything, ask: "Does AI need the real names and numbers?" Usually the answer is no.</li>
+          <li><strong>Create a one-page AI policy.</strong> Use the checklist above. Share it with your team. Pin it to the wall.</li>
+          <li><strong>Audit your current usage.</strong> Look back at your recent AI conversations. Did you share anything you should not have? If so, delete those conversations and adjust your approach going forward. Our <a href="/blog/ai-audit-for-business" class="text-violet-600 font-medium hover:text-violet-800 transition-colors">AI audit guide</a> can help with this.</li>
+        </ol>
+
+        <h2 class="text-2xl font-bold pt-6" id="the-bottom-line">The bottom line</h2>
+
+        <p>AI privacy is not as scary as it sounds. The tools are getting better at protecting your data, especially on paid plans. And most of the risk comes from user behaviour, not the technology itself.</p>
+
+        <p>The woman from my Newcastle workshop? She came back the following week and told me she had set up Claude Pro for her practice, turned off training, and started using the anonymous rewrite technique for all client-related queries. She said she felt confident for the first time. Her exact words were: "It is just common sense once someone explains it."</p>
+
+        <p>She is right. It is common sense. You just need someone to lay it out clearly.</p>
+
+        <p><strong>Use AI. Protect your data. Keep it simple.</strong></p>
+
+      </div>
+
+      <!-- Related articles -->
+      <div class="mt-12 pt-10 border-t border-gray-100">
+        <h3 class="text-lg font-bold mb-6">You might also like</h3>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <a href="/blog/how-to-fact-check-ai" class="p-5 rounded-xl border border-gray-100 hover:border-violet-200 transition-colors group">
+            <span class="text-xs text-violet-600 font-medium">Getting started</span>
+            <p class="font-bold mt-1 group-hover:text-violet-600 transition-colors">How to tell when AI is wrong: a beginner's fact-checking guide</p>
+          </a>
+          <a href="/blog/ai-audit-for-business" class="p-5 rounded-xl border border-gray-100 hover:border-violet-200 transition-colors group">
+            <span class="text-xs text-violet-600 font-medium">Business</span>
+            <p class="font-bold mt-1 group-hover:text-violet-600 transition-colors">AI audit for business: are you using AI effectively?</p>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- CTA Banner -->
+  <section class="py-16 section-purple">
+    <div class="max-w-2xl mx-auto px-6 text-center">
+      <h2 class="text-2xl font-extrabold mb-3">Want your team to use AI safely and confidently?</h2>
+      <p class="text-gray-500 mb-6">Our AI training workshops cover privacy, security, and practical skills — tailored to your business. Get in touch to find out more.</p>
+      <a href="/#contact" class="inline-flex gradient-btn text-white text-sm font-semibold px-8 py-3.5 rounded-xl">Book a training workshop</a>
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 text-gray-400 py-10">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p class="text-sm">&copy; 2026 Smash Your AI. All rights reserved.</p>
+      <div class="flex gap-6 text-sm">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <a href="/blog" class="hover:text-white transition-colors">Blog</a>
+        <a href="/privacy" class="hover:text-white transition-colors">Privacy policy</a>
+      </div>
+    </div>
+  </footer>
+
+<script src="/shared-nav.js"></script>
+</body>
+</html>

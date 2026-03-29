@@ -1,0 +1,2545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GMMV8EBM39"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GMMV8EBM39');
+  </script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI in a day | Smash Your AI</title>
+  <meta name="description" content="A hands-on AI workbook for beginners. Learn to use ChatGPT, Claude, and other AI tools with practical exercises you can complete in a day.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://smashyourai.com/ai-in-a-day">
+  <meta property="og:title" content="AI in a day | Smash Your AI">
+  <meta property="og:description" content="A hands-on AI workbook for beginners. Learn to use ChatGPT, Claude, and other AI tools with practical exercises you can complete in a day.">
+  <meta property="og:url" content="https://smashyourai.com/ai-in-a-day">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/images/og-default.jpg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    * {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+
+    /* ---- Print styles ---- */
+    @media print {
+
+      #book-nav,
+      #toc-overlay,
+      #saved-indicator,
+      #progress-bar,
+      #inapp-banner,
+      #print-modal {
+        display: none !important;
+      }
+
+      .book-page {
+        transform: none !important;
+        opacity: 1 !important;
+        display: block !important;
+        page-break-after: always;
+        position: relative !important;
+      }
+
+      .book-page.sliding-out-left,
+      .book-page.sliding-out-right {
+        display: block !important;
+        position: relative !important;
+        transform: none !important;
+        opacity: 1 !important;
+      }
+
+      #book {
+        height: auto !important;
+        overflow: visible !important;
+      }
+
+      #scroll-indicator {
+        display: none !important;
+      }
+
+      body {
+        font-size: 10.5pt;
+        color: #111;
+        padding-bottom: 0 !important;
+      }
+
+      @page {
+        size: A4;
+        margin: 10mm;
+      }
+
+      .shadow-lg,
+      .shadow-md,
+      .shadow-sm,
+      .shadow-xl {
+        box-shadow: none !important;
+      }
+
+      a {
+        color: inherit !important;
+        text-decoration: none !important;
+      }
+
+      .bg-gradient-to-br {
+        background: #f5f3ff !important;
+      }
+
+      .gradient-text {
+        padding-bottom: 0.1em;
+        line-height: 1.2;
+      }
+
+      .write-input {
+        border: none !important;
+        border-bottom: 1px solid #999 !important;
+        padding: 0 !important;
+      }
+
+      .write-area {
+        border: 1px solid #999 !important;
+        background: transparent !important;
+      }
+
+      .final-page-bg {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #8b5cf6, #6366f1, #4f46e5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      padding-bottom: 0.15em;
+      display: inline-block;
+    }
+
+    .write-input {
+      border: none;
+      border-bottom: 1.5px solid #c4b5fd;
+      min-height: 2rem;
+      display: block;
+      width: 100%;
+      background: transparent;
+      outline: none;
+      font-family: inherit;
+      font-size: inherit;
+      color: #374151;
+      padding: 0.25rem 0;
+    }
+
+    .write-input:focus {
+      border-bottom-color: #8b5cf6;
+    }
+
+    .write-area {
+      border: 1.5px solid #c4b5fd;
+      border-radius: 0.5rem;
+      width: 100%;
+      display: block;
+      background: #faf5ff;
+      outline: none;
+      font-family: inherit;
+      font-size: inherit;
+      color: #374151;
+      padding: 0.75rem;
+      resize: vertical;
+    }
+
+    .write-area:focus {
+      border-color: #8b5cf6;
+    }
+
+    .checkbox-input {
+      width: 1.25rem;
+      height: 1.25rem;
+      border: 2px solid #8b5cf6;
+      border-radius: 0.25rem;
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+      accent-color: #8b5cf6;
+      cursor: pointer;
+    }
+
+    .checkbox-line {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.4rem 0;
+    }
+
+    .section-number {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 1rem;
+      background: linear-gradient(135deg, #8b5cf6, #6366f1);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .callout {
+      background: linear-gradient(135deg, #f5f3ff, #eef2ff);
+      border-left: 4px solid #8b5cf6;
+      border-radius: 0 0.75rem 0.75rem 0;
+      padding: 1rem 1.25rem;
+    }
+
+    .tip-box {
+      background: #faf5ff;
+      border: 1.5px solid #ddd6fe;
+      border-radius: 0.75rem;
+      padding: 1rem 1.25rem;
+    }
+
+    .prompt-box {
+      background: #1e1b4b;
+      color: #e0e7ff;
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      font-size: 0.9rem;
+      line-height: 1.7;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .time-badge {
+      background: linear-gradient(135deg, #8b5cf6, #6366f1);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+    }
+
+    /* Book navigation */
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #8b5cf6, #6366f1);
+      z-index: 60;
+      transition: width 0.3s ease;
+    }
+
+    html,
+    body {
+      overflow-x: hidden;
+    }
+
+    #book {
+      position: relative;
+      overflow: hidden;
+      max-width: 48rem;
+      margin: 0 auto;
+      padding-bottom: 4rem;
+    }
+
+    .book-page {
+      display: none;
+      width: 100%;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    }
+
+    .book-page.active {
+      display: block;
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .book-page.sliding-out-left {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      transform: translateX(-100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .book-page.sliding-out-right {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      transform: translateX(100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .book-page.sliding-in-left {
+      display: block;
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+
+    .book-page.sliding-in-right {
+      display: block;
+      transform: translateX(100%);
+      opacity: 0;
+    }
+
+    /* Scroll-more indicator */
+    #scroll-indicator {
+      position: fixed;
+      bottom: 4.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 49;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    #scroll-indicator.visible {
+      opacity: 1;
+    }
+
+    #scroll-indicator svg {
+      animation: bounce-down 1.5s ease-in-out infinite;
+    }
+
+    @keyframes bounce-down {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(6px);
+      }
+    }
+
+    #book-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      border-top: 1px solid #e5e7eb;
+      z-index: 50;
+      padding: 0.75rem 1rem;
+    }
+
+    #book-nav .nav-inner {
+      max-width: 48rem;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+
+    #book-nav button {
+      background: none;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.5rem;
+      padding: 0.5rem 0.75rem;
+      cursor: pointer;
+      color: #6b7280;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s;
+    }
+
+    #book-nav button:hover:not(:disabled) {
+      background: #f5f3ff;
+      border-color: #8b5cf6;
+      color: #8b5cf6;
+    }
+
+    #book-nav button:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    #page-indicator {
+      font-size: 0.85rem;
+      color: #6b7280;
+      font-weight: 500;
+      min-width: 6rem;
+      text-align: center;
+    }
+
+    /* TOC overlay */
+    #toc-overlay {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+      z-index: 55;
+      display: none;
+    }
+
+    #toc-overlay.open {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    #toc-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    #toc-panel {
+      position: relative;
+      background: white;
+      border-radius: 1rem 1rem 0 0;
+      max-height: 70vh;
+      overflow-y: auto;
+      padding: 1.5rem;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    #toc-panel .toc-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #toc-panel .toc-item {
+      padding: 0.6rem 0.75rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+      color: #374151;
+      transition: background 0.15s;
+    }
+
+    #toc-panel .toc-item:hover {
+      background: #f5f3ff;
+    }
+
+    #toc-panel .toc-item.current {
+      background: #f5f3ff;
+      color: #7c3aed;
+      font-weight: 600;
+    }
+
+    #toc-close {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #9ca3af;
+      line-height: 1;
+    }
+
+    #toc-clear-btn {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      border: 1px solid #ef4444;
+      color: #ef4444;
+      border-radius: 0.5rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+      background: none;
+      width: 100%;
+      transition: all 0.15s;
+    }
+
+    #toc-clear-btn:hover {
+      background: #fef2f2;
+    }
+
+    /* Saved indicator */
+    #saved-indicator {
+      position: fixed;
+      bottom: 4.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1e1b4b;
+      color: white;
+      padding: 0.35rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 51;
+      pointer-events: none;
+    }
+
+    #saved-indicator.show {
+      opacity: 1;
+    }
+
+    /* Divider/cover pages center content */
+    .page-centred {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 4rem);
+    }
+
+    /* Scrollable table wrapper with fade hint */
+    .table-scroll-wrap {
+      position: relative;
+    }
+
+    .table-scroll-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 2.5rem;
+      background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.95));
+      pointer-events: none;
+      border-radius: 0 0.75rem 0.75rem 0;
+      z-index: 2;
+      transition: opacity 0.3s;
+    }
+
+    .table-scroll-wrap.scrolled-end::after {
+      opacity: 0;
+    }
+
+    .table-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 0.75rem;
+    }
+
+    .table-scroll table {
+      min-width: 500px;
+    }
+
+    /* In-app browser banner */
+    #inapp-banner {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      background: linear-gradient(135deg, #8b5cf6, #6366f1);
+      color: white;
+      padding: 0.85rem 1rem;
+      font-size: 0.8rem;
+      line-height: 1.4;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    #inapp-banner a {
+      color: white;
+      text-decoration: underline;
+      font-weight: 700;
+    }
+
+    #inapp-banner button {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.75rem;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      opacity: 0.8;
+    }
+
+    /* ---- Mobile responsive ---- */
+    @media (max-width: 640px) {
+      .book-page .py-16 {
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+      }
+
+      .book-page .px-6 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .book-page .p-8 {
+        padding: 1.25rem;
+      }
+
+      .book-page .p-6 {
+        padding: 1rem;
+      }
+
+      .book-page h2 {
+        font-size: 1.5rem;
+      }
+
+      .book-page h3 {
+        font-size: 1.1rem;
+      }
+
+      .book-page .text-5xl {
+        font-size: 2.5rem;
+      }
+
+      .book-page .text-3xl {
+        font-size: 1.5rem;
+      }
+
+      .book-page .text-xl {
+        font-size: 1rem;
+      }
+
+      .book-page .text-lg {
+        font-size: 0.95rem;
+      }
+
+      .prompt-box {
+        padding: 1rem;
+        font-size: 0.8rem;
+      }
+
+      .callout {
+        padding: 0.85rem 1rem;
+      }
+
+      .tip-box {
+        padding: 0.85rem 1rem;
+      }
+
+      .section-number {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1rem;
+      }
+
+      #book-nav {
+        padding: 0.5rem 0.75rem;
+      }
+
+      #book-nav button {
+        padding: 0.6rem;
+        min-width: 2.75rem;
+        min-height: 2.75rem;
+      }
+
+      #page-indicator {
+        font-size: 0.75rem;
+        min-width: 4.5rem;
+      }
+
+      table th,
+      table td {
+        padding: 0.5rem 0.65rem !important;
+        font-size: 0.75rem;
+      }
+
+      .page-centred {
+        min-height: calc(100vh - 3.5rem);
+      }
+
+      #saved-indicator {
+        bottom: 3.75rem;
+      }
+
+      .grid-cols-1.md\\:grid-cols-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-white text-gray-900 antialiased" style="padding-bottom: 4rem; padding-top: 4.5rem;">
+
+  <!-- In-app browser banner -->
+  <div id="inapp-banner">
+    <button id="inapp-close" aria-label="Dismiss">&times;</button>
+    <strong>You are in an in-app browser.</strong><br>
+    Your progress may not save here. Tap the <strong>&#8942;</strong> menu and choose <strong>"Open in browser"</strong>
+    for the best experience.
+  </div>
+
+  <!-- Progress bar -->
+  <div id="progress-bar" style="width: 6.67%;"></div>
+
+  <!-- TOC overlay -->
+  <div id="toc-overlay">
+    <div id="toc-backdrop"></div>
+    <div id="toc-panel">
+      <div class="toc-title">
+        <span>Contents</span>
+        <button id="toc-close">&times;</button>
+      </div>
+      <div id="toc-list"></div>
+      <button id="toc-clear-btn">Clear all answers</button>
+    </div>
+  </div>
+
+  <!-- Book container -->
+  <div id="book">
+
+    <!-- PAGE 1: COVER -->
+    <div class="book-page active" data-page="1" data-title="Cover">
+      <div class="page-centred bg-gradient-to-br from-violet-50 via-white to-indigo-50 px-6">
+        <div class="text-center max-w-2xl">
+          <img src="/images/logo.png" alt="Smash Your AI" class="h-16 w-auto mx-auto mb-10">
+          <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight gradient-text">AI in a day</h1>
+          <p class="text-2xl md:text-3xl font-bold text-gray-700 mb-4">Beginner level</p>
+          <p class="text-xl text-gray-500 mb-10 leading-relaxed max-w-lg mx-auto">A hands-on workbook for getting real
+            results from AI, starting today</p>
+          <div
+            class="inline-flex items-center gap-3 px-6 py-3 bg-violet-100 text-violet-700 rounded-full text-sm font-semibold">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            From zero to real results in one day
+          </div>
+          <p class="text-sm text-gray-400 mt-16">From the creators of <a href="https://smashyourai.com" target="_blank"
+              rel="noopener">smashyourai.com</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 2: WELCOME -->
+    <div class="book-page to-right" data-page="2" data-title="Welcome">
+      <div class="py-16 px-6 max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold mb-6">Welcome to your AI day</h2>
+
+        <div class="space-y-6 text-gray-700 leading-relaxed">
+          <p class="text-lg">If you have been meaning to "get into AI" but have not quite got round to it, this is your
+            day.
+            No jargon, no fluff, no prior experience needed. Just practical exercises that will have you using AI for
+            real
+            work by the end of today.</p>
+
+          <div class="bg-violet-50 rounded-2xl p-8">
+            <h3 class="font-bold text-lg mb-4 text-gray-900">What you will achieve today</h3>
+            <div class="space-y-3">
+              <div class="flex gap-3 items-start">
+                <span
+                  class="flex-shrink-0 w-7 h-7 rounded-full bg-violet-200 text-violet-700 flex items-center justify-center text-sm font-bold">1</span>
+                <p><strong>Audit your work</strong> to find exactly where AI will save you the most time</p>
+              </div>
+              <div class="flex gap-3 items-start">
+                <span
+                  class="flex-shrink-0 w-7 h-7 rounded-full bg-violet-200 text-violet-700 flex items-center justify-center text-sm font-bold">2</span>
+                <p><strong>Set up your AI tools</strong> and get comfortable using them</p>
+              </div>
+              <div class="flex gap-3 items-start">
+                <span
+                  class="flex-shrink-0 w-7 h-7 rounded-full bg-violet-200 text-violet-700 flex items-center justify-center text-sm font-bold">3</span>
+                <p><strong>Write real prompts</strong> that get genuinely useful results</p>
+              </div>
+              <div class="flex gap-3 items-start">
+                <span
+                  class="flex-shrink-0 w-7 h-7 rounded-full bg-violet-200 text-violet-700 flex items-center justify-center text-sm font-bold">4</span>
+                <p><strong>Automate a real task</strong> from your own job</p>
+              </div>
+              <div class="flex gap-3 items-start">
+                <span
+                  class="flex-shrink-0 w-7 h-7 rounded-full bg-violet-200 text-violet-700 flex items-center justify-center text-sm font-bold">5</span>
+                <p><strong>Plan your next 30 days</strong> so the momentum keeps going</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl border-2 border-gray-100 p-8">
+            <h3 class="font-bold text-lg mb-4 text-gray-900">How to pace yourself</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="flex gap-3 items-start">
+                <span class="time-badge">Morning</span>
+                <p class="text-sm">Audit your work and understand the tools (Sections 1 and 2)</p>
+              </div>
+              <div class="flex gap-3 items-start">
+                <span class="time-badge">Lunchtime</span>
+                <p class="text-sm">Learn the basics and write your first prompts (Section 3)</p>
+              </div>
+              <div class="flex gap-3 items-start">
+                <span class="time-badge">Afternoon</span>
+                <p class="text-sm">Build real things and set up your toolkit (Sections 4 and 5)</p>
+              </div>
+              <div class="flex gap-3 items-start">
+                <span class="time-badge">Evening</span>
+                <p class="text-sm">Plan your next 30 days with AI (Section 6)</p>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-lg font-medium text-gray-900">You do not need any technical skills. If you can type an email,
+            you
+            can do this.</p>
+
+          <div class="tip-box">
+            <p class="text-sm"><strong>Tip:</strong> Have our prompt library open alongside this workbook at
+              <strong><a href="https://smashyourai.com/prompts" target="_blank"
+                  rel="noopener">smashyourai.com/prompts</a></strong>. It is packed with ready-made prompts you can use
+              and adapt
+              throughout the day.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 3: GOLDEN NUGGET -->
+    <div class="book-page to-right" data-page="3" data-title="Golden nugget">
+      <div class="py-12 px-6 max-w-3xl mx-auto">
+        <div
+          class="bg-gradient-to-br from-violet-100 to-indigo-100 rounded-2xl p-8 border-2 border-violet-300 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-violet-200/30 rounded-full -translate-y-1/2 translate-x-1/2">
+          </div>
+          <div class="relative">
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                </svg>
+              </div>
+              <div>
+                <p class="text-violet-700 font-bold text-xs uppercase tracking-widest">Golden nugget</p>
+                <h3 class="font-bold text-xl text-gray-900">Do this before anything else</h3>
+              </div>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed mb-6">Here is the single most impactful thing you can do right now,
+              before you write a single prompt. <strong>Set up custom instructions.</strong> This tells your AI tool
+              about
+              you, your business, and how you want it to write. Every conversation after this will be better because the
+              AI
+              already knows your context.</p>
+
+            <h4 class="font-bold text-gray-900 mb-3">How to set it up</h4>
+            <div class="space-y-3 mb-6">
+              <div class="flex gap-3 items-start">
+                <span
+                  class="flex-shrink-0 w-7 h-7 rounded-full bg-violet-500 text-white flex items-center justify-center text-sm font-bold">1</span>
+                <div>
+                  <p class="text-gray-700"><strong>ChatGPT:</strong> Click your profile picture → Settings →
+                    Personalisation → Custom instructions</p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-start">
+                <span
+                  class="flex-shrink-0 w-7 h-7 rounded-full bg-violet-500 text-white flex items-center justify-center text-sm font-bold">2</span>
+                <div>
+                  <p class="text-gray-700"><strong>Claude:</strong> Click your profile picture → Settings → Profile →
+                    fill in the "About you" and "What would you like Claude to know?" sections</p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-start">
+                <span
+                  class="flex-shrink-0 w-7 h-7 rounded-full bg-violet-500 text-white flex items-center justify-center text-sm font-bold">3</span>
+                <div>
+                  <p class="text-gray-700"><strong>Gemini:</strong> Go to Settings → Extensions → fill in your
+                    preferences</p>
+                </div>
+              </div>
+            </div>
+
+            <h4 class="font-bold text-gray-900 mb-3">What to paste in</h4>
+            <p class="text-gray-600 text-sm mb-3">Copy the template below and customise the parts in [brackets]. This is
+              the
+              exact system we use. It stops AI writing like a robot and makes it write like you.</p>
+
+            <div class="prompt-box mb-4">
+              <p class="text-violet-300 font-bold text-xs uppercase tracking-wider mb-3">// Your custom instructions
+                template</p>
+              <p class="mb-1">[Your name]. [Your job title] at [your business name].</p>
+              <p class="mb-1">[One sentence about what your business does and who you serve].</p>
+              <p class="mb-1">Based in [your location]. Audience is [describe your customers].</p>
+              <p class="mb-4">I primarily use AI for [list 2-3 main use cases, e.g. "writing emails, creating social
+                media content, and summarising meeting notes"].</p>
+              <p class="mb-1">SHOULD use clear, direct language.</p>
+              <p class="mb-1">SHOULD keep sentences short and sharp.</p>
+              <p class="mb-1">SHOULD write in active voice.</p>
+              <p class="mb-1">SHOULD give practical, specific advice.</p>
+              <p class="mb-1">SHOULD use bullet point lists for social media posts.</p>
+              <p class="mb-1">SHOULD include data, numbers, or concrete examples when possible.</p>
+              <p class="mb-4">SHOULD speak to the reader using "you" and "your."</p>
+              <p class="mb-1">AVOID em dashes. Use only commas, periods, or semicolons.</p>
+              <p class="mb-1">AVOID filler phrases that connect ideas too loosely.</p>
+              <p class="mb-1">AVOID constructions like "not just X, but Y."</p>
+              <p class="mb-1">AVOID metaphors, analogies, and cliches.</p>
+              <p class="mb-1">AVOID vague or sweeping claims.</p>
+              <p class="mb-1">AVOID phrases like "in conclusion," "to sum up," or "closing."</p>
+              <p class="mb-1">AVOID extra adjectives or adverbs.</p>
+              <p class="mb-4">AVOID hashtags, markdown, or asterisks.</p>
+              <p class="mb-4">OUTPUT should read clean, concise, and how a human naturally writes.</p>
+              <p>IMPORTANT: Review your response and ensure no em dashes!</p>
+            </div>
+
+            <div class="bg-white/60 rounded-xl p-5 mb-4">
+              <p class="font-bold text-gray-900 text-sm mb-2">Why this works so well</p>
+              <div class="space-y-2 text-sm text-gray-700">
+                <p>Without custom instructions, AI defaults to its "house style": wordy, full of em dashes, and stuffed
+                  with words like "leverage" and "synergy." It sounds like a corporate brochure.</p>
+                <p>With these rules in place, every response sounds like <strong>you</strong> wrote it. You will spend
+                  less time editing, and people will not be able to tell AI helped. That is the goal.</p>
+              </div>
+            </div>
+
+            <div class="tip-box bg-white/80">
+              <p class="text-sm text-gray-700"><strong>Test it:</strong> After pasting in your custom instructions, ask
+                AI to "Write me a LinkedIn post about [something relevant to your business]." Compare the result with
+                and without custom instructions. The difference is night and day.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 4: MORNING DIVIDER -->
+    <div class="book-page to-right" data-page="4" data-title="Morning: Audit and understand">
+      <div class="page-centred bg-gradient-to-br from-violet-50 via-white to-indigo-50 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+          <span class="time-badge text-base px-6 py-2">Morning</span>
+          <h2 class="text-3xl font-bold mt-6 mb-3">Audit and understand</h2>
+          <p class="text-gray-500 text-lg">Sections 1 and 2</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 5: SECTION 1 -->
+    <div class="book-page to-right" data-page="5" data-title="Section 1: Your AI audit">
+      <div class="py-12 px-6 max-w-3xl mx-auto">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="section-number">1</div>
+          <div>
+            <h2 class="text-2xl font-bold">Your AI audit</h2>
+            <p class="text-gray-500 text-sm">Find out where AI will help you most</p>
+          </div>
+        </div>
+
+        <p class="text-gray-700 leading-relaxed mb-8">Before we start using AI, let's work out where it will help you
+          most. This audit will give you a clear picture of where AI can save you time, energy, and effort.</p>
+
+        <div class="callout mb-8">
+          <p class="text-sm text-gray-700"><strong>Think about:</strong> What do you type over and over? What takes you
+            ages to write? What decisions do you make from data? What questions do customers keep asking?</p>
+        </div>
+
+        <!-- Exercise 1 -->
+        <div class="mb-10">
+          <h3 class="font-bold text-lg mb-2">Exercise 1: Your top 10 time-eating tasks</h3>
+          <p class="text-gray-600 text-sm mb-4">List the 10 tasks in your working week that eat up the most time. Be
+            specific. Not "admin" but "replying to customer enquiry emails".</p>
+          <div class="space-y-4">
+            <div class="flex items-end gap-3"><span
+                class="text-violet-400 font-bold text-sm w-6 text-right flex-shrink-0">1.</span><input type="text"
+                class="write-input" data-field="p5-f1"></div>
+            <div class="flex items-end gap-3"><span
+                class="text-violet-400 font-bold text-sm w-6 text-right flex-shrink-0">2.</span><input type="text"
+                class="write-input" data-field="p5-f2"></div>
+            <div class="flex items-end gap-3"><span
+                class="text-violet-400 font-bold text-sm w-6 text-right flex-shrink-0">3.</span><input type="text"
+                class="write-input" data-field="p5-f3"></div>
+            <div class="flex items-end gap-3"><span
+                class="text-violet-400 font-bold text-sm w-6 text-right flex-shrink-0">4.</span><input type="text"
+                class="write-input" data-field="p5-f4"></div>
+            <div class="flex items-end gap-3"><span
+                class="text-violet-400 font-bold text-sm w-6 text-right flex-shrink-0">5.</span><input type="text"
+                class="write-input" data-field="p5-f5"></div>
+            <div class="flex items-end gap-3"><span
+                class="text-violet-400 font-bold text-sm w-6 text-right flex-shrink-0">6.</span><input type="text"
+                class="write-input" data-field="p5-f6"></div>
+            <div class="flex items-end gap-3"><span
+                class="text-violet-400 font-bold text-sm w-6 text-right flex-shrink-0">7.</span><input type="text"
+                class="write-input" data-field="p5-f7"></div>
+            <div class="flex items-end gap-3"><span
+                class="text-violet-400 font-bold text-sm w-6 text-right flex-shrink-0">8.</span><input type="text"
+                class="write-input" data-field="p5-f8"></div>
+            <div class="flex items-end gap-3"><span
+                class="text-violet-400 font-bold text-sm w-6 text-right flex-shrink-0">9.</span><input type="text"
+                class="write-input" data-field="p5-f9"></div>
+            <div class="flex items-end gap-3"><span
+                class="text-violet-400 font-bold text-sm w-6 text-right flex-shrink-0">10.</span><input type="text"
+                class="write-input" data-field="p5-f10"></div>
+          </div>
+        </div>
+
+        <!-- Exercise 2 -->
+        <div class="mb-10">
+          <h3 class="font-bold text-lg mb-2">Exercise 2: Score your tasks</h3>
+          <p class="text-gray-600 text-sm mb-4">Transfer your tasks from Exercise 1 into the table below. For each one,
+            estimate how long it takes per week and decide whether AI could help.</p>
+
+          <div class="table-scroll-wrap">
+            <div class="overflow-x-auto table-scroll">
+              <table class="w-full text-sm border-collapse">
+                <thead>
+                  <tr class="bg-gradient-to-r from-violet-500 to-indigo-600 text-white">
+                    <th class="text-left px-4 py-3 rounded-tl-lg font-semibold">#</th>
+                    <th class="text-left px-4 py-3 font-semibold">Task</th>
+                    <th class="text-left px-4 py-3 font-semibold">Time per week</th>
+                    <th class="text-left px-4 py-3 rounded-tr-lg font-semibold">AI could help?</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b border-violet-100">
+                    <td class="px-4 py-4 text-violet-400 font-bold">1</td>
+                    <td class="px-4 py-4"><input type="text" class="write-input" data-field="p5-f11"></td>
+                    <td class="px-4 py-4 w-28"><input type="text" class="write-input" data-field="p5-f12"></td>
+                    <td class="px-4 py-4 w-32"><input type="text" class="write-input" data-field="p5-f13"
+                        placeholder="Yes / Maybe / No"></td>
+                  </tr>
+                  <tr class="border-b border-violet-100 bg-violet-50/30">
+                    <td class="px-4 py-4 text-violet-400 font-bold">2</td>
+                    <td class="px-4 py-4"><input type="text" class="write-input" data-field="p5-f14"></td>
+                    <td class="px-4 py-4"><input type="text" class="write-input" data-field="p5-f15"></td>
+                    <td class="px-4 py-4"><input type="text" class="write-input" data-field="p5-f16"
+                        placeholder="Yes / Maybe / No"></td>
+                  </tr>
+                  <tr class="border-b border-violet-100">
+                    <td class="px-4 py-4 text-violet-400 font-bold">3</td>
+                    <td class="px-4 py-4"><input type="text" class="write-input" data-field="p5-f17"></td>
+                    <td class="px-4 py-4"><input type="text" class="write-input" data-field="p5-f18"></td>
+                    <td class="px-4 py-4"><input type="text" class="write-input" data-field="p5-f19"
+                        placeholder="Yes / Maybe / No"></td>
+                  </tr>
+                  <tr class="border-b border-violet-100 bg-violet-50/30">
+                    <td class="px-4 py-4 text-violet-400 font-bold">4</td>
+                    <td class="px-4 py-4"><input type="text" class="write-input" data-field="p5-f20"></td>
+                    <td class="px-4 py-4"><input type="text" class="write-input" data-field="p5-f21"></td>
+                    <td class="px-4 py-4"><input type="text" class="write-input" data-field="p5-f22"
+                        placeholder="Yes / Maybe / No"></td>
+                  </tr>
+                  <tr class="border-b border-violet-100">
+                    <td class="px-4 py-4 text-violet-400 font-bold">5</td>
+                    <td class="px-4 py-4"><input type="text" class="write-input" data-field="p5-f23"></td>
+                    <td class="px-4 py-4"><input type="text" class="write-input" data-field="p5-f24"></td>
+                    <td class="px-4 py-4"><input type="text" class="write-input" data-field="p5-f25"
+                        placeholder="Yes / Maybe / No"></td>
+                  </tr>
+                  <tr class="border-b border-violet-100 bg-violet-50/30">
+                    <td class="px-4 py-4 text-violet-400 font-bold">6</td>
+                    <td class="px-4 py-4"><input type="text" class="write-input" data-field="p5-f26"></td>
+                    <td class="px-4 py-4"><input type="text" class="write-input" data-field="p5-f27"></td>
+                    <td class="px-4 py-4"><input type="text" class="write-input" data-field="p5-f28"
+                        placeholder="Yes / Maybe / No"></td>
+                  </tr>
+                  <tr class="border-b border-violet-100">
+                    <td class="px-4 py-4 text-violet-400 font-bold">7</td>
+                    <td class="px-4 py-4"><input type="text" class="write-input" data-field="p5-f29"></td>
+                    <td class="px-4 py-4"><input type="text" class="write-input" data-field="p5-f30"></td>
+                    <td class="px-4 py-4"><input type="text" class="write-input" data-field="p5-f31"
+                        placeholder="Yes / Maybe / No"></td>
+                  </tr>
+                  <tr class="border-b border-violet-100 bg-violet-50/30">
+                    <td class="px-4 py-4 text-violet-400 font-bold">8</td>
+                    <td class="px-4 py-4"><input type="text" class="write-input" data-field="p5-f32"></td>
+                    <td class="px-4 py-4"><input type="text" class="write-input" data-field="p5-f33"></td>
+                    <td class="px-4 py-4"><input type="text" class="write-input" data-field="p5-f34"
+                        placeholder="Yes / Maybe / No"></td>
+                  </tr>
+                  <tr class="border-b border-violet-100">
+                    <td class="px-4 py-4 text-violet-400 font-bold">9</td>
+                    <td class="px-4 py-4"><input type="text" class="write-input" data-field="p5-f35"></td>
+                    <td class="px-4 py-4"><input type="text" class="write-input" data-field="p5-f36"></td>
+                    <td class="px-4 py-4"><input type="text" class="write-input" data-field="p5-f37"
+                        placeholder="Yes / Maybe / No"></td>
+                  </tr>
+                  <tr>
+                    <td class="px-4 py-4 text-violet-400 font-bold">10</td>
+                    <td class="px-4 py-4"><input type="text" class="write-input" data-field="p5-f38"></td>
+                    <td class="px-4 py-4"><input type="text" class="write-input" data-field="p5-f39"></td>
+                    <td class="px-4 py-4"><input type="text" class="write-input" data-field="p5-f40"
+                        placeholder="Yes / Maybe / No"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exercise 3 -->
+        <div class="mb-8">
+          <h3 class="font-bold text-lg mb-2">Exercise 3: Your top 3 AI quick wins</h3>
+          <p class="text-gray-600 text-sm mb-4">Look at every task you marked "Yes" above. Which three would save you
+            the most time if AI could help? Write them here. These are your quick wins, and you will come back to them
+            this afternoon.</p>
+          <div class="space-y-5">
+            <div class="bg-violet-50 rounded-xl p-5">
+              <p class="text-violet-600 font-bold text-sm mb-2">Quick win 1</p>
+              <input type="text" class="write-input" data-field="p5-f41">
+            </div>
+            <div class="bg-violet-50 rounded-xl p-5">
+              <p class="text-violet-600 font-bold text-sm mb-2">Quick win 2</p>
+              <input type="text" class="write-input" data-field="p5-f42">
+            </div>
+            <div class="bg-violet-50 rounded-xl p-5">
+              <p class="text-violet-600 font-bold text-sm mb-2">Quick win 3</p>
+              <input type="text" class="write-input" data-field="p5-f43">
+            </div>
+          </div>
+        </div>
+
+        <div class="tip-box">
+          <p class="text-sm text-gray-700"><strong>Already know AI can help but not sure where to start?</strong> Take
+            our free AI readiness quiz at <strong><a href="https://smashyourai.com/quiz" target="_blank"
+                rel="noopener">smashyourai.com/quiz</a></strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 6: SECTION 2 -->
+    <div class="book-page to-right" data-page="6" data-title="Section 2: Choose your tools">
+      <div class="py-12 px-6 max-w-3xl mx-auto">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="section-number">2</div>
+          <div>
+            <h2 class="text-2xl font-bold">Choose your tools</h2>
+            <p class="text-gray-500 text-sm">Pick the right AI tool for your needs</p>
+          </div>
+        </div>
+
+        <p class="text-gray-700 leading-relaxed mb-8">You do not need to use every AI tool out there. You need one that
+          fits how you work. Here is an honest comparison of the main options.</p>
+
+        <!-- Tool comparison table -->
+        <div class="table-scroll-wrap mb-10">
+          <div class="overflow-x-auto table-scroll">
+            <table class="w-full text-sm border-collapse">
+              <thead>
+                <tr class="bg-gradient-to-r from-violet-500 to-indigo-600 text-white">
+                  <th class="text-left px-4 py-3 rounded-tl-lg font-semibold">Tool</th>
+                  <th class="text-left px-4 py-3 font-semibold">Best for</th>
+                  <th class="text-left px-4 py-3 font-semibold">Free tier</th>
+                  <th class="text-left px-4 py-3 font-semibold">Cost</th>
+                  <th class="text-left px-4 py-3 rounded-tr-lg font-semibold">Our take</th>
+                </tr>
+              </thead>
+              <tbody class="text-gray-700">
+                <tr class="border-b border-violet-100">
+                  <td class="px-4 py-4 font-bold text-gray-900">ChatGPT</td>
+                  <td class="px-4 py-4">General tasks, conversation</td>
+                  <td class="px-4 py-4">Yes (GPT-4o mini)</td>
+                  <td class="px-4 py-4">&#163;20/mo for Plus</td>
+                  <td class="px-4 py-4">The all-rounder. Start here if unsure.</td>
+                </tr>
+                <tr class="border-b border-violet-100 bg-violet-50/30">
+                  <td class="px-4 py-4 font-bold text-gray-900">Claude</td>
+                  <td class="px-4 py-4">Writing, analysis, long documents</td>
+                  <td class="px-4 py-4">Yes (limited)</td>
+                  <td class="px-4 py-4">&#163;18/mo for Pro</td>
+                  <td class="px-4 py-4">Best for writing quality and nuance. Our personal favourite.</td>
+                </tr>
+                <tr class="border-b border-violet-100">
+                  <td class="px-4 py-4 font-bold text-gray-900">Gemini</td>
+                  <td class="px-4 py-4">Google integration, research</td>
+                  <td class="px-4 py-4">Yes</td>
+                  <td class="px-4 py-4">&#163;19/mo for Advanced</td>
+                  <td class="px-4 py-4">Great if you live in Google Workspace.</td>
+                </tr>
+                <tr class="border-b border-violet-100 bg-violet-50/30">
+                  <td class="px-4 py-4 font-bold text-gray-900">Perplexity</td>
+                  <td class="px-4 py-4">Research, fact-checking</td>
+                  <td class="px-4 py-4">Yes</td>
+                  <td class="px-4 py-4">&#163;17/mo for Pro</td>
+                  <td class="px-4 py-4">Like Google search but actually gives you answers.</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-4 font-bold text-gray-900">NotebookLM</td>
+                  <td class="px-4 py-4">Analysing your own documents</td>
+                  <td class="px-4 py-4">Free</td>
+                  <td class="px-4 py-4">Free</td>
+                  <td class="px-4 py-4">Upload your docs and ask questions. Incredibly useful.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Decision flowchart -->
+        <div class="bg-white rounded-2xl border-2 border-gray-100 p-8 mb-10">
+          <h3 class="font-bold text-lg mb-5 text-gray-900">Which one should you start with?</h3>
+          <div class="space-y-3 text-gray-700">
+            <div class="flex gap-3 items-start">
+              <svg class="w-5 h-5 text-violet-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+              <p>If you mainly <strong>write emails and content</strong>, start with Claude or ChatGPT</p>
+            </div>
+            <div class="flex gap-3 items-start">
+              <svg class="w-5 h-5 text-violet-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+              <p>If you need to <strong>research and fact-check</strong>, start with Perplexity</p>
+            </div>
+            <div class="flex gap-3 items-start">
+              <svg class="w-5 h-5 text-violet-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+              <p>If you work in <strong>Google Workspace</strong>, start with Gemini</p>
+            </div>
+            <div class="flex gap-3 items-start">
+              <svg class="w-5 h-5 text-violet-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+              <p>If you have <strong>documents to analyse</strong>, start with NotebookLM</p>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-100">
+              <p class="font-medium text-gray-900">Not sure? Just start with ChatGPT. You can always switch later.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Setup checklist -->
+        <div class="bg-violet-50 rounded-2xl p-8">
+          <h3 class="font-bold text-lg mb-5 text-gray-900">Setup checklist</h3>
+          <div class="space-y-1">
+            <div class="checkbox-line">
+              <input type="checkbox" class="checkbox-input" data-field="p6-f1">
+              <p class="text-gray-700">Sign up for your chosen tool (free tier is fine to start)</p>
+            </div>
+            <div class="checkbox-line">
+              <input type="checkbox" class="checkbox-input" data-field="p6-f2">
+              <p class="text-gray-700">Complete your profile and preferences</p>
+            </div>
+            <div class="checkbox-line">
+              <input type="checkbox" class="checkbox-input" data-field="p6-f3">
+              <p class="text-gray-700">Bookmark it so it is one click away</p>
+            </div>
+            <div class="checkbox-line">
+              <input type="checkbox" class="checkbox-input" data-field="p6-f4">
+              <p class="text-gray-700"><strong>Open it now</strong>. You will need it for the next section.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 7: LUNCHTIME DIVIDER -->
+    <div class="book-page to-right" data-page="7" data-title="Lunchtime: Learn the basics">
+      <div class="page-centred bg-gradient-to-br from-violet-50 via-white to-indigo-50 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+          <span class="time-badge text-base px-6 py-2">Lunchtime</span>
+          <h2 class="text-3xl font-bold mt-6 mb-3">Learn the basics</h2>
+          <p class="text-gray-500 text-lg">Section 3</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 8: SECTION 3 -->
+    <div class="book-page to-right" data-page="8" data-title="Section 3: Your first prompts">
+      <div class="py-12 px-6 max-w-3xl mx-auto">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="section-number">3</div>
+          <div>
+            <h2 class="text-2xl font-bold">Your first prompts</h2>
+            <p class="text-gray-500 text-sm">The skill that makes AI actually useful</p>
+          </div>
+        </div>
+
+        <p class="text-gray-700 leading-relaxed mb-8">The difference between a bad AI response and a brilliant one is
+          how you ask. Here is the formula that makes everything work better.</p>
+
+        <!-- RCTC Framework -->
+        <div class="bg-gradient-to-br from-violet-50 to-indigo-50 rounded-2xl p-8 mb-10 border border-violet-200">
+          <h3 class="font-bold text-xl mb-6 text-gray-900">The RCTC framework</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="bg-white rounded-xl p-5 shadow-sm">
+              <div class="flex items-center gap-2 mb-2">
+                <span
+                  class="w-8 h-8 rounded-lg bg-violet-500 text-white flex items-center justify-center font-bold text-sm">R</span>
+                <h4 class="font-bold text-gray-900">Role</h4>
+              </div>
+              <p class="text-sm text-gray-600">Tell AI who to be</p>
+              <p class="text-xs text-gray-400 mt-2 italic">"You are a marketing expert who specialises in small business
+                social media"</p>
+            </div>
+            <div class="bg-white rounded-xl p-5 shadow-sm">
+              <div class="flex items-center gap-2 mb-2">
+                <span
+                  class="w-8 h-8 rounded-lg bg-indigo-500 text-white flex items-center justify-center font-bold text-sm">C</span>
+                <h4 class="font-bold text-gray-900">Context</h4>
+              </div>
+              <p class="text-sm text-gray-600">Give background</p>
+              <p class="text-xs text-gray-400 mt-2 italic">"I run a plumbing business in Newcastle with 3 employees"</p>
+            </div>
+            <div class="bg-white rounded-xl p-5 shadow-sm">
+              <div class="flex items-center gap-2 mb-2">
+                <span
+                  class="w-8 h-8 rounded-lg bg-violet-500 text-white flex items-center justify-center font-bold text-sm">T</span>
+                <h4 class="font-bold text-gray-900">Task</h4>
+              </div>
+              <p class="text-sm text-gray-600">Be specific about what you want</p>
+              <p class="text-xs text-gray-400 mt-2 italic">"Write me 5 Instagram post ideas for this week"</p>
+            </div>
+            <div class="bg-white rounded-xl p-5 shadow-sm">
+              <div class="flex items-center gap-2 mb-2">
+                <span
+                  class="w-8 h-8 rounded-lg bg-indigo-500 text-white flex items-center justify-center font-bold text-sm">C</span>
+                <h4 class="font-bold text-gray-900">Constraints</h4>
+              </div>
+              <p class="text-sm text-gray-600">Set limits and rules</p>
+              <p class="text-xs text-gray-400 mt-2 italic">"Keep each caption under 50 words, use UK English, no emojis"
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="font-bold text-xl mb-6 text-gray-900">5 hands-on exercises to do right now</h3>
+        <p class="text-gray-600 mb-8">Do not just read these. Open your AI tool and actually do them. That is how you
+          learn.</p>
+
+        <!-- Exercise 1: Rewrite an email -->
+        <div class="mb-8">
+          <div class="flex items-center gap-3 mb-4">
+            <span
+              class="w-9 h-9 rounded-full bg-gradient-to-r from-violet-500 to-indigo-600 text-white flex items-center justify-center font-bold text-sm flex-shrink-0">1</span>
+            <h4 class="font-bold text-lg text-gray-900">Rewrite a real email</h4>
+          </div>
+          <p class="text-gray-700 text-sm mb-4">Open your sent folder. Find an email you spent too long writing. Paste
+            it into your AI tool with this prompt:</p>
+          <div class="prompt-box mb-4">
+            <p>Rewrite this email to be clearer and more professional. Keep my key points but make it half the length.
+            </p>
+            <p class="mt-3">[Paste your email here]</p>
+          </div>
+          <p class="text-gray-600 text-sm mb-4">Compare the two versions. What is better? What would you tweak?</p>
+          <div class="callout">
+            <p class="text-sm text-gray-700"><strong>Want more email prompts?</strong> Check out our Email and
+              Communication category in the prompt library at <a href="https://smashyourai.com/prompts" target="_blank"
+                rel="noopener">smashyourai.com/prompts</a></p>
+          </div>
+        </div>
+
+        <!-- Exercise 2: Summarise a document -->
+        <div class="mb-8">
+          <div class="flex items-center gap-3 mb-4">
+            <span
+              class="w-9 h-9 rounded-full bg-gradient-to-r from-violet-500 to-indigo-600 text-white flex items-center justify-center font-bold text-sm flex-shrink-0">2</span>
+            <h4 class="font-bold text-lg text-gray-900">Summarise a document</h4>
+          </div>
+          <p class="text-gray-700 text-sm mb-4">Find a long document, report, or article you need to read. Paste it into
+            your AI tool with this prompt:</p>
+          <div class="prompt-box mb-4">
+            <p>Summarise this in 5 bullet points. Highlight any action items for me.</p>
+            <p class="mt-3">[Paste the document here]</p>
+          </div>
+          <div class="callout">
+            <p class="text-sm text-gray-700"><strong>Try NotebookLM for this.</strong> Upload the document and chat with
+              it. You can ask follow-up questions, and it will always answer based on what your document actually says.
+            </p>
+          </div>
+        </div>
+
+        <!-- Exercise 3: Draft a social media post -->
+        <div class="mb-8">
+          <div class="flex items-center gap-3 mb-4">
+            <span
+              class="w-9 h-9 rounded-full bg-gradient-to-r from-violet-500 to-indigo-600 text-white flex items-center justify-center font-bold text-sm flex-shrink-0">3</span>
+            <h4 class="font-bold text-lg text-gray-900">Draft a social media post</h4>
+          </div>
+          <p class="text-gray-700 text-sm mb-4">Use the RCTC framework to write a post about your business. Be specific
+            about your business, audience, and platform. Here is an example to adapt:</p>
+          <div class="prompt-box mb-4">
+            <p><strong>Role:</strong> You are a social media expert who writes engaging posts for small businesses.</p>
+            <p class="mt-2"><strong>Context:</strong> I run a [your business type] in [your location]. My audience is
+              [describe your ideal customer].</p>
+            <p class="mt-2"><strong>Task:</strong> Write me a [platform] post about [topic]. Include a caption and 5
+              relevant hashtags.</p>
+            <p class="mt-2"><strong>Constraints:</strong> Keep the caption under 100 words. Use a friendly, professional
+              tone. UK English.</p>
+          </div>
+          <div class="callout">
+            <p class="text-sm text-gray-700"><strong>We have got 21 social media prompts</strong> ready to copy and
+              tweak in our prompt library at <strong><a href="https://smashyourai.com/prompts" target="_blank"
+                  rel="noopener">smashyourai.com/prompts</a></strong></p>
+          </div>
+        </div>
+
+        <!-- Exercise 4: Plan your day -->
+        <div class="mb-8">
+          <div class="flex items-center gap-3 mb-4">
+            <span
+              class="w-9 h-9 rounded-full bg-gradient-to-r from-violet-500 to-indigo-600 text-white flex items-center justify-center font-bold text-sm flex-shrink-0">4</span>
+            <h4 class="font-bold text-lg text-gray-900">Plan your day</h4>
+          </div>
+          <p class="text-gray-700 text-sm mb-4">Paste in your to-do list for tomorrow and use this prompt:</p>
+          <div class="prompt-box mb-4">
+            <p>Help me prioritise these tasks. Group them by urgency and importance. Suggest a realistic schedule
+              assuming I have 6 productive hours. Flag anything that could be delegated or automated.</p>
+            <p class="mt-3">[Paste your to-do list here]</p>
+          </div>
+          <div class="callout">
+            <p class="text-sm text-gray-700"><strong>This is one of the most underrated uses of AI.</strong> Do this
+              every morning and you will save 30 minutes of decision fatigue.</p>
+          </div>
+        </div>
+
+        <!-- Exercise 5: Generate ideas -->
+        <div class="mb-10">
+          <div class="flex items-center gap-3 mb-4">
+            <span
+              class="w-9 h-9 rounded-full bg-gradient-to-r from-violet-500 to-indigo-600 text-white flex items-center justify-center font-bold text-sm flex-shrink-0">5</span>
+            <h4 class="font-bold text-lg text-gray-900">Generate ideas for a real problem</h4>
+          </div>
+          <p class="text-gray-700 text-sm mb-4">Think of a genuine business challenge you are facing right now. Use this
+            prompt:</p>
+          <div class="prompt-box mb-4">
+            <p>I run [your business]. I am struggling with [your problem]. Give me 10 creative solutions, including some
+              I probably have not considered. For each one, rate it on effort (low/medium/high) and potential impact
+              (low/medium/high).</p>
+          </div>
+          <div class="callout">
+            <p class="text-sm text-gray-700"><strong>This kind of structured thinking</strong> is what our Strategy and
+              Planning prompts are designed for. Browse them at <a href="https://smashyourai.com/prompts"
+                target="_blank" rel="noopener">smashyourai.com/prompts</a></p>
+          </div>
+        </div>
+
+        <!-- Reflection box -->
+        <div class="bg-violet-50 rounded-2xl p-8">
+          <h3 class="font-bold text-lg mb-3 text-gray-900">Reflection</h3>
+          <p class="text-gray-600 text-sm mb-4">Which exercise surprised you most? Which result would you actually use?
+            Write it down.</p>
+          <textarea class="write-area" data-field="p8-f1" rows="5"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 9: AFTERNOON DIVIDER -->
+    <div class="book-page to-right" data-page="9" data-title="Afternoon: Build real things">
+      <div class="page-centred bg-gradient-to-br from-violet-50 via-white to-indigo-50 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+          <span class="time-badge text-base px-6 py-2">Afternoon</span>
+          <h2 class="text-3xl font-bold mt-6 mb-3">Build real things</h2>
+          <p class="text-gray-500 text-lg">Sections 4 and 5</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 10: SECTION 4 -->
+    <div class="book-page to-right" data-page="10" data-title="Section 4: Your first automation">
+      <div class="py-12 px-6 max-w-3xl mx-auto">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="section-number">4</div>
+          <div>
+            <h2 class="text-2xl font-bold">Your first automation</h2>
+            <p class="text-gray-500 text-sm">Turn a quick win into a repeatable process</p>
+          </div>
+        </div>
+
+        <p class="text-gray-700 leading-relaxed mb-8">Now let's take one of your quick wins from this morning and
+          actually build it. By the end of this section you will have a working prompt that saves you real time, every
+          single week.</p>
+
+        <!-- Steps -->
+        <div class="space-y-6 mb-10">
+          <div class="bg-white rounded-xl border-2 border-gray-100 p-6">
+            <h4 class="font-bold mb-2 text-gray-900">Step 1: Pick your quick win</h4>
+            <p class="text-gray-600 text-sm mb-3">Go back to Exercise 3 in Section 1. Pick the quick win that would save
+              you the most time. Write it here:</p>
+            <input type="text" class="write-input" data-field="p10-f1">
+          </div>
+
+          <div class="bg-white rounded-xl border-2 border-gray-100 p-6">
+            <h4 class="font-bold mb-2 text-gray-900">Step 2: Write the prompt using RCTC</h4>
+            <p class="text-gray-600 text-sm mb-3">Use the RCTC framework to write a prompt for your chosen task. Fill in
+              each part:</p>
+            <div class="space-y-4">
+              <div>
+                <p class="text-violet-600 font-bold text-sm mb-1">Role</p>
+                <input type="text" class="write-input" data-field="p10-f2">
+              </div>
+              <div>
+                <p class="text-violet-600 font-bold text-sm mb-1">Context</p>
+                <input type="text" class="write-input" data-field="p10-f3">
+              </div>
+              <div>
+                <p class="text-violet-600 font-bold text-sm mb-1">Task</p>
+                <input type="text" class="write-input" data-field="p10-f4">
+              </div>
+              <div>
+                <p class="text-violet-600 font-bold text-sm mb-1">Constraints</p>
+                <input type="text" class="write-input" data-field="p10-f5">
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl border-2 border-gray-100 p-6">
+            <h4 class="font-bold mb-2 text-gray-900">Step 3: Test it and refine</h4>
+            <p class="text-gray-600 text-sm mb-4">Paste your prompt into your AI tool and run it. The first result
+              probably will not be perfect. That is normal. Here is how to improve it:</p>
+            <div class="space-y-2 text-sm text-gray-700">
+              <div class="flex gap-2 items-start">
+                <span class="text-violet-500 font-bold flex-shrink-0">Too long?</span>
+                <p>Ask it to be more concise. Say "Make this half the length."</p>
+              </div>
+              <div class="flex gap-2 items-start">
+                <span class="text-violet-500 font-bold flex-shrink-0">Wrong tone?</span>
+                <p>Say "Make it sound more like a friendly colleague" or "More formal."</p>
+              </div>
+              <div class="flex gap-2 items-start">
+                <span class="text-violet-500 font-bold flex-shrink-0">Missing detail?</span>
+                <p>Add more context to your original prompt and try again.</p>
+              </div>
+              <div class="flex gap-2 items-start">
+                <span class="text-violet-500 font-bold flex-shrink-0">Too generic?</span>
+                <p>Give it a real example of what good looks like.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl border-2 border-gray-100 p-6">
+            <h4 class="font-bold mb-2 text-gray-900">Step 4: Save it</h4>
+            <p class="text-gray-600 text-sm">Once you are happy with the result, save your final prompt somewhere you
+              will find it again. You will build a whole library in Section 5.</p>
+          </div>
+        </div>
+
+        <!-- Template prompts -->
+        <h3 class="font-bold text-xl mb-6 text-gray-900">5 template prompts for common automations</h3>
+        <p class="text-gray-600 text-sm mb-6">Not sure what to build? Here are five of the most popular automations.
+          Copy the prompt, customise the parts in [brackets], and test it in your AI tool.</p>
+
+        <!-- Template 1 -->
+        <div class="mb-6">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="bg-violet-100 text-violet-700 text-xs font-bold px-3 py-1 rounded-full">Template 1</span>
+            <h4 class="font-bold text-gray-900">Weekly email template generator</h4>
+          </div>
+          <div class="prompt-box mb-3">
+            <p>You are a professional communication specialist. I need to send a weekly update email to [audience, e.g.
+              "my team of 8 people"]. The email should cover: what we achieved this week, priorities for next week, and
+              any blockers or things people need to know. Write this week's email based on the following notes:</p>
+            <p class="mt-3">[Paste your bullet point notes here]</p>
+            <p class="mt-3">Keep it under 200 words. Friendly but professional tone. UK English. Use bullet points for
+              the key updates.</p>
+          </div>
+          <p class="text-xs text-gray-400">Use in: ChatGPT, Claude, or Gemini. Customise: swap in your audience, adjust
+            the tone, add your company's sign-off style.</p>
+        </div>
+
+        <!-- Template 2 -->
+        <div class="mb-6">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="bg-violet-100 text-violet-700 text-xs font-bold px-3 py-1 rounded-full">Template 2</span>
+            <h4 class="font-bold text-gray-900">Social media post batch creator</h4>
+          </div>
+          <div class="prompt-box mb-3">
+            <p>You are a social media strategist for small businesses. I run a [business type] in [location]. My target
+              audience is [describe your ideal customer]. Create 5 social media posts for this week. For each post
+              include: the platform (Instagram, LinkedIn, or Facebook), a caption (under 80 words), 5 relevant hashtags,
+              and a suggested content type (image, video, carousel, or text). Mix up the content types. Use a friendly,
+              authentic tone. UK English.</p>
+          </div>
+          <p class="text-xs text-gray-400">Use in: ChatGPT or Claude. Customise: add your brand voice guidelines,
+            specify topics you want covered.</p>
+        </div>
+
+        <!-- Template 3 -->
+        <div class="mb-6">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="bg-violet-100 text-violet-700 text-xs font-bold px-3 py-1 rounded-full">Template 3</span>
+            <h4 class="font-bold text-gray-900">Meeting notes summariser</h4>
+          </div>
+          <div class="prompt-box mb-3">
+            <p>You are an executive assistant who excels at meeting summaries. Here are my raw notes from a meeting.
+              Summarise them into a clear format with these sections: Key decisions made, Action items (include who is
+              responsible and the deadline), Open questions still to resolve, and Next steps. Keep it concise and
+              scannable. Use bullet points throughout.</p>
+            <p class="mt-3">[Paste your meeting notes here]</p>
+          </div>
+          <p class="text-xs text-gray-400">Use in: ChatGPT, Claude, or NotebookLM. Customise: add the names of
+            attendees, include your project context.</p>
+        </div>
+
+        <!-- Template 4 -->
+        <div class="mb-6">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="bg-violet-100 text-violet-700 text-xs font-bold px-3 py-1 rounded-full">Template 4</span>
+            <h4 class="font-bold text-gray-900">Customer FAQ responder</h4>
+          </div>
+          <div class="prompt-box mb-3">
+            <p>You are a customer service specialist for [your business type]. Here are the 10 questions our customers
+              ask most often:</p>
+            <p class="mt-3">[List your FAQs here]</p>
+            <p class="mt-3">Write a clear, helpful answer for each question. Keep each answer under 50 words. Use a
+              warm, reassuring tone. These will be used in email replies and on our website. UK English.</p>
+          </div>
+          <p class="text-xs text-gray-400">Use in: ChatGPT or Claude. Customise: add your company policies, include
+            links to relevant pages.</p>
+        </div>
+
+        <!-- Template 5 -->
+        <div class="mb-8">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="bg-violet-100 text-violet-700 text-xs font-bold px-3 py-1 rounded-full">Template 5</span>
+            <h4 class="font-bold text-gray-900">Daily planning assistant</h4>
+          </div>
+          <div class="prompt-box mb-3">
+            <p>You are a productivity coach. Here is my to-do list for today:</p>
+            <p class="mt-3">[Paste your to-do list]</p>
+            <p class="mt-3">Help me plan my day. I have [X] productive hours available. Group tasks by priority (must do
+              today / should do today / can wait). Suggest a time-blocked schedule. Flag any tasks that could be
+              delegated, automated, or batched together. If anything looks unrealistic for one day, tell me honestly.
+            </p>
+          </div>
+          <p class="text-xs text-gray-400">Use in: ChatGPT or Claude. Customise: mention your energy patterns (e.g. "I
+            am most focused in the morning").</p>
+        </div>
+
+        <div class="callout">
+          <p class="text-sm text-gray-700"><strong>These are simplified versions.</strong> Our prompt library has the
+            full, optimised versions with tips on making them your own. Browse them at <strong><a
+                href="https://smashyourai.com/prompts" target="_blank"
+                rel="noopener">smashyourai.com/prompts</a></strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 11: SECTION 5 -->
+    <div class="book-page to-right" data-page="11" data-title="Section 5: Your AI toolkit setup">
+      <div class="py-12 px-6 max-w-3xl mx-auto">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="section-number">5</div>
+          <div>
+            <h2 class="text-2xl font-bold">Your AI toolkit setup</h2>
+            <p class="text-gray-500 text-sm">15 minutes to set yourself up for tomorrow</p>
+          </div>
+        </div>
+
+        <p class="text-gray-700 leading-relaxed mb-8">Before you finish for the day, let's set up your toolkit so you
+          can pick up where you left off tomorrow. This takes about 15 minutes and it will make a huge difference.</p>
+
+        <div class="bg-violet-50 rounded-2xl p-8 mb-8">
+          <h3 class="font-bold text-lg mb-5 text-gray-900">Your toolkit checklist</h3>
+          <div class="space-y-2">
+            <div class="checkbox-line">
+              <input type="checkbox" class="checkbox-input" data-field="p11-f1">
+              <p class="text-gray-700">Create a "My AI prompts" document (Google Doc, Notion, or even a notes app)</p>
+            </div>
+            <div class="checkbox-line">
+              <input type="checkbox" class="checkbox-input" data-field="p11-f2">
+              <p class="text-gray-700">Save every prompt that worked well today</p>
+            </div>
+            <div class="checkbox-line">
+              <input type="checkbox" class="checkbox-input" data-field="p11-f3">
+              <p class="text-gray-700">For each saved prompt, note what you would tweak next time</p>
+            </div>
+            <div class="checkbox-line">
+              <input type="checkbox" class="checkbox-input" data-field="p11-f4">
+              <p class="text-gray-700">Bookmark your chosen AI tool</p>
+            </div>
+            <div class="checkbox-line">
+              <input type="checkbox" class="checkbox-input" data-field="p11-f5">
+              <p class="text-gray-700">Bookmark <strong><a href="https://smashyourai.com/prompts" target="_blank"
+                    rel="noopener">smashyourai.com/prompts</a></strong> for ready-made prompts</p>
+            </div>
+            <div class="checkbox-line">
+              <input type="checkbox" class="checkbox-input" data-field="p11-f6">
+              <p class="text-gray-700"><strong>Optional:</strong> Set up a custom instruction or system prompt in
+                ChatGPT or Claude with your business details, so every conversation starts with context about who you
+                are and what you do</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-violet-50 to-indigo-50 rounded-2xl p-8 border border-violet-200">
+          <div class="flex gap-3 items-start">
+            <div class="w-10 h-10 rounded-xl bg-violet-500 text-white flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+            </div>
+            <div>
+              <p class="font-bold text-gray-900 mb-1">Pro tip</p>
+              <p class="text-sm text-gray-700">Your prompt library will become one of your most valuable business
+                assets. The prompts you refine and save today are ones you will use again and again. Think of each one
+                as a tiny employee who works for free.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 12: BONUS -->
+    <div class="book-page to-right" data-page="12" data-title="Bonus: Power features">
+      <div class="py-12 px-6 max-w-3xl mx-auto">
+        <div class="flex items-center gap-4 mb-8">
+          <div
+            class="w-12 h-12 rounded-2xl bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <div>
+            <h2 class="text-2xl font-bold">Power features you should know</h2>
+            <p class="text-gray-500 text-sm">Get more from the tools you already have</p>
+          </div>
+        </div>
+
+        <p class="text-gray-700 leading-relaxed mb-8">Most people use about 10% of what AI tools can do. Here are the
+          features that will genuinely change how you work. All of these are available on the free tiers of their
+          respective tools.</p>
+
+        <!-- Project folders -->
+        <div class="bg-white rounded-2xl border-2 border-gray-100 p-8 mb-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-violet-100 flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-lg text-gray-900">Project folders (ChatGPT and Claude)</h3>
+          </div>
+          <p class="text-gray-700 text-sm mb-4">Stop losing your best conversations. Both ChatGPT and Claude let you
+            create <strong>project folders</strong> to organise chats by topic, client, or project. This means:</p>
+          <div class="space-y-2 text-sm text-gray-700 mb-4">
+            <div class="flex gap-2 items-start">
+              <svg class="w-4 h-4 text-violet-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>All your marketing chats in one place</span>
+            </div>
+            <div class="flex gap-2 items-start">
+              <svg class="w-4 h-4 text-violet-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Separate folders for each client or project</span>
+            </div>
+            <div class="flex gap-2 items-start">
+              <svg class="w-4 h-4 text-violet-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Easy to find previous conversations without scrolling</span>
+            </div>
+            <div class="flex gap-2 items-start">
+              <svg class="w-4 h-4 text-violet-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>In Claude, you can add <strong>project-specific instructions</strong> so the AI has context for that
+                folder every time</span>
+            </div>
+          </div>
+          <div class="tip-box">
+            <p class="text-sm text-gray-700"><strong>Set this up now:</strong> Create three folders, one for your most
+              common use case (e.g. "Social media"), one for a current project, and one called "Experiments" for testing
+              new things.</p>
+          </div>
+        </div>
+
+        <!-- Canvas mode -->
+        <div class="bg-white rounded-2xl border-2 border-gray-100 p-8 mb-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-indigo-100 flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-lg text-gray-900">Canvas mode (ChatGPT)</h3>
+          </div>
+          <p class="text-gray-700 text-sm mb-4">Canvas opens a split-screen editor next to your chat. Instead of AI
+            dumping a wall of text and you copying it somewhere else, you can <strong>edit the document right
+              there</strong> while chatting with AI about changes.</p>
+          <div class="bg-gray-50 rounded-xl p-5 mb-4">
+            <p class="text-sm font-semibold text-gray-900 mb-2">Best use case</p>
+            <p class="text-sm text-gray-700">Writing anything longer than a quick email. Blog posts, proposals, reports,
+              policies. You can highlight a specific paragraph and say "make this section more persuasive" without
+              affecting the rest of the document. Much more efficient than re-generating the whole thing.</p>
+          </div>
+          <p class="text-gray-500 text-xs">To use it: start a new chat in ChatGPT and select "Canvas" from the model
+            dropdown, or ask ChatGPT to "open this in canvas."</p>
+        </div>
+
+        <!-- Deep research -->
+        <div class="bg-white rounded-2xl border-2 border-gray-100 p-8 mb-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-violet-100 flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-lg text-gray-900">Deep research mode (ChatGPT and Gemini)</h3>
+          </div>
+          <p class="text-gray-700 text-sm mb-4">This is like having a research assistant who reads the entire internet
+            for you. Deep research browses dozens of sources, cross-references information, and gives you a proper
+            report with citations. It takes a few minutes to run, but the results are far better than a normal search.
+          </p>
+          <div class="bg-gray-50 rounded-xl p-5 mb-4">
+            <p class="text-sm font-semibold text-gray-900 mb-2">Best use case</p>
+            <p class="text-sm text-gray-700">Competitor analysis, market research, understanding a new topic in depth,
+              or finding specific data you need for a business decision. Ask something like: "Research the top 10 CRM
+              tools for small businesses in the UK. Compare pricing, key features, and which is best for a team of under
+              10 people."</p>
+          </div>
+          <p class="text-gray-500 text-xs">In ChatGPT: select "Deep research" from the model dropdown. In Gemini: select
+            "Deep Research" at the top of a new chat.</p>
+        </div>
+
+        <!-- Web search -->
+        <div class="bg-white rounded-2xl border-2 border-gray-100 p-8 mb-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-indigo-100 flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-lg text-gray-900">Web search tips</h3>
+          </div>
+          <p class="text-gray-700 text-sm mb-4">ChatGPT and Claude can both search the web, but they work differently to
+            Google. Here is how to get better results:</p>
+          <div class="table-scroll-wrap">
+            <div class="overflow-x-auto table-scroll">
+              <table class="w-full text-sm border-collapse">
+                <thead>
+                  <tr class="bg-gradient-to-r from-violet-500 to-indigo-600 text-white">
+                    <th class="text-left px-4 py-3 rounded-tl-lg font-semibold w-36">Tip</th>
+                    <th class="text-left px-4 py-3 font-semibold">What to do</th>
+                    <th class="text-left px-4 py-3 rounded-tr-lg font-semibold">Example</th>
+                  </tr>
+                </thead>
+                <tbody class="text-gray-700">
+                  <tr class="border-b border-violet-100">
+                    <td class="px-4 py-4 font-bold text-violet-600 align-top">Be specific</td>
+                    <td class="px-4 py-4 align-top">Give detail about your situation, not generic keywords</td>
+                    <td class="px-4 py-4 text-gray-500 italic align-top">"What is the best accounting software for a UK
+                      sole trader with under 50 invoices per month?"</td>
+                  </tr>
+                  <tr class="border-b border-violet-100 bg-violet-50/30">
+                    <td class="px-4 py-4 font-bold text-violet-600 align-top">Ask for sources</td>
+                    <td class="px-4 py-4 align-top">Forces the AI to back up its claims with real references</td>
+                    <td class="px-4 py-4 text-gray-500 italic align-top">"Include links to sources for each
+                      recommendation"</td>
+                  </tr>
+                  <tr class="border-b border-violet-100">
+                    <td class="px-4 py-4 font-bold text-violet-600 align-top">Set a date</td>
+                    <td class="px-4 py-4 align-top">Avoid outdated results by specifying a timeframe</td>
+                    <td class="px-4 py-4 text-gray-500 italic align-top">"Only include information from 2025 onwards"
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-4 py-4 font-bold text-violet-600 align-top">Cross-check</td>
+                    <td class="px-4 py-4 align-top">For anything important, verify using Perplexity or the original
+                      source</td>
+                    <td class="px-4 py-4 text-gray-500 italic align-top">AI search is good but not infallible. Trust,
+                      then verify.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Advanced features teaser -->
+        <div class="bg-gradient-to-br from-violet-100 to-indigo-100 rounded-2xl p-8 border-2 border-violet-300">
+          <h3 class="font-bold text-lg mb-4 text-gray-900">And there is more (covered in the course)</h3>
+          <p class="text-gray-600 text-sm mb-5">The features above will keep you busy for weeks. But when you are ready,
+            there is a whole other level. Our online course covers:</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+            <div class="flex gap-2 items-start">
+              <svg class="w-4 h-4 text-violet-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700"><strong>AI image creation</strong> for marketing, social media, and
+                branding</span>
+            </div>
+            <div class="flex gap-2 items-start">
+              <svg class="w-4 h-4 text-violet-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700"><strong>Agent mode</strong>, where AI takes actions for you, not just writes
+                text</span>
+            </div>
+            <div class="flex gap-2 items-start">
+              <svg class="w-4 h-4 text-violet-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700"><strong>Meta-prompting</strong>, getting AI to write your prompts for
+                you</span>
+            </div>
+            <div class="flex gap-2 items-start">
+              <svg class="w-4 h-4 text-violet-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700"><strong>Custom GPTs</strong>, building your own tailored AI assistants</span>
+            </div>
+            <div class="flex gap-2 items-start">
+              <svg class="w-4 h-4 text-violet-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700"><strong>Claude Code</strong>, using AI to build actual software and
+                tools</span>
+            </div>
+            <div class="flex gap-2 items-start">
+              <svg class="w-4 h-4 text-violet-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700"><strong>AI automation workflows</strong> that run on autopilot</span>
+            </div>
+          </div>
+          <p class="text-violet-600 font-semibold text-sm mt-5">Coming soon at <a href="https://smashyourai.com"
+              target="_blank" rel="noopener" class="text-violet-600 font-semibold hover:underline">smashyourai.com</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 13: EVENING DIVIDER -->
+    <div class="book-page to-right" data-page="13" data-title="Evening: Plan ahead">
+      <div class="page-centred bg-gradient-to-br from-violet-50 via-white to-indigo-50 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+          <span class="time-badge text-base px-6 py-2">Evening</span>
+          <h2 class="text-3xl font-bold mt-6 mb-3">Plan ahead</h2>
+          <p class="text-gray-500 text-lg">Section 6</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 14: SECTION 6 -->
+    <div class="book-page to-right" data-page="14" data-title="Section 6: Your 30-day AI plan">
+      <div class="py-12 px-6 max-w-3xl mx-auto">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="section-number">6</div>
+          <div>
+            <h2 class="text-2xl font-bold">Your 30-day AI plan</h2>
+            <p class="text-gray-500 text-sm">Keep the momentum going</p>
+          </div>
+        </div>
+
+        <p class="text-gray-700 leading-relaxed mb-8">You have done more with AI today than most people do in a year.
+          Let's keep the momentum going with a simple 30-day plan.</p>
+
+        <!-- Week 1 -->
+        <div class="bg-white rounded-2xl border-2 border-gray-100 p-8 mb-6">
+          <div class="flex items-center gap-3 mb-4">
+            <span
+              class="bg-gradient-to-r from-violet-500 to-indigo-600 text-white text-xs font-bold px-4 py-1.5 rounded-full">Week
+              1</span>
+            <h3 class="font-bold text-gray-900">Use AI for one task every day</h3>
+          </div>
+          <p class="text-gray-600 text-sm mb-4">Write down which task you will use AI for each day this week:</p>
+          <div class="space-y-3">
+            <div class="flex items-end gap-3"><span
+                class="text-violet-400 font-semibold text-sm w-24 flex-shrink-0">Monday</span><input type="text"
+                class="write-input" data-field="p14-f1"></div>
+            <div class="flex items-end gap-3"><span
+                class="text-violet-400 font-semibold text-sm w-24 flex-shrink-0">Tuesday</span><input type="text"
+                class="write-input" data-field="p14-f2"></div>
+            <div class="flex items-end gap-3"><span
+                class="text-violet-400 font-semibold text-sm w-24 flex-shrink-0">Wednesday</span><input type="text"
+                class="write-input" data-field="p14-f3"></div>
+            <div class="flex items-end gap-3"><span
+                class="text-violet-400 font-semibold text-sm w-24 flex-shrink-0">Thursday</span><input type="text"
+                class="write-input" data-field="p14-f4"></div>
+            <div class="flex items-end gap-3"><span
+                class="text-violet-400 font-semibold text-sm w-24 flex-shrink-0">Friday</span><input type="text"
+                class="write-input" data-field="p14-f5"></div>
+            <div class="flex items-end gap-3"><span
+                class="text-violet-400 font-semibold text-sm w-24 flex-shrink-0">Saturday</span><input type="text"
+                class="write-input" data-field="p14-f6"></div>
+            <div class="flex items-end gap-3"><span
+                class="text-violet-400 font-semibold text-sm w-24 flex-shrink-0">Sunday</span><input type="text"
+                class="write-input" data-field="p14-f7"></div>
+          </div>
+        </div>
+
+        <!-- Week 2 -->
+        <div class="bg-white rounded-2xl border-2 border-gray-100 p-8 mb-6">
+          <div class="flex items-center gap-3 mb-4">
+            <span
+              class="bg-gradient-to-r from-violet-500 to-indigo-600 text-white text-xs font-bold px-4 py-1.5 rounded-full">Week
+              2</span>
+            <h3 class="font-bold text-gray-900">Try a new tool</h3>
+          </div>
+          <p class="text-gray-600 text-sm mb-4">Pick a tool from the Section 2 table that you have not used yet. Sign
+            up, try it for a few tasks, and compare it with what you have been using.</p>
+          <div class="space-y-4">
+            <div>
+              <p class="text-violet-600 font-bold text-sm mb-1">Tool I will try:</p>
+              <input type="text" class="write-input" data-field="p14-f8">
+            </div>
+            <div>
+              <p class="text-violet-600 font-bold text-sm mb-1">What I will use it for:</p>
+              <input type="text" class="write-input" data-field="p14-f9">
+            </div>
+          </div>
+        </div>
+
+        <!-- Week 3 -->
+        <div class="bg-white rounded-2xl border-2 border-gray-100 p-8 mb-6">
+          <div class="flex items-center gap-3 mb-4">
+            <span
+              class="bg-gradient-to-r from-violet-500 to-indigo-600 text-white text-xs font-bold px-4 py-1.5 rounded-full">Week
+              3</span>
+            <h3 class="font-bold text-gray-900">Share what you have learned</h3>
+          </div>
+          <p class="text-gray-600 text-sm mb-4">The best way to solidify what you know is to teach someone else. Show a
+            colleague or friend one thing AI can do that surprised you.</p>
+          <div class="space-y-4">
+            <div>
+              <p class="text-violet-600 font-bold text-sm mb-1">Who I will show:</p>
+              <input type="text" class="write-input" data-field="p14-f10">
+            </div>
+            <div>
+              <p class="text-violet-600 font-bold text-sm mb-1">What I will demonstrate:</p>
+              <input type="text" class="write-input" data-field="p14-f11">
+            </div>
+          </div>
+        </div>
+
+        <!-- Week 4 -->
+        <div class="bg-white rounded-2xl border-2 border-gray-100 p-8 mb-8">
+          <div class="flex items-center gap-3 mb-4">
+            <span
+              class="bg-gradient-to-r from-violet-500 to-indigo-600 text-white text-xs font-bold px-4 py-1.5 rounded-full">Week
+              4</span>
+            <h3 class="font-bold text-gray-900">Build your next automation</h3>
+          </div>
+          <p class="text-gray-600 text-sm mb-4">Go back to your audit. Identify your next 3 automations and build at
+            least one this week.</p>
+          <div class="space-y-4">
+            <div>
+              <p class="text-violet-600 font-bold text-sm mb-1">Automation 1:</p>
+              <input type="text" class="write-input" data-field="p14-f12">
+            </div>
+            <div>
+              <p class="text-violet-600 font-bold text-sm mb-1">Automation 2:</p>
+              <input type="text" class="write-input" data-field="p14-f13">
+            </div>
+            <div>
+              <p class="text-violet-600 font-bold text-sm mb-1">Automation 3:</p>
+              <input type="text" class="write-input" data-field="p14-f14">
+            </div>
+          </div>
+        </div>
+
+        <!-- Reflection boxes -->
+        <div class="space-y-6 mb-8">
+          <div class="bg-violet-50 rounded-2xl p-8">
+            <h3 class="font-bold text-lg mb-3 text-gray-900">What was the single most useful thing you learned today?
+            </h3>
+            <textarea class="write-area" data-field="p14-f15" rows="5"></textarea>
+          </div>
+
+          <div class="bg-violet-50 rounded-2xl p-8">
+            <h3 class="font-bold text-lg mb-3 text-gray-900">Estimated time saved</h3>
+            <p class="text-gray-600 text-sm mb-4">Based on your audit, roughly how many hours per week do you think AI
+              could save you?</p>
+            <div class="flex items-end gap-3">
+              <input type="text" class="write-input" data-field="p14-f16" style="max-width: 8rem;">
+              <p class="text-gray-700 font-semibold mb-2">hours per week</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 15: WHAT COMES NEXT -->
+    <div class="book-page to-right" data-page="15" data-title="What comes next">
+      <div class="py-12 px-6 final-page-bg"
+        style="background: linear-gradient(to bottom, #7c3aed, #4338ca); -webkit-print-color-adjust: exact; print-color-adjust: exact; min-height: calc(100vh - 4rem);">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-3xl font-bold mb-2 text-center text-white">What comes next</h2>
+          <p class="text-violet-200 text-lg text-center mb-8">You have taken the first step. Here is how to keep going.
+          </p>
+
+          <!-- Compact 2x2 grid -->
+          <div class="grid grid-cols-2 gap-4 mb-8">
+            <div class="bg-white rounded-xl p-5">
+              <h3 class="font-bold text-sm mb-1 text-gray-900">Level up your prompts</h3>
+              <p class="text-gray-600 text-xs leading-relaxed mb-2">168 ready-to-use prompts across 13 categories. Use
+                them as they are, or tweak them to fit your business.</p>
+              <p class="text-violet-600 font-semibold text-xs"><a href="https://smashyourai.com/prompts" target="_blank"
+                  rel="noopener" class="text-violet-600 font-semibold hover:underline">smashyourai.com/prompts</a></p>
+            </div>
+            <div class="bg-white rounded-xl p-5">
+              <h3 class="font-bold text-sm mb-1 text-gray-900">Plan your content</h3>
+              <p class="text-gray-600 text-xs leading-relaxed mb-2">Grab a 30-day content calendar for your industry.
+                Captions, hashtags, and posting schedule, all done for you.</p>
+              <p class="text-violet-600 font-semibold text-xs"><a href="https://smashyourai.com/content-calendars"
+                  target="_blank" rel="noopener"
+                  class="text-violet-600 font-semibold hover:underline">smashyourai.com/content-calendars</a></p>
+            </div>
+            <div class="bg-white rounded-xl p-5">
+              <h3 class="font-bold text-sm mb-1 text-gray-900">Go deeper with our course</h3>
+              <p class="text-gray-600 text-xs leading-relaxed mb-2">Meta-prompting, custom GPTs, Claude Code, AI
+                automation workflows, and building your own AI tools.</p>
+              <p class="text-violet-600 font-semibold text-xs">Coming soon at <a href="https://smashyourai.com"
+                  target="_blank" rel="noopener"
+                  class="text-violet-600 font-semibold hover:underline">smashyourai.com</a></p>
+            </div>
+            <div class="bg-white rounded-xl p-5">
+              <h3 class="font-bold text-sm mb-1 text-gray-900">Get personalised help</h3>
+              <p class="text-gray-600 text-xs leading-relaxed mb-2">Book a free AI audit and we will review your
+                business and show you exactly where AI can save you time.</p>
+              <p class="text-violet-600 font-semibold text-xs"><a href="https://smashyourai.com/#contact"
+                  target="_blank" rel="noopener"
+                  class="text-violet-600 font-semibold hover:underline">smashyourai.com/#contact</a></p>
+            </div>
+          </div>
+
+          <!-- About section -->
+          <div class="text-center pt-4">
+            <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4"
+              style="background: rgba(255,255,255,0.2);">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <p class="text-violet-100 leading-relaxed max-w-lg mx-auto mb-4 text-sm">This workbook was created by James
+              and Paul at Smash Your AI. Between us we have over 40 years of experience in education, and we believe AI
+              should be accessible to everyone, not just tech companies.</p>
+            <p class="text-white font-bold text-lg mb-4"><a href="https://smashyourai.com" target="_blank"
+                rel="noopener" class="text-white hover:underline">smashyourai.com</a></p>
+            <p class="text-violet-300 text-xs">&copy; 2026 Smash Your AI. All rights reserved. This workbook is for
+              personal use only and may not be redistributed or resold.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end #book -->
+
+  <!-- Scroll-more indicator -->
+  <div id="scroll-indicator">
+    <div
+      class="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1.5 shadow-lg border border-gray-200 flex items-center gap-1.5 text-xs text-gray-500 font-medium">
+      <svg class="w-4 h-4 text-violet-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+      Scroll for more
+    </div>
+  </div>
+
+  <!-- Saved indicator -->
+  <div id="saved-indicator">Saved</div>
+
+  <!-- Bottom nav -->
+  <nav id="book-nav">
+    <div class="nav-inner">
+      <button id="toc-btn" title="Table of contents">
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <button id="prev-btn" title="Previous page" disabled>
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <span id="page-indicator">Page 1 of 15</span>
+      <button id="next-btn" title="Next page">
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+      <button id="print-btn" title="Print / Save as PDF">
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Print settings modal -->
+  <div id="print-modal"
+    style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.5); backdrop-filter:blur(4px); align-items:center; justify-content:center;">
+    <div
+      style="background:white; border-radius:1rem; max-width:420px; width:90%; padding:2rem; box-shadow:0 25px 50px rgba(0,0,0,0.25); font-family:'Plus Jakarta Sans',sans-serif;">
+      <h3 style="margin:0 0 0.25rem; font-size:1.25rem; font-weight:700; color:#4f46e5;">Before you print</h3>
+      <p style="margin:0 0 1rem; font-size:0.85rem; color:#6b7280;">For the best PDF, use these settings in the print
+        dialog:</p>
+      <div style="background:#f5f3ff; border-radius:0.75rem; padding:1rem; margin-bottom:1.25rem;">
+        <div style="display:flex; align-items:flex-start; gap:0.5rem; margin-bottom:0.6rem;">
+          <span style="color:#8b5cf6; font-size:1.1rem; line-height:1;">&#10003;</span>
+          <span style="font-size:0.85rem; color:#374151;"><strong>Destination:</strong> Save as PDF</span>
+        </div>
+        <div style="display:flex; align-items:flex-start; gap:0.5rem; margin-bottom:0.6rem;">
+          <span style="color:#8b5cf6; font-size:1.1rem; line-height:1;">&#10003;</span>
+          <span style="font-size:0.85rem; color:#374151;"><strong>Paper size:</strong> A4</span>
+        </div>
+        <div style="display:flex; align-items:flex-start; gap:0.5rem; margin-bottom:0.6rem;">
+          <span style="color:#8b5cf6; font-size:1.1rem; line-height:1;">&#10003;</span>
+          <span style="font-size:0.85rem; color:#374151;"><strong>Margins:</strong> None</span>
+        </div>
+        <div style="display:flex; align-items:flex-start; gap:0.5rem; margin-bottom:0.6rem;">
+          <span style="color:#8b5cf6; font-size:1.1rem; line-height:1;">&#10003;</span>
+          <span style="font-size:0.85rem; color:#374151;"><strong>Background graphics:</strong> Tick this on</span>
+        </div>
+        <div style="display:flex; align-items:flex-start; gap:0.5rem;">
+          <span style="color:#8b5cf6; font-size:1.1rem; line-height:1;">&#10003;</span>
+          <span style="font-size:0.85rem; color:#374151;"><strong>Headers and footers:</strong> Untick this</span>
+        </div>
+      </div>
+      <div style="display:flex; gap:0.75rem;">
+        <button id="print-cancel"
+          style="flex:1; padding:0.6rem; border-radius:0.5rem; border:1px solid #e5e7eb; background:white; color:#374151; font-size:0.85rem; font-weight:600; cursor:pointer; font-family:inherit;">Cancel</button>
+        <button id="print-go"
+          style="flex:1; padding:0.6rem; border-radius:0.5rem; border:none; background:linear-gradient(135deg,#8b5cf6,#6366f1); color:white; font-size:0.85rem; font-weight:600; cursor:pointer; font-family:inherit;">Print
+          now</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+      // --- In-app browser detection ---
+      (function () {
+        var ua = navigator.userAgent || navigator.vendor || '';
+        var isInApp = /FBAN|FBAV|Instagram|LinkedInApp|Twitter|BytedanceWebview|TikTok|Snapchat|Pinterest/i.test(ua);
+        if (isInApp) {
+          var banner = document.getElementById('inapp-banner');
+          banner.style.display = 'block';
+          document.body.style.paddingTop = '4rem';
+          document.getElementById('inapp-close').addEventListener('click', function () {
+            banner.style.display = 'none';
+            document.body.style.paddingTop = '';
+          });
+        }
+      })();
+
+    (function () {
+      var TOTAL = 15;
+      var current = 1;
+      var isAnimating = false;
+      var DIVIDER_PAGES = [4, 7, 9, 13]; // Auto-advance pages
+      var pages = document.querySelectorAll('.book-page');
+      var prevBtn = document.getElementById('prev-btn');
+      var nextBtn = document.getElementById('next-btn');
+      var indicator = document.getElementById('page-indicator');
+      var progressBar = document.getElementById('progress-bar');
+      var tocOverlay = document.getElementById('toc-overlay');
+      var tocList = document.getElementById('toc-list');
+      var tocBtn = document.getElementById('toc-btn');
+      var tocClose = document.getElementById('toc-close');
+      var tocBackdrop = document.getElementById('toc-backdrop');
+      var tocClearBtn = document.getElementById('toc-clear-btn');
+      var printBtn = document.getElementById('print-btn');
+      var savedIndicator = document.getElementById('saved-indicator');
+      var scrollIndicator = document.getElementById('scroll-indicator');
+
+      // Build TOC
+      pages.forEach(function (p) {
+        var num = p.getAttribute('data-page');
+        var title = p.getAttribute('data-title');
+        var item = document.createElement('div');
+        item.className = 'toc-item' + (num == current ? ' current' : '');
+        item.textContent = num + '. ' + title;
+        item.setAttribute('data-goto', num);
+        item.addEventListener('click', function () {
+          goTo(parseInt(this.getAttribute('data-goto')));
+          closeToc();
+        });
+        tocList.appendChild(item);
+      });
+
+      function getPage(n) {
+        return document.querySelector('.book-page[data-page="' + n + '"]');
+      }
+
+      function updateNav() {
+        indicator.textContent = 'Page ' + current + ' of ' + TOTAL;
+        prevBtn.disabled = current === 1;
+        nextBtn.disabled = current === TOTAL;
+        progressBar.style.width = ((current / TOTAL) * 100) + '%';
+        tocList.querySelectorAll('.toc-item').forEach(function (item) {
+          item.classList.toggle('current', item.getAttribute('data-goto') == current);
+        });
+      }
+
+      function goTo(n) {
+        if (n < 1 || n > TOTAL || n === current || isAnimating) return;
+        isAnimating = true;
+        var direction = n > current ? 'left' : 'right';
+        var oldPage = getPage(current);
+        var newPage = getPage(n);
+
+        // Prepare new page off-screen
+        newPage.classList.remove('active', 'sliding-out-left', 'sliding-out-right');
+        newPage.classList.add(direction === 'left' ? 'sliding-in-right' : 'sliding-in-left');
+        newPage.style.display = 'block';
+
+        // Force reflow
+        newPage.offsetHeight;
+
+        // Slide old page out, new page in
+        oldPage.classList.remove('active');
+        oldPage.classList.add(direction === 'left' ? 'sliding-out-left' : 'sliding-out-right');
+        newPage.classList.remove('sliding-in-right', 'sliding-in-left');
+        newPage.classList.add('active');
+
+        current = n;
+        updateNav();
+
+        // Scroll to top immediately
+        window.scrollTo(0, 0);
+
+        // Clean up after animation
+        setTimeout(function () {
+          oldPage.classList.remove('sliding-out-left', 'sliding-out-right');
+          oldPage.style.display = '';
+          isAnimating = false;
+
+          // Check scroll indicator for new page
+          checkScrollIndicator();
+
+          // Auto-advance divider pages
+          if (DIVIDER_PAGES.indexOf(current) !== -1) {
+            setTimeout(function () {
+              goTo(current + 1);
+            }, 800);
+          }
+        }, 420);
+      }
+
+      // --- Scroll indicator logic ---
+      function checkScrollIndicator() {
+        var activePage = getPage(current);
+        if (!activePage) return;
+        var pageBottom = activePage.getBoundingClientRect().bottom;
+        var viewportBottom = window.innerHeight - 60; // account for nav bar
+        if (pageBottom > viewportBottom + 50) {
+          scrollIndicator.classList.add('visible');
+        } else {
+          scrollIndicator.classList.remove('visible');
+        }
+      }
+
+      window.addEventListener('scroll', function () {
+        scrollIndicator.classList.remove('visible');
+      }, { passive: true });
+
+      // Check on load and resize
+      window.addEventListener('resize', checkScrollIndicator);
+
+      // --- Table scroll fade ---
+      var tableScrolls = document.querySelectorAll('.table-scroll');
+      tableScrolls.forEach(function (el) {
+        var wrap = el.closest('.table-scroll-wrap');
+        if (!wrap) return;
+        function checkFade() {
+          var atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 5;
+          if (atEnd) wrap.classList.add('scrolled-end');
+          else wrap.classList.remove('scrolled-end');
+        }
+        el.addEventListener('scroll', checkFade, { passive: true });
+        // Check initially after a tick (table may not be visible yet)
+        setTimeout(checkFade, 100);
+      });
+      // Re-check fades when page changes
+      var origGoTo = goTo;
+      goTo = function (n) {
+        origGoTo(n);
+        setTimeout(function () {
+          tableScrolls.forEach(function (el) { el.dispatchEvent(new Event('scroll')); });
+        }, 450);
+      };
+
+      // --- Navigation buttons ---
+      prevBtn.addEventListener('click', function () { goTo(current - 1); });
+      nextBtn.addEventListener('click', function () { goTo(current + 1); });
+
+      // --- Keyboard navigation ---
+      document.addEventListener('keydown', function (e) {
+        var tag = e.target.tagName;
+        var isInput = tag === 'INPUT' || tag === 'TEXTAREA';
+
+        // Enter or Down arrow in inputs: move to next input on same page
+        if (isInput && (e.key === 'Enter' || e.key === 'ArrowDown')) {
+          e.preventDefault();
+          var activePage = getPage(current);
+          var inputs = Array.from(activePage.querySelectorAll('.write-input, .write-area, .checkbox-input'));
+          var idx = inputs.indexOf(e.target);
+          if (idx !== -1 && idx < inputs.length - 1) {
+            inputs[idx + 1].focus();
+          }
+          return;
+        }
+
+        // Up arrow in inputs: move to previous input
+        if (isInput && e.key === 'ArrowUp') {
+          e.preventDefault();
+          var activePage = getPage(current);
+          var inputs = Array.from(activePage.querySelectorAll('.write-input, .write-area, .checkbox-input'));
+          var idx = inputs.indexOf(e.target);
+          if (idx > 0) {
+            inputs[idx - 1].focus();
+          }
+          return;
+        }
+
+        // Page navigation only when not in inputs
+        if (!isInput) {
+          if (e.key === 'ArrowLeft') goTo(current - 1);
+          if (e.key === 'ArrowRight') goTo(current + 1);
+        }
+      });
+
+      // --- Touch swipe ---
+      var touchStartX = 0;
+      var touchStartY = 0;
+      var touchStartEl = null;
+      document.addEventListener('touchstart', function (e) {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+        touchStartEl = e.target;
+      }, { passive: true });
+      document.addEventListener('touchend', function (e) {
+        // Don't swipe pages if user is scrolling inside a table or input
+        if (touchStartEl && touchStartEl.closest('.table-scroll, input, textarea')) return;
+        var dx = e.changedTouches[0].screenX - touchStartX;
+        var dy = e.changedTouches[0].screenY - touchStartY;
+        if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+          if (dx < 0) goTo(current + 1);
+          else goTo(current - 1);
+        }
+      }, { passive: true });
+
+      // --- TOC ---
+      function openToc() { tocOverlay.classList.add('open'); }
+      function closeToc() { tocOverlay.classList.remove('open'); }
+      tocBtn.addEventListener('click', openToc);
+      tocClose.addEventListener('click', closeToc);
+      tocBackdrop.addEventListener('click', closeToc);
+
+      // --- Print ---
+      var printModal = document.getElementById('print-modal');
+      var printCancel = document.getElementById('print-cancel');
+      var printGo = document.getElementById('print-go');
+      printBtn.addEventListener('click', function () {
+        printModal.style.display = 'flex';
+      });
+      printCancel.addEventListener('click', function () {
+        printModal.style.display = 'none';
+      });
+      printModal.addEventListener('click', function (e) {
+        if (e.target === printModal) printModal.style.display = 'none';
+      });
+      printGo.addEventListener('click', function () {
+        printModal.style.display = 'none';
+        window.print();
+      });
+
+      // --- localStorage auto-save ---
+      var saveTimeout = null;
+      function showSaved() {
+        savedIndicator.classList.add('show');
+        setTimeout(function () { savedIndicator.classList.remove('show'); }, 1200);
+      }
+
+      function saveField(el) {
+        var key = 'aiinaday_' + el.getAttribute('data-field');
+        if (el.type === 'checkbox') {
+          localStorage.setItem(key, el.checked ? '1' : '0');
+        } else {
+          localStorage.setItem(key, el.value);
+        }
+        showSaved();
+      }
+
+      document.addEventListener('input', function (e) {
+        var el = e.target;
+        if (el.classList.contains('write-input') || el.classList.contains('write-area')) {
+          clearTimeout(saveTimeout);
+          saveTimeout = setTimeout(function () { saveField(el); }, 300);
+        }
+      });
+
+      document.addEventListener('change', function (e) {
+        if (e.target.classList.contains('checkbox-input')) {
+          saveField(e.target);
+        }
+      });
+
+      // Restore from localStorage
+      document.querySelectorAll('[data-field]').forEach(function (el) {
+        var key = 'aiinaday_' + el.getAttribute('data-field');
+        var val = localStorage.getItem(key);
+        if (val !== null) {
+          if (el.type === 'checkbox') {
+            el.checked = val === '1';
+          } else {
+            el.value = val;
+          }
+        }
+      });
+
+      // Clear all answers
+      tocClearBtn.addEventListener('click', function () {
+        if (confirm('Are you sure you want to clear all your answers? This cannot be undone.')) {
+          document.querySelectorAll('[data-field]').forEach(function (el) {
+            var key = 'aiinaday_' + el.getAttribute('data-field');
+            localStorage.removeItem(key);
+            if (el.type === 'checkbox') el.checked = false;
+            else el.value = '';
+          });
+          closeToc();
+          showSaved();
+        }
+      });
+
+      // --- Initial state ---
+      pages.forEach(function (p) {
+        var n = parseInt(p.getAttribute('data-page'));
+        if (n === 1) p.classList.add('active');
+        else p.style.display = 'none';
+      });
+      updateNav();
+
+      // Check scroll indicator after brief delay for render
+      setTimeout(checkScrollIndicator, 100);
+    })();
+  </script>
+
+<script src="/shared-nav.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,796 @@
+[
+  {
+    "id": "img-001",
+    "title": "Clean Product Shot on White Background",
+    "description": "Creates a professional e-commerce style product photo with clean lighting and a pure white background - perfect for online shops, catalogues, and listings.",
+    "category": "Image and design",
+    "industryTags": [
+      "E-commerce",
+      "Retail",
+      "Consumer goods"
+    ],
+    "difficulty": "beginner",
+    "toolRecommendation": "ChatGPT/DALL-E",
+    "toolTips": "In ChatGPT, click the image icon in the message box or just describe what you want and ask it to generate an image. For best results, be specific about the product and angle.",
+    "content": "A professional product photograph of a [PRODUCT e.g. matte black water bottle] on a pure white background. Shot from a [ANGLE e.g. three-quarter front angle / straight-on / slightly above]. Soft studio lighting with gentle shadows beneath the product. The product is centred in the frame with generous white space around it. Clean, minimal, commercial photography style. The lighting highlights the [MATERIAL/TEXTURE e.g. matte finish / brushed metal / glossy surface]. No text, no props, no distractions. High resolution, sharp focus on the product.",
+    "howToUse": [
+      "Replace [PRODUCT] with your actual product - be as specific as possible about colour, size, and material",
+      "Choose your angle - three-quarter front works for most products, straight-on for flat items, slightly above for food and cosmetics",
+      "Replace [MATERIAL/TEXTURE] with what makes your product look good - the AI will emphasise this",
+      "If the first result is not right, ask 'Can you make the lighting softer' or 'Move the product slightly to the left'"
+    ],
+    "whyItWorks": "This prompt works because it mirrors the exact brief a product photographer would receive. Specifying 'pure white background' prevents AI from adding gradients or textures. Mentioning 'soft studio lighting with gentle shadows' gives it a realistic photography look rather than a flat render. The instruction to leave white space makes the result immediately usable for listings.",
+    "makeItYourOwn": "Add your brand colours to the product description. Try different angles for variety - shoot the same product from three angles for a full listing set. Add 'with a slight reflection beneath' for a premium feel, or 'on a marble surface' if you want a lifestyle touch while keeping it clean.",
+    "isFree": true,
+    "type": "image-prompt"
+  },
+  {
+    "id": "img-002",
+    "title": "Lifestyle Product Photo",
+    "description": "Creates a product-in-context lifestyle photo showing your product being used in a natural, aspirational setting.",
+    "category": "Image and design",
+    "industryTags": [
+      "E-commerce",
+      "Retail",
+      "Food and drink",
+      "Beauty"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "Midjourney",
+    "toolTips": "In Midjourney, paste the prompt into the /imagine command. Add --ar 4:5 for Instagram portrait or --ar 16:9 for website banners. Use --style raw for more photorealistic results.",
+    "content": "A lifestyle photograph of a [PRODUCT e.g. ceramic coffee mug] in a [SETTING e.g. cosy morning kitchen scene]. The product is the clear focal point but surrounded by complementary props: [PROPS e.g. a folded newspaper, a small succulent plant, warm croissant on a plate]. Shot with a shallow depth of field, the background softly blurred. Natural [LIGHTING e.g. warm morning sunlight streaming through a window] casting soft shadows. Colour palette: [COLOURS e.g. warm neutrals, cream, terracotta, sage green]. The mood is [MOOD e.g. calm, inviting, aspirational]. Professional editorial photography style, high resolution. --ar 4:5",
+    "howToUse": [
+      "Choose a setting that matches where your customer would actually use the product",
+      "Pick 2-3 props that complement your product without stealing attention",
+      "Define the mood you want - this dramatically changes the result",
+      "Adjust the aspect ratio: --ar 4:5 for Instagram, --ar 16:9 for web, --ar 1:1 for square"
+    ],
+    "whyItWorks": "Lifestyle product photography sells the feeling, not just the item. By specifying a shallow depth of field, the product stays sharp while the setting creates atmosphere. Naming specific props prevents the AI from cluttering the scene. The colour palette instruction keeps everything cohesive and on-brand.",
+    "makeItYourOwn": "Swap the setting to match your target customer - a gym bag looks different in a modern apartment vs a muddy trail. Change the season by adjusting lighting and props. For food products, add 'steam rising' or 'condensation on the glass' for realism.",
+    "isFree": false,
+    "type": "image-prompt"
+  },
+  {
+    "id": "img-003",
+    "title": "Flat Lay Product Composition",
+    "description": "Creates a top-down flat lay arrangement showing a product with coordinated accessories and props.",
+    "category": "Image and design",
+    "industryTags": [
+      "E-commerce",
+      "Beauty",
+      "Fashion",
+      "Stationery",
+      "Food and drink"
+    ],
+    "difficulty": "beginner",
+    "toolRecommendation": "ChatGPT/DALL-E",
+    "toolTips": "In ChatGPT, you can ask for adjustments after the first image - 'move the product more to the centre' or 'change the background colour to dusty pink'. This is great for iterating.",
+    "content": "A flat lay photograph taken from directly above. In the centre: [PRODUCT e.g. a leather-bound journal with a pen]. Arranged neatly around it: [ITEMS e.g. a pair of reading glasses, a small potted plant, a cup of black coffee, scattered paper clips, a smartphone]. Background: [SURFACE e.g. light oak wooden desk / marble countertop / linen fabric]. Everything is arranged with intentional spacing - organised but not rigid. Soft, even overhead lighting with minimal shadows. Colour scheme: [COLOURS e.g. earth tones - brown, cream, forest green, gold accents]. Clean, modern, editorial style. Shot in high resolution.",
+    "howToUse": [
+      "Place your main product in the centre and list 4-6 complementary items around it",
+      "Choose a background surface that contrasts with your product - dark products on light surfaces and vice versa",
+      "Specify a colour scheme to keep the arrangement looking intentional and curated",
+      "If items overlap or look messy, regenerate with 'arranged with clear spacing between each item'"
+    ],
+    "whyItWorks": "Flat lays are one of the most popular formats on Instagram and Pinterest because they tell a story about your product's world. Specifying 'intentional spacing' and 'organised but not rigid' prevents the AI from either scattering things randomly or lining them up like a grid. The overhead angle is key - it is the defining feature of a flat lay.",
+    "makeItYourOwn": "Seasonal flat lays work brilliantly - add autumn leaves, Christmas baubles, or summer flowers. For a minimalist brand, reduce to just 2-3 items. For a luxury feel, add textures like velvet fabric or gold leaf details.",
+    "isFree": false,
+    "type": "image-prompt"
+  },
+  {
+    "id": "img-004",
+    "title": "Before and After Product Comparison",
+    "description": "Creates a split-screen before/after image showing the transformation your product or service delivers.",
+    "category": "Image and design",
+    "industryTags": [
+      "Beauty",
+      "Home improvement",
+      "Cleaning",
+      "Health and fitness",
+      "SaaS"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "ChatGPT/DALL-E",
+    "toolTips": "In ChatGPT, if the split is not clean enough, ask 'Can you make the dividing line between before and after more distinct' or 'Add a thin white line down the middle'.",
+    "content": "A split-screen before and after comparison image. LEFT SIDE labelled 'Before': [BEFORE STATE e.g. a cluttered, disorganised home office desk with papers everywhere, tangled cables, poor lighting, coffee stains]. RIGHT SIDE labelled 'After': [AFTER STATE e.g. the same desk, now clean and minimalist, with organised cable management, a desk plant, good lighting, everything in its place]. Both sides show the exact same [SUBJECT e.g. desk/room/workspace] from the same camera angle. A clean vertical dividing line separates the two halves. The 'Before' side has slightly dull, flat lighting. The 'After' side has bright, warm, inviting lighting. Photorealistic style. --ar 16:9",
+    "howToUse": [
+      "Describe the 'before' state with specific details that your target customer will recognise as their current problem",
+      "Describe the 'after' state showing the specific improvements your product delivers",
+      "Keep the same subject and angle on both sides so the transformation is clear",
+      "Use this for social media ads, landing pages, or pitch decks"
+    ],
+    "whyItWorks": "Before/after images are psychologically powerful because they let the viewer project themselves into the transformation. Specifying different lighting for each side subtly reinforces the improvement. Keeping the same angle and subject makes the comparison honest and believable.",
+    "makeItYourOwn": "Works for almost any transformation - messy to tidy, old to new, complicated to simple. For service businesses, show the client's situation before and after your help. You can also do a three-panel version: Before, During, and After.",
+    "isFree": false,
+    "type": "image-prompt"
+  },
+  {
+    "id": "img-005",
+    "title": "Product in Use - Hands-On Shot",
+    "description": "Creates a close-up photo of someone actively using your product, showing it in action with a human touch.",
+    "category": "Image and design",
+    "industryTags": [
+      "E-commerce",
+      "Tech",
+      "Food and drink",
+      "Beauty",
+      "Stationery"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "Gemini",
+    "toolTips": "In Gemini, describe what you want naturally - 'Generate an image of someone using a...' works well. Gemini is particularly good at realistic hand poses and natural interactions with objects.",
+    "content": "A close-up lifestyle photograph of [PERSON DESCRIPTION e.g. a person's hands] using a [PRODUCT e.g. sleek wireless keyboard] in a [SETTING e.g. modern home office]. The shot is cropped to focus on the interaction between the person and the product. [SPECIFIC ACTION e.g. Their fingers are mid-type, with the keyboard angled slightly towards camera]. Shallow depth of field with the product in sharp focus. [LIGHTING e.g. Soft natural light from the left side, creating gentle highlights on the product surface]. The background is [BACKGROUND e.g. softly blurred showing a tidy desk with a monitor]. Warm, professional colour grading. Editorial lifestyle photography style, high resolution.",
+    "howToUse": [
+      "Describe the specific action being performed - 'pouring', 'typing', 'applying', 'opening' - not just 'holding'",
+      "Specify just the hands or arms if you want to avoid AI face generation issues",
+      "Match the setting to your target customer's environment",
+      "Great for website hero sections, social media, and product listing galleries"
+    ],
+    "whyItWorks": "Products in use create an emotional connection that static shots cannot. By focusing on hands and the interaction, you avoid the uncanny valley of AI-generated faces while still adding a human element. Specifying the exact action makes the image feel dynamic rather than posed.",
+    "makeItYourOwn": "Change the person description to match your target demographic. Adjust the crop - wider for context, tighter for detail. Add motion blur to the hands for a sense of speed and efficiency. For food products, add steam or condensation.",
+    "isFree": false,
+    "type": "image-prompt"
+  },
+  {
+    "id": "img-006",
+    "title": "Instagram Quote Card Background",
+    "description": "Creates a visually striking background for quote or tip posts on Instagram and other social platforms.",
+    "category": "Social media",
+    "industryTags": [
+      "Any",
+      "Coaching",
+      "Education",
+      "Marketing"
+    ],
+    "difficulty": "beginner",
+    "toolRecommendation": "ChatGPT/DALL-E",
+    "toolTips": "In ChatGPT, ask it to generate the background image without text first - AI-generated text in images is often illegible. Then add your quote text using Canva, Instagram's built-in editor, or any free design tool.",
+    "content": "A visually striking background image for an Instagram quote post. [STYLE e.g. Soft gradient / Abstract geometric / Nature-inspired / Minimalist]. Colour palette: [COLOURS e.g. deep navy blue fading to warm gold / soft pastel pink and lavender / bold coral and white]. The design is [TEXTURE e.g. smooth with subtle grain texture / clean with floating geometric shapes / organic with soft watercolour edges]. There is a large clear area in the centre of the image - free of any detail or pattern - where text will be overlaid later. No text in the image. The edges and corners have [DETAIL e.g. subtle decorative elements / soft colour gradients / abstract shapes]. Square format, 1080x1080 pixels. Modern, clean aesthetic.",
+    "howToUse": [
+      "Generate the background using this prompt - remember, no text in the image",
+      "Download the image and open it in Canva (free), Instagram's editor, or any design app",
+      "Add your quote, tip, or statistic as a text overlay in your brand font",
+      "Save and post - create a series with the same colour palette for a cohesive feed"
+    ],
+    "whyItWorks": "AI image generators struggle with readable text, so this prompt deliberately creates a text-free background. Specifying 'a large clear area in the centre' ensures your overlay text will be legible. The colour palette instruction keeps it on-brand.",
+    "makeItYourOwn": "Create a set of 5-10 backgrounds with the same colour palette for a cohesive Instagram grid. Vary the style slightly - one gradient, one geometric, one textured - while keeping the colours consistent. Match to your brand colours.",
+    "isFree": true,
+    "type": "image-prompt"
+  },
+  {
+    "id": "img-007",
+    "title": "LinkedIn Profile Banner",
+    "description": "Creates a professional LinkedIn banner image that communicates your expertise and personal brand at a glance.",
+    "category": "Social media",
+    "industryTags": [
+      "Professional services",
+      "Consulting",
+      "Tech",
+      "Any"
+    ],
+    "difficulty": "beginner",
+    "toolRecommendation": "ChatGPT/DALL-E",
+    "toolTips": "In ChatGPT, specify the dimensions explicitly. LinkedIn banners are 1584x396 pixels. After generating, you may need to add your name or title as text using Canva since AI text rendering is unreliable.",
+    "content": "A professional LinkedIn banner image, 1584x396 pixels (very wide and short - approximately 4:1 ratio). [STYLE e.g. Clean modern design / Abstract professional / Subtle cityscape]. Colour palette: [COLOURS e.g. deep blue and white / charcoal and gold / teal and light grey]. The left third of the image is relatively plain (this is where the profile photo overlaps on LinkedIn). The right two-thirds features [VISUAL ELEMENTS e.g. subtle abstract geometric patterns / a soft-focus cityscape / clean lines and shapes suggesting technology and innovation]. The overall feel is [MOOD e.g. professional, trustworthy, and modern / bold, creative, and forward-thinking / calm, expert, and approachable]. No text in the image. Clean, corporate aesthetic with a subtle sense of [INDUSTRY e.g. technology / finance / creative services].",
+    "howToUse": [
+      "Replace the style, colours, and visual elements to match your personal brand",
+      "Remember the left side gets covered by your profile photo - keep it simple there",
+      "Generate the image, then add your job title or tagline using Canva if desired",
+      "Upload to LinkedIn under your profile - Edit then click the camera icon on the banner"
+    ],
+    "whyItWorks": "This prompt accounts for LinkedIn's specific layout where the profile photo overlaps the left side of the banner. By keeping the left third plain and putting visual interest on the right, everything stays visible. The wide aspect ratio is specified to prevent cropping issues.",
+    "makeItYourOwn": "Match the mood to your industry - tech professionals might want geometric patterns, creatives might want colour splashes, consultants might want clean minimalism. Update it seasonally or when you change roles.",
+    "isFree": false,
+    "type": "image-prompt"
+  },
+  {
+    "id": "img-008",
+    "title": "Facebook Event Cover Image",
+    "description": "Creates an eye-catching event cover image for Facebook events, webinars, workshops, or meetups.",
+    "category": "Social media",
+    "industryTags": [
+      "Events",
+      "Education",
+      "Marketing",
+      "Community"
+    ],
+    "difficulty": "beginner",
+    "toolRecommendation": "ChatGPT/DALL-E",
+    "toolTips": "In ChatGPT, Facebook event covers are 1200x628 pixels. Generate the visual background first, then add event details (name, date, time) as text using Canva or similar.",
+    "content": "A vibrant event cover image for Facebook, 1200x628 pixels. The theme is [EVENT TYPE e.g. a business networking event / an online workshop / a product launch / a charity fundraiser]. Visual style: [STYLE e.g. modern and energetic / elegant and sophisticated / fun and approachable / bold and inspiring]. Colour palette: [COLOURS e.g. electric blue and white / sunset orange and deep purple / fresh green and cream]. The image features [VISUAL ELEMENTS e.g. abstract shapes suggesting connection and community / a stylised conference room setting / dynamic light trails and energy / illustrated people gathering]. A large open space in the upper-left or centre for text overlay (event name and date will be added later). No text in the image. The composition draws the eye inward. High energy, professional quality.",
+    "howToUse": [
+      "Match the visual style to your event's personality - formal events need sophisticated visuals, casual events can be more playful",
+      "Generate the background, then add event name, date, time, and location using Canva",
+      "Keep text large enough to read on mobile - most people see Facebook events on their phones",
+      "Use the same colour scheme for all promotional materials for this event"
+    ],
+    "whyItWorks": "Event covers need to grab attention in a busy Facebook feed. This prompt creates visual energy while leaving deliberate space for text. Specifying the mood and colour palette ensures the image matches your event's personality before you add any words.",
+    "makeItYourOwn": "For recurring events, create a template style you reuse each time with different colours. For seasonal events, incorporate seasonal elements. For corporate events, keep it clean and minimal. For community events, make it warm and welcoming.",
+    "isFree": false,
+    "type": "image-prompt"
+  },
+  {
+    "id": "img-009",
+    "title": "YouTube Video Thumbnail",
+    "description": "Creates an attention-grabbing YouTube thumbnail background designed to maximise click-through rate.",
+    "category": "Social media",
+    "industryTags": [
+      "Content creation",
+      "Education",
+      "Marketing",
+      "Any"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "ChatGPT/DALL-E",
+    "toolTips": "In ChatGPT, YouTube thumbnails are 1280x720 pixels. The best thumbnails combine an AI-generated background with a real photo of you (cut out) and bold text added in Canva. Generate just the background here.",
+    "content": "A bold, eye-catching YouTube thumbnail background, 1280x720 pixels. The style is [STYLE e.g. dramatic with high contrast / bright and energetic / clean and professional]. Background: [BACKGROUND e.g. a vibrant solid colour gradient from deep blue to cyan / an abstract explosive pattern of light / a blurred dramatic scene suggesting urgency]. The composition leaves clear space on the [POSITION e.g. right side] for a person cutout to be added later, and space on the [POSITION e.g. left side] for large bold text. Colour palette: [COLOURS e.g. bright yellow and black for maximum contrast / red and white for urgency / blue and orange complementary]. The image has [EFFECT e.g. subtle radial zoom blur from the centre / dynamic light rays / bold geometric shapes framing the edges]. High contrast, saturated colours. No text, no people. The overall feel should demand attention when seen as a small thumbnail in a YouTube sidebar.",
+    "howToUse": [
+      "Generate the background - keep it bold and simple since thumbnails are viewed very small",
+      "Add a cutout photo of yourself or a relevant image using Canva",
+      "Add 3-5 words of large, bold text - this is your hook",
+      "Test at small size - shrink it down and check it still reads clearly"
+    ],
+    "whyItWorks": "YouTube thumbnails live or die at tiny sizes in sidebars and search results. This prompt prioritises high contrast and bold colours that pop at any size. Leaving deliberate space for text and a person cutout follows the proven thumbnail formula used by top creators.",
+    "makeItYourOwn": "Develop a consistent thumbnail style across your channel - same colours, same text position, same energy. Viewers start to recognise your thumbnails in their feed. For tutorial content, keep it cleaner. For reaction or commentary content, go more dramatic.",
+    "isFree": false,
+    "type": "image-prompt"
+  },
+  {
+    "id": "img-010",
+    "title": "Instagram Story and Reel Background",
+    "description": "Creates vertical background graphics for Instagram Stories, Reels, TikTok, or any 9:16 content.",
+    "category": "Social media",
+    "industryTags": [
+      "Any",
+      "Social media",
+      "Marketing",
+      "E-commerce"
+    ],
+    "difficulty": "beginner",
+    "toolRecommendation": "Midjourney",
+    "toolTips": "In Midjourney, use --ar 9:16 to get the vertical format. You can also use --style raw for more photorealistic results or --stylize 50 for less artistic interpretation.",
+    "content": "A vertical background image for Instagram Stories, 1080x1920 pixels (9:16 aspect ratio). Style: [STYLE e.g. soft gradient / bold abstract / subtle texture / nature-inspired bokeh]. Colour palette: [COLOURS e.g. warm terracotta and cream / icy blue and white / neon pink and dark purple / sage green and beige]. The design features [ELEMENTS e.g. soft flowing abstract shapes / subtle geometric patterns / out-of-focus light bokeh circles / gentle watercolour washes]. The centre and upper-third of the image are relatively clear and open for text, stickers, or product images to be overlaid. The visual interest is concentrated in the [AREA e.g. corners and edges / bottom third / top and bottom with clear middle]. No text. The mood is [MOOD e.g. premium and sophisticated / playful and energetic / calm and minimal / bold and trendy]. --ar 9:16",
+    "howToUse": [
+      "Generate the background in vertical 9:16 format",
+      "Import into Instagram Stories editor, Canva, or your preferred design tool",
+      "Add text, stickers, polls, or product images on top",
+      "Create a set of 5 matching backgrounds for a cohesive Story series"
+    ],
+    "whyItWorks": "Stories and Reels need vertical backgrounds that look intentional, not just cropped landscape images. This prompt creates purpose-built 9:16 visuals with clear space where it matters - the centre for text and the upper third where Instagram places interactive elements.",
+    "makeItYourOwn": "Create a branded set using your exact brand colours. Make one for tips, one for announcements, one for questions, one for promotions - each slightly different but clearly from the same family. Batch-create 10 at a time for the week ahead.",
+    "isFree": false,
+    "type": "image-prompt"
+  },
+  {
+    "id": "img-011",
+    "title": "Simple Infographic Layout",
+    "description": "Creates an infographic-style visual layout for presenting data, steps, or comparisons on social media.",
+    "category": "Social media",
+    "industryTags": [
+      "Marketing",
+      "Education",
+      "Consulting",
+      "Any"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "ChatGPT/DALL-E",
+    "toolTips": "In ChatGPT, AI-generated text in infographics is usually garbled. Generate the visual layout with placeholder shapes, then replace all text in Canva or Figma with your actual content.",
+    "content": "A clean, modern infographic layout design. The format is [FORMAT e.g. vertical for Instagram carousel / horizontal for LinkedIn / square for general social]. The infographic shows [STRUCTURE e.g. 5 numbered steps in a flowing path / 3 columns comparing options / a timeline with 6 milestones / a central hub with 4 surrounding categories]. Colour palette: [COLOURS e.g. teal, white, and charcoal / coral, navy, and cream / green, grey, and white]. Each section has [ELEMENTS e.g. a circular icon placeholder, a heading area, and a short text area]. The design uses [STYLE e.g. clean flat design / subtle 3D elements / minimalist line art / bold geometric shapes]. Consistent spacing between sections. Professional, polished, and easy to scan. No actual text - use simple placeholder shapes where text would go. White or [COLOUR] background.",
+    "howToUse": [
+      "Generate the layout structure - think of it as a template",
+      "Open in Canva or your design tool and replace all placeholder areas with your actual content",
+      "Keep each section to one short heading and one sentence maximum",
+      "Save as a carousel (multiple slides) for Instagram or a single long image for Pinterest"
+    ],
+    "whyItWorks": "Infographics consistently outperform plain text posts on social media. This prompt creates the visual structure without relying on AI-generated text (which is usually wrong). You get a professional layout to fill in with accurate information.",
+    "makeItYourOwn": "Adapt the structure to your content - use steps for processes, columns for comparisons, timelines for histories, and hub-and-spoke for categories. Match the icon style to your brand. Create a series with the same layout but different topics.",
+    "isFree": false,
+    "type": "image-prompt"
+  },
+  {
+    "id": "img-012",
+    "title": "Logo Concept Exploration",
+    "description": "Generates logo concept ideas and visual directions to inspire your brand identity or brief a designer.",
+    "category": "Image and design",
+    "industryTags": [
+      "Any",
+      "Startups",
+      "Small business"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "Midjourney",
+    "toolTips": "In Midjourney, use --style raw for cleaner logo concepts. Important: AI-generated logos are starting points for inspiration, not finished logos. Use them to brief a designer or refine your vision.",
+    "content": "A modern logo concept for a [BUSINESS TYPE e.g. sustainable clothing brand / tech startup / artisan bakery / fitness coaching business] called [NAME - or leave blank and say 'a generic placeholder']. Style: [STYLE e.g. minimalist and clean / bold and geometric / organic and hand-crafted / sleek and futuristic]. The logo features [ELEMENT e.g. an abstract mark combining the letters with a leaf motif / a simple geometric icon above clean sans-serif text / a hand-drawn illustration of a wheat sheaf / a dynamic swoosh suggesting movement]. Colour palette: [COLOURS e.g. single colour - forest green / two-tone - navy and gold / monochrome black and white]. The design is [QUALITIES e.g. versatile enough to work at any size, memorable, distinctive]. Presented on a white background. Vector-style, clean lines, professional quality. Show the logo mark and wordmark together. --style raw",
+    "howToUse": [
+      "Generate several variations by changing the style and element descriptions",
+      "Use these as inspiration and direction - not as your final logo",
+      "Pick your favourite direction and brief a graphic designer with 'I want something like this but refined'",
+      "Or use the concept as a starting point in a vector design tool like Canva or Figma"
+    ],
+    "whyItWorks": "Most people struggle to articulate what they want their logo to look like. This prompt turns vague ideas into visual directions you can react to. Even if no single result is perfect, they help you discover what you do and do not like - which is invaluable when briefing a designer.",
+    "makeItYourOwn": "Generate 10-15 variations with different styles - you will quickly see patterns in what attracts you. Try the same brief in minimalist, bold, organic, and geometric styles. Save your top 3-5 as a mood board for your designer.",
+    "isFree": false,
+    "type": "image-prompt"
+  },
+  {
+    "id": "img-013",
+    "title": "Brand Mood Board",
+    "description": "Creates a visual mood board collage capturing the aesthetic, colours, textures, and feeling of your brand.",
+    "category": "Image and design",
+    "industryTags": [
+      "Any",
+      "Creative",
+      "Fashion",
+      "Hospitality",
+      "Retail"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "ChatGPT/DALL-E",
+    "toolTips": "In ChatGPT, describe the overall feeling you want. If the first result is too busy, ask 'Can you make it more minimal with fewer elements' or 'Focus more on the colour palette and textures'.",
+    "content": "A professional brand mood board collage. The overall aesthetic is [BRAND FEEL e.g. warm and artisan / sleek and modern / playful and bold / earthy and natural]. The mood board includes a grid of images showing: [ELEMENT 1 e.g. close-up textures of natural materials like linen and wood], [ELEMENT 2 e.g. a colour palette strip showing warm terracotta, cream, olive green, and rust], [ELEMENT 3 e.g. lifestyle imagery of people in relaxed, outdoor settings], [ELEMENT 4 e.g. typography samples in clean serif and handwritten styles], [ELEMENT 5 e.g. packaging or product styling references with minimal, eco-friendly design]. Arranged in an asymmetric grid layout with varied image sizes. Cohesive colour story throughout: [COLOURS e.g. earth tones - terracotta, sage, cream, charcoal]. The feeling is [MOOD e.g. authentic, premium, grounded, inviting]. Clean white borders between each image. High quality, curated, intentional.",
+    "howToUse": [
+      "List 4-6 elements that represent your brand's visual world - textures, colours, lifestyle, typography, and product styling",
+      "Define the overall mood in 3-4 adjectives",
+      "Generate the mood board and use it as a reference for all future design decisions",
+      "Share with designers, photographers, or content creators to align everyone on the brand vision"
+    ],
+    "whyItWorks": "Mood boards translate abstract brand values into concrete visual direction. By specifying both the elements (what is shown) and the mood (how it feels), you get a cohesive reference that guides everything from website design to social media to packaging.",
+    "makeItYourOwn": "Create different mood boards for different aspects of your brand - one for product photography, one for social media, one for packaging. Update seasonally while keeping core brand colours consistent.",
+    "isFree": false,
+    "type": "image-prompt"
+  },
+  {
+    "id": "img-014",
+    "title": "Colour Palette Visualisation",
+    "description": "Creates a beautiful visual representation of a brand colour palette with swatches, textures, and applications.",
+    "category": "Image and design",
+    "industryTags": [
+      "Any",
+      "Design",
+      "Branding",
+      "Marketing"
+    ],
+    "difficulty": "beginner",
+    "toolRecommendation": "ChatGPT/DALL-E",
+    "toolTips": "In ChatGPT, you can ask it to generate the palette and then follow up with 'Now show me how these colours would look on a business card' or 'Show these colours applied to a website mockup'.",
+    "content": "A beautiful brand colour palette visualisation. Display [NUMBER e.g. 5] colour swatches arranged [LAYOUT e.g. horizontally in a row / in overlapping circles / as paint brush strokes / as torn paper strips]. The colours are: [COLOUR 1 e.g. deep navy blue - primary], [COLOUR 2 e.g. warm gold - accent], [COLOUR 3 e.g. soft cream - background], [COLOUR 4 e.g. charcoal grey - text], [COLOUR 5 e.g. muted sage green - secondary]. Each swatch is large and clearly shows the colour. The style is [STYLE e.g. clean and minimal / artistic with paint textures / modern with geometric shapes / organic with watercolour edges]. White background. The overall presentation looks like a professional brand guidelines document. No text or colour codes in the image. High resolution, clean, polished.",
+    "howToUse": [
+      "Define your brand colours (use a tool like Coolors.co if you need help choosing)",
+      "Generate the visualisation in a style that matches your brand personality",
+      "Use this in brand guidelines documents, pitch decks, and when briefing designers",
+      "Generate multiple versions - one with swatches, one showing the colours on products, one on a website mockup"
+    ],
+    "whyItWorks": "Seeing colours together in a designed layout is far more useful than a list of hex codes. This prompt shows how colours interact with each other and creates a reference that anyone on your team can immediately understand and use.",
+    "makeItYourOwn": "Try different swatch styles to match your brand - watercolour for organic brands, geometric for tech, paint strokes for creative. Ask for follow-up images showing the palette applied to specific materials like business cards, packaging, or social posts.",
+    "isFree": false,
+    "type": "image-prompt"
+  },
+  {
+    "id": "img-015",
+    "title": "Brand Pattern and Texture",
+    "description": "Creates a seamless brand pattern or texture that can be used as backgrounds across marketing materials.",
+    "category": "Image and design",
+    "industryTags": [
+      "Any",
+      "Retail",
+      "Hospitality",
+      "Fashion",
+      "Food and drink"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "Midjourney",
+    "toolTips": "In Midjourney, add --tile to create a seamless repeating pattern. This is essential for backgrounds and wrapping paper. Use --style raw for cleaner, more consistent results.",
+    "content": "A seamless repeating pattern for a [BRAND TYPE e.g. premium coffee brand / children's clothing line / tech company / wellness studio]. The pattern features [ELEMENTS e.g. simplified line drawings of coffee beans and leaves / playful geometric shapes and stars / subtle circuit board-inspired lines / flowing organic curves and botanical elements]. Colour palette: [COLOURS e.g. cream background with dark brown and gold elements / white background with rainbow pastels / dark navy with light blue lines / sage green background with white botanical drawings]. The density is [DENSITY e.g. sparse with lots of breathing room / medium with balanced spacing / dense but not overwhelming]. Style: [STYLE e.g. hand-drawn illustration / clean geometric / minimal line art / organic watercolour]. The pattern should tile seamlessly. Professional, polished, brand-quality. --tile --style raw",
+    "howToUse": [
+      "Define elements that relate to your brand or industry",
+      "Use --tile in Midjourney to ensure seamless repeating",
+      "Apply as website backgrounds, email templates, packaging, social media borders, or presentation slides",
+      "Generate in your brand colours for instant brand consistency"
+    ],
+    "whyItWorks": "A custom brand pattern is a secret weapon for visual consistency. Most small businesses do not have one, so it immediately makes your materials look more polished. The --tile flag ensures the pattern repeats seamlessly, making it genuinely usable.",
+    "makeItYourOwn": "Create 2-3 pattern variations - one dense for small applications like business cards, one sparse for backgrounds, and one medium for packaging. All using the same elements and colours for brand consistency.",
+    "isFree": false,
+    "type": "image-prompt"
+  },
+  {
+    "id": "img-016",
+    "title": "Professional Slide Background",
+    "description": "Creates clean, professional backgrounds for presentation slides that make your content shine without distraction.",
+    "category": "Image and design",
+    "industryTags": [
+      "Any",
+      "Consulting",
+      "Corporate",
+      "Education"
+    ],
+    "difficulty": "beginner",
+    "toolRecommendation": "ChatGPT/DALL-E",
+    "toolTips": "In ChatGPT, generate one background and then say 'Create 3 more variations in the same style but with subtle differences' to build a consistent slide deck.",
+    "content": "A professional presentation slide background, 1920x1080 pixels (16:9). Style: [STYLE e.g. clean corporate / modern minimalist / subtle gradient / premium dark mode]. The background is [BASE e.g. a soft gradient from white to very light grey / a deep navy blue with subtle geometric patterns / a warm cream with thin gold accent lines / a charcoal grey with a subtle topographic pattern]. [ACCENT ELEMENT e.g. A thin accent line or subtle shape in the bottom-right corner in gold / A soft curved shape along the left edge in a lighter shade / Small geometric dots scattered sparsely in the upper-right / A subtle dividing line across the lower third]. The design is extremely subtle - it should enhance content, not compete with it. Generous clear space for text and charts. No text, no logos. Professional, polished, suitable for executive presentations. High resolution.",
+    "howToUse": [
+      "Generate 4-5 variations for different slide types - title slide (bolder), content slides (subtler), section dividers (medium)",
+      "Set as background in PowerPoint (right-click slide then Format Background then Picture) or Google Slides",
+      "Ensure your text colours have strong contrast against the background",
+      "Use the same style throughout the deck for visual consistency"
+    ],
+    "whyItWorks": "The best presentation backgrounds are barely noticed - they make everything on top look more professional. This prompt keeps decoration minimal and in the corners or edges, leaving the centre clear for your actual content. The subtle accent elements prevent it looking like a blank slide.",
+    "makeItYourOwn": "Match to your company colours. Create a 'light' version and a 'dark' version of each background for flexibility. For client presentations, subtly incorporate their brand colours as the accent.",
+    "isFree": false,
+    "type": "image-prompt"
+  },
+  {
+    "id": "img-017",
+    "title": "Concept Illustration for Presentations",
+    "description": "Creates clear, professional illustrations of abstract business concepts for slides and documents.",
+    "category": "Image and design",
+    "industryTags": [
+      "Any",
+      "Consulting",
+      "Corporate",
+      "Education",
+      "Tech"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "ChatGPT/DALL-E",
+    "toolTips": "In ChatGPT, describe the concept in plain English. For best results, say what the illustration should show, not just the concept name. 'An illustration showing gears connecting different departments' works better than 'cross-functional collaboration'.",
+    "content": "A clean, professional illustration representing the concept of [CONCEPT e.g. digital transformation / team collaboration / customer journey / data security / sustainable growth]. The illustration shows [VISUAL METAPHOR e.g. interconnected gears of different sizes working together / a winding path with milestones and signposts / a shield protecting flowing data streams / a tree growing from digital roots into organic branches]. Style: [STYLE e.g. flat design with clean lines / isometric 3D / minimal line art / modern corporate illustration]. Colour palette: [COLOURS e.g. blue and teal with white / warm orange and grey / brand colours]. White or transparent background. The illustration is clear enough to understand at a glance on a presentation slide. No text. Professional, modern, suitable for corporate presentations and reports.",
+    "howToUse": [
+      "Think about what visual metaphor best represents your concept",
+      "Generate the illustration and place it on your slide alongside a brief heading",
+      "Use one concept illustration per slide for maximum impact",
+      "Maintain a consistent style across all illustrations in a single presentation"
+    ],
+    "whyItWorks": "Abstract concepts like 'innovation' or 'collaboration' are hard to present without visuals. This prompt translates concepts into concrete visual metaphors that audiences instantly understand. Specifying the style ensures the illustration matches your presentation's tone.",
+    "makeItYourOwn": "Build a library of concept illustrations in a consistent style for reuse across presentations. The flat design and isometric styles tend to produce the most professional, consistent results across multiple prompts.",
+    "isFree": false,
+    "type": "image-prompt"
+  },
+  {
+    "id": "img-018",
+    "title": "Data Visualisation Graphic",
+    "description": "Creates stylised data visualisation graphics that make statistics and numbers visually compelling in presentations.",
+    "category": "Image and design",
+    "industryTags": [
+      "Any",
+      "Consulting",
+      "Finance",
+      "Marketing",
+      "Analytics"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "ChatGPT/DALL-E",
+    "toolTips": "In ChatGPT, the generated image will not have accurate data - it creates a visually appealing chart style. Use it as a visual reference, then recreate with real data in PowerPoint or Google Sheets, or use it as a decorative background behind your actual chart.",
+    "content": "A stylised, visually striking data visualisation graphic. The chart type is [TYPE e.g. a rising bar chart / a circular donut chart / an area chart showing growth / a network graph showing connections / an abstract representation of percentages]. The data suggests [TREND e.g. upward growth / a breakdown of categories / comparison between three options / interconnected elements]. Colour palette: [COLOURS e.g. gradient blues from light to dark / coral, teal, and grey / bold primary colours]. Style: [STYLE e.g. modern and minimal with clean lines / slightly three-dimensional with subtle shadows / glowing neon on dark background / flat design with rounded elements]. The chart elements are [QUALITY e.g. smooth, polished, with subtle animations suggested / clean with generous spacing / bold and high-contrast]. No actual numbers or text labels. The overall impression is 'impressive data, professionally presented'. White or [COLOUR] background. 16:9 aspect ratio.",
+    "howToUse": [
+      "Use this as a visual style reference for your real charts",
+      "Or place it as a background or decorative element on a statistics slide",
+      "Match the colour palette to your presentation theme",
+      "Pair with your actual numbers overlaid as text for a polished look"
+    ],
+    "whyItWorks": "Default Excel and PowerPoint charts look generic. This prompt creates visually distinctive chart styles that stand out in presentations. Even though the data is not real, the style and colour palette provide a template for making your actual data look professional.",
+    "makeItYourOwn": "Generate chart styles for each type you commonly use - bar, pie, line, and area. Save them as visual references. For impact, try the 'glowing neon on dark background' style for one key statistic in your presentation.",
+    "isFree": false,
+    "type": "image-prompt"
+  },
+  {
+    "id": "img-019",
+    "title": "Team and About Page Photo",
+    "description": "Creates professional, diverse workplace photos for team pages and about sections when real photos are not available.",
+    "category": "Image and design",
+    "industryTags": [
+      "Any",
+      "Startups",
+      "Professional services",
+      "Tech"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "Gemini",
+    "toolTips": "Gemini produces the most natural-looking people in workplace settings. Important: be transparent with your audience if using AI-generated team photos. These are best used for mockups, pitch decks, and placeholder content, not to misrepresent your actual team.",
+    "content": "A professional workplace photograph showing [SCENE e.g. a small team of 3-4 people in a modern office having a collaborative discussion / a person working confidently at a standing desk / two colleagues reviewing something on a laptop together]. The people are [DESCRIPTION e.g. diverse in appearance, dressed in smart casual business attire]. The setting is [SETTING e.g. a bright, modern open-plan office with plants and natural light / a clean co-working space / a creative studio with whiteboards and post-it notes]. The mood is [MOOD e.g. focused but friendly / dynamic and engaged / calm and professional]. Shot at [ANGLE e.g. eye level, medium distance, showing full upper bodies and the environment]. Natural lighting, warm colour grading. The style matches high-quality corporate photography. Realistic, not overly posed. 16:9 aspect ratio.",
+    "howToUse": [
+      "Use for pitch decks, mockup websites, or placeholder content during development",
+      "Specify the workplace setting that matches your industry",
+      "Be transparent about AI-generated photos - do not present them as your actual team",
+      "Generate several with consistent settings for a cohesive about page"
+    ],
+    "whyItWorks": "Professional team photos are expensive and time-consuming to arrange. This prompt creates realistic workplace imagery that works for mockups and early-stage businesses. Specifying natural interaction rather than posed shots produces more believable results.",
+    "makeItYourOwn": "Match the office environment to your actual workspace or aspirational workspace. Adjust the dress code - casual for startups, business formal for consultancies. Generate multiple shots with different activities for a varied about page.",
+    "isFree": false,
+    "type": "image-prompt"
+  },
+  {
+    "id": "img-020",
+    "title": "Flyer and Poster Design",
+    "description": "Creates eye-catching visual backgrounds for event flyers, promotional posters, or announcement designs.",
+    "category": "Marketing and content",
+    "industryTags": [
+      "Events",
+      "Retail",
+      "Hospitality",
+      "Education",
+      "Entertainment"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "Midjourney",
+    "toolTips": "In Midjourney, use --ar 3:4 for standard poster proportions or --ar 2:3 for A-size paper. Generate the visual background first, then add all text and details in Canva. AI text on posters is almost always illegible.",
+    "content": "A striking visual background for a [TYPE e.g. promotional flyer / event poster / sale announcement / workshop advertisement]. The visual theme is [THEME e.g. bold and modern with dynamic energy / elegant and sophisticated with luxury feel / fun and vibrant for a community event / professional and clean for a business seminar]. The image features [VISUAL ELEMENTS e.g. abstract colour explosions and geometric shapes / a dramatic spotlight effect on a dark background / bright, layered paper cutout effects / soft botanical illustrations with a premium feel]. Colour palette: [COLOURS e.g. hot pink, electric blue, and white / black, gold, and cream / primary colours on white / deep green and warm wood tones]. The composition has a clear focal area in the [POSITION e.g. upper half / centre / lower two-thirds] for headline text to be added later, and a secondary space for [DETAILS e.g. date, time, location details]. No text in the image. The design should be visible and impactful from [DISTANCE e.g. across a room / on a social media feed / on a notice board]. --ar 3:4",
+    "howToUse": [
+      "Generate the visual background with space for text",
+      "Import into Canva and add headline, details, and call to action",
+      "For print, ensure the image is high resolution - regenerate with 'high resolution, print quality' if needed",
+      "Test readability by viewing at the size it will be seen - poster from across the room, flyer at arm's length"
+    ],
+    "whyItWorks": "Great posters and flyers need a visual that stops people. This prompt creates bold backgrounds while deliberately leaving text space. Specifying the viewing distance ensures the visual impact works in context - a poster seen from 3 metres needs bigger, bolder elements than a flyer.",
+    "makeItYourOwn": "Create a series of matching flyers for a campaign by keeping the colour palette and style consistent but changing the visual elements. For seasonal promotions, incorporate seasonal colours and imagery.",
+    "isFree": false,
+    "type": "image-prompt"
+  },
+  {
+    "id": "img-021",
+    "title": "Email Header Image",
+    "description": "Creates professional header images for marketing emails, newsletters, and email campaigns.",
+    "category": "Marketing and content",
+    "industryTags": [
+      "Any",
+      "Marketing",
+      "E-commerce",
+      "Professional services"
+    ],
+    "difficulty": "beginner",
+    "toolRecommendation": "ChatGPT/DALL-E",
+    "toolTips": "In ChatGPT, email headers should be 600px wide (the standard email width). Keep them under 200px tall so they do not push content below the fold. Many email clients block images by default, so your email should work without the header too.",
+    "content": "A professional email header banner image, 600x200 pixels (wide and short). The design is [STYLE e.g. clean and modern / warm and welcoming / bold and promotional / subtle and professional]. Background: [BACKGROUND e.g. a soft gradient in brand colours / a subtle pattern with your industry theme / a clean colour block with an accent line / a photographic scene, blurred and darkened for text overlay]. The image features [ELEMENTS e.g. a subtle decorative border / a small icon or illustration on the left side / a gradient that fades from colour to white / abstract shapes suggesting your industry]. Colour palette: [COLOURS e.g. your brand primary and accent colours]. Clear space in the centre for a headline or logo to be overlaid. The design should look professional on both desktop and mobile email clients. No text. Clean, polished, not cluttered.",
+    "howToUse": [
+      "Generate the header background matching your brand colours",
+      "Add your headline or logo using your email marketing tool (Mailchimp, etc.) or Canva",
+      "Keep the image file size under 100KB for fast loading",
+      "Create a set of 4-5 headers for different email types - newsletter, promotion, announcement, welcome"
+    ],
+    "whyItWorks": "Email headers set the tone before anyone reads a word. The wide-and-short format prevents the header from dominating the email on mobile. Keeping it simple ensures it loads fast and looks good across the dozens of different email clients.",
+    "makeItYourOwn": "Create a standard header for your regular newsletter and special versions for promotions, announcements, and seasonal campaigns. Keep the basic style consistent so subscribers recognise your emails instantly.",
+    "isFree": false,
+    "type": "image-prompt"
+  },
+  {
+    "id": "img-022",
+    "title": "Website Hero Image",
+    "description": "Creates a stunning hero image for website headers and landing pages that immediately communicates your brand value.",
+    "category": "Marketing and content",
+    "industryTags": [
+      "Any",
+      "SaaS",
+      "E-commerce",
+      "Professional services",
+      "Startups"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "Midjourney",
+    "toolTips": "In Midjourney, use --ar 21:9 for ultra-wide hero banners or --ar 16:9 for standard. Add --quality 2 for maximum quality since hero images are viewed at full screen width.",
+    "content": "A stunning website hero banner image, ultra-wide aspect ratio (21:9). The scene shows [SCENE e.g. an abstract representation of connection and innovation / a beautiful, aspirational workspace / a lifestyle scene related to your industry / a dramatic landscape with metaphorical significance]. Style: [STYLE e.g. modern and clean with lots of negative space on the left for text / dramatic with a dark gradient on the left fading to the main scene on the right / bright and inviting with the focal point on the right third]. The left side (or right side if specified) has a [OVERLAY AREA e.g. natural dark area / gradient to darker tones / simple clear space] where headline text and a call-to-action button will be placed. Colour palette: [COLOURS e.g. cool blues and whites suggesting trust and technology / warm earth tones suggesting authenticity and craftsmanship / vibrant colours suggesting energy and creativity]. The mood is [MOOD e.g. inspiring and aspirational / trustworthy and professional / warm and welcoming / bold and innovative]. High resolution, professional quality. --ar 21:9 --quality 2",
+    "howToUse": [
+      "Generate the hero image with clear text space on the side where your headline will go",
+      "Test at full browser width to ensure it looks good",
+      "Add a semi-transparent overlay if the text is not legible enough against the image",
+      "Consider mobile - the image will be cropped differently on phones, so keep the focal point central"
+    ],
+    "whyItWorks": "Hero images make or break first impressions. This prompt creates an ultra-wide composition with deliberate text space - most stock photos put the subject in the centre, making text overlay difficult. The specified mood and colour palette ensure the hero matches your brand before you add a single word.",
+    "makeItYourOwn": "A/B test different hero images to see what converts better. Create seasonal versions that refresh your homepage without changing the layout. For SaaS, show the product in use. For services, show the result your clients get.",
+    "isFree": false,
+    "type": "image-prompt"
+  },
+  {
+    "id": "img-023",
+    "title": "Seasonal Campaign Visual",
+    "description": "Creates on-brand seasonal marketing visuals for holidays, events, and time-limited campaigns.",
+    "category": "Marketing and content",
+    "industryTags": [
+      "Retail",
+      "E-commerce",
+      "Hospitality",
+      "Any"
+    ],
+    "difficulty": "beginner",
+    "toolRecommendation": "ChatGPT/DALL-E",
+    "toolTips": "In ChatGPT, specify the exact season or holiday. Plan ahead - generate Christmas visuals in November, summer campaign images in May. You can ask for variations: 'Same style but for Valentine's Day instead'.",
+    "content": "A seasonal marketing visual for [SEASON/HOLIDAY e.g. Christmas / Summer sale / Black Friday / Valentine's Day / Back to school / Easter / Halloween / New Year]. The design combines [SEASONAL ELEMENTS e.g. elegant snowflakes and pine branches / bright sunshine and tropical leaves / bold black and gold sale tags / hearts and soft pink gradients / notebooks and pencils / spring flowers and pastels / pumpkins and cobwebs / fireworks and champagne glasses] with a [BRAND FEEL e.g. premium and sophisticated / fun and playful / bold and urgent / warm and inviting] aesthetic. Colour palette: [COLOURS e.g. traditional holiday colours refined with your brand palette - red, gold, and cream for Christmas / neon yellow, black, and white for Black Friday]. The composition has a clear area for [TEXT SPACE e.g. a promotional message / a discount code / a campaign tagline]. The seasonal theme is [INTENSITY e.g. subtle and tasteful / bold and festive / understated and classy]. No text. Square format (1080x1080) for social media. Professional quality.",
+    "howToUse": [
+      "Choose your season or holiday and match it to your brand's personality",
+      "Generate the visual and add your promotional text in Canva",
+      "Create a set - one for social media (square), one for email (wide), one for website (ultra-wide)",
+      "Use consistent seasonal branding across all channels for maximum impact"
+    ],
+    "whyItWorks": "Seasonal marketing performs best when it is timely and on-brand. This prompt prevents the common mistake of using generic seasonal clip art by integrating seasonal elements with your brand aesthetic. The result feels festive but still looks like your brand.",
+    "makeItYourOwn": "Create a yearly seasonal content calendar and batch-generate all seasonal visuals at the start of the year. Adjust the intensity - luxury brands should be subtle, retail brands can be bold. Always maintain your brand colours even in seasonal palettes.",
+    "isFree": false,
+    "type": "image-prompt"
+  },
+  {
+    "id": "img-024",
+    "title": "Diverse Workplace Photo",
+    "description": "Creates realistic, diverse workplace photography as an alternative to expensive or generic stock photos.",
+    "category": "Image and design",
+    "industryTags": [
+      "Any",
+      "Corporate",
+      "HR",
+      "Professional services"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "Gemini",
+    "toolTips": "Gemini produces the most realistic workplace photography. Be specific about the setting, activity, and mood. For ethical use, do not present AI-generated people as real employees - use for general marketing, not specific team profiles.",
+    "content": "A natural, candid-style workplace photograph showing [SCENE e.g. a diverse group of four colleagues having an animated brainstorming session around a whiteboard / two professionals shaking hands in a modern lobby / a person giving a presentation to an engaged small audience / a team celebrating with coffee and smiles after completing a project]. The workplace is [SETTING e.g. a bright, modern open-plan office with plants and glass partitions / a creative agency with colourful walls and standing desks / a clean, professional meeting room / a friendly co-working space]. The people are [DIVERSITY e.g. diverse in age, ethnicity, and gender, dressed in smart casual attire]. The mood is [MOOD e.g. collaborative and energetic / professional and focused / warm and celebratory / dynamic and innovative]. Shot in natural light with a documentary photography feel - candid, not posed. Warm, natural colour grading. Eye-level perspective. 16:9 aspect ratio.",
+    "howToUse": [
+      "Use for website about pages, blog posts, marketing materials, and presentations",
+      "Specify the exact workplace activity relevant to the page or section it will appear on",
+      "Generate several variations for a library of workplace images",
+      "Be transparent about AI generation when appropriate"
+    ],
+    "whyItWorks": "Stock photos of workplaces often look staged and generic. By specifying 'candid, not posed' and 'documentary photography feel', this prompt produces images that feel authentic. Describing specific activities rather than posed group shots creates more believable, usable results.",
+    "makeItYourOwn": "Match the workplace setting to your actual office style. Create images showing specific scenarios - client meetings, team collaboration, individual focus work, celebrations. Build a consistent library using the same setting across multiple prompts.",
+    "isFree": true,
+    "type": "image-prompt"
+  },
+  {
+    "id": "img-025",
+    "title": "Industry-Specific Scene",
+    "description": "Creates realistic stock-quality photos of specific industry environments and situations.",
+    "category": "Image and design",
+    "industryTags": [
+      "Healthcare",
+      "Construction",
+      "Education",
+      "Hospitality",
+      "Manufacturing",
+      "Tech"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "Gemini",
+    "toolTips": "Gemini handles industry-specific environments well. Be very specific about equipment, settings, and safety gear - generic descriptions produce generic results. For regulated industries, ensure any depicted safety practices are accurate.",
+    "content": "A professional photograph of a [INDUSTRY SCENE e.g. modern hospital reception area with a friendly receptionist greeting a patient / construction site with workers in high-vis vests reviewing blueprints / a teacher helping a student with a coding project in a well-equipped computer lab / a chef plating food in a clean, professional kitchen / an engineer inspecting machinery in a modern factory]. The setting is [DETAILS e.g. well-lit, clean, and modern / busy but organised / calm and professional]. The people are wearing [ATTIRE e.g. appropriate industry uniforms, PPE, or professional dress]. The scene conveys [MESSAGE e.g. competence and care / safety and professionalism / innovation and expertise / warmth and service]. Natural lighting where appropriate, or industry-standard lighting for indoor settings. Photographed in an editorial documentary style - natural and authentic, not staged. Warm colour grading. High resolution. 16:9 aspect ratio.",
+    "howToUse": [
+      "Be very specific about the industry environment - generic descriptions give generic results",
+      "Include relevant equipment, uniforms, and setting details",
+      "Use for website service pages, case studies, and marketing collateral",
+      "Generate multiple scenes showing different aspects of your industry"
+    ],
+    "whyItWorks": "Industry-specific stock photos are expensive and often limited in variety. This prompt produces targeted imagery that actually matches your sector. Specifying equipment and appropriate attire prevents common AI mistakes like missing safety gear or incorrect uniform details.",
+    "makeItYourOwn": "Create a complete set covering your key services or processes. For a construction firm, you might want site photos, planning meetings, completed projects, and safety briefings. Maintain consistent style for a cohesive visual library.",
+    "isFree": false,
+    "type": "image-prompt"
+  },
+  {
+    "id": "img-026",
+    "title": "Abstract Conceptual Art",
+    "description": "Creates beautiful abstract and conceptual artwork for backgrounds, hero images, and decorative brand elements.",
+    "category": "Image and design",
+    "industryTags": [
+      "Any",
+      "Tech",
+      "Creative",
+      "Wellness",
+      "Finance"
+    ],
+    "difficulty": "beginner",
+    "toolRecommendation": "Midjourney",
+    "toolTips": "In Midjourney, abstract art is where the tool truly excels. Experiment with --stylize values: --stylize 100 for subtle, --stylize 750 for very artistic. Add --chaos 20 for more variation between results.",
+    "content": "An abstract conceptual artwork conveying the feeling of [CONCEPT e.g. growth and possibility / calm focus and clarity / creative energy and innovation / connection and community / transformation and change]. The visual language uses [ELEMENTS e.g. flowing organic forms in motion / geometric shapes intersecting and overlapping / light particles dispersing and converging / wave-like patterns suggesting rhythm and flow / layered translucent shapes creating depth]. Colour palette: [COLOURS e.g. deep ocean blues and luminous teals / warm sunset oranges and purples / fresh greens and whites / monochrome with a single accent colour]. The composition is [COMPOSITION e.g. centrally balanced / dynamically off-centre / expansive from left to right / rising upward]. The mood is [MOOD e.g. serene and spacious / energetic and dynamic / mysterious and sophisticated / optimistic and forward-looking]. High resolution, suitable for large format printing or website backgrounds. --stylize 250",
+    "howToUse": [
+      "Describe the feeling or concept rather than literal objects",
+      "Use as website backgrounds, presentation slides, report covers, or office wall art",
+      "Generate at the highest resolution possible for flexible use",
+      "Try several variations - abstract art is subjective, so generate 4-5 options and pick your favourite"
+    ],
+    "whyItWorks": "Abstract art conveys feelings without being literal, making it versatile across many uses. By describing the concept (growth, calm, energy) rather than specific objects, you get visuals that resonate emotionally without being cliched. Midjourney excels at this style.",
+    "makeItYourOwn": "Use your brand colours for instant brand alignment. Create a series of related abstracts for different pages or contexts - same palette, different compositions. These work beautifully as large-format prints for offices too.",
+    "isFree": false,
+    "type": "image-prompt"
+  },
+  {
+    "id": "img-027",
+    "title": "Process and Workflow Diagram",
+    "description": "Creates clear, visually appealing process diagrams showing steps, workflows, or systems.",
+    "category": "Image and design",
+    "industryTags": [
+      "Any",
+      "Consulting",
+      "Operations",
+      "Tech",
+      "Education"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "ChatGPT/DALL-E",
+    "toolTips": "In ChatGPT, process diagrams work best when you specify the exact number of steps and describe each briefly. The text will likely be garbled, so plan to replace it in Canva or your design tool. Focus on getting the layout and visual style right.",
+    "content": "A clean, professional process diagram illustration showing [NUMBER e.g. 5] steps in a [LAYOUT e.g. horizontal flow from left to right / circular cycle / vertical cascade / branching decision tree]. Each step is represented by [SHAPE e.g. a numbered circle / a rounded rectangle / an icon in a hexagon / a card with an icon]. The steps are connected by [CONNECTORS e.g. smooth arrows / dotted lines / flowing curved paths / straight lines with arrow heads]. Step 1: [ICON/VISUAL e.g. a lightbulb for 'Idea'], Step 2: [ICON/VISUAL e.g. a pencil for 'Draft'], Step 3: [ICON/VISUAL e.g. a magnifying glass for 'Review'], Step 4: [ICON/VISUAL e.g. a gear for 'Build'], Step 5: [ICON/VISUAL e.g. a rocket for 'Launch']. Colour palette: [COLOURS e.g. each step a different shade progressing from light to dark / all one colour with varying opacity / each step in a distinct brand colour]. Style: [STYLE e.g. flat design / isometric / minimal line art / modern corporate]. White background. No text labels (will be added later). Clean, clear, professional.",
+    "howToUse": [
+      "Define your process steps and choose an icon or visual for each",
+      "Generate the diagram layout and export it",
+      "Add proper text labels in Canva, Figma, or PowerPoint",
+      "Use in process documentation, onboarding materials, websites, and presentations"
+    ],
+    "whyItWorks": "Process diagrams are one of the most-requested business visuals. This prompt creates the visual structure with icons and layout while avoiding AI text generation (which is unreliable). Specifying the exact layout type ensures you get a usable diagram, not an artistic interpretation.",
+    "makeItYourOwn": "Adapt the layout to your content - linear processes flow left to right, cyclical processes need a circle layout, decision-based processes need branches. Keep a consistent icon style across all your diagrams for a professional look.",
+    "isFree": false,
+    "type": "image-prompt"
+  },
+  {
+    "id": "img-028",
+    "title": "Custom Icon Set",
+    "description": "Creates a matching set of icons in a consistent style for websites, apps, presentations, or documents.",
+    "category": "Image and design",
+    "industryTags": [
+      "Any",
+      "Tech",
+      "SaaS",
+      "Marketing",
+      "Education"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "ChatGPT/DALL-E",
+    "toolTips": "In ChatGPT, ask for all icons in a single image first to ensure style consistency. Then you can ask for individual icons if needed. Specify 'same style, same line weight, same colours' to keep them matching.",
+    "content": "A set of [NUMBER e.g. 8] matching icons arranged in a [LAYOUT e.g. 2x4 grid / 4x2 grid / single row]. Each icon represents: [ICON 1 e.g. email or communication], [ICON 2 e.g. analytics or growth], [ICON 3 e.g. security or shield], [ICON 4 e.g. speed or performance], [ICON 5 e.g. support or headset], [ICON 6 e.g. settings or gear], [ICON 7 e.g. team or people], [ICON 8 e.g. innovation or lightbulb]. Style: [STYLE e.g. minimal line art with rounded corners / flat design with bold fills / subtle gradient fills / outlined with a single accent colour]. All icons have the same [CONSISTENCY e.g. line weight, corner radius, colour palette, and level of detail]. Colour: [COLOURS e.g. single colour - navy blue / two-tone - grey outlines with teal accents / monochrome with brand colour highlights]. Each icon is contained within a [CONTAINER e.g. circle / rounded square / no container - standalone]. White background with generous spacing between icons. Clean, modern, professional.",
+    "howToUse": [
+      "List all the concepts you need icons for before generating",
+      "Generate the full set in one image to ensure consistency",
+      "Cut out individual icons using any image editor or Canva's background remover",
+      "Use across your website, presentations, documents, and marketing materials"
+    ],
+    "whyItWorks": "Consistent icon sets are expensive to commission and time-consuming to find as free resources that actually match. Generating them in a single image forces style consistency. Specifying line weight, corner radius, and colour palette prevents the common problem of mismatched icons.",
+    "makeItYourOwn": "Create sets for different purposes - one for your website features, one for your services, one for internal documentation. Keep the style and colours identical across sets for a unified brand look. Generate larger sets of 12-16 icons for comprehensive coverage.",
+    "isFree": false,
+    "type": "image-prompt"
+  },
+  {
+    "id": "img-029",
+    "title": "Hand-Drawn Style Graphic",
+    "description": "Creates charming hand-drawn style illustrations that add warmth and personality to content.",
+    "category": "Image and design",
+    "industryTags": [
+      "Education",
+      "Coaching",
+      "Small business",
+      "Food and drink",
+      "Creative"
+    ],
+    "difficulty": "beginner",
+    "toolRecommendation": "Midjourney",
+    "toolTips": "In Midjourney, use --style raw to get cleaner hand-drawn results. Add 'white background' to keep it versatile. The hand-drawn style works particularly well for educational content, social media, and brands that want to feel approachable.",
+    "content": "A charming hand-drawn style illustration of [SUBJECT e.g. a cosy coffee shop scene / a collection of baking ingredients and tools / a desk covered in creative supplies / a garden with various plants and flowers / a bustling market stall]. The style is [STYLE e.g. loose pen and ink with watercolour washes / clean line drawing with minimal colour / sketchy pencil illustration / bold marker-style with filled shapes]. The drawing has [QUALITIES e.g. slight imperfections that make it feel authentic / confident, flowing lines / delicate, detailed linework / bold, expressive strokes]. Colour palette: [COLOURS e.g. black ink with a few watercolour accents in muted tones / full colour in a warm, vintage palette / monochrome with one pop of colour / soft pastels]. White background. The illustration feels [MOOD e.g. warm and inviting / playful and whimsical / sophisticated and editorial / cosy and nostalgic]. High resolution, suitable for print. --style raw",
+    "howToUse": [
+      "Choose a subject that relates to your content or brand story",
+      "Use as blog post headers, social media graphics, menu illustrations, or packaging details",
+      "The hand-drawn style adds personality to otherwise plain documents",
+      "Generate a series in the same style for consistent branding"
+    ],
+    "whyItWorks": "Hand-drawn illustrations stand out because they feel human in an increasingly digital world. They add warmth and approachability that photographs and digital graphics cannot match. Specifying the drawing medium (pen, pencil, marker) and qualities (loose, precise, bold) gives you control over the personality.",
+    "makeItYourOwn": "Create a hand-drawn visual vocabulary for your brand - spot illustrations, borders, decorative elements. These work beautifully for cafes, bakeries, coaching businesses, and educational content. Use consistently across all materials for a distinctive look.",
+    "isFree": false,
+    "type": "image-prompt"
+  },
+  {
+    "id": "img-030",
+    "title": "Educational Illustration",
+    "description": "Creates clear, informative educational illustrations for explainer content, courses, and learning materials.",
+    "category": "Image and design",
+    "industryTags": [
+      "Education",
+      "E-learning",
+      "Health",
+      "Science",
+      "Technology"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "ChatGPT/DALL-E",
+    "toolTips": "In ChatGPT, educational illustrations need to be accurate. After generating, always check that the content is factually correct - AI can get details wrong. These work best for conceptual overviews rather than precise technical diagrams.",
+    "content": "A clear, informative educational illustration explaining [CONCEPT e.g. how photosynthesis works / the water cycle / how a computer network functions / the human digestive system / the stages of a butterfly lifecycle]. The illustration shows [VISUAL APPROACH e.g. a cross-section diagram with labelled parts / a step-by-step sequence from left to right / a layered view showing hidden internal processes / a comparison side-by-side of two states]. Style: [STYLE e.g. clean, textbook-quality diagram / friendly and approachable for younger learners / detailed and scientific / simplified and conceptual]. Colour palette: [COLOURS e.g. bright, educational colours that distinguish different elements / calming blues and greens / colour-coded sections with a clear legend area]. The illustration uses [VISUAL AIDS e.g. arrows to show direction and flow / numbered steps / colour coding to distinguish different components / magnified inset details]. Clean white background. Designed to be understood at a glance. No text labels (will be added afterwards to ensure accuracy).",
+    "howToUse": [
+      "Describe the concept and choose the best visual approach - cross-section, sequence, or comparison",
+      "Generate the illustration and add accurate text labels using a design tool",
+      "Always fact-check the visual - AI may represent processes incorrectly",
+      "Use in course materials, blog posts, social media educational content, and worksheets"
+    ],
+    "whyItWorks": "Educational content with visuals is retained 65% better than text alone. This prompt creates structured, clear illustrations designed for learning. By specifying the visual approach (cross-section, sequence, comparison), you get a layout optimised for understanding rather than just a pretty picture.",
+    "makeItYourOwn": "Create a library of educational illustrations in a consistent style for your course or content series. Maintain the same colour coding system across all illustrations so learners associate colours with concepts. For younger audiences, make the style friendlier. For professionals, keep it clean and technical.",
+    "isFree": false,
+    "type": "image-prompt"
+  }
+]

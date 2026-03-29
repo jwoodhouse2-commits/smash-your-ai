@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GMMV8EBM39"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GMMV8EBM39');
+  </script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Tips and Guides Blog - Smash Your AI</title>
+  <meta name="description" content="Practical AI tips, guides, and insights for businesses and individuals. Learn how to use ChatGPT, automate workflows, and get more from AI tools.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:image" content="/images/blog/what-is-ai.jpg">
+  <link rel="canonical" href="https://smashyourai.com/blog">
+  <meta property="og:title" content="AI Tips and Guides Blog - Smash Your AI">
+  <meta property="og:description" content="Practical AI tips, guides, and insights for businesses and individuals. Learn how to use ChatGPT, automate workflows, and get more from AI tools.">
+  <meta property="og:url" content="https://smashyourai.com/blog">
+  <meta property="og:type" content="website">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: { extend: { fontFamily: { sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'] } } }
+    }
+  </script>
+  <style>
+    * { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+    .gradient-text { background: linear-gradient(135deg, #8b5cf6, #6366f1, #4f46e5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .gradient-btn { background: linear-gradient(135deg, #8b5cf6, #6366f1); transition: all 0.2s ease; }
+    .gradient-btn:hover { background: linear-gradient(135deg, #7c3aed, #4f46e5); transform: translateY(-1px); box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4); }
+    .card-hover { transition: all 0.3s ease; }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -12px rgba(99, 102, 241, 0.15); }
+    .section-purple { background: linear-gradient(180deg, rgba(139, 92, 246, 0.03) 0%, rgba(99, 102, 241, 0.06) 50%, rgba(139, 92, 246, 0.03) 100%); }
+  </style>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-lg border-b border-gray-100 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5">
+        <img src="/images/logo.png" alt="Smash Your AI" class="h-7 w-auto">
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Home</a>
+        <a href="/#ai-training-services" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Services</a>
+        <span class="text-sm font-medium text-gray-400 cursor-default relative group">Online course
+          <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Coming soon</span>
+        </span>
+        <a href="/#about-us" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">About us</a>
+        <div class="relative group">
+          <button class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors inline-flex items-center gap-1">
+            Resources
+            <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200 absolute top-full right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+            <a href="/prompts/" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              Prompt library
+            </a>
+            <a href="/content-calendars/" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              Content calendars
+            </a>
+            <a href="/quiz" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+              AI readiness quiz
+            </a>
+            <a href="/savings-calculator" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              AI savings calculator
+            </a>
+            <div class="border-t border-gray-100 my-1"></div>
+            <a href="/blog" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+              Blog
+            </a>
+          </div>
+        </div>
+        <a href="/#contact" class="gradient-btn text-white text-sm font-semibold px-5 py-2.5 rounded-xl">Get in touch</a>
+        <div id="shared-auth-area"></div>
+      </div>
+      <button class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3">
+      <a href="/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">Home</a>
+      <a href="/#ai-training-services" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">Services</a>
+      <span class="block text-sm font-medium text-gray-400 py-2">Online course (coming soon)</span>
+      <a href="/#about-us" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">About us</a>
+      <div class="border-t border-gray-100 pt-2 mt-1">
+        <span class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Resources</span>
+        <a href="/prompts/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Prompt library</a>
+        <a href="/content-calendars/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Content calendars</a>
+        <a href="/quiz" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">AI readiness quiz</a>
+        <a href="/savings-calculator" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">AI savings calculator</a>
+        <a href="/blog" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Blog</a>
+      </div>
+      <a href="/#contact" class="block gradient-btn text-white text-sm font-semibold px-5 py-2.5 rounded-xl text-center">Get in touch</a>
+      <div id="shared-auth-area-mobile"></div>
+    </div>
+  </nav>
+
+  <!-- Blog Header -->
+  <section class="pt-32 pb-12 md:pt-40 md:pb-16">
+    <div class="max-w-6xl mx-auto px-6">
+      <h1 class="text-3xl md:text-5xl font-extrabold mb-4">AI tips, guides, and insights</h1>
+      <p class="text-lg text-gray-500 max-w-2xl">Practical articles from our team to help you get more from AI. No jargon, just real advice you can use straight away.</p>
+    </div>
+  </section>
+
+  <!-- Category Filter -->
+  <section class="pb-8">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-wrap gap-2">
+        <button class="px-4 py-2 rounded-lg bg-violet-600 text-white text-sm font-medium" onclick="filterPosts('all')">All posts</button>
+        <button class="px-4 py-2 rounded-lg bg-violet-50 text-violet-700 text-sm font-medium hover:bg-violet-100 transition-colors" onclick="filterPosts('prompting')">Prompting</button>
+        <button class="px-4 py-2 rounded-lg bg-violet-50 text-violet-700 text-sm font-medium hover:bg-violet-100 transition-colors" onclick="filterPosts('automation')">Automation</button>
+        <button class="px-4 py-2 rounded-lg bg-violet-50 text-violet-700 text-sm font-medium hover:bg-violet-100 transition-colors" onclick="filterPosts('getting-started')">Getting started</button>
+        <button class="px-4 py-2 rounded-lg bg-violet-50 text-violet-700 text-sm font-medium hover:bg-violet-100 transition-colors" onclick="filterPosts('business')">Business</button>
+        <button class="px-4 py-2 rounded-lg bg-violet-50 text-violet-700 text-sm font-medium hover:bg-violet-100 transition-colors" onclick="filterPosts('tools')">Tools</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Posts Grid -->
+  <section class="pb-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div id="blog-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Post: AI Social Media Posts -->
+        <a href="/blog/ai-social-media-posts" class="card-hover bg-white rounded-2xl border border-gray-100 overflow-hidden group" data-category="business">
+          <img src="/images/blog/ai-social-media.jpg" alt="How to use AI to write social media posts" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs text-violet-600 font-medium px-2.5 py-1 bg-violet-50 rounded-md">Business</span>
+              <span class="text-xs text-gray-400">29 March 2026</span>
+            </div>
+            <h2 class="text-lg font-bold mb-2 group-hover:text-violet-600 transition-colors">How to use AI to write social media posts (that actually sound like you)</h2>
+            <p class="text-sm text-gray-500 mb-4">Why most AI social media posts sound robotic and how to fix it. Platform-specific tips for LinkedIn, Instagram, Facebook, and X.</p>
+            <span class="text-sm font-semibold text-violet-600 inline-flex items-center gap-1">
+              Read more
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Post: AI for Small Business -->
+        <a href="/blog/ai-for-small-business" class="card-hover bg-white rounded-2xl border border-gray-100 overflow-hidden group" data-category="business">
+          <img src="/images/blog/ai-small-business.jpg" alt="AI for small business quick wins" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs text-violet-600 font-medium px-2.5 py-1 bg-violet-50 rounded-md">Business</span>
+              <span class="text-xs text-gray-400">29 March 2026</span>
+            </div>
+            <h2 class="text-lg font-bold mb-2 group-hover:text-violet-600 transition-colors">AI for small business: 10 quick wins you can start today</h2>
+            <p class="text-sm text-gray-500 mb-4">10 practical ways to start using AI in your business right now. Each with a prompt example and estimated time saved.</p>
+            <span class="text-sm font-semibold text-violet-600 inline-flex items-center gap-1">
+              Read more
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Post: AI Image Generation -->
+        <a href="/blog/ai-image-generation-business" class="card-hover bg-white rounded-2xl border border-gray-100 overflow-hidden group" data-category="tools">
+          <img src="/images/blog/ai-image-generation.jpg" alt="AI image generation for business" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs text-violet-600 font-medium px-2.5 py-1 bg-violet-50 rounded-md">Tools</span>
+              <span class="text-xs text-gray-400">29 March 2026</span>
+            </div>
+            <h2 class="text-lg font-bold mb-2 group-hover:text-violet-600 transition-colors">AI image generation for business: a practical guide</h2>
+            <p class="text-sm text-gray-500 mb-4">How to create professional images with AI. Tool comparisons, prompt formulas, and practical use cases for your business.</p>
+            <span class="text-sm font-semibold text-violet-600 inline-flex items-center gap-1">
+              Read more
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Post: Custom GPTs -->
+        <a href="/blog/custom-gpts-for-business" class="card-hover bg-white rounded-2xl border border-gray-100 overflow-hidden group" data-category="tools">
+          <img src="/images/blog/custom-gpts.jpg" alt="How to build a custom GPT for your business" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs text-violet-600 font-medium px-2.5 py-1 bg-violet-50 rounded-md">Tools</span>
+              <span class="text-xs text-gray-400">29 March 2026</span>
+            </div>
+            <h2 class="text-lg font-bold mb-2 group-hover:text-violet-600 transition-colors">How to build a custom GPT for your business (step-by-step)</h2>
+            <p class="text-sm text-gray-500 mb-4">A complete walkthrough of building your first custom GPT. Plus 5 ready-made ideas for different business types.</p>
+            <span class="text-sm font-semibold text-violet-600 inline-flex items-center gap-1">
+              Read more
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Post: AI Privacy & Security -->
+        <a href="/blog/ai-privacy-security-business" class="card-hover bg-white rounded-2xl border border-gray-100 overflow-hidden group" data-category="business">
+          <img src="/images/blog/ai-privacy-security.jpg" alt="AI privacy and security for small businesses" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs text-violet-600 font-medium px-2.5 py-1 bg-violet-50 rounded-md">Business</span>
+              <span class="text-xs text-gray-400">29 March 2026</span>
+            </div>
+            <h2 class="text-lg font-bold mb-2 group-hover:text-violet-600 transition-colors">AI privacy and security: what small businesses need to know</h2>
+            <p class="text-sm text-gray-500 mb-4">Is AI safe for your business? What to share, what to avoid, and how to set up your tools properly. Includes a ready-made AI usage policy.</p>
+            <span class="text-sm font-semibold text-violet-600 inline-flex items-center gap-1">
+              Read more
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Post: ChatGPT vs Claude vs Gemini -->
+        <a href="/blog/chatgpt-vs-claude-vs-gemini" class="card-hover bg-white rounded-2xl border border-gray-100 overflow-hidden group" data-category="tools">
+          <img src="/images/blog/chatgpt-vs-claude.jpg" alt="Comparing ChatGPT, Claude, and Gemini side by side" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs text-violet-600 font-medium px-2.5 py-1 bg-violet-50 rounded-md">Tools</span>
+              <span class="text-xs text-gray-400">16 March 2026</span>
+            </div>
+            <h2 class="text-lg font-bold mb-2 group-hover:text-violet-600 transition-colors">ChatGPT vs Claude vs Gemini: which AI should you actually use?</h2>
+            <p class="text-sm text-gray-500 mb-4">An honest, first-hand comparison of the three biggest AI tools. Which is best for writing, coding, research, and everyday tasks.</p>
+            <span class="text-sm font-semibold text-violet-600 inline-flex items-center gap-1">
+              Read more
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Post: Is paying for AI worth it? -->
+        <a href="/blog/is-paying-for-ai-worth-it" class="card-hover bg-white rounded-2xl border border-gray-100 overflow-hidden group" data-category="getting-started">
+          <img src="/images/blog/is-paying-worth-it.jpg" alt="Is paying for AI subscriptions worth the money" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs text-violet-600 font-medium px-2.5 py-1 bg-violet-50 rounded-md">Getting started</span>
+              <span class="text-xs text-gray-400">16 March 2026</span>
+            </div>
+            <h2 class="text-lg font-bold mb-2 group-hover:text-violet-600 transition-colors">Is paying for AI worth it? A honest guide to AI subscriptions</h2>
+            <p class="text-sm text-gray-500 mb-4">ChatGPT Plus, Claude Pro, Gemini Advanced. Are they worth the money? Here is my honest breakdown after paying for all three.</p>
+            <span class="text-sm font-semibold text-violet-600 inline-flex items-center gap-1">
+              Read more
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Post: AI for teachers -->
+        <a href="/blog/ai-for-teachers" class="card-hover bg-white rounded-2xl border border-gray-100 overflow-hidden group" data-category="getting-started">
+          <img src="/images/blog/ai-for-teachers.jpg" alt="A practical guide to AI for teachers" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs text-violet-600 font-medium px-2.5 py-1 bg-violet-50 rounded-md">Getting started</span>
+              <span class="text-xs text-gray-400">16 March 2026</span>
+            </div>
+            <h2 class="text-lg font-bold mb-2 group-hover:text-violet-600 transition-colors">AI for teachers: a practical getting started guide</h2>
+            <p class="text-sm text-gray-500 mb-4">10 practical ways teachers can use AI right now, from lesson planning to marking feedback. Written by someone with 18 years in education.</p>
+            <span class="text-sm font-semibold text-violet-600 inline-flex items-center gap-1">
+              Read more
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Post: How to fact-check AI -->
+        <a href="/blog/how-to-fact-check-ai" class="card-hover bg-white rounded-2xl border border-gray-100 overflow-hidden group" data-category="getting-started">
+          <img src="/images/blog/fact-check-ai.jpg" alt="How to fact-check AI output and spot errors" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs text-violet-600 font-medium px-2.5 py-1 bg-violet-50 rounded-md">Getting started</span>
+              <span class="text-xs text-gray-400">16 March 2026</span>
+            </div>
+            <h2 class="text-lg font-bold mb-2 group-hover:text-violet-600 transition-colors">How to tell when AI is wrong: a beginner's fact-checking guide</h2>
+            <p class="text-sm text-gray-500 mb-4">AI gets things wrong more often than you think. Here is a simple process to catch mistakes before they catch you.</p>
+            <span class="text-sm font-semibold text-violet-600 inline-flex items-center gap-1">
+              Read more
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Post 1: What is AI? -->
+        <a href="/blog/what-is-ai" class="card-hover bg-white rounded-2xl border border-gray-100 overflow-hidden group" data-category="getting-started">
+          <img src="/images/blog/what-is-ai.jpg" alt="A plain English guide to understanding artificial intelligence" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs text-violet-600 font-medium px-2.5 py-1 bg-violet-50 rounded-md">Getting started</span>
+              <span class="text-xs text-gray-400">10 March 2026</span>
+            </div>
+            <h2 class="text-lg font-bold mb-2 group-hover:text-violet-600 transition-colors">What is AI? A plain English guide to artificial intelligence</h2>
+            <p class="text-sm text-gray-500 mb-4">New to AI? This jargon-free guide explains what artificial intelligence actually is, how it works, and the key terms you need to know.</p>
+            <span class="text-sm font-semibold text-violet-600 inline-flex items-center gap-1">
+              Read more
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Post 2: Prompting mistakes -->
+        <a href="/blog/chatgpt-prompting-mistakes" class="card-hover bg-white rounded-2xl border border-gray-100 overflow-hidden group" data-category="prompting">
+          <img src="/images/blog/prompting-mistakes.jpg" alt="Five common ChatGPT prompting mistakes" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs text-violet-600 font-medium px-2.5 py-1 bg-violet-50 rounded-md">Prompting</span>
+              <span class="text-xs text-gray-400">10 March 2026</span>
+            </div>
+            <h2 class="text-lg font-bold mb-2 group-hover:text-violet-600 transition-colors">5 ChatGPT prompting mistakes most people make</h2>
+            <p class="text-sm text-gray-500 mb-4">Why your AI results feel generic and what to do about it. Simple changes that make a big difference to the quality of your outputs.</p>
+            <span class="text-sm font-semibold text-violet-600 inline-flex items-center gap-1">
+              Read more
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Post 3: Automation -->
+        <a href="/blog/ai-automation-save-time" class="card-hover bg-white rounded-2xl border border-gray-100 overflow-hidden group" data-category="automation">
+          <img src="/images/blog/ai-automation.jpg" alt="How we saved 10 hours a week with AI automation" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs text-violet-600 font-medium px-2.5 py-1 bg-violet-50 rounded-md">Automation</span>
+              <span class="text-xs text-gray-400">8 March 2026</span>
+            </div>
+            <h2 class="text-lg font-bold mb-2 group-hover:text-violet-600 transition-colors">How we saved 10 hours a week with AI automation</h2>
+            <p class="text-sm text-gray-500 mb-4">A real example from our own business showing exactly what we automated, the tools we used, and how you can do the same.</p>
+            <span class="text-sm font-semibold text-violet-600 inline-flex items-center gap-1">
+              Read more
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Post 4: AI for beginners -->
+        <a href="/blog/ai-for-beginners" class="card-hover bg-white rounded-2xl border border-gray-100 overflow-hidden group" data-category="getting-started">
+          <img src="/images/blog/ai-for-beginners.jpg" alt="AI for beginners guide" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs text-violet-600 font-medium px-2.5 py-1 bg-violet-50 rounded-md">Getting started</span>
+              <span class="text-xs text-gray-400">5 March 2026</span>
+            </div>
+            <h2 class="text-lg font-bold mb-2 group-hover:text-violet-600 transition-colors">AI for beginners: where to start in 2026</h2>
+            <p class="text-sm text-gray-500 mb-4">New to AI? Here is a no-jargon guide to the tools you should try first and what they can realistically do for you.</p>
+            <span class="text-sm font-semibold text-violet-600 inline-flex items-center gap-1">
+              Read more
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Post 5: AI audit -->
+        <a href="/blog/ai-audit-for-business" class="card-hover bg-white rounded-2xl border border-gray-100 overflow-hidden group" data-category="business">
+          <img src="/images/blog/ai-audit.jpg" alt="What a free AI audit can tell you about your business" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs text-violet-600 font-medium px-2.5 py-1 bg-violet-50 rounded-md">Business</span>
+              <span class="text-xs text-gray-400">3 March 2026</span>
+            </div>
+            <h2 class="text-lg font-bold mb-2 group-hover:text-violet-600 transition-colors">What a free AI audit can tell you about your business</h2>
+            <p class="text-sm text-gray-500 mb-4">We break down what an AI audit involves, what we typically find, and why most businesses are leaving easy wins on the table.</p>
+            <span class="text-sm font-semibold text-violet-600 inline-flex items-center gap-1">
+              Read more
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Post 6: NotebookLM -->
+        <a href="/blog/notebooklm-guide" class="card-hover bg-white rounded-2xl border border-gray-100 overflow-hidden group" data-category="tools">
+          <img src="/images/blog/notebooklm.jpg" alt="How to use NotebookLM to get AI answers from your own documents" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs text-violet-600 font-medium px-2.5 py-1 bg-violet-50 rounded-md">Tools</span>
+              <span class="text-xs text-gray-400">1 March 2026</span>
+            </div>
+            <h2 class="text-lg font-bold mb-2 group-hover:text-violet-600 transition-colors">NotebookLM: how to get AI answers from your own documents</h2>
+            <p class="text-sm text-gray-500 mb-4">Worried about AI making things up? NotebookLM lets you ask questions about your own files and get accurate, referenced answers.</p>
+            <span class="text-sm font-semibold text-violet-600 inline-flex items-center gap-1">
+              Read more
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Newsletter CTA -->
+  <section class="py-16 section-purple">
+    <div class="max-w-2xl mx-auto px-6 text-center">
+      <h2 class="text-2xl font-extrabold mb-3">Get AI tips straight to your inbox</h2>
+      <p class="text-gray-500 mb-6">One practical AI tip per week. No spam, no fluff, just useful advice you can act on.</p>
+      <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+        <input type="email" placeholder="Enter your email" class="flex-grow px-5 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500/20 focus:border-violet-500">
+        <button class="gradient-btn text-white text-sm font-semibold px-6 py-3 rounded-xl shrink-0">Subscribe</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-14">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <span class="text-white font-bold text-sm">Smash Your AI</span>
+        </div>
+        <div class="flex gap-6 text-sm">
+          <a href="index.html" class="hover:text-white transition-colors">Home</a>
+          <a href="privacy.html" class="hover:text-white transition-colors">Privacy policy</a>
+          <a href="terms.html" class="hover:text-white transition-colors">Terms of service</a>
+        </div>
+        <p class="text-sm">&copy; 2026 Smash Your AI</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function filterPosts(category) {
+      const posts = document.querySelectorAll('#blog-grid > a');
+      const buttons = document.querySelectorAll('section button[onclick^="filterPosts"]');
+
+      buttons.forEach(btn => {
+        btn.className = btn.className.replace('bg-violet-600 text-white', 'bg-violet-50 text-violet-700');
+        if ((category === 'all' && btn.textContent.trim() === 'All posts') ||
+            btn.getAttribute('onclick').includes(`'${category}'`)) {
+          btn.className = btn.className.replace('bg-violet-50 text-violet-700', 'bg-violet-600 text-white');
+        }
+      });
+
+      posts.forEach(post => {
+        if (category === 'all' || post.dataset.category === category) {
+          post.style.display = '';
+        } else {
+          post.style.display = 'none';
+        }
+      });
+    }
+  </script>
+<script src="/shared-nav.js"></script>
+</body>
+</html>

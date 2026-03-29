@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GMMV8EBM39"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GMMV8EBM39');
+  </script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Build a Custom GPT for Your Business (Step-by-Step) - Smash Your AI</title>
+  <meta name="description" content="Learn how to build a custom GPT for your business in under 10 minutes. Step-by-step guide with real examples, bad vs good instructions, and 5 custom GPT ideas by business type.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:image" content="/images/blog/custom-gpts.jpg">
+  <link rel="canonical" href="https://smashyourai.com/blog/custom-gpts-for-business">
+  <meta property="og:title" content="How to Build a Custom GPT for Your Business (Step-by-Step) - Smash Your AI">
+  <meta property="og:description" content="Learn how to build a custom GPT for your business in under 10 minutes. Step-by-step guide with real examples, bad vs good instructions, and 5 custom GPT ideas by business type.">
+  <meta property="og:url" content="https://smashyourai.com/blog/custom-gpts-for-business">
+  <meta property="og:type" content="article">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>tailwind.config = { theme: { extend: { fontFamily: { sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'] } } } }</script>
+  <style>
+    * { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+    .gradient-text { background: linear-gradient(135deg, #8b5cf6, #6366f1, #4f46e5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .gradient-btn { background: linear-gradient(135deg, #8b5cf6, #6366f1); transition: all 0.2s ease; }
+    .gradient-btn:hover { background: linear-gradient(135deg, #7c3aed, #4f46e5); transform: translateY(-1px); box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4); }
+    .section-purple { background: linear-gradient(180deg, rgba(139, 92, 246, 0.03) 0%, rgba(99, 102, 241, 0.06) 50%, rgba(139, 92, 246, 0.03) 100%); }
+    article h2 { scroll-margin-top: 100px; }
+    .prompt-example { border-left: 3px solid #8b5cf6; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Build a Custom GPT for Your Business (Step-by-Step)",
+    "description": "Learn how to build a custom GPT for your business in under 10 minutes. Step-by-step guide with real examples and custom GPT ideas by business type.",
+    "author": { "@type": "Person", "name": "James" },
+    "publisher": { "@type": "Organization", "name": "Smash Your AI" },
+    "datePublished": "2026-03-29",
+    "dateModified": "2026-03-29"
+  }
+  </script>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-lg border-b border-gray-100 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5">
+        <img src="/images/logo.png" alt="Smash Your AI" class="h-7 w-auto">
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Home</a>
+        <a href="/#ai-training-services" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Services</a>
+        <span class="text-sm font-medium text-gray-400 cursor-default relative group">Online course
+          <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Coming soon</span>
+        </span>
+        <a href="/#about-us" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">About us</a>
+        <div class="relative group">
+          <button class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors inline-flex items-center gap-1">
+            Resources
+            <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200 absolute top-full right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+            <a href="/prompts/" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              Prompt library
+            </a>
+            <a href="/content-calendars/" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              Content calendars
+            </a>
+            <a href="/quiz" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+              AI readiness quiz
+            </a>
+            <a href="/savings-calculator" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              AI savings calculator
+            </a>
+            <div class="border-t border-gray-100 my-1"></div>
+            <a href="/blog" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+              Blog
+            </a>
+          </div>
+        </div>
+        <a href="/#contact" class="gradient-btn text-white text-sm font-semibold px-5 py-2.5 rounded-xl">Get in touch</a>
+        <div id="shared-auth-area"></div>
+      </div>
+      <button class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3">
+      <a href="/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">Home</a>
+      <a href="/#ai-training-services" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">Services</a>
+      <span class="block text-sm font-medium text-gray-400 py-2">Online course (coming soon)</span>
+      <a href="/#about-us" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">About us</a>
+      <div class="border-t border-gray-100 pt-2 mt-1">
+        <span class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Resources</span>
+        <a href="/prompts/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Prompt library</a>
+        <a href="/content-calendars/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Content calendars</a>
+        <a href="/quiz" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">AI readiness quiz</a>
+        <a href="/savings-calculator" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">AI savings calculator</a>
+        <a href="/blog" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Blog</a>
+      </div>
+      <a href="/#contact" class="block gradient-btn text-white text-sm font-semibold px-5 py-2.5 rounded-xl text-center">Get in touch</a>
+      <div id="shared-auth-area-mobile"></div>
+    </div>
+  </nav>
+
+  <article class="pt-32 pb-20 md:pt-40 md:pb-28">
+    <div class="max-w-3xl mx-auto px-6">
+
+      <!-- Breadcrumb -->
+      <nav class="text-sm text-gray-400 mb-6">
+        <a href="/" class="hover:text-violet-600 transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <a href="/blog" class="hover:text-violet-600 transition-colors">Blog</a>
+        <span class="mx-2">/</span>
+        <span class="text-gray-600">Custom GPTs</span>
+      </nav>
+
+      <!-- Header -->
+      <div class="mb-10">
+        <span class="text-xs text-violet-600 font-medium px-2.5 py-1 bg-violet-50 rounded-md">Tools</span>
+        <h1 class="text-3xl md:text-4xl font-extrabold mt-4 mb-4">How to build a custom GPT for your business (step-by-step)</h1>
+        <div class="flex items-center gap-4 text-sm text-gray-400 mb-5">
+          <span>29 March 2026</span>
+          <span>-</span>
+          <span>12 min read</span>
+        </div>
+        <div class="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-violet-50 to-indigo-50 border-l-4 border-violet-500">
+          <img src="/images/james-headshot.png" alt="James, co-founder of Smash Your AI" class="w-11 h-11 rounded-full object-cover shrink-0">
+          <div>
+            <p class="font-semibold text-sm text-gray-900">James</p>
+            <p class="text-xs text-gray-500">Co-founder of Smash Your AI - 18 years in education, now helping businesses and individuals get real results from AI.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured image -->
+      <!-- IMAGE SUGGESTION: Screenshot showing the ChatGPT "Create a GPT" interface with the configuration panel visible -->
+      <img src="/images/blog/custom-gpts.jpg" alt="How to build a custom GPT for your business" class="w-full rounded-2xl mb-10">
+
+      <!-- Article content -->
+      <div class="space-y-6 text-gray-700 leading-relaxed">
+
+        <p class="text-lg">I built my first custom GPT on a whim. I was tired of pasting the same instructions into ChatGPT every single time I wanted to write social media posts for the business. So I thought: there must be a better way.</p>
+
+        <p>There was. Ten minutes later I had a custom GPT that already knew our brand voice, our audience, and exactly how we like our posts structured. No more copy-pasting. No more re-explaining everything from scratch.</p>
+
+        <p>Since then I have built over 10 custom GPTs. Some for our <a href="/prompts/" class="text-violet-600 font-medium hover:text-violet-800 transition-colors">Smash Your AI bundle</a>, some for clients, and some just for myself. They are one of the most useful features in ChatGPT, and most people have no idea they exist.</p>
+
+        <p>Let me show you how to build one from scratch.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="what-is-a-custom-gpt">What is a custom GPT?</h2>
+
+        <p>A custom GPT is your own version of ChatGPT that is pre-loaded with specific instructions, knowledge, and personality. Think of it like a specialist assistant that already knows exactly what you need.</p>
+
+        <p>Instead of starting every conversation with "You are a marketing expert who writes in a casual tone for UK small businesses..." you set that up once. Then every time you open that GPT, it already knows all of that. You just type your request and go.</p>
+
+        <p>Here is a simple way to think about it:</p>
+
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Normal ChatGPT</strong> = a blank canvas. You have to explain everything every time.</li>
+          <li><strong>Custom GPT</strong> = a trained team member. They already know the brief.</li>
+        </ul>
+
+        <p>You can create custom GPTs for anything. Writing emails, generating ideas, answering customer questions, drafting proposals, creating content. If you find yourself repeating the same instructions, a custom GPT will save you a lot of time.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="why-game-changer">Why custom GPTs are a game-changer for businesses</h2>
+
+        <p>Here is the problem I kept running into. Every time I opened ChatGPT, I had to set the scene. Explain the context. Describe the tone. List the rules. It took ages, and half the time I forgot something important.</p>
+
+        <p>Custom GPTs fix this completely. You do the setup once, and then it just works. Every single time.</p>
+
+        <p>But there is a bigger reason they matter for businesses. They make AI <strong>consistent</strong>. When your whole team is using the same custom GPT, everyone gets results in the same brand voice, following the same rules, hitting the same quality standard.</p>
+
+        <p>No more one person getting great results because they are good at prompting, while another gets rubbish because they typed "write me a blog post" and hoped for the best.</p>
+
+        <p>The businesses I have seen get the most out of AI are the ones that build custom GPTs for their most common tasks. It is the difference between giving your team a blank notebook and giving them a pre-filled template.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="what-you-need">What you need before you start</h2>
+
+        <p>One quick thing before we dive in. To create custom GPTs, you need <strong>ChatGPT Plus</strong>. That costs $20 per month (about 16 pounds). The free version of ChatGPT does not let you build them.</p>
+
+        <p>If you are wondering whether Plus is worth paying for, I wrote about that in our <a href="/blog/is-paying-for-ai-worth-it" class="text-violet-600 font-medium hover:text-violet-800 transition-colors">guide to paid AI plans</a>. Short answer: if you use AI for work, yes.</p>
+
+        <p>You do not need any coding skills. You do not need any technical knowledge. If you can write a clear set of instructions, you can build a custom GPT.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="step-by-step">Step-by-step: building your first custom GPT</h2>
+
+        <p>Let me walk you through building a real one. We are going to create a custom GPT that writes social media posts for a small business. You can swap the details for your own business as you follow along.</p>
+
+        <h3 class="text-xl font-bold pt-4">Step 1: Open the GPT builder</h3>
+
+        <!-- IMAGE SUGGESTION: Screenshot of ChatGPT sidebar showing "Explore GPTs" button and then the "Create" button -->
+
+        <p>In ChatGPT, click <strong>"Explore GPTs"</strong> in the left sidebar. Then click <strong>"Create"</strong> in the top right corner. This opens the GPT builder, which has two tabs: Create and Configure.</p>
+
+        <p>The "Create" tab lets you build a GPT by chatting with ChatGPT. That sounds nice, but honestly I skip it every time. The "Configure" tab gives you much more control. Click <strong>Configure</strong>.</p>
+
+        <h3 class="text-xl font-bold pt-4">Step 2: Give it a name and description</h3>
+
+        <!-- IMAGE SUGGESTION: Screenshot of the Configure tab showing the Name and Description fields filled in -->
+
+        <p>Keep the name short and clear. You will see it in your sidebar, so make it obvious what it does.</p>
+
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Name:</strong> "Social Media Writer"</li>
+          <li><strong>Description:</strong> "Writes social media posts for [Your Business Name] in our brand voice."</li>
+        </ul>
+
+        <p>That is it. Do not overthink this part.</p>
+
+        <h3 class="text-xl font-bold pt-4">Step 3: Write your instructions</h3>
+
+        <p>This is the most important part. The instructions box is where you tell the GPT who it is, how it should behave, and what rules to follow. This is what separates a useful custom GPT from a useless one.</p>
+
+        <p>Here is what bad instructions look like versus good ones:</p>
+
+        <div class="prompt-example bg-red-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-red-800 mb-2">Bad instructions:</p>
+          <p class="text-sm text-red-700 italic">"You write social media posts. Be helpful and creative. Write good content for my business."</p>
+        </div>
+
+        <p>This tells the GPT almost nothing. What business? What tone? What platform? What length? It will guess, and the results will be generic.</p>
+
+        <div class="prompt-example bg-green-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-green-800 mb-2">Good instructions:</p>
+          <div class="text-sm text-green-700 space-y-2">
+            <p class="italic">"You are a social media content writer for [Business Name], a small bakery in Newcastle that sells artisan bread and pastries.</p>
+            <p class="italic">Your audience is local people aged 25-55 who care about quality food and supporting independent businesses.</p>
+            <p class="italic">Rules:</p>
+            <ul class="list-disc pl-5 space-y-1 italic">
+              <li>Write in a warm, friendly tone. Like chatting to a regular customer.</li>
+              <li>Keep posts under 100 words unless told otherwise.</li>
+              <li>Always include a call to action (visit us, order online, tag a friend, etc).</li>
+              <li>Use British English spelling.</li>
+              <li>Never use hashtags unless asked.</li>
+              <li>Never use emojis in the first line.</li>
+              <li>Mention our location (Jesmond, Newcastle) naturally when it fits.</li>
+            </ul>
+            <p class="italic">When I ask for a post, ask me what the topic is and which platform (Instagram, Facebook, or LinkedIn) before writing."</p>
+          </div>
+        </div>
+
+        <p>See the difference? The good version gives the GPT a clear identity, a specific audience, detailed rules, and a process to follow. It will produce dramatically better results from the very first message.</p>
+
+        <h3 class="text-xl font-bold pt-4">Step 4: Add conversation starters</h3>
+
+        <!-- IMAGE SUGGESTION: Screenshot showing the conversation starters field with 4 example starters filled in -->
+
+        <p>Conversation starters are the buttons that appear when someone opens your GPT. They give users a quick way to get started instead of staring at a blank screen.</p>
+
+        <p>Good examples for our social media writer:</p>
+
+        <ul class="list-disc pl-6 space-y-2">
+          <li>"Write a post about our new sourdough loaf"</li>
+          <li>"Create a weekend special announcement"</li>
+          <li>"Write a behind-the-scenes post about our baking process"</li>
+          <li>"Draft a post for a bank holiday opening hours update"</li>
+        </ul>
+
+        <p>These also act as examples of what the GPT can do. They help anyone on your team who picks it up for the first time.</p>
+
+        <h3 class="text-xl font-bold pt-4">Step 5: Upload knowledge files (optional but powerful)</h3>
+
+        <p>This is where custom GPTs get really clever. You can upload files that the GPT can reference when answering. Things like:</p>
+
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Your brand guidelines document</li>
+          <li>A list of your products or services</li>
+          <li>Examples of posts you have written before</li>
+          <li>Your tone of voice guide</li>
+          <li>FAQs or common customer questions</li>
+        </ul>
+
+        <p>For our bakery example, you might upload a menu PDF and a document with 10 past social media posts you liked. The GPT will use these as reference material. It will not memorise them word for word, but it will pull from them when relevant.</p>
+
+        <p>I upload knowledge files to almost every custom GPT I build. It makes them so much smarter.</p>
+
+        <h3 class="text-xl font-bold pt-4">Step 6: Save and test</h3>
+
+        <!-- IMAGE SUGGESTION: Screenshot of the Save/Publish dialog showing the "Only me" and "Anyone with a link" sharing options -->
+
+        <p>Click <strong>Save</strong> in the top right. You will get three sharing options:</p>
+
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Only me</strong> - just you can use it</li>
+          <li><strong>Anyone with a link</strong> - you can share the link with your team</li>
+          <li><strong>Public</strong> - anyone can find it in the GPT store</li>
+        </ul>
+
+        <p>For business use, "Anyone with a link" is usually the best option. Your team can use it, but random strangers cannot find it.</p>
+
+        <p>Now test it. Open the GPT and try a few different requests. See if the tone is right, the length is right, and the rules are being followed. If something is off, go back to Configure and tweak the instructions. It usually takes me two or three rounds of tweaking to get it spot on.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="tips-for-instructions">Tips for writing great GPT instructions</h2>
+
+        <p>I have written instructions for over 10 custom GPTs now. Here is what I have learned works best:</p>
+
+        <ul class="list-disc pl-6 space-y-3">
+          <li><strong>Be specific about what you do not want.</strong> "Never use corporate jargon" is more useful than "write naturally." Telling the GPT what to avoid is just as powerful as telling it what to do.</li>
+          <li><strong>Include your audience.</strong> "Write for busy small business owners who have no technical background" changes the output completely.</li>
+          <li><strong>Set a default length.</strong> Without one, the GPT will waffle. "Keep responses under 200 words unless asked for more" works well.</li>
+          <li><strong>Tell it to ask questions.</strong> Adding "If my request is vague, ask clarifying questions before writing" stops the GPT from guessing and getting it wrong.</li>
+          <li><strong>Use plain language.</strong> You do not need fancy prompt engineering syntax. Write your instructions like you would brief a new team member.</li>
+          <li><strong>Test with edge cases.</strong> Try requests that are slightly outside what you designed it for. See how it handles them. Adjust the instructions if needed.</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold pt-6" id="gpt-ideas">5 custom GPT ideas by business type</h2>
+
+        <p>Not sure what to build? Here are five ideas based on the types of businesses I have worked with. Every single one of these would save real time.</p>
+
+        <div class="overflow-x-auto my-6">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-violet-50 text-left">
+                <th class="px-4 py-3 font-semibold text-gray-900 rounded-tl-xl">Business type</th>
+                <th class="px-4 py-3 font-semibold text-gray-900">Custom GPT idea</th>
+                <th class="px-4 py-3 font-semibold text-gray-900 rounded-tr-xl">What it does</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr>
+                <td class="px-4 py-3 font-medium text-gray-900">Estate agent</td>
+                <td class="px-4 py-3">Property Listing Writer</td>
+                <td class="px-4 py-3">Takes bullet points about a property and writes a polished listing in your house style</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-medium text-gray-900">Accountant</td>
+                <td class="px-4 py-3">Client Email Drafter</td>
+                <td class="px-4 py-3">Writes clear, jargon-free emails explaining tax deadlines, allowances, and next steps</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-medium text-gray-900">Personal trainer</td>
+                <td class="px-4 py-3">Workout Plan Builder</td>
+                <td class="px-4 py-3">Creates personalised weekly workout plans based on client goals and equipment available</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-medium text-gray-900">Marketing agency</td>
+                <td class="px-4 py-3">Content Calendar Generator</td>
+                <td class="px-4 py-3">Builds a month of social media post ideas with captions, hooks, and CTAs for any client</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-medium text-gray-900">E-commerce shop</td>
+                <td class="px-4 py-3">Product Description Writer</td>
+                <td class="px-4 py-3">Writes SEO-friendly product descriptions in your brand voice from a few bullet points</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>The pattern is the same every time. Find a task you repeat often, write clear instructions for how you want it done, and let the GPT handle it.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="sharing-with-team">How to share custom GPTs with your team</h2>
+
+        <p>Once you have built a GPT that works well, you will probably want your team to use it too. Here is how sharing works:</p>
+
+        <ol class="list-decimal pl-6 space-y-2">
+          <li>Open the GPT and click the <strong>pencil icon</strong> to edit it.</li>
+          <li>Click <strong>Save</strong> and choose <strong>"Anyone with a link"</strong>.</li>
+          <li>Copy the link and send it to your team.</li>
+        </ol>
+
+        <p>Anyone with ChatGPT Plus can use it. They just click the link and the GPT appears in their sidebar.</p>
+
+        <p>One thing to note: your team members each need their own ChatGPT Plus subscription. The GPT itself is free to share, but they need Plus to access it.</p>
+
+        <p>This is exactly what I did when building GPTs for clients. I set them up, tested them, then sent the link over. The client did not need to understand how to build one. They just used it.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="common-mistakes">Common mistakes when building custom GPTs</h2>
+
+        <p>I have made all of these so you do not have to:</p>
+
+        <ul class="list-disc pl-6 space-y-3">
+          <li><strong>Instructions that are too short.</strong> "Be helpful and write good content" is not enough. The more detail you give, the better the results. My best-performing GPTs have 300-500 words of instructions.</li>
+          <li><strong>Not testing enough.</strong> Build it, test it with 5-10 different requests, tweak the instructions, test again. The first version is never perfect.</li>
+          <li><strong>Forgetting to say what to avoid.</strong> If you do not tell it "never use bullet points" or "never start with a question," it will do those things when it feels like it.</li>
+          <li><strong>Uploading too many knowledge files.</strong> Stick to the most important ones. If you upload 20 documents, the GPT can get confused about which to reference. Three to five focused files is the sweet spot.</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold pt-6" id="skip-the-building">Or skip the building entirely</h2>
+
+        <p>If this all sounds useful but you do not fancy building them yourself, we have done the work for you.</p>
+
+        <p>Our <a href="/prompts/" class="text-violet-600 font-medium hover:text-violet-800 transition-colors">Smash Your AI bundle</a> includes <strong>10 pre-built custom GPTs</strong> covering the tasks businesses use most. Social media content, email writing, meeting summaries, blog posts, and more. Each one comes with detailed instructions already written and tested.</p>
+
+        <p>You just open them up and start using them. No setup. No instructions to write. They are ready to go straight out of the box.</p>
+
+        <p>The bundle also includes 168 prompts, 2 workbooks, 6 content calendars, and a week-one action plan. It is a one-off payment of 14.99 pounds with lifetime updates. <a href="/prompts/" class="text-violet-600 font-medium hover:text-violet-800 transition-colors">Take a look here</a>.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="get-started">Get started today</h2>
+
+        <p>If you take one thing from this post, let it be this: <strong>stop repeating yourself to AI</strong>. If you are pasting the same instructions over and over, build a custom GPT. It takes 10 minutes and it will save you hours over the coming weeks.</p>
+
+        <p>Start with your most repetitive task. Follow the steps above. Get the instructions right. And then watch how much smoother your AI workflow becomes.</p>
+
+        <p>If you get stuck or want help building custom GPTs for your business, <a href="/#contact" class="text-violet-600 font-medium hover:text-violet-800 transition-colors">get in touch</a>. We have set these up for businesses of all sizes and we are always happy to help.</p>
+
+      </div>
+
+      <!-- Related articles -->
+      <div class="mt-12 pt-10 border-t border-gray-100">
+        <h3 class="text-lg font-bold mb-6">You might also like</h3>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <a href="/blog/chatgpt-vs-claude-vs-gemini" class="p-5 rounded-xl border border-gray-100 hover:border-violet-200 transition-colors group">
+            <span class="text-xs text-violet-600 font-medium">Comparisons</span>
+            <p class="font-bold mt-1 group-hover:text-violet-600 transition-colors">ChatGPT vs Claude vs Gemini: which AI should you use?</p>
+          </a>
+          <a href="/blog/chatgpt-prompting-mistakes" class="p-5 rounded-xl border border-gray-100 hover:border-violet-200 transition-colors group">
+            <span class="text-xs text-violet-600 font-medium">Prompting</span>
+            <p class="font-bold mt-1 group-hover:text-violet-600 transition-colors">5 ChatGPT prompting mistakes most people make</p>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- CTA Banner -->
+  <section class="py-16 section-purple">
+    <div class="max-w-2xl mx-auto px-6 text-center">
+      <h2 class="text-2xl font-extrabold mb-3">Want 10 pre-built custom GPTs ready to use?</h2>
+      <p class="text-gray-500 mb-6">Our Smash Your AI bundle includes 10 custom GPTs built for businesses, plus 168 prompts, workbooks, and content calendars. One-off payment, lifetime updates.</p>
+      <a href="/prompts/" class="inline-flex gradient-btn text-white text-sm font-semibold px-8 py-3.5 rounded-xl">Get the bundle</a>
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 text-gray-400 py-10">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p class="text-sm">&copy; 2026 Smash Your AI. All rights reserved.</p>
+      <div class="flex gap-6 text-sm">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <a href="/blog" class="hover:text-white transition-colors">Blog</a>
+        <a href="/privacy" class="hover:text-white transition-colors">Privacy policy</a>
+        <a href="/terms" class="hover:text-white transition-colors">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+<script src="/shared-nav.js"></script>
+</body>
+</html>

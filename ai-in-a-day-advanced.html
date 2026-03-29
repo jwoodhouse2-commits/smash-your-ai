@@ -1,0 +1,3097 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GMMV8EBM39"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GMMV8EBM39');
+  </script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI in a day: advanced level | Smash Your AI</title>
+  <meta name="description" content="Advanced AI workbook with real-world business scenarios. Build on your AI skills with automation, custom GPTs, and industry-specific challenges.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://smashyourai.com/ai-in-a-day-advanced">
+  <meta property="og:title" content="AI in a day: advanced level | Smash Your AI">
+  <meta property="og:description" content="Advanced AI workbook with real-world business scenarios. Build on your AI skills with automation, custom GPTs, and industry-specific challenges.">
+  <meta property="og:url" content="https://smashyourai.com/ai-in-a-day-advanced">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/images/og-default.jpg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    * {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+
+    @media print {
+
+      #book-nav,
+      #toc-overlay,
+      #saved-indicator,
+      #progress-bar,
+      #inapp-banner,
+      #print-modal {
+        display: none !important;
+      }
+
+      .book-page {
+        transform: none !important;
+        opacity: 1 !important;
+        display: block !important;
+        page-break-after: always;
+        position: relative !important;
+      }
+
+      .book-page.sliding-out-left,
+      .book-page.sliding-out-right {
+        display: block !important;
+        position: relative !important;
+        transform: none !important;
+        opacity: 1 !important;
+      }
+
+      #book {
+        height: auto !important;
+        overflow: visible !important;
+      }
+
+      #scroll-indicator {
+        display: none !important;
+      }
+
+      body {
+        font-size: 10.5pt;
+        color: #111;
+        padding-bottom: 0 !important;
+      }
+
+      @page {
+        size: A4;
+        margin: 10mm;
+      }
+
+      .shadow-lg,
+      .shadow-md,
+      .shadow-sm,
+      .shadow-xl {
+        box-shadow: none !important;
+      }
+
+      a {
+        color: inherit !important;
+        text-decoration: none !important;
+      }
+
+      .bg-gradient-to-br {
+        background: #f0fdfa !important;
+      }
+
+      .gradient-text {
+        padding-bottom: 0.1em;
+        line-height: 1.2;
+      }
+
+      .write-input {
+        border: none !important;
+        border-bottom: 1px solid #999 !important;
+        padding: 0 !important;
+      }
+
+      .write-area {
+        border: 1px solid #999 !important;
+        background: transparent !important;
+      }
+
+      .final-page-bg {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #14b8a6, #0891b2, #0e7490);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      padding-bottom: 0.15em;
+      display: inline-block;
+    }
+
+    .write-input {
+      border: none;
+      border-bottom: 1.5px solid #5eead4;
+      min-height: 2rem;
+      display: block;
+      width: 100%;
+      background: transparent;
+      outline: none;
+      font-family: inherit;
+      font-size: inherit;
+      color: #374151;
+      padding: 0.25rem 0;
+    }
+
+    .write-input:focus {
+      border-bottom-color: #14b8a6;
+    }
+
+    .write-area {
+      border: 1.5px solid #5eead4;
+      border-radius: 0.5rem;
+      width: 100%;
+      display: block;
+      background: #f0fdfa;
+      outline: none;
+      font-family: inherit;
+      font-size: inherit;
+      color: #374151;
+      padding: 0.75rem;
+      resize: vertical;
+    }
+
+    .write-area:focus {
+      border-color: #14b8a6;
+    }
+
+    .checkbox-input {
+      width: 1.25rem;
+      height: 1.25rem;
+      border: 2px solid #14b8a6;
+      border-radius: 0.25rem;
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+      accent-color: #14b8a6;
+      cursor: pointer;
+    }
+
+    .checkbox-line {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.4rem 0;
+    }
+
+    .section-number {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 1rem;
+      background: linear-gradient(135deg, #14b8a6, #0891b2);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .callout {
+      background: linear-gradient(135deg, #f0fdfa, #ecfeff);
+      border-left: 4px solid #14b8a6;
+      border-radius: 0 0.75rem 0.75rem 0;
+      padding: 1rem 1.25rem;
+    }
+
+    .tip-box {
+      background: #f0fdfa;
+      border: 1.5px solid #99f6e4;
+      border-radius: 0.75rem;
+      padding: 1rem 1.25rem;
+    }
+
+    .mistake-box {
+      background: #fffbeb;
+      border-left: 4px solid #f59e0b;
+      border-radius: 0 0.75rem 0.75rem 0;
+      padding: 1rem 1.25rem;
+    }
+
+    .example-output {
+      background: #f0fdfa;
+      border: 2px dashed #5eead4;
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+    }
+
+    .personal-story {
+      background: #fdf4ff;
+      border-left: 4px solid #c084fc;
+      border-radius: 0 0.75rem 0.75rem 0;
+      padding: 1rem 1.25rem;
+    }
+
+    .prompt-box {
+      background: #0f172a;
+      color: #ccfbf1;
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      font-size: 0.9rem;
+      line-height: 1.7;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .time-badge {
+      background: linear-gradient(135deg, #14b8a6, #0891b2);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+    }
+
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #14b8a6, #0891b2);
+      z-index: 60;
+      transition: width 0.3s ease;
+    }
+
+    html,
+    body {
+      overflow-x: hidden;
+    }
+
+    #book {
+      position: relative;
+      overflow: hidden;
+      max-width: 48rem;
+      margin: 0 auto;
+      padding-bottom: 4rem;
+    }
+
+    .book-page {
+      display: none;
+      width: 100%;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    }
+
+    .book-page.active {
+      display: block;
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .book-page.sliding-out-left {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      transform: translateX(-100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .book-page.sliding-out-right {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      transform: translateX(100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .book-page.sliding-in-left {
+      display: block;
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+
+    .book-page.sliding-in-right {
+      display: block;
+      transform: translateX(100%);
+      opacity: 0;
+    }
+
+    #scroll-indicator {
+      position: fixed;
+      bottom: 4.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 49;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    #scroll-indicator.visible {
+      opacity: 1;
+    }
+
+    #scroll-indicator svg {
+      animation: bounce-down 1.5s ease-in-out infinite;
+    }
+
+    @keyframes bounce-down {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(6px);
+      }
+    }
+
+    #book-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      border-top: 1px solid #e5e7eb;
+      z-index: 50;
+      padding: 0.75rem 1rem;
+    }
+
+    #book-nav .nav-inner {
+      max-width: 48rem;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+
+    #book-nav button {
+      background: none;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.5rem;
+      padding: 0.5rem 0.75rem;
+      cursor: pointer;
+      color: #6b7280;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s;
+    }
+
+    #book-nav button:hover:not(:disabled) {
+      background: #f0fdfa;
+      border-color: #14b8a6;
+      color: #14b8a6;
+    }
+
+    #book-nav button:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    #page-indicator {
+      font-size: 0.85rem;
+      color: #6b7280;
+      font-weight: 500;
+      min-width: 6rem;
+      text-align: center;
+    }
+
+    #toc-overlay {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+      z-index: 55;
+      display: none;
+    }
+
+    #toc-overlay.open {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    #toc-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    #toc-panel {
+      position: relative;
+      background: white;
+      border-radius: 1rem 1rem 0 0;
+      max-height: 70vh;
+      overflow-y: auto;
+      padding: 1.5rem;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    #toc-panel .toc-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #toc-panel .toc-item {
+      padding: 0.6rem 0.75rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+      color: #374151;
+      transition: background 0.15s;
+    }
+
+    #toc-panel .toc-item:hover {
+      background: #f0fdfa;
+    }
+
+    #toc-panel .toc-item.current {
+      background: #f0fdfa;
+      color: #0d9488;
+      font-weight: 600;
+    }
+
+    #toc-close {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #9ca3af;
+      line-height: 1;
+    }
+
+    #toc-clear-btn {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      border: 1px solid #ef4444;
+      color: #ef4444;
+      border-radius: 0.5rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+      background: none;
+      width: 100%;
+      transition: all 0.15s;
+    }
+
+    #toc-clear-btn:hover {
+      background: #fef2f2;
+    }
+
+    #saved-indicator {
+      position: fixed;
+      bottom: 4.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #0f172a;
+      color: white;
+      padding: 0.35rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 51;
+      pointer-events: none;
+    }
+
+    #saved-indicator.show {
+      opacity: 1;
+    }
+
+    .page-centred {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 4rem);
+    }
+
+    #inapp-banner {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      background: linear-gradient(135deg, #14b8a6, #0891b2);
+      color: white;
+      padding: 0.85rem 1rem;
+      font-size: 0.8rem;
+      line-height: 1.4;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    #inapp-banner a {
+      color: white;
+      text-decoration: underline;
+      font-weight: 700;
+    }
+
+    #inapp-banner button {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.75rem;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      opacity: 0.8;
+    }
+
+    .table-scroll-wrap {
+      position: relative;
+    }
+
+    .table-scroll-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 2.5rem;
+      background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.95));
+      pointer-events: none;
+      border-radius: 0 0.75rem 0.75rem 0;
+      z-index: 2;
+      transition: opacity 0.3s;
+    }
+
+    .table-scroll-wrap.scrolled-end::after {
+      opacity: 0;
+    }
+
+    .table-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 0.75rem;
+    }
+
+    .table-scroll table {
+      min-width: 500px;
+    }
+
+    @media (max-width: 640px) {
+      .book-page .py-16 {
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+      }
+
+      .book-page .px-6 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .book-page .p-8 {
+        padding: 1.25rem;
+      }
+
+      .book-page .p-6 {
+        padding: 1rem;
+      }
+
+      .book-page h2 {
+        font-size: 1.5rem;
+      }
+
+      .book-page h3 {
+        font-size: 1.1rem;
+      }
+
+      .book-page .text-5xl {
+        font-size: 2.5rem;
+      }
+
+      .book-page .text-3xl {
+        font-size: 1.5rem;
+      }
+
+      .book-page .text-xl {
+        font-size: 1rem;
+      }
+
+      .book-page .text-lg {
+        font-size: 0.95rem;
+      }
+
+      .prompt-box {
+        padding: 1rem;
+        font-size: 0.8rem;
+      }
+
+      .callout {
+        padding: 0.85rem 1rem;
+      }
+
+      .tip-box {
+        padding: 0.85rem 1rem;
+      }
+
+      .mistake-box {
+        padding: 0.85rem 1rem;
+      }
+
+      .example-output {
+        padding: 0.85rem 1rem;
+      }
+
+      .personal-story {
+        padding: 0.85rem 1rem;
+      }
+
+      .section-number {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1rem;
+      }
+
+      #book-nav {
+        padding: 0.5rem 0.75rem;
+      }
+
+      #book-nav button {
+        padding: 0.6rem;
+        min-width: 2.75rem;
+        min-height: 2.75rem;
+      }
+
+      #page-indicator {
+        font-size: 0.75rem;
+        min-width: 4.5rem;
+      }
+
+      .page-centred {
+        min-height: calc(100vh - 3.5rem);
+      }
+
+      #saved-indicator {
+        bottom: 3.75rem;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-white text-gray-900 antialiased" style="padding-bottom: 4rem; padding-top: 4.5rem;">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-lg border-b border-gray-100 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5">
+        <img src="/images/logo.png" alt="Smash Your AI" class="h-7 w-auto">
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Home</a>
+        <a href="/#ai-training-services" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Services</a>
+        <span class="text-sm font-medium text-gray-400 cursor-default relative group">Online course
+          <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Coming soon</span>
+        </span>
+        <a href="/#about-us" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">About us</a>
+        <div class="relative group">
+          <button class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors inline-flex items-center gap-1">
+            Resources
+            <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200 absolute top-full right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+            <a href="/prompts/" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              Prompt library
+            </a>
+            <a href="/content-calendars/" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              Content calendars
+            </a>
+            <a href="/quiz" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+              AI readiness quiz
+            </a>
+            <a href="/savings-calculator" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              AI savings calculator
+            </a>
+            <div class="border-t border-gray-100 my-1"></div>
+            <a href="/blog" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+              Blog
+            </a>
+          </div>
+        </div>
+        <a href="/#contact" class="gradient-btn text-white text-sm font-semibold px-5 py-2.5 rounded-xl">Get in touch</a>
+        <div id="shared-auth-area"></div>
+      </div>
+      <button class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3">
+      <a href="/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">Home</a>
+      <a href="/#ai-training-services" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">Services</a>
+      <span class="block text-sm font-medium text-gray-400 py-2">Online course (coming soon)</span>
+      <a href="/#about-us" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">About us</a>
+      <div class="border-t border-gray-100 pt-2 mt-1">
+        <span class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Resources</span>
+        <a href="/prompts/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Prompt library</a>
+        <a href="/content-calendars/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Content calendars</a>
+        <a href="/quiz" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">AI readiness quiz</a>
+        <a href="/savings-calculator" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">AI savings calculator</a>
+        <a href="/blog" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Blog</a>
+      </div>
+      <a href="/#contact" class="block gradient-btn text-white text-sm font-semibold px-5 py-2.5 rounded-xl text-center">Get in touch</a>
+      <div id="shared-auth-area-mobile"></div>
+    </div>
+  </nav>
+
+  <div id="inapp-banner">
+    <button id="inapp-close" aria-label="Dismiss">&times;</button>
+    <strong>You are in an in-app browser.</strong><br>
+    Your progress may not save here. Tap the <strong>&#8942;</strong> menu and choose <strong>"Open in browser"</strong>
+    for the best experience.
+  </div>
+
+  <div id="progress-bar" style="width: 5%;"></div>
+
+  <div id="toc-overlay">
+    <div id="toc-backdrop"></div>
+    <div id="toc-panel">
+      <div class="toc-title">
+        <span>Contents</span>
+        <button id="toc-close">&times;</button>
+      </div>
+      <div id="toc-list"></div>
+      <button id="toc-clear-btn">Clear all answers</button>
+    </div>
+  </div>
+
+  <div id="book">
+
+    <!-- PAGE 1: COVER -->
+    <div class="book-page active" data-page="1" data-title="Cover">
+      <div class="page-centred bg-gradient-to-br from-teal-50 via-white to-cyan-50 px-6">
+        <div class="text-center max-w-2xl">
+          <img src="/images/logo.png" alt="Smash Your AI" class="h-16 w-auto mx-auto mb-10">
+          <h1 class="text-5xl md:text-7xl font-extrabold mb-4 leading-tight gradient-text">AI in a day</h1>
+          <p class="text-2xl md:text-3xl font-bold text-gray-700 mb-4">Advanced level</p>
+          <p class="text-xl text-gray-500 mb-4 leading-relaxed max-w-lg mx-auto">For people already using AI who want to
+            go further</p>
+
+          <div
+            class="inline-flex items-center gap-3 px-6 py-3 bg-teal-100 text-teal-700 rounded-full text-sm font-semibold mb-6">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Level up your AI skills in one day
+          </div>
+          <p class="text-sm text-gray-400 mt-10">From the creators of <a href="https://smashyourai.com" target="_blank"
+              rel="noopener">smashyourai.com</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 2: WELCOME -->
+    <div class="book-page to-right" data-page="2" data-title="Welcome back">
+      <div class="py-16 px-6 max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold mb-6">Welcome back</h2>
+        <div class="space-y-6 text-gray-700 leading-relaxed">
+          <p class="text-lg">You already know the basics. You have used ChatGPT, Claude, or Gemini. You can write a
+            decent prompt and get useful results. Now it is time to go deeper. Today you will learn the tools and
+            techniques that separate casual users from power users.</p>
+          <div class="bg-teal-50 rounded-2xl p-8">
+            <h3 class="font-bold text-lg mb-4 text-gray-900">What you will achieve today</h3>
+            <div class="space-y-3">
+              <div class="flex gap-3 items-start"><span
+                  class="flex-shrink-0 w-7 h-7 rounded-full bg-teal-200 text-teal-700 flex items-center justify-center text-sm font-bold">1</span>
+                <p><strong>Build custom GPTs</strong> that work like dedicated team members</p>
+              </div>
+              <div class="flex gap-3 items-start"><span
+                  class="flex-shrink-0 w-7 h-7 rounded-full bg-teal-200 text-teal-700 flex items-center justify-center text-sm font-bold">2</span>
+                <p><strong>Master NotebookLM</strong> for research and document analysis</p>
+              </div>
+              <div class="flex gap-3 items-start"><span
+                  class="flex-shrink-0 w-7 h-7 rounded-full bg-teal-200 text-teal-700 flex items-center justify-center text-sm font-bold">3</span>
+                <p><strong>Learn to spot and prevent AI hallucinations</strong> so you can trust your outputs</p>
+              </div>
+              <div class="flex gap-3 items-start"><span
+                  class="flex-shrink-0 w-7 h-7 rounded-full bg-teal-200 text-teal-700 flex items-center justify-center text-sm font-bold">4</span>
+                <p><strong>Build real workflows</strong> for your specific industry</p>
+              </div>
+              <div class="flex gap-3 items-start"><span
+                  class="flex-shrink-0 w-7 h-7 rounded-full bg-teal-200 text-teal-700 flex items-center justify-center text-sm font-bold">5</span>
+                <p><strong>Master meta prompting</strong>, the technique that 10x your results with any AI tool</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl border-2 border-gray-100 p-8">
+            <h3 class="font-bold text-lg mb-4 text-gray-900">How to pace yourself</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="flex gap-3 items-start"><span class="time-badge">Morning</span>
+                <p class="text-sm">Custom GPTs - understand and build them (Sections 1 and 2)</p>
+              </div>
+              <div class="flex gap-3 items-start"><span class="time-badge">Midday</span>
+                <p class="text-sm">NotebookLM masterclass (Section 3)</p>
+              </div>
+              <div class="flex gap-3 items-start"><span class="time-badge">Afternoon</span>
+                <p class="text-sm">Hallucination-proofing your work (Section 4)</p>
+              </div>
+              <div class="flex gap-3 items-start"><span class="time-badge">Evening</span>
+                <p class="text-sm">Real workflows, meta prompting, and your 30-day plan (Sections 5-7)</p>
+              </div>
+            </div>
+          </div>
+          <div class="tip-box">
+            <p class="text-sm"><strong>Tip:</strong> Have our prompt library open alongside this workbook at <strong><a
+                  href="https://smashyourai.com/prompts" target="_blank"
+                  rel="noopener">smashyourai.com/prompts</a></strong>. Many of the exercises build on prompts from the
+              library.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 3: MISTAKES WE HAVE MADE (NEW) -->
+    <div class="book-page to-right" data-page="3" data-title="Mistakes we have made">
+      <div class="py-12 px-6 max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold mb-3">Mistakes we have made</h2>
+        <p class="text-gray-500 text-lg mb-8">So you do not have to make them yourself</p>
+
+        <p class="text-gray-700 leading-relaxed mb-6">Before we dive into the tools and techniques, we want to be honest
+          about something. We have made every mistake in this book. Between us, James and Paul have over 40 years in
+          education and have been using AI tools daily for the past two years. Here are the real lessons we learned the
+          hard way.</p>
+
+        <div class="space-y-6 mb-8">
+          <div class="personal-story">
+            <p class="text-purple-700 font-bold text-xs uppercase tracking-wider mb-2">Lesson 1</p>
+            <h3 class="font-bold text-gray-900 mb-2">We trusted AI-generated facts without checking</h3>
+            <p class="text-sm text-gray-700 mb-2">Early on, we used AI to generate revision materials for students. The
+              content sounded perfect. Professional, well-structured, and confident. Then a student pointed out that one
+              of the "facts" was completely wrong. AI had invented a plausible-sounding definition that did not match
+              the exam board's specification at all.</p>
+            <p class="text-sm text-gray-700"><strong>What we learned:</strong> AI does not know the difference between
+              right and wrong. It only knows what sounds plausible. Every factual claim needs verifying, especially in
+              education where students are relying on your materials to pass exams.</p>
+          </div>
+
+          <div class="personal-story">
+            <p class="text-purple-700 font-bold text-xs uppercase tracking-wider mb-2">Lesson 2</p>
+            <h3 class="font-bold text-gray-900 mb-2">We let AI get too creative</h3>
+            <p class="text-sm text-gray-700 mb-2">We asked AI to "write an engaging blog post about AI tools for small
+              businesses." What we got back was full of hyperbole, metaphors, and phrases like "in today's rapidly
+              evolving digital landscape" and "unleash the power of AI to transform your business." It sounded like a
+              bad marketing brochure. We had to rewrite the whole thing.</p>
+            <p class="text-sm text-gray-700"><strong>What we learned:</strong> If you do not rein AI in, it defaults to
+              corporate robot mode. You need explicit rules: no cliches, no filler phrases, no em dashes, write like a
+              human. Custom instructions (which we covered in the first workbook) and custom GPTs (which we cover today)
+              are how you solve this permanently.</p>
+          </div>
+
+          <div class="personal-story">
+            <p class="text-purple-700 font-bold text-xs uppercase tracking-wider mb-2">Lesson 3</p>
+            <h3 class="font-bold text-gray-900 mb-2">We did not spot a hallucinated citation</h3>
+            <p class="text-sm text-gray-700 mb-2">We asked AI to suggest some academic research to support a piece of
+              content. It gave us three paper titles with author names, journal names, and publication years. They
+              looked completely real. Two of the three papers did not exist. The author names were real researchers, but
+              the specific papers were fabricated.</p>
+            <p class="text-sm text-gray-700"><strong>What we learned:</strong> AI does not retrieve citations. It
+              generates them. It predicts what a citation should look like based on patterns. Section 4 of this workbook
+              is dedicated to spotting and preventing this, because it is one of the most dangerous things AI does.</p>
+          </div>
+
+          <div class="personal-story">
+            <p class="text-purple-700 font-bold text-xs uppercase tracking-wider mb-2">Lesson 4</p>
+            <h3 class="font-bold text-gray-900 mb-2">We spent ages writing prompts that did not work</h3>
+            <p class="text-sm text-gray-700 mb-2">In the early days, we would spend 20 minutes crafting what we thought
+              was the perfect prompt, only to get mediocre results. We would tweak a word here, add a sentence there,
+              and try again. The results barely improved. We were doing prompt engineering the hard way.</p>
+            <p class="text-sm text-gray-700"><strong>What we learned:</strong> There is a better way. It is called meta
+              prompting, and it completely changed how we work with AI. Instead of writing the prompt yourself, you get
+              AI to write it for you. We dedicate a whole section to this later in the workbook (Section 6) because it
+              is genuinely the single most powerful technique we have found.</p>
+          </div>
+
+          <div class="personal-story">
+            <p class="text-purple-700 font-bold text-xs uppercase tracking-wider mb-2">Lesson 5</p>
+            <h3 class="font-bold text-gray-900 mb-2">We tried to use one tool for everything</h3>
+            <p class="text-sm text-gray-700 mb-2">For months, we used ChatGPT for everything. Writing, research,
+              fact-checking, image generation. It was fine at all of them but brilliant at none. Then we discovered that
+              different tools are better at different things. NotebookLM for accuracy-critical research. Gemini for
+              image generation. Claude for long-form writing. Perplexity for fact-checking.</p>
+            <p class="text-sm text-gray-700"><strong>What we learned:</strong> The best AI workflow uses multiple tools,
+              each for what it does best. Today's workbook teaches you exactly which tool to use when.</p>
+          </div>
+        </div>
+
+        <div class="callout">
+          <p class="text-sm text-gray-700"><strong>The point of sharing these mistakes:</strong> AI is not magic. It is
+            a powerful tool that requires skill to use well. The techniques in this workbook are what we wish we had
+            known from day one. They will save you weeks of trial and error.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 4: GOLDEN NUGGET (EXPANDED) -->
+    <div class="book-page to-right" data-page="4" data-title="Golden nugget">
+      <div class="py-12 px-6 max-w-3xl mx-auto">
+        <div
+          class="bg-gradient-to-br from-teal-100 to-cyan-100 rounded-2xl p-8 border-2 border-teal-300 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-teal-200/30 rounded-full -translate-y-1/2 translate-x-1/2">
+          </div>
+          <div class="relative">
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                </svg>
+              </div>
+              <div>
+                <p class="text-teal-700 font-bold text-xs uppercase tracking-widest">Golden nugget</p>
+                <h3 class="font-bold text-xl text-gray-900">The skill that separates casual users from power users</h3>
+              </div>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed mb-6"><strong>Knowing when NOT to use AI.</strong> The best AI users
+              do not try to use it for everything. They know exactly what AI is good at and what it is terrible at. They
+              have a mental checklist. And that clarity is what makes them fast, accurate, and trusted.</p>
+
+            <h4 class="font-bold text-gray-900 mb-3">Before and after: the same task, two approaches</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+              <div class="bg-red-50 rounded-xl p-5 border border-red-200">
+                <p class="font-bold text-red-600 text-xs uppercase tracking-wider mb-2">Without this skill</p>
+                <p class="text-sm text-gray-700">You ask AI: "Write me a report on our Q1 sales performance." AI
+                  generates a confident report full of invented statistics, made-up percentages, and fabricated
+                  comparisons to "industry benchmarks." You skim it, think it looks professional, and send it to your
+                  boss. Two days later, someone checks the numbers.</p>
+              </div>
+              <div class="bg-green-50 rounded-xl p-5 border border-green-200">
+                <p class="font-bold text-green-600 text-xs uppercase tracking-wider mb-2">With this skill</p>
+                <p class="text-sm text-gray-700">You paste your actual Q1 data into AI and ask it to "Structure this
+                  data into a report format with headings, bullet points, and a summary. Do not add any numbers or
+                  claims that are not in the data I have provided." AI formats your real data beautifully. Every number
+                  is yours. Every claim is verified.</p>
+              </div>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed mb-6">AI is brilliant at drafting, summarising, brainstorming,
+              reformatting, and explaining. It is terrible at maths, precise facts, legal citations, recent events, and
+              anything that requires lived experience. Understanding this boundary is the single most important skill
+              you will develop today.</p>
+
+            <h4 class="font-bold text-gray-900 mb-3">Exercise: know your boundaries</h4>
+            <p class="text-gray-600 text-sm mb-4">Think about your own work. List 3 things AI handles well for you, and
+              3 things where it consistently falls short.</p>
+
+            <div class="space-y-4 mb-6">
+              <div>
+                <p class="text-teal-600 font-bold text-sm mb-2">AI handles well:</p>
+                <div class="space-y-3">
+                  <div class="flex items-end gap-3"><span
+                      class="text-teal-400 font-bold text-sm w-6 text-right flex-shrink-0">1.</span><input type="text"
+                      class="write-input" data-field="p4-f1"></div>
+                  <div class="flex items-end gap-3"><span
+                      class="text-teal-400 font-bold text-sm w-6 text-right flex-shrink-0">2.</span><input type="text"
+                      class="write-input" data-field="p4-f2"></div>
+                  <div class="flex items-end gap-3"><span
+                      class="text-teal-400 font-bold text-sm w-6 text-right flex-shrink-0">3.</span><input type="text"
+                      class="write-input" data-field="p4-f3"></div>
+                </div>
+              </div>
+              <div>
+                <p class="text-teal-600 font-bold text-sm mb-2">AI falls short:</p>
+                <div class="space-y-3">
+                  <div class="flex items-end gap-3"><span
+                      class="text-teal-400 font-bold text-sm w-6 text-right flex-shrink-0">1.</span><input type="text"
+                      class="write-input" data-field="p4-f4"></div>
+                  <div class="flex items-end gap-3"><span
+                      class="text-teal-400 font-bold text-sm w-6 text-right flex-shrink-0">2.</span><input type="text"
+                      class="write-input" data-field="p4-f5"></div>
+                  <div class="flex items-end gap-3"><span
+                      class="text-teal-400 font-bold text-sm w-6 text-right flex-shrink-0">3.</span><input type="text"
+                      class="write-input" data-field="p4-f6"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tip-box bg-white/80">
+              <p class="text-sm text-gray-700"><strong>Keep this list in mind all day.</strong> Every tool and technique
+                you learn today is designed to either play to AI's strengths or compensate for its weaknesses.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 5: MORNING DIVIDER -->
+    <div class="book-page to-right" data-page="5" data-title="Morning: Custom GPTs">
+      <div class="page-centred bg-gradient-to-br from-teal-50 via-white to-cyan-50 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+          <span class="time-badge text-base px-6 py-2">Morning</span>
+          <h2 class="text-3xl font-bold mt-6 mb-3">Custom GPTs</h2>
+          <p class="text-gray-500 text-lg">Sections 1 and 2</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 6: SECTION 1 - UNDERSTANDING CUSTOM GPTs -->
+    <div class="book-page to-right" data-page="6" data-title="Section 1: Understanding custom GPTs">
+      <div class="py-12 px-6 max-w-3xl mx-auto">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="section-number">1</div>
+          <div>
+            <h2 class="text-2xl font-bold">Understanding custom GPTs</h2>
+            <p class="text-gray-500 text-sm">Build AI that already knows your business</p>
+          </div>
+        </div>
+
+        <p class="text-gray-700 leading-relaxed mb-6">A custom GPT is a version of ChatGPT that you configure once and
+          reuse forever. Instead of explaining your business, your tone, and your requirements every single
+          conversation, you bake all of that into a custom GPT. It remembers everything. Think of it as creating a
+          specialist employee who never forgets their briefing, never goes on holiday, and is available 24/7.</p>
+
+        <div class="callout mb-8">
+          <p class="text-sm text-gray-700"><strong>Why they matter:</strong> Consistent output every time. No
+            re-explaining context. Shareable with your team. We have seen businesses cut their content creation time by
+            70% simply by building a custom GPT that knows their brand voice.</p>
+        </div>
+
+        <div class="tip-box mb-8">
+          <p class="text-sm text-gray-700"><strong>Not just ChatGPT:</strong> Google Gemini has an equivalent feature
+            called <strong>Gems</strong> (free with Gemini), and Claude has <strong>Projects</strong> with custom
+            instructions (free tier available, Pro $20/month). The principles in this section apply to all three. We
+            will use ChatGPT's terminology, but everything translates directly.</p>
+        </div>
+
+        <h3 class="font-bold text-lg mb-4 text-gray-900">Exercise: spot your repetitive tasks</h3>
+        <p class="text-gray-600 text-sm mb-4">List 3 tasks where you keep giving AI the same instructions over and over.
+        </p>
+        <div class="space-y-3 mb-10">
+          <div class="flex items-end gap-3"><span
+              class="text-teal-400 font-bold text-sm w-6 text-right flex-shrink-0">1.</span><input type="text"
+              class="write-input" data-field="p6-f1"></div>
+          <div class="flex items-end gap-3"><span
+              class="text-teal-400 font-bold text-sm w-6 text-right flex-shrink-0">2.</span><input type="text"
+              class="write-input" data-field="p6-f2"></div>
+          <div class="flex items-end gap-3"><span
+              class="text-teal-400 font-bold text-sm w-6 text-right flex-shrink-0">3.</span><input type="text"
+              class="write-input" data-field="p6-f3"></div>
+        </div>
+
+        <h3 class="font-bold text-lg mb-4 text-gray-900">The 5 components of a custom GPT</h3>
+        <div class="bg-teal-50 rounded-2xl p-8 mb-8">
+          <div class="space-y-4">
+            <div class="flex gap-3 items-start"><span
+                class="flex-shrink-0 w-7 h-7 rounded-full bg-teal-500 text-white flex items-center justify-center text-sm font-bold">1</span>
+              <div>
+                <p class="font-bold text-gray-900">Name</p>
+                <p class="text-sm text-gray-600">Something descriptive. "AQA GCSE Physics Question Writer" not "My GPT
+                  1".</p>
+              </div>
+            </div>
+            <div class="flex gap-3 items-start"><span
+                class="flex-shrink-0 w-7 h-7 rounded-full bg-teal-500 text-white flex items-center justify-center text-sm font-bold">2</span>
+              <div>
+                <p class="font-bold text-gray-900">Description</p>
+                <p class="text-sm text-gray-600">One sentence explaining what it does. Helps you find it later when you
+                  have 15 of them.</p>
+              </div>
+            </div>
+            <div class="flex gap-3 items-start"><span
+                class="flex-shrink-0 w-7 h-7 rounded-full bg-teal-500 text-white flex items-center justify-center text-sm font-bold">3</span>
+              <div>
+                <p class="font-bold text-gray-900">Instructions</p>
+                <p class="text-sm text-gray-600">The detailed prompt that tells it how to behave. This is the most
+                  important part.</p>
+              </div>
+            </div>
+            <div class="flex gap-3 items-start"><span
+                class="flex-shrink-0 w-7 h-7 rounded-full bg-teal-500 text-white flex items-center justify-center text-sm font-bold">4</span>
+              <div>
+                <p class="font-bold text-gray-900">Conversation starters</p>
+                <p class="text-sm text-gray-600">Pre-written prompts that appear when you open it. Saves typing and
+                  reminds you what it can do.</p>
+              </div>
+            </div>
+            <div class="flex gap-3 items-start"><span
+                class="flex-shrink-0 w-7 h-7 rounded-full bg-teal-500 text-white flex items-center justify-center text-sm font-bold">5</span>
+              <div>
+                <p class="font-bold text-gray-900">Knowledge files (documents)</p>
+                <p class="text-sm text-gray-600">PDFs, Word docs, spreadsheets you upload. The GPT references these in
+                  every conversation. This is a game-changer.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="font-bold text-lg mb-3 text-gray-900">Uploading documents to custom GPTs</h3>
+        <p class="text-gray-700 leading-relaxed mb-4">You can upload reference documents, and the GPT will use them to
+          ground its answers. Upload your brand guidelines and the GPT writes content that follows them. Upload an exam
+          spec and it generates questions that match it.</p>
+        <p class="text-gray-700 leading-relaxed mb-4">Uploading documents <strong>reduces</strong> hallucinations
+          because the AI can reference your actual files instead of making things up. But here is the critical thing:
+          <strong>it does not eliminate them entirely.</strong> Due to the way large language models work, they can
+          still generate incorrect information even with reference documents. We cover verification techniques in detail
+          in <strong>Section 4</strong>. NotebookLM (Section 3) goes even further with cited, page-referenced answers.
+        </p>
+
+        <div class="mistake-box mb-8">
+          <p class="text-sm text-gray-700"><strong>Common mistake: uploading too many documents.</strong> More is not
+            better. 20 documents means the AI skims everything and misses details. Start with 3-5 of your most important
+            documents. You can always add more later.</p>
+        </div>
+
+        <h3 class="font-bold text-lg mb-3 text-gray-900">Template: writing custom GPT instructions</h3>
+        <div class="prompt-box mb-8">
+          <p class="text-teal-300 font-bold text-xs uppercase tracking-wider mb-3">// Custom GPT instructions template
+          </p>
+          <p class="mb-1">You are [role, e.g. "a professional email writer"]. You work for [company name], a [what your
+            business does].</p>
+          <p class="mb-4">Your audience is [describe who you communicate with].</p>
+          <p class="mb-1">ALWAYS write in [tone, e.g. "a friendly, professional tone"].</p>
+          <p class="mb-1">ALWAYS use UK English.</p>
+          <p class="mb-1">ALWAYS keep responses [length preference, e.g. "under 200 words unless asked otherwise"].</p>
+          <p class="mb-4">ALWAYS [specific formatting rules, e.g. "use bullet points for lists"].</p>
+          <p class="mb-1">NEVER use em dashes, cliches, or filler phrases.</p>
+          <p class="mb-1">NEVER use words like "leverage," "synergy," or "utilize."</p>
+          <p class="mb-4">NEVER add information the user has not provided.</p>
+          <p class="mb-1">REFERENCE the uploaded documents when answering. Cite which document the information came
+            from.</p>
+          <p>If the answer is NOT in the uploaded documents, say so clearly rather than guessing.</p>
+        </div>
+
+        <div class="mistake-box mb-8">
+          <p class="text-sm text-gray-700"><strong>Common mistake: not iterating.</strong> Your first version will be
+            about 60% right. That is normal. Expect to refine 3-4 times. After every session, ask yourself: "What did it
+            get wrong?" Then update the instructions. The magic is in the tweaking.</p>
+        </div>
+
+        <h3 class="font-bold text-lg mb-3 text-gray-900">Exercise: plan your first custom GPT</h3>
+        <div class="bg-teal-50 rounded-2xl p-8">
+          <div class="space-y-2 mb-6">
+            <div class="checkbox-line"><input type="checkbox" class="checkbox-input" data-field="p6-f4">
+              <p class="text-gray-700">Choose a name for your GPT</p>
+            </div>
+            <div class="checkbox-line"><input type="checkbox" class="checkbox-input" data-field="p6-f5">
+              <p class="text-gray-700">Write the instructions using the template above</p>
+            </div>
+            <div class="checkbox-line"><input type="checkbox" class="checkbox-input" data-field="p6-f6">
+              <p class="text-gray-700">List 3 conversation starters</p>
+            </div>
+            <div class="checkbox-line"><input type="checkbox" class="checkbox-input" data-field="p6-f7">
+              <p class="text-gray-700">Identify 3-5 documents to upload as knowledge</p>
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div>
+              <p class="text-teal-600 font-bold text-sm mb-1">GPT name:</p><input type="text" class="write-input"
+                data-field="p6-f8">
+            </div>
+            <div>
+              <p class="text-teal-600 font-bold text-sm mb-1">What it does:</p><input type="text" class="write-input"
+                data-field="p6-f9">
+            </div>
+            <div>
+              <p class="text-teal-600 font-bold text-sm mb-1">Documents to upload:</p><textarea class="write-area"
+                data-field="p6-f10" rows="3" placeholder="List the specific files"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 7: SECTION 2 - BUILDING CUSTOM GPTs (WITH EXAMPLE OUTPUTS) -->
+    <div class="book-page to-right" data-page="7" data-title="Section 2: Building your first custom GPT">
+      <div class="py-12 px-6 max-w-3xl mx-auto">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="section-number">2</div>
+          <div>
+            <h2 class="text-2xl font-bold">Building your first custom GPT</h2>
+            <p class="text-gray-500 text-sm">Full walkthroughs with real example outputs</p>
+          </div>
+        </div>
+
+        <p class="text-gray-700 leading-relaxed mb-4">Time to build. Open ChatGPT and go to <strong>Explore
+            GPTs</strong> (sidebar), then click <strong>Create</strong>. For Gemini Gems, go to <strong>Gem
+            manager</strong> and click <strong>New Gem</strong>. For Claude Projects, click <strong>Projects</strong>
+          and create a new one.</p>
+
+        <div class="callout mb-8">
+          <p class="text-sm text-gray-700"><strong>We are going to show three GPTs in full detail with example
+              outputs.</strong> Read the prompts carefully, understand why each instruction is there, then adapt for
+            your own use case.</p>
+        </div>
+
+        <!-- EXAMPLE 1: Teacher -->
+        <h3 class="font-bold text-lg mb-3 text-gray-900">Example 1: Teacher exam question generator</h3>
+        <p class="text-gray-600 text-sm mb-4">Upload your exam spec PDF and past papers as knowledge files.</p>
+        <div class="prompt-box mb-4">
+          <p class="text-teal-300 font-bold text-xs uppercase tracking-wider mb-3">// Exam question generator - full
+            instructions</p>
+          <p class="mb-4">You are an expert exam question writer for [subject, e.g. "AQA GCSE Computer Science"]. You
+            generate exam-style questions that match the specification and assessment objectives of the uploaded spec
+            document.</p>
+          <p class="mb-1">When I give you a topic or spec reference, generate exam questions following these rules:</p>
+          <p class="mb-1">- Format each question with the question number and text on the left</p>
+          <p class="mb-1">- Show the number of marks in bold square brackets right-aligned, e.g. <strong>[4]</strong>
+          </p>
+          <p class="mb-1">- After each question, include a bordered answer box sized for the marks (2 lines per mark for
+            short answers, larger for extended response)</p>
+          <p class="mb-1">- For table questions, include a properly formatted table for students to complete</p>
+          <p class="mb-4">- After ALL questions, produce a separate mark scheme with mark allocation per point</p>
+          <p class="mb-1">ALWAYS check the uploaded specification to ensure questions are within scope.</p>
+          <p class="mb-1">ALWAYS match the style and difficulty of real exam papers.</p>
+          <p class="mb-1">ALWAYS include a mix of AO1 (knowledge), AO2 (application), and AO3 (analysis).</p>
+          <p class="mb-1">ALWAYS use command words from the specification (state, describe, explain, evaluate).</p>
+          <p class="mb-1">NEVER create questions on topics not in the uploaded specification.</p>
+          <p>If a topic is out of scope, tell me rather than making questions up.</p>
+        </div>
+        <div class="example-output mb-4">
+          <p class="text-teal-600 font-bold text-xs uppercase tracking-wider mb-3">Example output</p>
+          <div class="text-sm text-gray-700 space-y-4">
+            <div>
+              <div class="flex justify-between items-start mb-2">
+                <p><strong>1.</strong> Define the term "abstraction" in the context of computational thinking.</p>
+                <p class="font-bold text-gray-900 flex-shrink-0 ml-4">[2]</p>
+              </div>
+              <div class="border border-gray-300 rounded-lg bg-gray-50 p-4 min-h-[3rem]"></div>
+            </div>
+            <div>
+              <div class="flex justify-between items-start mb-2">
+                <p><strong>2.</strong> Explain two reasons why a programmer might use subroutines when writing a large
+                  program.</p>
+                <p class="font-bold text-gray-900 flex-shrink-0 ml-4">[4]</p>
+              </div>
+              <div class="border border-gray-300 rounded-lg bg-gray-50 p-4 min-h-[5rem]"></div>
+            </div>
+            <div class="border-t-2 border-teal-200 pt-4 mt-4">
+              <p class="font-bold text-gray-900 mb-2">Mark scheme</p>
+              <p class="text-xs text-gray-600 mb-2"><strong>1.</strong> Removing unnecessary detail (1) to focus on the
+                important/relevant aspects of a problem (1)</p>
+              <p class="text-xs text-gray-600"><strong>2.</strong> Award 1 mark per reason + 1 mark per explanation,
+                e.g.: Code reuse - the subroutine can be called multiple times without rewriting the code (1+1). Easier
+                to debug - errors can be isolated to a specific subroutine (1+1).</p>
+            </div>
+          </div>
+        </div>
+        <div class="mistake-box mb-8">
+          <p class="text-sm text-gray-700"><strong>Common mistake: trusting mark allocations blindly.</strong> AI
+            sometimes allocates marks incorrectly. A 2-mark "explain" question might actually need 4 marks. Always
+            cross-check against real past paper mark schemes.</p>
+        </div>
+
+        <!-- EXAMPLE 2: Estate Agent -->
+        <h3 class="font-bold text-lg mb-3 text-gray-900">Example 2: Estate agent listing writer</h3>
+        <p class="text-gray-600 text-sm mb-4">Upload your brand guidelines and examples of your best listings as
+          knowledge files.</p>
+        <div class="prompt-box mb-4">
+          <p class="text-teal-300 font-bold text-xs uppercase tracking-wider mb-3">// Property listing writer - full
+            instructions</p>
+          <p class="mb-4">You are a property listing writer for [agency name], an estate agency based in [location]. Our
+            typical buyer is [describe].</p>
+          <p class="mb-1">When I give you property details, generate a complete listing with:</p>
+          <p class="mb-1">1. A compelling headline (max 10 words, no exclamation marks)</p>
+          <p class="mb-1">2. Key features as bullet points (max 8)</p>
+          <p class="mb-1">3. A descriptive overview (2-3 paragraphs, 150-200 words total)</p>
+          <p class="mb-1">4. A location paragraph highlighting nearby amenities</p>
+          <p class="mb-4">5. EPC rating note and standard disclaimer</p>
+          <p class="mb-1">ALWAYS write in present tense. ALWAYS use UK English and UK property terminology (garden not
+            yard, lounge not living room).</p>
+          <p class="mb-1">NEVER claim distances or travel times unless I explicitly provide them.</p>
+          <p class="mb-1">NEVER use superlatives like "stunning" unless the property genuinely warrants it.</p>
+          <p>NEVER fabricate features, room counts, or square footage I have not provided.</p>
+        </div>
+        <div class="example-output mb-4">
+          <p class="text-teal-600 font-bold text-xs uppercase tracking-wider mb-3">Example output</p>
+          <div class="text-sm text-gray-700">
+            <p class="font-bold text-gray-900 text-lg mb-3">Characterful three-bedroom semi with south-facing garden</p>
+            <div class="mb-3">
+              <p class="font-bold text-gray-900 text-xs uppercase tracking-wider mb-2">Key features</p>
+              <ul class="list-disc list-inside space-y-1 text-gray-600">
+                <li>Three bedrooms (one en-suite)</li>
+                <li>South-facing rear garden</li>
+                <li>Modern fitted kitchen with integrated appliances</li>
+                <li>Spacious lounge with bay window</li>
+                <li>Recently renovated family bathroom</li>
+                <li>Driveway parking for two vehicles</li>
+                <li>Gas central heating, double glazed throughout</li>
+              </ul>
+            </div>
+            <p class="text-gray-600 mb-2">This well-presented three-bedroom semi-detached home offers comfortable family
+              living throughout. The ground floor features a spacious lounge with a bay window flooding the room with
+              natural light, and a modern fitted kitchen with integrated appliances and space for a dining table.</p>
+            <p class="text-gray-600 mb-2">Upstairs, the master bedroom benefits from an en-suite shower room, with two
+              further bedrooms and a recently renovated family bathroom completing the first floor. Outside, the
+              south-facing rear garden is a real highlight, offering a private space ideal for entertaining.</p>
+            <p class="text-gray-500 text-xs mt-3">EPC Rating: C. For viewings, contact Northumberland Homes on 01onal
+              555 0123.</p>
+          </div>
+        </div>
+        <div class="mistake-box mb-8">
+          <p class="text-sm text-gray-700"><strong>Common mistake: trusting AI location claims.</strong> We once saw an
+            AI listing claim a property was "5 minutes from the station" when it was actually 25 minutes. AI does not
+            know distances. It makes them up. Always provide distances yourself or leave them out entirely.</p>
+        </div>
+
+        <!-- EXAMPLE 3: Meeting summariser -->
+        <h3 class="font-bold text-lg mb-3 text-gray-900">Example 3: Meeting summariser</h3>
+        <div class="prompt-box mb-4">
+          <p class="text-teal-300 font-bold text-xs uppercase tracking-wider mb-3">// Meeting summariser - full
+            instructions</p>
+          <p class="mb-4">You are a meeting summariser. When I paste in raw notes, transcripts, or voice memos, organise
+            them into a clear, actionable summary.</p>
+          <p class="mb-1">ALWAYS use this exact format:</p>
+          <p class="mb-1">**Meeting:** [title] | **Date:** [date] | **Attendees:** [names]</p>
+          <p class="mb-1">**Summary:** [2-3 sentence overview]</p>
+          <p class="mb-1">**Decisions made:** [bullet list]</p>
+          <p class="mb-1">**Action items:** [Task] - Owner: [name] - Deadline: [date or TBC]</p>
+          <p class="mb-1">**Parking lot:** [items raised but not resolved]</p>
+          <p class="mb-4">**Suggested next meeting agenda:** [based on open items]</p>
+          <p class="mb-1">NEVER invent attendee names. If unclear, write "Unknown attendee."</p>
+          <p>NEVER add action items that were not discussed.</p>
+        </div>
+        <div class="example-output mb-4">
+          <p class="text-teal-600 font-bold text-xs uppercase tracking-wider mb-3">Example output</p>
+          <div class="text-sm text-gray-700">
+            <p class="mb-1"><strong>Meeting:</strong> Website redesign kickoff | <strong>Date:</strong> 12 March 2026 |
+              <strong>Attendees:</strong> Sarah, Mike, Jo
+            </p>
+            <p class="mb-3"><strong>Summary:</strong> Agreed on a Q2 launch timeline for the website redesign. Key
+              priorities are mobile responsiveness and integrating the new booking system. Budget approved at £8,500.
+            </p>
+            <p class="font-bold mb-1">Decisions made:</p>
+            <ul class="list-disc list-inside mb-3 text-gray-600">
+              <li>Launch target: end of June 2026</li>
+              <li>Budget: £8,500 (approved by Mike)</li>
+              <li>Will use existing CMS rather than migrating</li>
+            </ul>
+            <p class="font-bold mb-1">Action items:</p>
+            <ul class="list-disc list-inside mb-3 text-gray-600">
+              <li>Get three agency quotes - Owner: Jo - Deadline: 19 March</li>
+              <li>Audit current site content - Owner: Sarah - Deadline: 26 March</li>
+              <li>Confirm booking system API access - Owner: Mike - Deadline: 19 March</li>
+            </ul>
+            <p class="font-bold mb-1">Parking lot:</p>
+            <ul class="list-disc list-inside mb-3 text-gray-600">
+              <li>Whether to include a blog (needs content resource discussion)</li>
+            </ul>
+            <p class="font-bold mb-1">Suggested next meeting agenda:</p>
+            <ul class="list-disc list-inside text-gray-600">
+              <li>Review agency quotes</li>
+              <li>Content audit findings</li>
+              <li>Blog decision</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Gems setup -->
+        <div class="bg-white rounded-2xl border-2 border-gray-100 p-6 mb-8">
+          <h3 class="font-bold text-gray-900 mb-3">Setting up a Gem on Gemini (same concept, free)</h3>
+          <div class="space-y-2 text-sm text-gray-700">
+            <p>1. Open <strong>gemini.google.com</strong> and click <strong>Gem manager</strong> in the sidebar</p>
+            <p>2. Click <strong>New Gem</strong></p>
+            <p>3. Paste your instructions into the "Instructions" field (same format as above)</p>
+            <p>4. Upload files in the knowledge section</p>
+            <p>5. Save and start using it</p>
+          </div>
+          <p class="text-gray-500 text-xs mt-3">Claude Projects work similarly: create a project, add instructions,
+            upload documents. All the prompts in this section work on all three platforms.</p>
+        </div>
+
+        <!-- Test and refine -->
+        <h3 class="font-bold text-lg mb-3 text-gray-900">Exercise: build and test</h3>
+        <div class="bg-teal-50 rounded-2xl p-8 mb-8">
+          <div class="space-y-4">
+            <div>
+              <p class="text-teal-600 font-bold text-sm mb-1">Task 1 - what happened:</p><textarea class="write-area"
+                data-field="p7-f1" rows="3"></textarea>
+            </div>
+            <div>
+              <p class="text-teal-600 font-bold text-sm mb-1">Task 2 - what happened:</p><textarea class="write-area"
+                data-field="p7-f2" rows="3"></textarea>
+            </div>
+            <div>
+              <p class="text-teal-600 font-bold text-sm mb-1">Task 3 - what happened:</p><textarea class="write-area"
+                data-field="p7-f3" rows="3"></textarea>
+            </div>
+            <div>
+              <p class="text-teal-600 font-bold text-sm mb-1">What would you change in the instructions?</p><textarea
+                class="write-area" data-field="p7-f4" rows="3"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="tip-box">
+          <p class="text-sm text-gray-700"><strong>The best custom GPTs evolve.</strong> After every session, update the
+            instructions. We have GPTs refined over months that now produce work barely needing editing. Treat
+            instructions as a living document, not a one-time setup.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 8: MIDDAY DIVIDER -->
+    <div class="book-page to-right" data-page="8" data-title="Midday: NotebookLM masterclass">
+      <div class="page-centred bg-gradient-to-br from-teal-50 via-white to-cyan-50 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+          <span class="time-badge text-base px-6 py-2">Midday</span>
+          <h2 class="text-3xl font-bold mt-6 mb-3">NotebookLM masterclass</h2>
+          <p class="text-gray-500 text-lg">Section 3</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 9: SECTION 3 - NOTEBOOKLM -->
+    <div class="book-page to-right" data-page="9" data-title="Section 3: NotebookLM masterclass">
+      <div class="py-12 px-6 max-w-3xl mx-auto">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="section-number">3</div>
+          <div>
+            <h2 class="text-2xl font-bold">NotebookLM masterclass</h2>
+            <p class="text-gray-500 text-sm">AI answers grounded in your own documents</p>
+          </div>
+        </div>
+
+        <p class="text-gray-700 leading-relaxed mb-4">NotebookLM is Google's tool for getting AI answers grounded in
+          YOUR documents. Unlike ChatGPT or Claude, it does not draw on general knowledge. Every answer comes directly
+          from your uploaded sources, with citations showing exact page and section references so you can verify where
+          each answer came from.</p>
+        <p class="text-gray-700 leading-relaxed mb-6">If you set up document uploads in your custom GPTs in Section 2,
+          you already understand the value of grounding AI in real documents. NotebookLM takes this further by making
+          citations a first-class feature. Click any citation and see the exact passage. <strong>Free with any Google
+            account.</strong></p>
+
+        <div class="callout mb-8">
+          <p class="text-sm text-gray-700"><strong>Important caveat:</strong> NotebookLM significantly reduces
+            hallucinations but is not 100% foolproof. It can still misinterpret passages or combine information
+            incorrectly. Section 4 covers verification in depth.</p>
+        </div>
+
+        <h3 class="font-bold text-lg mb-4 text-gray-900">Getting started</h3>
+        <div class="space-y-3 mb-8">
+          <div class="flex gap-3 items-start"><span
+              class="flex-shrink-0 w-7 h-7 rounded-full bg-teal-500 text-white flex items-center justify-center text-sm font-bold">1</span>
+            <p class="text-gray-700">Go to <strong>notebooklm.google.com</strong> and sign in (free)</p>
+          </div>
+          <div class="flex gap-3 items-start"><span
+              class="flex-shrink-0 w-7 h-7 rounded-full bg-teal-500 text-white flex items-center justify-center text-sm font-bold">2</span>
+            <p class="text-gray-700">Click <strong>New Notebook</strong></p>
+          </div>
+          <div class="flex gap-3 items-start"><span
+              class="flex-shrink-0 w-7 h-7 rounded-full bg-teal-500 text-white flex items-center justify-center text-sm font-bold">3</span>
+            <p class="text-gray-700">Upload sources: PDFs, Google Docs, websites, YouTube videos, or paste text</p>
+          </div>
+          <div class="flex gap-3 items-start"><span
+              class="flex-shrink-0 w-7 h-7 rounded-full bg-teal-500 text-white flex items-center justify-center text-sm font-bold">4</span>
+            <p class="text-gray-700">Start asking questions. Every answer includes numbered citations you can click.</p>
+          </div>
+        </div>
+
+        <h3 class="font-bold text-lg mb-4 text-gray-900">Exercise: upload and explore</h3>
+        <p class="text-gray-600 text-sm mb-4">Upload 3 documents you actually use at work.</p>
+        <div class="space-y-3 mb-8">
+          <div class="flex items-end gap-3"><span
+              class="text-teal-400 font-bold text-sm w-6 text-right flex-shrink-0">1.</span><input type="text"
+              class="write-input" data-field="p9-f1" placeholder="Document name"></div>
+          <div class="flex items-end gap-3"><span
+              class="text-teal-400 font-bold text-sm w-6 text-right flex-shrink-0">2.</span><input type="text"
+              class="write-input" data-field="p9-f2" placeholder="Document name"></div>
+          <div class="flex items-end gap-3"><span
+              class="text-teal-400 font-bold text-sm w-6 text-right flex-shrink-0">3.</span><input type="text"
+              class="write-input" data-field="p9-f3" placeholder="Document name"></div>
+        </div>
+
+        <h3 class="font-bold text-lg mb-4 text-gray-900">5 exercises to try now</h3>
+
+        <div class="mb-6">
+          <div class="flex items-center gap-3 mb-3"><span
+              class="w-9 h-9 rounded-full bg-gradient-to-r from-teal-500 to-cyan-600 text-white flex items-center justify-center font-bold text-sm flex-shrink-0">1</span>
+            <h4 class="font-bold text-gray-900">Summarise a document</h4>
+          </div>
+          <div class="prompt-box mb-3">
+            <p>Summarise [document name] in 5 bullet points. Focus on the key takeaways most relevant to someone who
+              needs to [your context, e.g. "teach this to Year 11" or "advise a client"].</p>
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <div class="flex items-center gap-3 mb-3"><span
+              class="w-9 h-9 rounded-full bg-gradient-to-r from-teal-500 to-cyan-600 text-white flex items-center justify-center font-bold text-sm flex-shrink-0">2</span>
+            <h4 class="font-bold text-gray-900">Ask a specific question and check citations</h4>
+          </div>
+          <div class="prompt-box mb-3">
+            <p>According to the uploaded documents, what is the policy on [topic]? Quote the exact wording and tell me
+              which document and section it comes from.</p>
+          </div>
+          <p class="text-gray-500 text-xs mb-3">After getting the answer, click the citation numbers. Does the cited
+            text actually support the claim? This is the habit to build.</p>
+        </div>
+
+        <div class="mb-6">
+          <div class="flex items-center gap-3 mb-3"><span
+              class="w-9 h-9 rounded-full bg-gradient-to-r from-teal-500 to-cyan-600 text-white flex items-center justify-center font-bold text-sm flex-shrink-0">3</span>
+            <h4 class="font-bold text-gray-900">Compare two documents</h4>
+          </div>
+          <div class="prompt-box mb-3">
+            <p>Compare [document 1] and [document 2]. What are the key differences in how they cover [topic]? Present as
+              a comparison table.</p>
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <div class="flex items-center gap-3 mb-3"><span
+              class="w-9 h-9 rounded-full bg-gradient-to-r from-teal-500 to-cyan-600 text-white flex items-center justify-center font-bold text-sm flex-shrink-0">4</span>
+            <h4 class="font-bold text-gray-900">Generate an Audio Overview</h4>
+          </div>
+          <p class="text-gray-700 text-sm mb-3">Click <strong>Audio Overview</strong> in the Notebook guide panel.
+            NotebookLM generates an 8-12 minute podcast-style discussion of your documents, with two AI hosts talking
+            through the key points conversationally. Great for absorbing dense material while commuting or walking.</p>
+          <div class="tip-box mb-3">
+            <p class="text-sm text-gray-700"><strong>Pro tip:</strong> Customise the Audio Overview before generating.
+              Add: "Focus on practical implications for small businesses" or "Explain as if the listener has no
+              accounting background." This dramatically improves relevance.</p>
+          </div>
+        </div>
+
+        <div class="mb-8">
+          <div class="flex items-center gap-3 mb-3"><span
+              class="w-9 h-9 rounded-full bg-gradient-to-r from-teal-500 to-cyan-600 text-white flex items-center justify-center font-bold text-sm flex-shrink-0">5</span>
+            <h4 class="font-bold text-gray-900">Try to break it (deliberately)</h4>
+          </div>
+          <p class="text-gray-700 text-sm mb-3">Ask a question NOT in your documents. Does it admit it cannot find the
+            answer, or hallucinate?</p>
+          <div class="space-y-3">
+            <div>
+              <p class="text-teal-600 font-bold text-sm mb-1">Question (not in your docs):</p><input type="text"
+                class="write-input" data-field="p9-f4">
+            </div>
+            <div>
+              <p class="text-teal-600 font-bold text-sm mb-1">What happened:</p><textarea class="write-area"
+                data-field="p9-f5" rows="2"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="mistake-box mb-8">
+          <p class="text-sm text-gray-700"><strong>Common mistake: asking questions outside your sources.</strong> If
+            your documents do not cover the topic, NotebookLM may try to answer from general knowledge and hallucinate.
+            Stick to questions your documents can answer.</p>
+        </div>
+
+        <h3 class="font-bold text-lg mb-4 text-gray-900">Real-world use cases</h3>
+        <div class="space-y-3 mb-8">
+          <div class="bg-white rounded-xl border border-gray-100 p-4">
+            <p class="font-bold text-sm text-gray-900 mb-1">Teachers</p>
+            <p class="text-sm text-gray-600">Upload exam spec + past papers. Ask "What topics appeared in every paper?",
+              "Create a revision checklist", or "Which topics haven't been examined since 2022?"</p>
+          </div>
+          <div class="bg-white rounded-xl border border-gray-100 p-4">
+            <p class="font-bold text-sm text-gray-900 mb-1">Legal professionals</p>
+            <p class="text-sm text-gray-600">Upload contracts and legislation. Get clause comparisons, risk flags, and
+              precedent summaries with exact page references.</p>
+          </div>
+          <div class="bg-white rounded-xl border border-gray-100 p-4">
+            <p class="font-bold text-sm text-gray-900 mb-1">HR</p>
+            <p class="text-sm text-gray-600">Upload handbook + ACAS guidance. Team members ask policy questions and get
+              cited answers instantly.</p>
+          </div>
+          <div class="bg-white rounded-xl border border-gray-100 p-4">
+            <p class="font-bold text-sm text-gray-900 mb-1">Accountants</p>
+            <p class="text-sm text-gray-600">Upload HMRC guidance. Ask about specific rules and get the exact paragraph
+              referenced.</p>
+          </div>
+        </div>
+
+        <div class="bg-teal-50 rounded-2xl p-8">
+          <h3 class="font-bold text-lg mb-3 text-gray-900">Reflection</h3>
+          <p class="text-gray-600 text-sm mb-4">What 3 documents would transform your work if you could instantly search
+            them? How would you combine this with the custom GPT you built in Section 2?</p>
+          <textarea class="write-area" data-field="p9-f6" rows="5"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 10: AFTERNOON DIVIDER -->
+    <div class="book-page to-right" data-page="10" data-title="Afternoon: Hallucination-proofing">
+      <div class="page-centred bg-gradient-to-br from-teal-50 via-white to-cyan-50 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+          <span class="time-badge text-base px-6 py-2">Afternoon</span>
+          <h2 class="text-3xl font-bold mt-6 mb-3">Hallucination-proofing</h2>
+          <p class="text-gray-500 text-lg">Section 4</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 11: SECTION 4 - HALLUCINATIONS -->
+    <div class="book-page to-right" data-page="11" data-title="Section 4: Spotting and preventing hallucinations">
+      <div class="py-12 px-6 max-w-3xl mx-auto">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="section-number">4</div>
+          <div>
+            <h2 class="text-2xl font-bold">Spotting and preventing hallucinations</h2>
+            <p class="text-gray-500 text-sm">Because AI never says "I do not know"</p>
+          </div>
+        </div>
+
+        <p class="text-gray-700 leading-relaxed mb-6">AI hallucinations are when the model generates confident-sounding
+          nonsense. It will cite papers that do not exist. It will invent statistics. It will fabricate case law. And it
+          does all of this with the same authoritative tone it uses when correct. <strong>It never warns you.</strong>
+        </p>
+
+        <div class="callout mb-6">
+          <p class="text-sm text-gray-700"><strong>Why this happens:</strong> Large language models predict the most
+            likely next word based on patterns. When they lack the right information, they do not stop. They generate
+            what sounds plausible instead. This is not a bug. It is fundamental to how the technology works.</p>
+        </div>
+
+        <h3 class="font-bold text-lg mb-3 text-gray-900">Real consequences</h3>
+        <div class="space-y-4 mb-8">
+          <div class="bg-white rounded-xl border-2 border-red-100 p-5">
+            <p class="font-bold text-sm text-red-600 mb-1">The lawyer who cited fake cases</p>
+            <p class="text-sm text-gray-700">In 2023, a New York lawyer submitted a court filing citing six legal cases.
+              None existed. ChatGPT generated convincing case names, citations, and ruling summaries. The lawyer was
+              sanctioned by the court. He told the judge he did not know AI could fabricate case law.</p>
+          </div>
+          <div class="bg-white rounded-xl border-2 border-red-100 p-5">
+            <p class="font-bold text-sm text-red-600 mb-1">Fabricated academic references</p>
+            <p class="text-sm text-gray-700">University lecturers routinely catch students citing papers that do not
+              exist. AI generates plausible author names, journal titles, and years. The references look real at a
+              glance but fall apart when you search for them.</p>
+          </div>
+          <div class="bg-white rounded-xl border-2 border-red-100 p-5">
+            <p class="font-bold text-sm text-red-600 mb-1">Invented business data</p>
+            <p class="text-sm text-gray-700">A marketing team used AI-generated "market research statistics" in a board
+              presentation. The numbers sounded right and the trends made sense. But the specific figures were
+              fabricated. They discovered this when a board member tried to find the source.</p>
+          </div>
+        </div>
+
+        <h3 class="font-bold text-lg mb-4 text-gray-900">Exercise: test it yourself</h3>
+        <p class="text-gray-600 text-sm mb-4">Ask AI a specific technical question about your field that you already
+          know the answer to.</p>
+        <div class="space-y-4 mb-8">
+          <div>
+            <p class="text-teal-600 font-bold text-sm mb-1">Question you asked:</p><input type="text"
+              class="write-input" data-field="p11-f1">
+          </div>
+          <div>
+            <p class="text-teal-600 font-bold text-sm mb-1">Was it accurate?</p><input type="text" class="write-input"
+              data-field="p11-f2">
+          </div>
+          <div>
+            <p class="text-teal-600 font-bold text-sm mb-1">What did it get wrong?</p><textarea class="write-area"
+              data-field="p11-f3" rows="3"></textarea>
+          </div>
+        </div>
+
+        <h3 class="font-bold text-lg mb-4 text-gray-900">Exercise: deliberately make AI hallucinate</h3>
+        <p class="text-gray-600 text-sm mb-4">Ask about something very specific requiring precise knowledge. A teacher
+          could ask about a specific mark scheme. An accountant about a specific HMRC ruling. See if it gets the details
+          right or invents plausible answers.</p>
+        <div class="space-y-4 mb-8">
+          <div>
+            <p class="text-teal-600 font-bold text-sm mb-1">Your specific question:</p><textarea class="write-area"
+              data-field="p11-f4" rows="2"></textarea>
+          </div>
+          <div>
+            <p class="text-teal-600 font-bold text-sm mb-1">Did it hallucinate? What did it invent?</p><textarea
+              class="write-area" data-field="p11-f5" rows="3"></textarea>
+          </div>
+        </div>
+
+        <h3 class="font-bold text-lg mb-4 text-gray-900">Red flags checklist</h3>
+        <div class="bg-teal-50 rounded-2xl p-8 mb-8">
+          <div class="space-y-3 text-sm text-gray-700">
+            <div class="flex gap-2 items-start"><svg class="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
+              </svg><span><strong>Specific numbers or statistics you did not provide</strong></span></div>
+            <div class="flex gap-2 items-start"><svg class="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
+              </svg><span><strong>Citations to papers, books, or articles</strong> - always check they exist</span>
+            </div>
+            <div class="flex gap-2 items-start"><svg class="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
+              </svg><span><strong>Legal references or case law</strong> - AI will confidently cite non-existent
+                cases</span></div>
+            <div class="flex gap-2 items-start"><svg class="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
+              </svg><span><strong>Claims about recent events</strong> - training data has a cutoff date</span></div>
+            <div class="flex gap-2 items-start"><svg class="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
+              </svg><span><strong>Mathematical calculations</strong> - always verify with a calculator</span></div>
+            <div class="flex gap-2 items-start"><svg class="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
+              </svg><span><strong>Overly detailed answers to vague questions</strong> - filling space with
+                invention</span></div>
+          </div>
+        </div>
+
+        <h3 class="font-bold text-lg mb-4 text-gray-900">The prevention toolkit</h3>
+        <div class="space-y-4 mb-8">
+          <div class="bg-white rounded-xl border border-gray-100 p-5">
+            <p class="font-bold text-sm text-gray-900 mb-1">1. Use NotebookLM for factual work</p>
+            <p class="text-sm text-gray-600">As you learned in Section 3, answers are grounded in your documents with
+              citations. Your first line of defence.</p>
+          </div>
+          <div class="bg-white rounded-xl border border-gray-100 p-5">
+            <p class="font-bold text-sm text-gray-900 mb-1">2. The "are you sure?" technique</p>
+            <p class="text-sm text-gray-600">After getting a response, pick the most specific claim and ask: "Are you
+              sure about [claim]? Double-check and tell me your confidence level." This forces the model to re-evaluate
+              rather than just generating the next plausible thing. It does not always catch errors, but it catches
+              enough to be worth doing every time.</p>
+          </div>
+          <div class="bg-white rounded-xl border border-gray-100 p-5">
+            <p class="font-bold text-sm text-gray-900 mb-1">3. Ask for sources (and check them)</p>
+            <p class="text-sm text-gray-600">Add "Cite your sources for every factual claim" to your prompt. Then
+              actually look them up.</p>
+          </div>
+          <div class="bg-white rounded-xl border border-gray-100 p-5">
+            <p class="font-bold text-sm text-gray-900 mb-1">4. Cross-reference with Perplexity</p>
+            <p class="text-sm text-gray-600">Perplexity AI (free, or Pro $20/month) searches the web and provides
+              sources. Ask the same question there and compare.</p>
+          </div>
+          <div class="bg-white rounded-xl border border-gray-100 p-5">
+            <p class="font-bold text-sm text-gray-900 mb-1">5. Never trust numbers, dates, or legal references</p>
+            <p class="text-sm text-gray-600">Verify independently. Every time. No exceptions.</p>
+          </div>
+          <div class="bg-white rounded-xl border border-gray-100 p-5">
+            <p class="font-bold text-sm text-gray-900 mb-1">6. Build honesty rules into your GPTs</p>
+            <p class="text-sm text-gray-600">Add: "If you are not certain, say so clearly. Never fabricate information."
+            </p>
+          </div>
+        </div>
+
+        <div class="mistake-box mb-6">
+          <p class="text-sm text-gray-700"><strong>Common mistake: saying "check this" without criteria.</strong> AI
+            will almost always say it looks great. It is a people-pleaser. Instead: "Check this against [specific
+            criteria] and list every deviation. Only tell me what is wrong or missing."</p>
+        </div>
+
+        <h3 class="font-bold text-lg mb-3 text-gray-900">Exercise: write a verification prompt</h3>
+        <div class="prompt-box mb-6">
+          <p class="text-teal-300 font-bold text-xs uppercase tracking-wider mb-3">// Verification prompt template</p>
+          <p class="mb-4">[Your question here]</p>
+          <p class="mb-1">After answering:</p>
+          <p class="mb-1">1. Rate your confidence in each factual claim (1-10).</p>
+          <p class="mb-1">2. For anything below 8, explain why and suggest how I could verify it.</p>
+          <p>3. If you are not certain, say "I am not sure about this" rather than guessing.</p>
+        </div>
+
+        <div class="bg-teal-50 rounded-2xl p-8">
+          <h3 class="font-bold text-lg mb-3 text-gray-900">Reflection</h3>
+          <p class="text-gray-600 text-sm mb-4">What is the biggest hallucination risk in your work? What verification
+            step will you build into your workflow?</p>
+          <textarea class="write-area" data-field="p11-f6" rows="5"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 12: EVENING DIVIDER -->
+    <div class="book-page to-right" data-page="12" data-title="Evening: Real workflows and beyond">
+      <div class="page-centred bg-gradient-to-br from-teal-50 via-white to-cyan-50 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+          <span class="time-badge text-base px-6 py-2">Evening</span>
+          <h2 class="text-3xl font-bold mt-6 mb-3">Real workflows and beyond</h2>
+          <p class="text-gray-500 text-lg">Sections 5, 6, and 7</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 13: SECTION 5 - BUILDING REAL WORKFLOWS -->
+    <div class="book-page to-right" data-page="13" data-title="Section 5: Building real workflows">
+      <div class="px-6 pt-10 pb-20 max-w-3xl mx-auto">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="section-number">5</div>
+          <div>
+            <span class="time-badge">Evening</span>
+            <h2 class="text-2xl font-bold text-gray-900 mt-1">Building real workflows</h2>
+          </div>
+        </div>
+
+        <p class="text-gray-600 mb-6">This is where everything comes together. Instead of using AI for one-off tasks,
+          you are going to chain multiple steps into workflows that save hours every week. We will walk through a
+          complete example, then you will design your own.</p>
+
+        <div class="callout mb-8">
+          <p class="font-bold text-gray-900 mb-1">The difference between a tool and a workflow</p>
+          <p class="text-gray-600 text-sm">A tool does one thing. A workflow connects multiple steps so the output of
+            one becomes the input of the next. That is where the real time savings happen - not minutes, but hours.</p>
+        </div>
+
+        <h3 class="font-bold text-lg mb-4 text-gray-900">Worked example: estate agent property listing workflow</h3>
+        <p class="text-gray-600 mb-4">Let's say you have just taken photos of a new property, written some rough notes
+          during the viewing, and need to produce a full listing. Here is the complete workflow, step by step.</p>
+
+        <div class="bg-gray-50 rounded-2xl p-6 mb-6">
+          <p class="font-bold text-sm text-gray-900 mb-3">Step 1: Upload your photos and notes</p>
+          <p class="text-gray-600 text-sm mb-3">Upload your viewing notes (handwritten or typed) plus 5-10 property
+            photos to ChatGPT or Claude.</p>
+          <div class="prompt-box mb-4">
+            <p class="text-teal-300 font-bold text-xs uppercase tracking-wider mb-3">// Step 1 prompt</p>
+            <p>I am an estate agent. I have just finished a property viewing and need to create a listing. Here are my
+              viewing notes and photos.</p>
+            <p class="mt-2">First, analyse everything I have uploaded and give me:</p>
+            <p>1. A summary of the property's key features</p>
+            <p>2. Anything you can see in the photos that I have not mentioned in my notes</p>
+            <p>3. Any questions I should answer before we write the listing</p>
+          </div>
+          <div class="example-output">
+            <p class="font-bold text-sm text-teal-700 mb-2">Example output:</p>
+            <p class="text-sm text-gray-700 mb-2"><strong>Key features identified:</strong> 3-bed semi-detached,
+              south-facing garden (visible from photo 3 - afternoon sun on lawn), recently fitted kitchen with
+              integrated appliances, original Victorian fireplace in living room (photo 6), off-street parking for 2
+              cars.</p>
+            <p class="text-sm text-gray-700 mb-2"><strong>From photos but not in your notes:</strong> The bathroom
+              appears to have underfloor heating (visible thermostat in photo 8). The kitchen has a wine fridge built
+              into the island unit. There is a garden office/shed at the rear.</p>
+            <p class="text-sm text-gray-700"><strong>Questions before writing:</strong> What is the asking price? EPC
+              rating? Council tax band? Is the garden office heated/insulated? Any recent renovations beyond the
+              kitchen?</p>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 rounded-2xl p-6 mb-6">
+          <p class="font-bold text-sm text-gray-900 mb-3">Step 2: Generate the listing description</p>
+          <div class="prompt-box mb-4">
+            <p class="text-teal-300 font-bold text-xs uppercase tracking-wider mb-3">// Step 2 prompt</p>
+            <p>Based on everything above, write a property listing description. Use this format:</p>
+            <p class="mt-2">- Opening hook (one compelling sentence)</p>
+            <p>- Key details (beds, bathrooms, reception rooms, parking)</p>
+            <p>- Room-by-room walkthrough (ground floor then first floor)</p>
+            <p>- Outside space</p>
+            <p>- Location highlights (schools, transport, shops within 1 mile)</p>
+            <p>- Closing line with call to action</p>
+            <p class="mt-2">Tone: professional but warm. Avoid cliches like "must be seen to be believed" or
+              "deceptively spacious". Maximum 300 words.</p>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 rounded-2xl p-6 mb-6">
+          <p class="font-bold text-sm text-gray-900 mb-3">Step 3: Create social media versions</p>
+          <div class="prompt-box mb-4">
+            <p class="text-teal-300 font-bold text-xs uppercase tracking-wider mb-3">// Step 3 prompt</p>
+            <p>Now create three social media posts from this listing:</p>
+            <p class="mt-2">1. <strong>Facebook</strong> - conversational, 80-100 words, include emojis sparingly, end
+              with "DM us or call [number]"</p>
+            <p>2. <strong>Instagram caption</strong> - lifestyle-focused, 60-80 words, include 10 relevant hashtags at
+              the end</p>
+            <p>3. <strong>LinkedIn</strong> - professional market insight angle, 100-120 words, position us as local
+              market experts</p>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 rounded-2xl p-6 mb-6">
+          <p class="font-bold text-sm text-gray-900 mb-3">Step 4: Generate the email alert</p>
+          <div class="prompt-box mb-4">
+            <p class="text-teal-300 font-bold text-xs uppercase tracking-wider mb-3">// Step 4 prompt</p>
+            <p>Finally, write a short email to send to buyers on our mailing list who are looking for 3-bed properties
+              in this area.</p>
+            <p class="mt-2">Subject line: short, curiosity-driven, no clickbait</p>
+            <p>Body: 50-80 words, highlight the 3 most appealing features, include a clear "Book a viewing" call to
+              action.</p>
+          </div>
+        </div>
+
+        <div class="callout mb-8">
+          <p class="font-bold text-gray-900 mb-1">Total time: roughly 15 minutes</p>
+          <p class="text-gray-600 text-sm">That workflow - listing, 3 social posts, and an email - used to take 1-2
+            hours. The AI does not replace your expertise (you still check every detail), but it eliminates the blank
+            page problem and handles the repetitive formatting.</p>
+        </div>
+
+        <h3 class="font-bold text-lg mb-4 text-gray-900">More workflow ideas by role</h3>
+        <div class="overflow-x-auto mb-6 relative">
+          <div
+            class="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white to-transparent pointer-events-none z-10 sm:hidden">
+          </div>
+          <table class="w-full text-sm border-collapse min-w-[500px]">
+            <thead>
+              <tr class="bg-teal-50">
+                <th class="text-left p-3 font-bold text-gray-900 border-b border-teal-100">Role</th>
+                <th class="text-left p-3 font-bold text-gray-900 border-b border-teal-100">Workflow</th>
+                <th class="text-left p-3 font-bold text-gray-900 border-b border-teal-100">Steps</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-gray-100">
+                <td class="p-3 text-gray-700">Teacher</td>
+                <td class="p-3 text-gray-700">End-of-topic assessment</td>
+                <td class="p-3 text-gray-600">Upload spec → generate questions → create mark scheme → produce
+                  student-friendly feedback templates</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="p-3 text-gray-700">Accountant</td>
+                <td class="p-3 text-gray-700">Client onboarding pack</td>
+                <td class="p-3 text-gray-600">Upload engagement letter template → personalise for client → generate
+                  checklist of documents needed → draft welcome email</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="p-3 text-gray-700">Salon owner</td>
+                <td class="p-3 text-gray-700">Monthly content batch</td>
+                <td class="p-3 text-gray-600">Upload this month's offers → generate 30 social posts → create email
+                  newsletter → write Google Business update</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="p-3 text-gray-700">Personal trainer</td>
+                <td class="p-3 text-gray-700">New client programme</td>
+                <td class="p-3 text-gray-600">Upload assessment form → generate 4-week plan → create exercise
+                  descriptions → draft check-in email sequence</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="p-3 text-gray-700">Solicitor</td>
+                <td class="p-3 text-gray-700">Case research summary</td>
+                <td class="p-3 text-gray-600">Upload case documents → summarise key facts → identify relevant precedents
+                  → draft chronology</td>
+              </tr>
+              <tr>
+                <td class="p-3 text-gray-700">Any role</td>
+                <td class="p-3 text-gray-700">Meeting follow-up</td>
+                <td class="p-3 text-gray-600">Upload recording/transcript → extract action items → assign owners → draft
+                  follow-up email to attendees</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="font-bold text-lg mb-3 text-gray-900">Design your own workflow</h3>
+        <p class="text-gray-600 text-sm mb-4">Think about a task you do regularly that involves multiple steps. Map it
+          out below.</p>
+
+        <div class="bg-teal-50 rounded-2xl p-6 mb-4">
+          <p class="text-gray-700 text-sm font-bold mb-2">What is the task?</p>
+          <input class="write-input" data-field="p13-f1" placeholder="e.g. writing a weekly team update email">
+        </div>
+        <div class="bg-teal-50 rounded-2xl p-6 mb-4">
+          <p class="text-gray-700 text-sm font-bold mb-2">Step 1: What do you feed in? (documents, notes, data)</p>
+          <textarea class="write-area" data-field="p13-f2" rows="3"></textarea>
+        </div>
+        <div class="bg-teal-50 rounded-2xl p-6 mb-4">
+          <p class="text-gray-700 text-sm font-bold mb-2">Step 2: What do you ask AI to do with it?</p>
+          <textarea class="write-area" data-field="p13-f3" rows="3"></textarea>
+        </div>
+        <div class="bg-teal-50 rounded-2xl p-6 mb-4">
+          <p class="text-gray-700 text-sm font-bold mb-2">Step 3: What is the next output you need?</p>
+          <textarea class="write-area" data-field="p13-f4" rows="3"></textarea>
+        </div>
+        <div class="bg-teal-50 rounded-2xl p-6 mb-4">
+          <p class="text-gray-700 text-sm font-bold mb-2">Step 4: Any final formats or versions needed?</p>
+          <textarea class="write-area" data-field="p13-f5" rows="3"></textarea>
+        </div>
+        <div class="bg-teal-50 rounded-2xl p-6 mb-6">
+          <p class="text-gray-700 text-sm font-bold mb-2">How much time do you think this will save per week?</p>
+          <input class="write-input" data-field="p13-f6" placeholder="e.g. 2 hours">
+        </div>
+
+        <div class="tip-box">
+          <p class="font-bold text-gray-900 text-sm mb-1">Pro tip: save your workflows</p>
+          <p class="text-gray-600 text-sm">Once you have a workflow that works well, save the full prompt chain as a
+            document. Next time, you just paste it in and update the details. Even better - turn it into a Custom GPT
+            (page 7) so you do not even need to remember the prompts.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 14: SECTION 6 - META PROMPTING -->
+    <div class="book-page to-right" data-page="14" data-title="Section 6: Meta prompting">
+      <div class="px-6 pt-10 pb-20 max-w-3xl mx-auto">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="section-number">6</div>
+          <div>
+            <span class="time-badge">Evening</span>
+            <h2 class="text-2xl font-bold text-gray-900 mt-1">Meta prompting</h2>
+          </div>
+        </div>
+
+        <p class="text-gray-600 mb-4">This is probably the single most powerful technique in this entire workbook. Meta
+          prompting means <strong>asking the AI to help you write a better prompt before you use it</strong>. Instead of
+          guessing what to ask, you let the AI interview you first.</p>
+
+        <div class="personal-story mb-6">
+          <p class="font-bold text-sm text-purple-700 mb-1">Why we teach this</p>
+          <p class="text-gray-700 text-sm">We used to spend ages crafting the "perfect" prompt from scratch. Then we
+            realised: the AI already knows what makes a good prompt. So why not ask it? This one technique has
+            transformed how we work - and how we teach. If you only take one thing from this workbook, make it this.</p>
+        </div>
+
+        <h3 class="font-bold text-lg mb-3 text-gray-900">How it works: the four-step process</h3>
+
+        <div class="bg-gray-50 rounded-2xl p-6 mb-6">
+          <div class="flex items-start gap-3 mb-4">
+            <div
+              class="w-8 h-8 bg-teal-500 text-white rounded-lg flex items-center justify-center font-bold text-sm flex-shrink-0">
+              1</div>
+            <div>
+              <p class="font-bold text-gray-900">Describe what you want (roughly)</p>
+              <p class="text-gray-600 text-sm">Tell the AI what you are trying to achieve - it does not need to be
+                detailed or well-structured.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 mb-4">
+            <div
+              class="w-8 h-8 bg-teal-500 text-white rounded-lg flex items-center justify-center font-bold text-sm flex-shrink-0">
+              2</div>
+            <div>
+              <p class="font-bold text-gray-900">Ask the AI to interview you</p>
+              <p class="text-gray-600 text-sm">It asks 5-10 detailed questions to understand your context, audience,
+                constraints, and preferences.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 mb-4">
+            <div
+              class="w-8 h-8 bg-teal-500 text-white rounded-lg flex items-center justify-center font-bold text-sm flex-shrink-0">
+              3</div>
+            <div>
+              <p class="font-bold text-gray-900">Answer the questions</p>
+              <p class="text-gray-600 text-sm">Your answers give the AI everything it needs to write a prompt you could
+                never have written from scratch.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div
+              class="w-8 h-8 bg-teal-500 text-white rounded-lg flex items-center justify-center font-bold text-sm flex-shrink-0">
+              4</div>
+            <div>
+              <p class="font-bold text-gray-900">Get the optimised prompt - then use it</p>
+              <p class="text-gray-600 text-sm">The AI produces a detailed, structured prompt. Copy it, open a
+                <strong>new chat</strong>, and paste it in.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout mb-6">
+          <p class="font-bold text-gray-900 mb-1">Why a new chat?</p>
+          <p class="text-gray-600 text-sm">The chat where you built the prompt has lots of back-and-forth context.
+            Starting fresh means the AI focuses entirely on executing the polished prompt without being influenced by
+            the drafting conversation.</p>
+        </div>
+
+        <h3 class="font-bold text-lg mb-3 text-gray-900">The meta prompt</h3>
+        <p class="text-gray-600 text-sm mb-4">This is the prompt you use to start the process. Memorise it or save it
+          somewhere accessible.</p>
+
+        <div class="prompt-box mb-6">
+          <p class="text-teal-300 font-bold text-xs uppercase tracking-wider mb-3">// The meta prompt</p>
+          <p class="mb-4">I want you to help me write the perfect prompt for the following task:</p>
+          <p class="mb-4">[Describe your task in plain English - a few sentences is fine]</p>
+          <p class="mb-4">Before writing the prompt, ask me 10 in-depth questions about what I need. Cover things like:
+          </p>
+          <p class="mb-1">- Who the output is for (audience)</p>
+          <p class="mb-1">- What tone and style I want</p>
+          <p class="mb-1">- Any constraints (word count, format, things to avoid)</p>
+          <p class="mb-1">- What a great result looks like vs a bad one</p>
+          <p class="mb-1">- Any context or background information you need from me</p>
+          <p class="mt-4">Ask the questions one at a time so we can have a conversation. Once you have all my answers,
+            write the optimised prompt that I can copy and use in a new chat.</p>
+        </div>
+
+        <h3 class="font-bold text-lg mb-3 text-gray-900">Worked example: teacher writing an end-of-term report</h3>
+
+        <div class="bg-gray-50 rounded-2xl p-5 mb-4">
+          <p class="font-bold text-sm text-gray-900 mb-2">What the teacher typed:</p>
+          <p class="text-gray-600 text-sm italic">"I want to write end-of-term reports for my Year 9 Science class. I
+            have 30 students."</p>
+        </div>
+
+        <div class="bg-gray-50 rounded-2xl p-5 mb-4">
+          <p class="font-bold text-sm text-gray-900 mb-3">Some of the AI's questions:</p>
+          <ol class="text-sm text-gray-600 space-y-2">
+            <li><strong>1.</strong> What format does your school use - paragraph style, bullet points, or a template
+              with sections?</li>
+            <li><strong>2.</strong> What is the typical word count per student report?</li>
+            <li><strong>3.</strong> Do you need to reference specific topics covered this term?</li>
+            <li><strong>4.</strong> What data do you have for each student - grades, effort scores, specific
+              strengths/weaknesses?</li>
+            <li><strong>5.</strong> Are there any phrases your school requires or bans? (Some schools ban "could try
+              harder")</li>
+            <li><strong>6.</strong> Should the tone differ between high-achieving students and those who are struggling?
+            </li>
+            <li><strong>7.</strong> Do parents read these directly, or do they go through a head of year first?</li>
+          </ol>
+        </div>
+
+        <div class="bg-gray-50 rounded-2xl p-5 mb-6">
+          <p class="font-bold text-sm text-gray-900 mb-2">The optimised prompt the AI produced:</p>
+          <div class="prompt-box">
+            <p class="text-teal-300 font-bold text-xs uppercase tracking-wider mb-3">// Generated prompt (for new chat)
+            </p>
+            <p class="mb-3">You are an experienced UK secondary school Science teacher writing end-of-term reports for
+              Year 9 students. Each report will be read directly by parents/carers.</p>
+            <p class="mb-3">For each student, I will provide: name, current grade (1-9), effort grade (A-D), two
+              strengths, one area for improvement, and any specific incidents or achievements.</p>
+            <p class="mb-3">Write a 60-80 word report per student that:</p>
+            <p class="mb-1">- Opens with a positive, specific comment about their work this term</p>
+            <p class="mb-1">- References at least one of: atomic structure, forces, or ecosystems (topics covered)</p>
+            <p class="mb-1">- Uses the school's required structure: achievement, effort, target</p>
+            <p class="mb-1">- Avoids generic phrases like "good effort" or "could try harder"</p>
+            <p class="mb-1">- For students below grade 5, frames improvement supportively rather than critically</p>
+            <p class="mb-1">- Ends with a specific, actionable target for next term</p>
+            <p class="mt-3">I will provide the student details now. Write reports for all of them.</p>
+          </div>
+        </div>
+
+        <div class="mistake-box mb-6">
+          <p class="font-bold text-sm text-amber-700 mb-1">Common mistake: using the prompt in the same chat</p>
+          <p class="text-gray-700 text-sm">The AI has just spent 10 messages interviewing you. If you use the prompt in
+            the same chat, it might blend in old context and give inconsistent results. Always start a fresh chat for
+            the final prompt.</p>
+        </div>
+
+        <h3 class="font-bold text-lg mb-3 text-gray-900">Your turn: try meta prompting</h3>
+        <p class="text-gray-600 text-sm mb-4">Think of something you need to write this week. Use the meta prompt above
+          and record the results here.</p>
+
+        <div class="bg-teal-50 rounded-2xl p-6 mb-4">
+          <p class="text-gray-700 text-sm font-bold mb-2">What task did you meta-prompt for?</p>
+          <input class="write-input" data-field="p14-f1"
+            placeholder="e.g. writing a job advert for a marketing assistant">
+        </div>
+        <div class="bg-teal-50 rounded-2xl p-6 mb-4">
+          <p class="text-gray-700 text-sm font-bold mb-2">What surprised you about the questions the AI asked?</p>
+          <textarea class="write-area" data-field="p14-f2" rows="4"></textarea>
+        </div>
+        <div class="bg-teal-50 rounded-2xl p-6 mb-4">
+          <p class="text-gray-700 text-sm font-bold mb-2">How did the meta-prompted output compare to what you would
+            have written from scratch?</p>
+          <textarea class="write-area" data-field="p14-f3" rows="4"></textarea>
+        </div>
+
+        <div class="tip-box">
+          <p class="font-bold text-gray-900 text-sm mb-1">Take this further</p>
+          <p class="text-gray-600 text-sm">Once you have a meta-prompted prompt that works well, save it. Build a
+            collection of your best prompts for tasks you do regularly. Even better, turn them into Custom GPTs (see
+            page 7) so you never need to think about the prompt again.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 15: POWER FEATURES -->
+    <div class="book-page to-right" data-page="15" data-title="Section 7: Power features">
+      <div class="px-6 pt-10 pb-20 max-w-3xl mx-auto">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="section-number">7</div>
+          <div>
+            <span class="time-badge">Evening</span>
+            <h2 class="text-2xl font-bold text-gray-900 mt-1">Power features you should know about</h2>
+          </div>
+        </div>
+
+        <p class="text-gray-600 mb-6">These features take you from "using AI" to "getting the most out of AI". Each one
+          is a genuine time-saver once you know it exists.</p>
+
+        <!-- Chain Prompting -->
+        <div class="bg-gray-50 rounded-2xl p-6 mb-6">
+          <h3 class="font-bold text-gray-900 mb-2">Chain prompting (building on previous outputs)</h3>
+          <p class="text-gray-600 text-sm mb-3">Instead of one massive prompt, break complex tasks into steps. Each
+            message builds on the last. The AI remembers everything in the conversation.</p>
+          <div class="prompt-box mb-3">
+            <p class="text-teal-300 font-bold text-xs uppercase tracking-wider mb-2">// Example chain</p>
+            <p class="mb-2"><strong>Message 1:</strong> "Here is a transcript from today's team meeting. Summarise the
+              key discussion points."</p>
+            <p class="mb-2"><strong>Message 2:</strong> "Now pull out every action item and who is responsible."</p>
+            <p class="mb-2"><strong>Message 3:</strong> "Format those action items as a table with columns: task, owner,
+              deadline."</p>
+            <p><strong>Message 4:</strong> "Write a follow-up email to the team with this table included. Keep it under
+              150 words."</p>
+          </div>
+          <p class="text-gray-500 text-xs">This is exactly what we did in the workflow section (page 13) - but you can
+            use chain prompting for any multi-step task.</p>
+        </div>
+
+        <!-- Voice Mode -->
+        <div class="bg-gray-50 rounded-2xl p-6 mb-6">
+          <h3 class="font-bold text-gray-900 mb-2">Voice mode</h3>
+          <p class="text-gray-600 text-sm mb-3">ChatGPT's voice mode lets you have a spoken conversation with AI. It is
+            surprisingly good for brainstorming, thinking through problems, or working when you cannot type.</p>
+          <div class="tip-box">
+            <p class="font-bold text-gray-900 text-sm mb-1">Best uses for voice mode</p>
+            <ul class="text-gray-600 text-sm space-y-1">
+              <li>- Brainstorming ideas while walking or driving</li>
+              <li>- Talking through a problem you are stuck on (rubber duck debugging)</li>
+              <li>- Practising presentations or difficult conversations</li>
+              <li>- Dictating content when typing feels slow</li>
+            </ul>
+          </div>
+          <div class="callout mt-3">
+            <p class="text-gray-600 text-sm"><strong>Cost:</strong> Voice mode is included with ChatGPT Plus (about
+              <strong>$20/month</strong>, roughly <strong>£16/month</strong>). It is not available on the free plan.
+            </p>
+          </div>
+        </div>
+
+        <!-- Canvas / Artifacts -->
+        <div class="bg-gray-50 rounded-2xl p-6 mb-6">
+          <h3 class="font-bold text-gray-900 mb-2">Canvas (ChatGPT) and Artifacts (Claude)</h3>
+          <p class="text-gray-600 text-sm mb-3">These features open a side panel where the AI writes longer content -
+            documents, code, articles - that you can edit directly. Think of it as a collaborative Google Doc.</p>
+          <div class="tip-box">
+            <p class="font-bold text-gray-900 text-sm mb-1">When to use Canvas/Artifacts</p>
+            <ul class="text-gray-600 text-sm space-y-1">
+              <li>- Writing anything longer than a few paragraphs</li>
+              <li>- Documents you want to iterate on (highlight a section and ask for changes)</li>
+              <li>- Code that you want to test and tweak</li>
+              <li>- Templates you plan to reuse</li>
+            </ul>
+          </div>
+          <p class="text-gray-500 text-xs mt-3">In ChatGPT, type "use canvas" to activate it. In Claude, artifacts
+            appear automatically for longer outputs.</p>
+        </div>
+
+        <!-- Projects -->
+        <div class="bg-gray-50 rounded-2xl p-6 mb-6">
+          <h3 class="font-bold text-gray-900 mb-2">Projects (ChatGPT and Claude)</h3>
+          <p class="text-gray-600 text-sm mb-3">Projects let you group related conversations together and add persistent
+            instructions and files. Every new chat in that project automatically has access to your uploaded documents
+            and custom instructions.</p>
+          <div class="prompt-box mb-3">
+            <p class="text-teal-300 font-bold text-xs uppercase tracking-wider mb-2">// Example project setup</p>
+            <p class="mb-2"><strong>Project name:</strong> "Client Proposals"</p>
+            <p class="mb-2"><strong>Instructions:</strong> "You are a business development assistant for [company name].
+              Always use our brand voice (professional, friendly, no jargon). Proposals should follow our standard
+              template structure."</p>
+            <p><strong>Files uploaded:</strong> brand guidelines PDF, proposal template, pricing sheet, 3 example
+              proposals</p>
+          </div>
+          <p class="text-gray-600 text-sm">Now every conversation in this project can reference your brand guidelines,
+            pricing, and past proposals without you uploading them each time.</p>
+          <div class="callout mt-3">
+            <p class="text-gray-600 text-sm"><strong>How this connects to Custom GPTs:</strong> Projects are great for
+              teams or for work that evolves over time. Custom GPTs (page 7) are better for specific, repeatable tasks.
+              Use both.</p>
+          </div>
+        </div>
+
+        <!-- Gems (Gemini) -->
+        <div class="bg-gray-50 rounded-2xl p-6 mb-6">
+          <h3 class="font-bold text-gray-900 mb-2">Gems (Google Gemini)</h3>
+          <p class="text-gray-600 text-sm mb-3">Gems are Gemini's version of Custom GPTs. You give a Gem custom
+            instructions and it behaves according to those instructions in every conversation. If you use Google
+            Workspace (Gmail, Docs, Sheets), Gems can access your Google data directly.</p>
+          <div class="callout">
+            <p class="text-gray-600 text-sm"><strong>Cost:</strong> Gems require Gemini Advanced
+              (<strong>$19.99/month</strong>, roughly <strong>£16/month</strong>) as part of Google One AI Premium.</p>
+          </div>
+        </div>
+
+        <!-- Sharing GPTs -->
+        <div class="bg-gray-50 rounded-2xl p-6 mb-6">
+          <h3 class="font-bold text-gray-900 mb-2">Sharing Custom GPTs with your team</h3>
+          <p class="text-gray-600 text-sm mb-3">Once you have built a Custom GPT that works well, you can share it with
+            colleagues. In ChatGPT, choose "Anyone with the link" when publishing. Your team does not need to know how
+            to prompt - they just use your GPT.</p>
+          <div class="mistake-box">
+            <p class="font-bold text-sm text-amber-700 mb-1">Watch out</p>
+            <p class="text-gray-700 text-sm">Anyone you share with needs their own ChatGPT Plus subscription to use
+              custom GPTs. The free plan does not support them.</p>
+          </div>
+        </div>
+
+        <h3 class="font-bold text-lg mb-3 text-gray-900">Which features will you use first?</h3>
+        <div class="bg-teal-50 rounded-2xl p-6">
+          <p class="text-gray-700 text-sm font-bold mb-2">Pick 2-3 features from this page that would make the biggest
+            difference to your work. What will you try this week?</p>
+          <textarea class="write-area" data-field="p15-f1" rows="5"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 16: AI IMAGE GENERATION -->
+    <div class="book-page to-right" data-page="16" data-title="AI image generation">
+      <div class="px-6 pt-10 pb-20 max-w-3xl mx-auto">
+        <h2 class="text-2xl font-bold text-gray-900 mb-2">AI image generation</h2>
+        <p class="text-gray-500 text-sm mb-6">Bonus section</p>
+
+        <p class="text-gray-600 mb-6">AI can generate images from text descriptions. This is genuinely useful for social
+          media graphics, presentations, blog headers, and product mockups - but it has limitations you need to
+          understand.</p>
+
+        <h3 class="font-bold text-lg mb-3 text-gray-900">The main tools</h3>
+
+        <div class="space-y-4 mb-6">
+          <div class="bg-gray-50 rounded-2xl p-5">
+            <div class="flex justify-between items-start mb-2">
+              <h4 class="font-bold text-gray-900">ChatGPT (DALL-E 3)</h4>
+              <span class="text-xs font-bold text-teal-600 bg-teal-50 px-2 py-1 rounded-full">Easiest to use</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-2">Built into ChatGPT. Just describe what you want in plain English.
+              Great for quick social media graphics, blog images, and illustrations.</p>
+            <p class="text-gray-500 text-xs"><strong>Cost:</strong> Included with ChatGPT Plus ($20/month, ~£16/month).
+              Limited generations on the free plan.</p>
+            <p class="text-gray-500 text-xs mt-1"><strong>Best for:</strong> quick graphics, illustrations, social media
+              images, concept visualisation</p>
+          </div>
+
+          <div class="bg-gray-50 rounded-2xl p-5">
+            <div class="flex justify-between items-start mb-2">
+              <h4 class="font-bold text-gray-900">Google Gemini (Imagen 2)</h4>
+              <span class="text-xs font-bold text-cyan-600 bg-cyan-50 px-2 py-1 rounded-full">Best free option</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-2">Google's image generator, available inside Gemini. Particularly good
+              at photorealistic images and text rendering (getting words right in images).</p>
+            <p class="text-gray-500 text-xs"><strong>Cost:</strong> Free tier available. Gemini Advanced ($19.99/month,
+              ~£16/month) for higher limits and quality.</p>
+            <p class="text-gray-500 text-xs mt-1"><strong>Best for:</strong> photorealistic images, images with text,
+              product mockups</p>
+          </div>
+
+          <div class="bg-gray-50 rounded-2xl p-5">
+            <div class="flex justify-between items-start mb-2">
+              <h4 class="font-bold text-gray-900">Midjourney</h4>
+              <span class="text-xs font-bold text-purple-600 bg-purple-50 px-2 py-1 rounded-full">Most artistic</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-2">Produces the most visually stunning images. Runs through Discord or
+              its own web app. Steeper learning curve but incredible results for creative work.</p>
+            <p class="text-gray-500 text-xs"><strong>Cost:</strong> From $10/month (~£8/month). No free plan.</p>
+            <p class="text-gray-500 text-xs mt-1"><strong>Best for:</strong> artistic/creative images, brand visuals,
+              marketing materials, anything that needs to look premium</p>
+          </div>
+        </div>
+
+        <h3 class="font-bold text-lg mb-3 text-gray-900">Our recommendation</h3>
+        <div class="callout mb-6">
+          <p class="text-gray-700 text-sm"><strong>Start with ChatGPT or Gemini</strong> - you likely already have
+            access. They handle 80% of business image needs. Only consider Midjourney if you regularly need high-end
+            creative visuals and are willing to learn its specific syntax.</p>
+        </div>
+
+        <h3 class="font-bold text-lg mb-3 text-gray-900">Tips for better image prompts</h3>
+        <div class="space-y-3 mb-6">
+          <div class="flex items-start gap-3">
+            <span class="text-teal-500 font-bold text-lg leading-none mt-0.5">1</span>
+            <p class="text-gray-600 text-sm"><strong>Be specific about style:</strong> "a watercolour illustration
+              of..." or "a clean, minimal flat design showing..." gives much better results than just describing the
+              subject.</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-teal-500 font-bold text-lg leading-none mt-0.5">2</span>
+            <p class="text-gray-600 text-sm"><strong>Mention the use case:</strong> "for a professional LinkedIn post"
+              or "for a website hero banner, landscape ratio" helps the AI choose the right composition.</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-teal-500 font-bold text-lg leading-none mt-0.5">3</span>
+            <p class="text-gray-600 text-sm"><strong>Iterate, do not start over:</strong> say "make the background
+              lighter" or "remove the person on the left" rather than writing a completely new prompt.</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-teal-500 font-bold text-lg leading-none mt-0.5">4</span>
+            <p class="text-gray-600 text-sm"><strong>Avoid text in images:</strong> AI still struggles with spelling. If
+              you need text, add it afterwards in Canva or PowerPoint.</p>
+          </div>
+        </div>
+
+        <div class="prompt-box mb-6">
+          <p class="text-teal-300 font-bold text-xs uppercase tracking-wider mb-3">// Example image prompt</p>
+          <p>Create a clean, professional flat illustration for a blog post header. Subject: a small business owner
+            sitting at a desk with a laptop, looking confident and productive. A friendly AI assistant is represented as
+            a glowing teal orb floating beside the screen. Style: modern, minimal, warm lighting, white background.
+            Landscape ratio (16:9). No text in the image.</p>
+        </div>
+
+        <div class="mistake-box mb-6">
+          <p class="font-bold text-sm text-amber-700 mb-1">Important: copyright and usage rights</p>
+          <p class="text-gray-700 text-sm">AI-generated images sit in a legal grey area. You generally
+            <strong>can</strong> use them for social media, blogs, and presentations. Be cautious using them for logos,
+            trademarks, or anything you might need to defend legally. Check the specific terms of whichever tool you
+            use.
+          </p>
+        </div>
+
+        <div class="bg-teal-50 rounded-2xl p-6">
+          <p class="text-gray-700 text-sm font-bold mb-2">What images do you regularly need for your work? Which tool
+            will you try first?</p>
+          <textarea class="write-area" data-field="p16-f1" rows="4"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 17: AI TOOLS LANDSCAPE -->
+    <div class="book-page to-right" data-page="17" data-title="The AI tools landscape">
+      <div class="px-6 pt-10 pb-20 max-w-3xl mx-auto">
+        <h2 class="text-2xl font-bold text-gray-900 mb-2">The AI tools landscape</h2>
+        <p class="text-gray-500 text-sm mb-6">Your quick-reference guide to what is out there</p>
+
+        <p class="text-gray-600 mb-6">There are hundreds of AI tools. You do not need most of them. Here are the ones
+          that actually matter, grouped by what they do, with honest recommendations.</p>
+
+        <!-- General-purpose AI -->
+        <div class="mb-8">
+          <h3 class="font-bold text-lg mb-4 text-gray-900 flex items-center gap-2">
+            <span class="w-2 h-2 bg-teal-500 rounded-full"></span>
+            General-purpose AI assistants
+          </h3>
+          <p class="text-gray-500 text-sm mb-3">These are your "do everything" tools. Pick one as your daily driver.</p>
+          <div class="space-y-3">
+            <div class="bg-gray-50 rounded-xl p-4">
+              <div class="flex justify-between items-start">
+                <p class="font-bold text-gray-900 text-sm">ChatGPT</p>
+                <span class="text-xs text-gray-500">Free / $20 mo (~£16)</span>
+              </div>
+              <p class="text-gray-600 text-xs mt-1">Best all-rounder. Largest ecosystem (custom GPTs, plugins, voice
+                mode). Our recommendation for most people starting out.</p>
+            </div>
+            <div class="bg-gray-50 rounded-xl p-4">
+              <div class="flex justify-between items-start">
+                <p class="font-bold text-gray-900 text-sm">Claude</p>
+                <span class="text-xs text-gray-500">Free / $20 mo (~£16)</span>
+              </div>
+              <p class="text-gray-600 text-xs mt-1">Excellent for long documents and nuanced writing. Handles up to
+                200,000 words of context. Often more careful and thoughtful than ChatGPT.</p>
+            </div>
+            <div class="bg-gray-50 rounded-xl p-4">
+              <div class="flex justify-between items-start">
+                <p class="font-bold text-gray-900 text-sm">Google Gemini</p>
+                <span class="text-xs text-gray-500">Free / $19.99 mo (~£16)</span>
+              </div>
+              <p class="text-gray-600 text-xs mt-1">Best for Google Workspace users. Can access your Gmail, Docs, and
+                Drive directly. Strong image generation included.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Research tools -->
+        <div class="mb-8">
+          <h3 class="font-bold text-lg mb-4 text-gray-900 flex items-center gap-2">
+            <span class="w-2 h-2 bg-cyan-500 rounded-full"></span>
+            Research and fact-finding
+          </h3>
+          <p class="text-gray-500 text-sm mb-3">When you need current, sourced information.</p>
+          <div class="space-y-3">
+            <div class="bg-gray-50 rounded-xl p-4">
+              <div class="flex justify-between items-start">
+                <p class="font-bold text-gray-900 text-sm">Perplexity</p>
+                <span class="text-xs text-gray-500">Free / $20 mo (~£16)</span>
+              </div>
+              <p class="text-gray-600 text-xs mt-1">AI-powered search engine. Gives sourced answers with citations.
+                Brilliant for research, fact-checking, and finding current information.</p>
+            </div>
+            <div class="bg-gray-50 rounded-xl p-4">
+              <div class="flex justify-between items-start">
+                <p class="font-bold text-gray-900 text-sm">NotebookLM</p>
+                <span class="text-xs text-gray-500">Free</span>
+              </div>
+              <p class="text-gray-600 text-xs mt-1">Upload your own documents and ask questions about them. Only answers
+                from your sources - never makes things up. See page 9 for our full guide.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Writing and content -->
+        <div class="mb-8">
+          <h3 class="font-bold text-lg mb-4 text-gray-900 flex items-center gap-2">
+            <span class="w-2 h-2 bg-teal-400 rounded-full"></span>
+            Writing and content
+          </h3>
+          <p class="text-gray-500 text-sm mb-3">Specialist tools for specific writing tasks.</p>
+          <div class="space-y-3">
+            <div class="bg-gray-50 rounded-xl p-4">
+              <div class="flex justify-between items-start">
+                <p class="font-bold text-gray-900 text-sm">Grammarly</p>
+                <span class="text-xs text-gray-500">Free / $12 mo (~£10)</span>
+              </div>
+              <p class="text-gray-600 text-xs mt-1">Grammar, spelling, and tone checking everywhere you write. The AI
+                features now rewrite and improve text. Works in email, Docs, social media.</p>
+            </div>
+            <div class="bg-gray-50 rounded-xl p-4">
+              <div class="flex justify-between items-start">
+                <p class="font-bold text-gray-900 text-sm">Canva Magic Write</p>
+                <span class="text-xs text-gray-500">Free / $13 mo (~£10)</span>
+              </div>
+              <p class="text-gray-600 text-xs mt-1">AI writing and image generation inside Canva. Great for social media
+                posts, presentations, and marketing materials if you already use Canva.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Automation -->
+        <div class="mb-8">
+          <h3 class="font-bold text-lg mb-4 text-gray-900 flex items-center gap-2">
+            <span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
+            Automation (connecting tools together)
+          </h3>
+          <p class="text-gray-500 text-sm mb-3">Make your apps talk to each other without coding. These are covered in
+            our Expert Level workbook.</p>
+          <div class="space-y-3">
+            <div class="bg-gray-50 rounded-xl p-4">
+              <div class="flex justify-between items-start">
+                <p class="font-bold text-gray-900 text-sm">Zapier / Make</p>
+                <span class="text-xs text-gray-500">Free tier / from $20 mo (~£16)</span>
+              </div>
+              <p class="text-gray-600 text-xs mt-1">Connect apps together: "When I get an email with an attachment, save
+                it to Google Drive and notify me on Slack." No coding required.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Voice-to-text / speed tools -->
+        <div class="mb-8">
+          <h3 class="font-bold text-lg mb-4 text-gray-900 flex items-center gap-2">
+            <span class="w-2 h-2 bg-amber-500 rounded-full"></span>
+            Speeding up your workflow
+          </h3>
+          <p class="text-gray-500 text-sm mb-3">Type less, do more. Voice-to-text tools can dramatically speed up how
+            you work.</p>
+          <div class="space-y-3">
+            <div class="bg-gray-50 rounded-xl p-4">
+              <div class="flex justify-between items-start">
+                <p class="font-bold text-gray-900 text-sm">Wispr Flow</p>
+                <span class="text-xs text-gray-500">From $8 mo (~£6.50)</span>
+              </div>
+              <p class="text-gray-600 text-xs mt-1">Voice-to-text that works everywhere on your computer. Dictate
+                emails, documents, messages, and prompts at the speed of speech. Learns your writing style over time. A
+                genuine game-changer for productivity.</p>
+            </div>
+            <div class="bg-gray-50 rounded-xl p-4">
+              <div class="flex justify-between items-start">
+                <p class="font-bold text-gray-900 text-sm">macOS / iOS Dictation</p>
+                <span class="text-xs text-gray-500">Free (built in)</span>
+              </div>
+              <p class="text-gray-600 text-xs mt-1">Already on your Mac, iPhone, or iPad. Press the microphone key or
+                enable Voice Control in Settings. Good enough for quick notes and messages.</p>
+            </div>
+            <div class="bg-gray-50 rounded-xl p-4">
+              <div class="flex justify-between items-start">
+                <p class="font-bold text-gray-900 text-sm">Otter.ai</p>
+                <span class="text-xs text-gray-500">Free / $16.99 mo (~£14)</span>
+              </div>
+              <p class="text-gray-600 text-xs mt-1">Records and transcribes meetings automatically. Joins your Zoom,
+                Google Meet, or Teams calls and produces searchable transcripts with speaker labels.</p>
+            </div>
+          </div>
+          <div class="callout mt-3">
+            <p class="text-gray-600 text-sm"><strong>Our tip:</strong> combine voice-to-text with AI. Dictate your rough
+              thoughts using Wispr Flow or dictation, then paste them into ChatGPT or Claude to tidy up, restructure, or
+              expand. It is the fastest way to go from idea to finished output.</p>
+          </div>
+        </div>
+
+        <div class="callout mb-6">
+          <p class="font-bold text-gray-900 mb-1">Our honest advice</p>
+          <p class="text-gray-600 text-sm">Start with <strong>one general-purpose tool</strong> (ChatGPT, Claude, or
+            Gemini) and <strong>one specialist</strong> (Perplexity for research or NotebookLM for document work).
+            Master those before adding more. Most people get overwhelmed by trying too many tools at once.</p>
+        </div>
+
+        <div class="bg-teal-50 rounded-2xl p-6">
+          <p class="text-gray-700 text-sm font-bold mb-2">Which tools are you currently using? Which one from this page
+            will you try next?</p>
+          <textarea class="write-area" data-field="p17-f1" rows="4"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 18: YOUR NEXT 30 DAYS -->
+    <div class="book-page to-right" data-page="18" data-title="Your next 30 days">
+      <div class="px-6 pt-10 pb-20 max-w-3xl mx-auto">
+        <h2 class="text-2xl font-bold text-gray-900 mb-2">Your next 30 days</h2>
+        <p class="text-gray-500 text-sm mb-6">A plan to keep the momentum going</p>
+
+        <p class="text-gray-600 mb-6">The biggest risk after a day like this is that you go back to your normal routine
+          and forget everything. This plan gives you one small thing to do each week so the skills stick.</p>
+
+        <div class="bg-gray-50 rounded-2xl p-6 mb-6">
+          <h3 class="font-bold text-teal-700 mb-3">Week 1: Build the habit</h3>
+          <div class="space-y-3">
+            <div class="checkbox-line">
+              <input type="checkbox" class="checkbox-input" data-field="p18-c1">
+              <p class="text-gray-700 text-sm">Set up custom instructions in your main AI tool (page 4)</p>
+            </div>
+            <div class="checkbox-line">
+              <input type="checkbox" class="checkbox-input" data-field="p18-c2">
+              <p class="text-gray-700 text-sm">Use AI for at least one real work task every day this week</p>
+            </div>
+            <div class="checkbox-line">
+              <input type="checkbox" class="checkbox-input" data-field="p18-c3">
+              <p class="text-gray-700 text-sm">Try meta prompting (page 14) on one task you are currently doing manually
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 rounded-2xl p-6 mb-6">
+          <h3 class="font-bold text-teal-700 mb-3">Week 2: Build your first GPT</h3>
+          <div class="space-y-3">
+            <div class="checkbox-line">
+              <input type="checkbox" class="checkbox-input" data-field="p18-c4">
+              <p class="text-gray-700 text-sm">Identify your most repetitive writing task</p>
+            </div>
+            <div class="checkbox-line">
+              <input type="checkbox" class="checkbox-input" data-field="p18-c5">
+              <p class="text-gray-700 text-sm">Build a Custom GPT for it (follow the guide on page 7)</p>
+            </div>
+            <div class="checkbox-line">
+              <input type="checkbox" class="checkbox-input" data-field="p18-c6">
+              <p class="text-gray-700 text-sm">Test it 5 times and refine the instructions based on what it gets wrong
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 rounded-2xl p-6 mb-6">
+          <h3 class="font-bold text-teal-700 mb-3">Week 3: Go deeper with documents</h3>
+          <div class="space-y-3">
+            <div class="checkbox-line">
+              <input type="checkbox" class="checkbox-input" data-field="p18-c7">
+              <p class="text-gray-700 text-sm">Upload a real work document to NotebookLM (page 9) and ask it 5 questions
+              </p>
+            </div>
+            <div class="checkbox-line">
+              <input type="checkbox" class="checkbox-input" data-field="p18-c8">
+              <p class="text-gray-700 text-sm">Set up a NotebookLM notebook for an ongoing project</p>
+            </div>
+            <div class="checkbox-line">
+              <input type="checkbox" class="checkbox-input" data-field="p18-c9">
+              <p class="text-gray-700 text-sm">Practice the hallucination-proofing techniques from page 11 on something
+                you can verify</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 rounded-2xl p-6 mb-6">
+          <h3 class="font-bold text-teal-700 mb-3">Week 4: Build a workflow</h3>
+          <div class="space-y-3">
+            <div class="checkbox-line">
+              <input type="checkbox" class="checkbox-input" data-field="p18-c10">
+              <p class="text-gray-700 text-sm">Map out a multi-step workflow for a regular task (use the template on
+                page 13)</p>
+            </div>
+            <div class="checkbox-line">
+              <input type="checkbox" class="checkbox-input" data-field="p18-c11">
+              <p class="text-gray-700 text-sm">Run the full workflow end-to-end and time how long it takes vs doing it
+                manually</p>
+            </div>
+            <div class="checkbox-line">
+              <input type="checkbox" class="checkbox-input" data-field="p18-c12">
+              <p class="text-gray-700 text-sm">Share what you have learned with a colleague - teaching it helps you
+                learn it</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout mb-6">
+          <p class="font-bold text-gray-900 mb-1">Track your time savings</p>
+          <p class="text-gray-600 text-sm">Keep a rough log of how much time AI saves you each week. After 30 days, you
+            will have a concrete number. This is powerful for justifying further investment in AI tools to your boss,
+            your team, or yourself.</p>
+        </div>
+
+        <div class="bg-teal-50 rounded-2xl p-6 mb-4">
+          <p class="text-gray-700 text-sm font-bold mb-2">Your personal goal: what do you want to achieve with AI in the
+            next 30 days?</p>
+          <textarea class="write-area" data-field="p18-f1" rows="4"></textarea>
+        </div>
+        <div class="bg-teal-50 rounded-2xl p-6">
+          <p class="text-gray-700 text-sm font-bold mb-2">What is the one thing that would make the biggest difference
+            to your work right now?</p>
+          <textarea class="write-area" data-field="p18-f2" rows="4"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 19: FINAL PAGE -->
+    <div class="book-page to-right" data-page="19" data-title="You did it">
+      <div class="page-centred final-page-bg bg-gradient-to-br from-teal-600 via-cyan-600 to-teal-700 text-white px-6">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-4xl font-extrabold mb-4">You did it.</h2>
+          <p class="text-teal-100 text-lg mb-8 max-w-xl mx-auto">You have gone from AI basics to custom GPTs,
+            NotebookLM, hallucination-proofing, real workflows, and meta prompting. That puts you ahead of 95% of
+            people.</p>
+
+          <div class="bg-white/10 backdrop-blur rounded-2xl p-6 mb-8 text-left max-w-lg mx-auto">
+            <h3 class="font-bold text-lg mb-3 text-center">What you can now do</h3>
+            <ul class="space-y-2 text-sm text-teal-50">
+              <li class="flex items-start gap-2"><span class="text-teal-300 mt-0.5">&#10003;</span> Build Custom GPTs
+                that handle your repetitive tasks</li>
+              <li class="flex items-start gap-2"><span class="text-teal-300 mt-0.5">&#10003;</span> Use NotebookLM to
+                get answers from your own documents</li>
+              <li class="flex items-start gap-2"><span class="text-teal-300 mt-0.5">&#10003;</span> Spot and prevent AI
+                hallucinations</li>
+              <li class="flex items-start gap-2"><span class="text-teal-300 mt-0.5">&#10003;</span> Chain prompts into
+                time-saving workflows</li>
+              <li class="flex items-start gap-2"><span class="text-teal-300 mt-0.5">&#10003;</span> Use meta prompting
+                to write better prompts than you ever could manually</li>
+              <li class="flex items-start gap-2"><span class="text-teal-300 mt-0.5">&#10003;</span> Choose the right AI
+                tool for the right job</li>
+            </ul>
+          </div>
+
+          <h3 class="font-bold text-xl mb-4">Keep going</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 text-left max-w-lg mx-auto">
+            <a href="https://smashyourai.com/course"
+              class="block bg-white/10 hover:bg-white/20 rounded-xl p-4 transition-all no-underline text-white">
+              <p class="font-bold text-sm mb-1">Online course</p>
+              <p class="text-teal-200 text-xs">Take everything from this workbook further with video lessons, exercises,
+                and community support.</p>
+            </a>
+            <a href="https://smashyourai.com/prompts"
+              class="block bg-white/10 hover:bg-white/20 rounded-xl p-4 transition-all no-underline text-white">
+              <p class="font-bold text-sm mb-1">Prompt library</p>
+              <p class="text-teal-200 text-xs">168 ready-to-use prompts, custom GPTs, and image prompts for every
+                business task.</p>
+            </a>
+            <a href="https://smashyourai.com"
+              class="block bg-white/10 hover:bg-white/20 rounded-xl p-4 transition-all no-underline text-white">
+              <p class="font-bold text-sm mb-1">Free AI audit</p>
+              <p class="text-teal-200 text-xs">Book a free call and we will show you exactly where AI can save you time.
+              </p>
+            </a>
+            <a href="https://smashyourai.com/content-calendars"
+              class="block bg-white/10 hover:bg-white/20 rounded-xl p-4 transition-all no-underline text-white">
+              <p class="font-bold text-sm mb-1">Content calendars</p>
+              <p class="text-teal-200 text-xs">30 days of AI-powered social media posts, ready to customise for your
+                industry.</p>
+            </a>
+            <a href="https://smashyourai.com/blog"
+              class="block bg-white/10 hover:bg-white/20 rounded-xl p-4 transition-all no-underline text-white sm:col-span-2">
+              <p class="font-bold text-sm mb-1">Blog</p>
+              <p class="text-teal-200 text-xs">Free guides on prompting, automation, and getting more from AI tools.</p>
+            </a>
+          </div>
+
+          <!-- Expert Level teaser -->
+          <div class="bg-white/15 backdrop-blur border border-white/20 rounded-2xl p-6 max-w-lg mx-auto mb-8 text-left">
+            <p class="text-xs font-bold uppercase tracking-wider text-teal-300 mb-2">Coming soon</p>
+            <h3 class="font-bold text-lg mb-2">AI in a Day: Expert Level</h3>
+            <p class="text-teal-100 text-sm mb-3">Ready to go even further? The expert-level workbook covers building
+              automated workflows, connecting your apps together, working with APIs, and even building full-stack
+              applications with AI. If you have ever wanted to turn your ideas into real tools and products, this is
+              where it happens.</p>
+            <p class="text-teal-200 text-xs">Sign up to our newsletter at smashyourai.com to be the first to know when
+              it launches.</p>
+          </div>
+
+          <!-- About us -->
+          <div class="bg-white/10 backdrop-blur rounded-2xl p-6 max-w-lg mx-auto mb-6 text-left">
+            <h3 class="font-bold mb-3 text-center">About us</h3>
+            <p class="text-teal-100 text-sm mb-3">We are James and Paul. Between us we have over 40 years of experience
+              in education - James with 18 years and Paul with 25. We have spent our careers learning how to explain
+              complex ideas in ways that actually stick, and we have brought that same approach to AI.</p>
+            <p class="text-teal-100 text-sm mb-3">We founded Smash Your AI because we saw too many people being told to
+              "just use AI" without anyone actually showing them how. Our courses, workbooks, and resources are designed
+              the way we would teach a class - engaging, practical, and built to give you the confidence to keep
+              learning on your own long after you have finished.</p>
+            <p class="text-teal-100 text-sm mb-4">Our goal is not just to teach you a set of tools. It is to give you
+              the skills and mindset to adapt as AI evolves, so you are always ahead of the curve rather than catching
+              up.</p>
+            <div class="flex justify-center gap-4 text-sm">
+              <a href="https://smashyourai.com" class="text-teal-200 hover:text-white underline">smashyourai.com</a>
+              <a href="mailto:hello@smashyourai.com"
+                class="text-teal-200 hover:text-white underline">hello@smashyourai.com</a>
+            </div>
+          </div>
+
+          <p class="text-teal-200 text-xs">&copy; 2026 Smash Your AI. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end #book -->
+
+  <!-- Navigation -->
+  <div id="progress-bar"></div>
+  <div id="scroll-indicator">
+    <div
+      class="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1.5 shadow-lg border border-gray-200 flex items-center gap-1.5 text-xs text-gray-500 font-medium">
+      <svg class="w-4 h-4 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+      Scroll for more
+    </div>
+  </div>
+  <div id="saved-indicator">Saved</div>
+
+  <div id="book-nav">
+    <div class="nav-inner">
+      <button id="btn-prev" aria-label="Previous page">&#8249;</button>
+      <button id="btn-toc" aria-label="Contents" style="font-size:0.8rem;padding:0.5rem 0.6rem;">&#9776;</button>
+      <span id="page-indicator">1 / 19</span>
+      <button id="btn-print" aria-label="Print" style="padding:0.5rem 0.6rem;"><svg width="18" height="18" fill="none"
+          stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+        </svg></button>
+      <button id="btn-next" aria-label="Next page">&#8250;</button>
+    </div>
+  </div>
+
+  <!-- TOC overlay -->
+  <div id="toc-overlay">
+    <div id="toc-backdrop"></div>
+    <div id="toc-panel">
+      <div class="toc-title"><span>Contents</span><button id="toc-close">&times;</button></div>
+      <div id="toc-list"></div>
+      <button id="toc-clear-btn">Clear all saved answers</button>
+    </div>
+  </div>
+
+  <!-- Print modal -->
+  <div id="print-modal"
+    style="position:fixed;inset:0;z-index:100;background:rgba(0,0,0,0.5);display:none;align-items:center;justify-content:center;">
+    <div
+      style="background:white;border-radius:1rem;padding:2rem;max-width:28rem;width:90%;box-shadow:0 20px 40px rgba(0,0,0,0.2);">
+      <h3 style="font-weight:700;font-size:1.1rem;margin-bottom:0.75rem;">Print to PDF</h3>
+      <p style="color:#6b7280;font-size:0.85rem;line-height:1.5;margin-bottom:1rem;">For best results, use these
+        settings in your browser print dialog:</p>
+      <ul style="color:#374151;font-size:0.85rem;line-height:1.8;margin-bottom:1.5rem;padding-left:1.25rem;">
+        <li><strong>Destination:</strong> Save as PDF</li>
+        <li><strong>Layout:</strong> Portrait</li>
+        <li><strong>Paper size:</strong> A4</li>
+        <li><strong>Margins:</strong> None (or Minimum)</li>
+        <li><strong>Scale:</strong> Default (100%)</li>
+        <li><strong>Background graphics:</strong> ON (tick this)</li>
+        <li><strong>Headers and footers:</strong> OFF (untick this)</li>
+      </ul>
+      <div style="display:flex;gap:0.75rem;">
+        <button onclick="document.getElementById('print-modal').style.display='none'"
+          style="flex:1;padding:0.6rem;border:1px solid #e5e7eb;border-radius:0.5rem;background:white;cursor:pointer;font-size:0.85rem;color:#6b7280;">Cancel</button>
+        <button onclick="document.getElementById('print-modal').style.display='none';window.print();"
+          style="flex:1;padding:0.6rem;border:none;border-radius:0.5rem;background:linear-gradient(135deg,#14b8a6,#0891b2);color:white;cursor:pointer;font-size:0.85rem;font-weight:600;">Print</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- In-app browser banner -->
+  <div id="inapp-banner">
+    <button onclick="this.parentElement.style.display='none'">&times;</button>
+    <strong>Heads up:</strong> You are using an in-app browser. For the best experience (and to save your answers), open
+    this page in Safari or Chrome.
+    <br><a href="javascript:void(0)" id="inapp-link">Tap here to copy the link</a>
+  </div>
+
+  <script>
+      (function () {
+        var TOTAL = 19;
+        var DIVIDER_PAGES = [5, 8, 10, 12];
+        var PREFIX = 'aiad-advanced-';
+        var pages = document.querySelectorAll('.book-page');
+        var current = 1;
+        var transitioning = false;
+
+        // In-app browser detection
+        var ua = navigator.userAgent || '';
+        if (/Instagram|FBAN|FBAV|LinkedIn|Musical_ly|TikTok|BytedanceWebview/i.test(ua)) {
+          var banner = document.getElementById('inapp-banner');
+          banner.style.display = 'block';
+          document.getElementById('inapp-link').addEventListener('click', function () {
+            navigator.clipboard.writeText(window.location.href).then(function () {
+              banner.innerHTML = '<strong>Link copied!</strong> Open your browser and paste it in the address bar.';
+            });
+          });
+        }
+
+        // LocalStorage save/load
+        var saveTimeout;
+        function saveAll() {
+          document.querySelectorAll('[data-field]').forEach(function (el) {
+            var key = PREFIX + el.getAttribute('data-field');
+            if (el.type === 'checkbox') {
+              localStorage.setItem(key, el.checked ? '1' : '0');
+            } else {
+              localStorage.setItem(key, el.value);
+            }
+          });
+          var indicator = document.getElementById('saved-indicator');
+          indicator.classList.add('show');
+          setTimeout(function () { indicator.classList.remove('show'); }, 1200);
+        }
+        function loadAll() {
+          document.querySelectorAll('[data-field]').forEach(function (el) {
+            var key = PREFIX + el.getAttribute('data-field');
+            var val = localStorage.getItem(key);
+            if (val !== null) {
+              if (el.type === 'checkbox') { el.checked = val === '1'; }
+              else { el.value = val; }
+            }
+          });
+        }
+        function debounceSave() {
+          clearTimeout(saveTimeout);
+          saveTimeout = setTimeout(saveAll, 300);
+        }
+        document.addEventListener('input', debounceSave);
+        document.addEventListener('change', debounceSave);
+        loadAll();
+
+        // Load saved page
+        var savedPage = localStorage.getItem(PREFIX + 'current-page');
+        if (savedPage) { current = Math.max(1, Math.min(TOTAL, parseInt(savedPage, 10) || 1)); }
+
+        // Navigation
+        function showPage(n, direction) {
+          if (n < 1 || n > TOTAL || transitioning) return;
+          transitioning = true;
+          var oldPage = document.querySelector('.book-page.active');
+          var newPage = pages[n - 1];
+          if (oldPage === newPage) { transitioning = false; return; }
+
+          var slideOut = direction === 'forward' ? 'sliding-out-left' : 'sliding-out-right';
+          var slideIn = direction === 'forward' ? 'sliding-in-right' : 'sliding-in-left';
+
+          if (oldPage) { oldPage.classList.remove('active'); oldPage.classList.add(slideOut); }
+          newPage.classList.add(slideIn, 'active');
+          newPage.offsetHeight;
+          requestAnimationFrame(function () {
+            newPage.classList.remove(slideIn);
+            setTimeout(function () {
+              if (oldPage) { oldPage.classList.remove(slideOut); }
+              transitioning = false;
+            }, 400);
+          });
+
+          current = n;
+          localStorage.setItem(PREFIX + 'current-page', current);
+          updateUI();
+          window.scrollTo({ top: 0, behavior: 'instant' });
+
+          // Auto-advance divider pages
+          if (DIVIDER_PAGES.indexOf(current) !== -1) {
+            setTimeout(function () { showPage(current + 1, 'forward'); }, 800);
+          }
+        }
+
+        function updateUI() {
+          document.getElementById('page-indicator').textContent = current + ' / ' + TOTAL;
+          document.getElementById('btn-prev').disabled = current <= 1;
+          document.getElementById('btn-next').disabled = current >= TOTAL;
+          document.getElementById('progress-bar').style.width = ((current / TOTAL) * 100) + '%';
+          updateScrollIndicator();
+          updateTOC();
+        }
+
+        // Scroll indicator
+        function updateScrollIndicator() {
+          var indicator = document.getElementById('scroll-indicator');
+          var activePage = pages[current - 1];
+          if (!activePage) { indicator.classList.remove('visible'); return; }
+          var scrollable = activePage.scrollHeight > window.innerHeight + 100;
+          var nearBottom = (window.innerHeight + window.scrollY) >= (document.body.scrollHeight - 100);
+          if (scrollable && !nearBottom) { indicator.classList.add('visible'); }
+          else { indicator.classList.remove('visible'); }
+        }
+        window.addEventListener('scroll', updateScrollIndicator);
+        window.addEventListener('resize', updateScrollIndicator);
+
+        // TOC
+        function buildTOC() {
+          var list = document.getElementById('toc-list');
+          list.innerHTML = '';
+          pages.forEach(function (page, i) {
+            var title = page.getAttribute('data-title') || ('Page ' + (i + 1));
+            var div = document.createElement('div');
+            div.className = 'toc-item' + (i + 1 === current ? ' current' : '');
+            div.textContent = (i + 1) + '. ' + title;
+            div.addEventListener('click', function () {
+              closeTOC();
+              var dir = (i + 1) > current ? 'forward' : 'backward';
+              showPage(i + 1, dir);
+            });
+            list.appendChild(div);
+          });
+        }
+        function updateTOC() {
+          document.querySelectorAll('#toc-list .toc-item').forEach(function (item, i) {
+            item.classList.toggle('current', i + 1 === current);
+          });
+        }
+        function openTOC() { buildTOC(); document.getElementById('toc-overlay').classList.add('open'); }
+        function closeTOC() { document.getElementById('toc-overlay').classList.remove('open'); }
+
+        // Button listeners
+        document.getElementById('btn-prev').addEventListener('click', function () { showPage(current - 1, 'backward'); });
+        document.getElementById('btn-next').addEventListener('click', function () { showPage(current + 1, 'forward'); });
+        document.getElementById('btn-toc').addEventListener('click', openTOC);
+        document.getElementById('toc-close').addEventListener('click', closeTOC);
+        document.getElementById('toc-backdrop').addEventListener('click', closeTOC);
+        document.getElementById('btn-print').addEventListener('click', function () {
+          document.getElementById('print-modal').style.display = 'flex';
+        });
+        document.getElementById('toc-clear-btn').addEventListener('click', function () {
+          if (confirm('Are you sure? This will delete all your saved answers.')) {
+            document.querySelectorAll('[data-field]').forEach(function (el) {
+              localStorage.removeItem(PREFIX + el.getAttribute('data-field'));
+              if (el.type === 'checkbox') { el.checked = false; } else { el.value = ''; }
+            });
+            localStorage.removeItem(PREFIX + 'current-page');
+            closeTOC();
+          }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function (e) {
+          if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') {
+            if (e.key === 'Enter' && e.target.tagName === 'INPUT') {
+              e.preventDefault();
+              var fields = Array.from(pages[current - 1].querySelectorAll('input, textarea, select'));
+              var idx = fields.indexOf(e.target);
+              if (idx >= 0 && idx < fields.length - 1) { fields[idx + 1].focus(); }
+            }
+            return;
+          }
+          if (e.key === 'ArrowLeft') { showPage(current - 1, 'backward'); }
+          else if (e.key === 'ArrowRight') { showPage(current + 1, 'forward'); }
+        });
+
+        // Touch swipe
+        var touchStartX = 0, touchStartY = 0, touchStartTime = 0;
+        document.addEventListener('touchstart', function (e) {
+          if (e.target.closest('.overflow-x-auto')) return;
+          touchStartX = e.changedTouches[0].screenX;
+          touchStartY = e.changedTouches[0].screenY;
+          touchStartTime = Date.now();
+        }, { passive: true });
+        document.addEventListener('touchend', function (e) {
+          if (e.target.closest('.overflow-x-auto')) return;
+          var dx = e.changedTouches[0].screenX - touchStartX;
+          var dy = e.changedTouches[0].screenY - touchStartY;
+          var dt = Date.now() - touchStartTime;
+          if (dt > 500 || Math.abs(dx) < 50 || Math.abs(dy) > Math.abs(dx)) return;
+          if (dx < 0) { showPage(current + 1, 'forward'); }
+          else { showPage(current - 1, 'backward'); }
+        }, { passive: true });
+
+        // Init
+        pages.forEach(function (p) { p.classList.remove('active'); });
+        pages[current - 1].classList.add('active');
+        updateUI();
+      })();
+  </script>
+
+<script src="/shared-nav.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GMMV8EBM39"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GMMV8EBM39');
+  </script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatGPT vs Claude vs Gemini: Which AI Should You Actually Use? - Smash Your AI</title>
+  <meta name="description" content="An honest, hands-on comparison of ChatGPT, Claude, and Gemini. Which AI is best for writing, coding, research, and everyday tasks? Free vs paid breakdown included.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:image" content="/images/blog/chatgpt-vs-claude.jpg">
+  <link rel="canonical" href="https://smashyourai.com/blog/chatgpt-vs-claude-vs-gemini">
+  <meta property="og:title" content="ChatGPT vs Claude vs Gemini: Which AI Should You Actually Use? - Smash Your AI">
+  <meta property="og:description" content="An honest, hands-on comparison of ChatGPT, Claude, and Gemini. Which AI is best for writing, coding, research, and everyday tasks? Free vs paid breakdown included.">
+  <meta property="og:url" content="https://smashyourai.com/blog/chatgpt-vs-claude-vs-gemini">
+  <meta property="og:type" content="article">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>tailwind.config = { theme: { extend: { fontFamily: { sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'] } } } }</script>
+  <style>
+    * { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+    .gradient-text { background: linear-gradient(135deg, #8b5cf6, #6366f1, #4f46e5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .gradient-btn { background: linear-gradient(135deg, #8b5cf6, #6366f1); transition: all 0.2s ease; }
+    .gradient-btn:hover { background: linear-gradient(135deg, #7c3aed, #4f46e5); transform: translateY(-1px); box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4); }
+    .section-purple { background: linear-gradient(180deg, rgba(139, 92, 246, 0.03) 0%, rgba(99, 102, 241, 0.06) 50%, rgba(139, 92, 246, 0.03) 100%); }
+    article h2 { scroll-margin-top: 100px; }
+    .prompt-example { border-left: 3px solid #8b5cf6; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "ChatGPT vs Claude vs Gemini: which AI should you actually use?",
+    "description": "An honest comparison of the three biggest AI tools based on daily hands-on use.",
+    "author": { "@type": "Person", "name": "James" },
+    "publisher": { "@type": "Organization", "name": "Smash Your AI" },
+    "datePublished": "2026-03-16",
+    "dateModified": "2026-03-16"
+  }
+  </script>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-lg border-b border-gray-100 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5">
+        <img src="/images/logo.png" alt="Smash Your AI" class="h-7 w-auto">
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Home</a>
+        <a href="/#ai-training-services" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Services</a>
+        <span class="text-sm font-medium text-gray-400 cursor-default relative group">Online course
+          <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Coming soon</span>
+        </span>
+        <a href="/#about-us" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">About us</a>
+        <div class="relative group">
+          <button class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors inline-flex items-center gap-1">
+            Resources
+            <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200 absolute top-full right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+            <a href="/prompts/" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              Prompt library
+            </a>
+            <a href="/content-calendars/" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              Content calendars
+            </a>
+            <a href="/quiz" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+              AI readiness quiz
+            </a>
+            <a href="/savings-calculator" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              AI savings calculator
+            </a>
+            <div class="border-t border-gray-100 my-1"></div>
+            <a href="/blog" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+              Blog
+            </a>
+          </div>
+        </div>
+        <a href="/#contact" class="gradient-btn text-white text-sm font-semibold px-5 py-2.5 rounded-xl">Get in touch</a>
+        <div id="shared-auth-area"></div>
+      </div>
+      <button class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3">
+      <a href="/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">Home</a>
+      <a href="/#ai-training-services" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">Services</a>
+      <span class="block text-sm font-medium text-gray-400 py-2">Online course (coming soon)</span>
+      <a href="/#about-us" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">About us</a>
+      <div class="border-t border-gray-100 pt-2 mt-1">
+        <span class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Resources</span>
+        <a href="/prompts/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Prompt library</a>
+        <a href="/content-calendars/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Content calendars</a>
+        <a href="/quiz" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">AI readiness quiz</a>
+        <a href="/savings-calculator" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">AI savings calculator</a>
+        <a href="/blog" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Blog</a>
+      </div>
+      <a href="/#contact" class="block gradient-btn text-white text-sm font-semibold px-5 py-2.5 rounded-xl text-center">Get in touch</a>
+      <div id="shared-auth-area-mobile"></div>
+    </div>
+  </nav>
+
+  <article class="pt-32 pb-20 md:pt-40 md:pb-28">
+    <div class="max-w-3xl mx-auto px-6">
+
+      <!-- Breadcrumb -->
+      <nav class="text-sm text-gray-400 mb-6">
+        <a href="/" class="hover:text-violet-600 transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <a href="/blog" class="hover:text-violet-600 transition-colors">Blog</a>
+        <span class="mx-2">/</span>
+        <span class="text-gray-600">ChatGPT vs Claude vs Gemini</span>
+      </nav>
+
+      <!-- Header -->
+      <div class="mb-10">
+        <span class="text-xs text-violet-600 font-medium px-2.5 py-1 bg-violet-50 rounded-md">Tools</span>
+        <h1 class="text-3xl md:text-4xl font-extrabold mt-4 mb-4">ChatGPT vs Claude vs Gemini: which AI should you actually use?</h1>
+        <div class="flex items-center gap-4 text-sm text-gray-400 mb-5">
+          <span>16 March 2026</span>
+          <span>-</span>
+          <span>12 min read</span>
+        </div>
+        <div class="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-violet-50 to-indigo-50 border-l-4 border-violet-500">
+          <img src="/images/james-headshot.png" alt="James, co-founder of Smash Your AI" class="w-11 h-11 rounded-full object-cover shrink-0">
+          <div>
+            <p class="font-semibold text-sm text-gray-900">James</p>
+            <p class="text-xs text-gray-500">Co-founder of Smash Your AI - 18 years in education, now helping businesses and individuals get real results from AI.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured image -->
+      <img src="/images/blog/chatgpt-vs-claude.jpg" alt="Comparing ChatGPT, Claude, and Gemini side by side" class="w-full rounded-2xl mb-10">
+
+      <!-- Article content -->
+      <div class="space-y-6 text-gray-700 leading-relaxed">
+
+        <p class="text-lg">I use all three every single day. ChatGPT, Claude, and Gemini are all open in tabs on my computer right now. I have been using them intensively for over two years and I have a pretty clear picture of what each one is genuinely good at.</p>
+
+        <p>Here is my honest take. No sponsorships, no affiliate links. Just practical experience from someone who relies on these tools for real work.</p>
+
+        <p>By the end of this article, you will know exactly which tool to use for which task, whether it is worth paying for any of them, and which one to start with if you are new to all of this.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="quick-comparison">The quick comparison</h2>
+
+        <p>Before I go deep on each tool, here is the headline summary. If you are short on time, this is what you need to know.</p>
+
+        <div class="space-y-4 my-4">
+          <div class="bg-violet-50/50 rounded-xl p-5">
+            <p class="font-bold text-gray-900 mb-2">ChatGPT (by OpenAI)</p>
+            <p class="text-sm text-gray-600"><strong>Best for:</strong> all-round tasks, image generation, browsing the web, custom GPTs, voice conversations.</p>
+            <p class="text-sm text-gray-600 mt-1"><strong>Free tier:</strong> Generous. Access to GPT-4o with usage limits, image generation, web browsing.</p>
+            <p class="text-sm text-gray-600 mt-1"><strong>Paid (Plus ~£20/mo):</strong> Higher limits, priority access, advanced voice mode, deeper research features.</p>
+            <p class="text-sm text-gray-600 mt-1"><strong>My one-liner:</strong> The best all-rounder. If you could only pick one tool, this is probably it.</p>
+          </div>
+          <div class="bg-violet-50/50 rounded-xl p-5">
+            <p class="font-bold text-gray-900 mb-2">Claude (by Anthropic)</p>
+            <p class="text-sm text-gray-600"><strong>Best for:</strong> writing quality, long documents, coding, careful analysis, following complex instructions.</p>
+            <p class="text-sm text-gray-600 mt-1"><strong>Free tier:</strong> Decent but limited. You hit usage caps fairly quickly during busy periods.</p>
+            <p class="text-sm text-gray-600 mt-1"><strong>Paid (Pro ~£18/mo):</strong> Much higher limits, access to the most capable models, projects feature.</p>
+            <p class="text-sm text-gray-600 mt-1"><strong>My one-liner:</strong> The best writer and coder. My personal favourite for serious work.</p>
+          </div>
+          <div class="bg-violet-50/50 rounded-xl p-5">
+            <p class="font-bold text-gray-900 mb-2">Google Gemini</p>
+            <p class="text-sm text-gray-600"><strong>Best for:</strong> web research, Google Workspace integration, quick factual lookups, working with YouTube videos.</p>
+            <p class="text-sm text-gray-600 mt-1"><strong>Free tier:</strong> Good. Includes web access and solid general capabilities.</p>
+            <p class="text-sm text-gray-600 mt-1"><strong>Paid (Advanced ~£19/mo):</strong> Gemini in Gmail, Docs, and Sheets, plus 2TB Google storage, stronger models.</p>
+            <p class="text-sm text-gray-600 mt-1"><strong>My one-liner:</strong> The best researcher. Unbeatable if you live in the Google ecosystem.</p>
+          </div>
+        </div>
+
+        <p>Now let me break down exactly why I give each of those verdicts.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="best-for-writing">Best for writing: Claude</h2>
+
+        <p>This one is not even close for me. <strong>Claude produces the most natural, well-structured writing</strong> of the three. It is less likely to fall into that generic "AI voice" that plagues a lot of ChatGPT output.</p>
+
+        <p>When I need to write something that sounds like a human actually wrote it, Claude is my first choice every time. Blog posts, emails, reports, documentation. The writing has a clarity and directness that the others struggle to match consistently.</p>
+
+        <p>Multiple blind tests have shown the same thing. When people are asked to rate AI-generated text without knowing which tool produced it, Claude consistently comes out on top for quality and readability.</p>
+
+        <p>I am not saying ChatGPT is bad at writing. It is perfectly good for a first draft. But Claude tends to need less editing afterwards, which means less time for me.</p>
+
+        <p>Where ChatGPT does win on the writing front is <strong>creative fiction and brainstorming</strong>. It is more playful and willing to take creative risks. If I need 20 tagline ideas for a product, I will often go to ChatGPT first because it is more inventive. But for polished, professional writing, Claude wins.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="best-for-coding">Best for coding: Claude</h2>
+
+        <p>Again, Claude. When I was building our exam revision platform, I used Claude for almost all of the development work. It handles complex, multi-file projects better than the others. It follows instructions more precisely, makes fewer mistakes, and is better at understanding what you are actually trying to achieve rather than just what you literally asked for.</p>
+
+        <p>Claude also has a feature called Artifacts that lets it create and display code, documents, and interactive previews right in the conversation. It is genuinely useful for iterating on something quickly.</p>
+
+        <p>ChatGPT is a solid second choice for coding. It has the advantage of being able to run code directly in the conversation, which is helpful for testing. Gemini is the weakest of the three for coding in my experience, though it has improved significantly over the past year.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="best-for-research">Best for research: Gemini</h2>
+
+        <p><strong>For anything that requires current information, Gemini is the clear winner.</strong> It has direct access to Google Search, so it can pull in real-time data, check facts, and cite sources. This is incredibly useful.</p>
+
+        <p>For quick research tasks, I reach for Gemini because it gives me answers with links to the original sources. I do not have to take its word for it. I can click through and verify.</p>
+
+        <p>It also integrates beautifully with YouTube. You can give it a YouTube link and ask it to summarise the video, pull out key points, or answer questions about the content. I use this regularly when I am researching topics for our training materials.</p>
+
+        <p>ChatGPT also has web browsing capabilities, and they have improved a lot recently. But Gemini's integration with Google's search infrastructure gives it an edge for research-heavy tasks.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="best-all-rounder">Best all-rounder: ChatGPT</h2>
+
+        <p>If someone told me I could only use one AI tool, I would pick ChatGPT. Not because it is the best at any single thing, but because it is <strong>good at almost everything</strong>.</p>
+
+        <p>It can write, code, research, generate images, browse the web, analyse data, create charts, have voice conversations, and connect to thousands of third-party tools through custom GPTs. The breadth is unmatched.</p>
+
+        <p>It also has the largest user community, which means the most tutorials, guides, tips, and shared prompts available online. If you get stuck, you can almost always find someone who has solved the same problem.</p>
+
+        <p>The ChatGPT app on mobile is excellent too. Voice mode is genuinely impressive. I sometimes use it while driving to brainstorm ideas or draft meeting agendas. It feels like having a genuinely useful assistant in your pocket.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="free-vs-paid">Free vs paid: what you actually get for your money</h2>
+
+        <p>This is where it gets interesting. All three tools offer genuinely useful free tiers. You do not <em>need</em> to pay to get value from AI. But the paid versions do offer meaningful upgrades.</p>
+
+        <div class="space-y-4 my-4">
+          <div class="bg-violet-50/50 rounded-xl p-5">
+            <p class="font-bold text-gray-900 mb-2">ChatGPT free vs Plus (~£20/month)</p>
+            <p class="text-sm text-gray-600"><strong>Free gives you:</strong> GPT-4o access (with limits), web browsing, image generation, file uploads, basic voice mode.</p>
+            <p class="text-sm text-gray-600 mt-1"><strong>Plus adds:</strong> Higher usage limits across all features, priority during busy periods, advanced voice mode, the o-series reasoning models for complex tasks, deeper research capabilities.</p>
+            <p class="text-sm text-gray-600 mt-1"><strong>Worth it?</strong> Yes, if you use ChatGPT daily. The higher limits alone justify it. If you use it a few times a week, the free tier is probably enough.</p>
+          </div>
+          <div class="bg-violet-50/50 rounded-xl p-5">
+            <p class="font-bold text-gray-900 mb-2">Claude free vs Pro (~£18/month)</p>
+            <p class="text-sm text-gray-600"><strong>Free gives you:</strong> Access to Claude's capable models with moderate usage limits. You will hit caps during peak times.</p>
+            <p class="text-sm text-gray-600 mt-1"><strong>Pro adds:</strong> Significantly higher usage limits, access to the most powerful models, the Projects feature for organising ongoing work, priority access.</p>
+            <p class="text-sm text-gray-600 mt-1"><strong>Worth it?</strong> If Claude is your primary tool, absolutely. The free tier's usage limits can be frustrating if you are doing serious work. I hit them regularly before upgrading.</p>
+          </div>
+          <div class="bg-violet-50/50 rounded-xl p-5">
+            <p class="font-bold text-gray-900 mb-2">Gemini free vs Advanced (~£19/month)</p>
+            <p class="text-sm text-gray-600"><strong>Free gives you:</strong> Solid Gemini access with web search, reasonable usage limits.</p>
+            <p class="text-sm text-gray-600 mt-1"><strong>Advanced adds:</strong> Gemini integrated directly into Gmail, Google Docs, and Sheets. Stronger models. 2TB of Google One storage (worth ~£8/month on its own). Deeper research and analysis capabilities.</p>
+            <p class="text-sm text-gray-600 mt-1"><strong>Worth it?</strong> If you already pay for Google One storage, this is a no-brainer because you get the storage plus AI for a small uplift. If you live in Google Workspace, the Docs and Gmail integration is genuinely useful.</p>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold pt-6" id="is-it-worth-paying">Is it worth paying for any of them?</h2>
+
+        <p>Here is the test I use. <strong>If the paid version saves you more than one hour per month, it has already paid for itself.</strong> Think about what your time is worth. Even at minimum wage, one hour is worth more than the subscription cost.</p>
+
+        <p>I resisted paying for months. I thought the free versions were good enough. Within a week of upgrading to Claude Pro, I wondered why I had waited so long. The difference in usage limits alone meant I could actually finish a full day's work without hitting a wall.</p>
+
+        <p>My honest recommendation: start with the free tiers. Use them for a couple of weeks. Then upgrade whichever one you find yourself reaching for most often. For me, that was Claude Pro first, then ChatGPT Plus. I use Gemini Advanced through a Google One subscription I was already paying for.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="honourable-mentions">Honourable mentions: DeepSeek and Perplexity</h2>
+
+        <p>I would be doing you a disservice if I did not mention two other tools that are worth knowing about.</p>
+
+        <p><strong>DeepSeek</strong> is a Chinese AI that burst onto the scene and turned heads. It is completely free to use and its reasoning capabilities are surprisingly strong. The catch? There are legitimate questions about data privacy, and the service can be unreliable at peak times. I have experimented with it for coding tasks and been genuinely impressed, but I would not use it for anything involving sensitive business data. Worth trying for general tasks though.</p>
+
+        <p><strong>Perplexity</strong> is not really a competitor to the big three. It is more of an AI-powered search engine. You ask it a question and it gives you a well-written answer with citations to real sources. I use it almost every day for quick fact-checking and research. It is excellent at what it does. The free tier is very usable, and the Pro version (~£17/month) gives you more powerful models and unlimited searches.</p>
+
+        <p>If I had to recommend a fourth tool to add to your toolkit, it would be Perplexity. It complements the big three rather than replacing them.</p>
+
+        <!-- Mid-article CTA -->
+        <div class="bg-gradient-to-br from-violet-600 to-indigo-700 rounded-2xl p-7 my-6 text-white relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+          <div class="relative">
+            <p class="font-bold text-lg mb-2">Get better results from whichever AI you choose</p>
+            <p class="text-violet-100 text-sm mb-4 leading-relaxed">Our prompt library has 168 ready-to-use prompts that work across ChatGPT, Claude, and Gemini. Stop staring at a blank chat window and start getting results in seconds.</p>
+            <a href="/#prompt-library" class="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-violet-700 font-semibold text-sm rounded-xl hover:bg-violet-50 transition-colors">
+              Browse the prompt library
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold pt-6" id="which-should-you-start-with">Which should you start with?</h2>
+
+        <p>If you are reading this and you have not really used any AI tools yet, here is my decision framework.</p>
+
+        <p><strong>Start with ChatGPT if:</strong></p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>You are completely new to AI and want the most versatile starting point.</li>
+          <li>You want one tool that does a bit of everything.</li>
+          <li>You are interested in image generation as well as text.</li>
+          <li>You want access to the largest library of guides and tutorials online.</li>
+        </ul>
+
+        <p><strong>Start with Claude if:</strong></p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Your main use case is writing, whether that is emails, reports, articles, or marketing copy.</li>
+          <li>You work with code or want help building things.</li>
+          <li>You value quality over features. You would rather have fewer bells and whistles but better output.</li>
+          <li>You work with long documents and need the AI to handle lots of context.</li>
+        </ul>
+
+        <p><strong>Start with Gemini if:</strong></p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>You already use Google Workspace (Gmail, Docs, Sheets) heavily.</li>
+          <li>Your main need is research and finding information.</li>
+          <li>You want AI integrated directly into the tools you already use rather than as a separate app.</li>
+          <li>You already pay for Google One storage.</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold pt-6" id="what-i-actually-use">What I actually use day to day</h2>
+
+        <p>Since people always ask, here is my genuine daily workflow.</p>
+
+        <p><strong>Claude</strong> is my primary tool. When I was building our exam revision platform, I used Claude for all the development. When I write content for our business, I start in Claude. When I need to analyse something complex or work through a multi-step problem, Claude is where I go. It is my workhorse.</p>
+
+        <p><strong>ChatGPT</strong> is my second most used. I use it for brainstorming, image generation, quick creative tasks, and voice mode when I am away from my desk. Its versatility means it fills all the gaps.</p>
+
+        <p><strong>Gemini</strong> is my research tool. When I need to find information, verify facts, or work with current data, Gemini is the fastest path. I also use it within Google Docs when I am collaborating on documents with other people.</p>
+
+        <p><strong>Perplexity</strong> is my fact-checker. Quick questions, sourced answers. I probably use it ten times a day for small lookups.</p>
+
+        <p>The honest truth is that the differences between these tools are getting smaller all the time. A year ago, the gaps were much wider. Today, all three are remarkably capable and any one of them would serve most people well.</p>
+
+        <p>The biggest mistake you can make is spending so long choosing that you never actually start using any of them. Pick one. Try it for a week. You can always switch later.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="final-verdict">Final verdict</h2>
+
+        <div class="bg-violet-50/50 rounded-2xl p-6">
+          <ul class="space-y-3">
+            <li><strong>Best all-rounder:</strong> ChatGPT. The Swiss Army knife of AI.</li>
+            <li><strong>Best for writing and coding:</strong> Claude. More polished, more precise, more reliable.</li>
+            <li><strong>Best for research:</strong> Gemini. Real-time web access and Google integration.</li>
+            <li><strong>Best value for money:</strong> Gemini Advanced, if you already use Google One. Otherwise, Claude Pro.</li>
+            <li><strong>Best free tier:</strong> ChatGPT. You get a lot without paying a penny.</li>
+          </ul>
+        </div>
+
+        <p>Still not sure? <a href="/#contact" class="text-violet-600 font-medium hover:text-violet-800 transition-colors">Get in touch</a> and tell us what you need AI for. We will point you in the right direction. Or if you want to learn how to get the most from whichever tool you choose, our <a href="/#online-ai-course" class="text-violet-600 font-medium hover:text-violet-800 transition-colors">online course</a> covers practical techniques that work across all three platforms.</p>
+
+      </div>
+
+      <!-- Related articles -->
+      <div class="mt-12 pt-10 border-t border-gray-100">
+        <h3 class="text-lg font-bold mb-6">You might also like</h3>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <a href="/blog/is-paying-for-ai-worth-it" class="p-5 rounded-xl border border-gray-100 hover:border-violet-200 transition-colors group">
+            <span class="text-xs text-violet-600 font-medium">Getting started</span>
+            <p class="font-bold mt-1 group-hover:text-violet-600 transition-colors">Is paying for AI worth it? A honest guide</p>
+          </a>
+          <a href="/blog/ai-for-beginners" class="p-5 rounded-xl border border-gray-100 hover:border-violet-200 transition-colors group">
+            <span class="text-xs text-violet-600 font-medium">Getting started</span>
+            <p class="font-bold mt-1 group-hover:text-violet-600 transition-colors">AI for beginners: where to start in 2026</p>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- CTA Banner -->
+  <section class="py-16 section-purple">
+    <div class="max-w-2xl mx-auto px-6 text-center">
+      <h2 class="text-2xl font-extrabold mb-3">Learn to get real results from AI</h2>
+      <p class="text-gray-500 mb-6">Our online course teaches you practical AI skills that work across ChatGPT, Claude, and Gemini. No fluff, just techniques you can use straight away.</p>
+      <a href="/#online-ai-course" class="inline-flex gradient-btn text-white text-sm font-semibold px-8 py-3.5 rounded-xl">View the course</a>
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 text-gray-400 py-10">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p class="text-sm">&copy; 2026 Smash Your AI. All rights reserved.</p>
+      <div class="flex gap-6 text-sm">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <a href="/blog" class="hover:text-white transition-colors">Blog</a>
+        <a href="/privacy" class="hover:text-white transition-colors">Privacy policy</a>
+      </div>
+    </div>
+  </footer>
+
+<script src="/shared-nav.js"></script>
+</body>
+</html>

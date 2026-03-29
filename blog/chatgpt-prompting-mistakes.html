@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GMMV8EBM39"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GMMV8EBM39');
+  </script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5 ChatGPT Prompting Mistakes Most People Make (And How to Fix Them) - Smash Your AI</title>
+  <meta name="description" content="Why are your ChatGPT results so generic? These 5 common prompting mistakes are holding you back. Learn how to write better AI prompts with real examples and get dramatically better results.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:image" content="/images/blog/prompting-mistakes.jpg">
+  <link rel="canonical" href="https://smashyourai.com/blog/chatgpt-prompting-mistakes">
+  <meta property="og:title" content="5 ChatGPT Prompting Mistakes Most People Make (And How to Fix Them) - Smash Your AI">
+  <meta property="og:description" content="Why are your ChatGPT results so generic? These 5 common prompting mistakes are holding you back. Learn how to write better AI prompts with real examples and get dramatically better results.">
+  <meta property="og:url" content="https://smashyourai.com/blog/chatgpt-prompting-mistakes">
+  <meta property="og:type" content="article">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>tailwind.config = { theme: { extend: { fontFamily: { sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'] } } } }</script>
+  <style>
+    * { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+    .gradient-text { background: linear-gradient(135deg, #8b5cf6, #6366f1, #4f46e5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .gradient-btn { background: linear-gradient(135deg, #8b5cf6, #6366f1); transition: all 0.2s ease; }
+    .gradient-btn:hover { background: linear-gradient(135deg, #7c3aed, #4f46e5); transform: translateY(-1px); box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4); }
+    .section-purple { background: linear-gradient(180deg, rgba(139, 92, 246, 0.03) 0%, rgba(99, 102, 241, 0.06) 50%, rgba(139, 92, 246, 0.03) 100%); }
+    article h2 { scroll-margin-top: 100px; }
+    .prompt-example { border-left: 3px solid #8b5cf6; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "5 ChatGPT prompting mistakes most people make",
+    "description": "Common prompting mistakes and how to fix them for better AI results.",
+    "author": { "@type": "Person", "name": "James" },
+    "publisher": { "@type": "Organization", "name": "Smash Your AI" },
+    "datePublished": "2026-03-10",
+    "dateModified": "2026-03-10"
+  }
+  </script>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-lg border-b border-gray-100 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5">
+        <img src="/images/logo.png" alt="Smash Your AI" class="h-7 w-auto">
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Home</a>
+        <a href="/#ai-training-services" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Services</a>
+        <span class="text-sm font-medium text-gray-400 cursor-default relative group">Online course
+          <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Coming soon</span>
+        </span>
+        <a href="/#about-us" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">About us</a>
+        <div class="relative group">
+          <button class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors inline-flex items-center gap-1">
+            Resources
+            <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200 absolute top-full right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+            <a href="/prompts/" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              Prompt library
+            </a>
+            <a href="/content-calendars/" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              Content calendars
+            </a>
+            <a href="/quiz" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+              AI readiness quiz
+            </a>
+            <a href="/savings-calculator" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              AI savings calculator
+            </a>
+            <div class="border-t border-gray-100 my-1"></div>
+            <a href="/blog" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+              Blog
+            </a>
+          </div>
+        </div>
+        <a href="/#contact" class="gradient-btn text-white text-sm font-semibold px-5 py-2.5 rounded-xl">Get in touch</a>
+        <div id="shared-auth-area"></div>
+      </div>
+      <button class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3">
+      <a href="/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">Home</a>
+      <a href="/#ai-training-services" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">Services</a>
+      <span class="block text-sm font-medium text-gray-400 py-2">Online course (coming soon)</span>
+      <a href="/#about-us" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">About us</a>
+      <div class="border-t border-gray-100 pt-2 mt-1">
+        <span class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Resources</span>
+        <a href="/prompts/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Prompt library</a>
+        <a href="/content-calendars/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Content calendars</a>
+        <a href="/quiz" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">AI readiness quiz</a>
+        <a href="/savings-calculator" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">AI savings calculator</a>
+        <a href="/blog" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Blog</a>
+      </div>
+      <a href="/#contact" class="block gradient-btn text-white text-sm font-semibold px-5 py-2.5 rounded-xl text-center">Get in touch</a>
+      <div id="shared-auth-area-mobile"></div>
+    </div>
+  </nav>
+
+  <article class="pt-32 pb-20 md:pt-40 md:pb-28">
+    <div class="max-w-3xl mx-auto px-6">
+
+      <!-- Breadcrumb -->
+      <nav class="text-sm text-gray-400 mb-6">
+        <a href="/" class="hover:text-violet-600 transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <a href="/blog" class="hover:text-violet-600 transition-colors">Blog</a>
+        <span class="mx-2">/</span>
+        <span class="text-gray-600">Prompting mistakes</span>
+      </nav>
+
+      <!-- Header -->
+      <div class="mb-10">
+        <span class="text-xs text-violet-600 font-medium px-2.5 py-1 bg-violet-50 rounded-md">Prompting</span>
+        <h1 class="text-3xl md:text-4xl font-extrabold mt-4 mb-4">5 ChatGPT prompting mistakes most people make (and how to fix them)</h1>
+        <div class="flex items-center gap-4 text-sm text-gray-400 mb-5">
+          <span>10 March 2026</span>
+          <span>-</span>
+          <span>10 min read</span>
+        </div>
+        <div class="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-violet-50 to-indigo-50 border-l-4 border-violet-500">
+          <img src="/images/james-headshot.png" alt="James, co-founder of Smash Your AI" class="w-11 h-11 rounded-full object-cover shrink-0">
+          <div>
+            <p class="font-semibold text-sm text-gray-900">James</p>
+            <p class="text-xs text-gray-500">Co-founder of Smash Your AI - 18 years in education, now helping businesses and individuals get real results from AI.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured image -->
+      <img src="/images/blog/prompting-mistakes.jpg" alt="Five common ChatGPT prompting mistakes and how to fix them" class="w-full rounded-2xl mb-10">
+
+      <!-- Article content -->
+      <div class="space-y-6 text-gray-700 leading-relaxed">
+
+        <p class="text-lg">I have written thousands of AI prompts over the past two years. In the early days, most of my results were mediocre. Generic. The kind of thing that makes you think "is this really what all the fuss is about?"</p>
+
+        <p>The problem was not the AI. It was me. I was making the same mistakes that almost everyone makes when they first start using ChatGPT, Claude, or Gemini.</p>
+
+        <p>Once I fixed these five things, the quality of my results went through the roof. I went from getting bland, cookie-cutter responses to getting outputs I could use with minimal editing. Let me show you what I mean.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="mistake-1-being-too-vague">Mistake 1: being too vague with your prompt</h2>
+
+        <p>This is the number one mistake I see. People type something like:</p>
+
+        <div class="prompt-example bg-red-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-red-800 mb-1">Bad prompt:</p>
+          <p class="text-sm text-red-700 italic">"Write me an email about a meeting."</p>
+        </div>
+
+        <p>And then they are surprised when the result is generic and useless. Of course it is. You gave the AI almost nothing to work with.</p>
+
+        <p>The AI does not know who the email is to, what the meeting is about, what tone you want, how long it should be, or what the key message is. So it guesses. And guesses are rarely what you need.</p>
+
+        <div class="prompt-example bg-green-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-green-800 mb-1">Better prompt:</p>
+          <p class="text-sm text-green-700 italic">"Write a professional but friendly email to my team of 8 people. The email should confirm our Monday morning meeting is moving from 9am to 10am this week only due to a client call. Keep it to 3-4 sentences. Sign off as James."</p>
+        </div>
+
+        <p>See the difference? You have told the AI exactly who, what, why, how long, and what tone. The result will be dramatically better.</p>
+
+        <p><strong>The rule:</strong> if you would not give a human colleague that instruction and expect a good result, do not give it to AI either.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="mistake-2-no-role">Mistake 2: not giving the AI a role</h2>
+
+        <p>This was a game-changer for me. When I started telling the AI <em>who</em> to be, the quality jumped immediately.</p>
+
+        <p>When I was building our AI tutor for students, I experimented with this extensively. The difference between asking ChatGPT to "explain binary" versus telling it to "act as a patient, encouraging GCSE computer science teacher explaining binary to a 14-year-old who is struggling with maths" was night and day.</p>
+
+        <p>The first response was dry and technical. The second used simple language, relatable analogies, and broke things down step by step. Same AI, same topic, completely different result.</p>
+
+        <p><strong>How to do it:</strong> start your prompt with "You are a..." or "Act as a..." followed by a description of the expert you need.</p>
+
+        <p>Some examples that work well:</p>
+
+        <ul class="list-disc pl-6 space-y-2">
+          <li>"You are an experienced marketing copywriter who specialises in small business websites."</li>
+          <li>"Act as a friendly HR manager helping me draft a difficult conversation."</li>
+          <li>"You are a financial advisor explaining pension options to someone with no finance background."</li>
+        </ul>
+
+        <p>The more specific the role, the better the output. Telling it you are a "writer" is fine. Telling it you are "a direct-response copywriter who writes in short, punchy sentences for UK small business owners" is much better.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="mistake-3-one-and-done">Mistake 3: treating it as a one-shot conversation</h2>
+
+        <p>Most people type one prompt, read the response, and then either use it or give up. That is like asking a colleague to draft something and accepting the first draft without any feedback.</p>
+
+        <p>AI conversations are meant to be iterative. The first response is a starting point, not the final answer.</p>
+
+        <p>Here is what I actually do in practice:</p>
+
+        <ol class="list-decimal pl-6 space-y-2">
+          <li>Give my initial prompt with as much detail as possible.</li>
+          <li>Read the response and identify what is good and what is not quite right.</li>
+          <li>Ask it to revise specific parts. "Make the opening more direct." "Remove the third paragraph." "Change the tone to be less formal."</li>
+          <li>Repeat until I am happy.</li>
+        </ol>
+
+        <p>I recently used this approach to write a set of exam revision notes. The first draft was about 70% there. After three rounds of refinement, it was exactly what I needed. Total time: about five minutes. Writing it from scratch would have taken over an hour.</p>
+
+        <p><strong>The rule:</strong> think of AI as a conversation, not a vending machine. You put in a request, review what comes out, and refine.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="mistake-4-no-examples">Mistake 4: not showing it what you want</h2>
+
+        <p>If I asked you to write something "in my style" but gave you no examples of my writing, you would struggle. AI is exactly the same.</p>
+
+        <p>One of the most powerful techniques I use is giving the AI an example of what good looks like. This is sometimes called <strong>few-shot prompting</strong>, but you do not need to remember that term. Just think of it as "show, do not just tell."</p>
+
+        <div class="prompt-example bg-green-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-green-800 mb-1">Example prompt:</p>
+          <p class="text-sm text-green-700 italic">"I need to write product descriptions for my online shop. Here is an example of one I have written that I like: [paste example]. Now write similar descriptions for these three new products: [list products]."</p>
+        </div>
+
+        <p>The AI will match your tone, length, structure, and style. It is remarkably good at this.</p>
+
+        <p>I use this constantly for our business. When I need new content that matches our existing brand voice, I paste in two or three examples and tell the AI to follow the same style. The results are consistent every time.</p>
+
+        <p><strong>The rule:</strong> whenever possible, show the AI what you want rather than trying to describe it. One good example is worth a hundred words of description.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="mistake-5-not-setting-constraints">Mistake 5: not setting constraints</h2>
+
+        <p>Here is something I learned the hard way. Without constraints, AI tends to waffle. It will give you long, verbose responses packed with filler phrases like "in today's fast-paced world" and "it's important to note that."</p>
+
+        <p>Sound familiar? That is because the AI is trying to be helpful by giving you more. But more is not always better.</p>
+
+        <p>Setting clear constraints fixes this immediately. Here are the ones I use most often:</p>
+
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Length:</strong> "Keep this under 200 words" or "Write exactly 5 bullet points."</li>
+          <li><strong>Format:</strong> "Use bullet points, not paragraphs" or "Format this as a numbered list."</li>
+          <li><strong>Tone:</strong> "Write in a casual, conversational tone" or "Keep this formal and professional."</li>
+          <li><strong>Audience:</strong> "Write this for a business owner with no technical knowledge."</li>
+          <li><strong>What to avoid:</strong> "Do not use jargon" or "Do not include an introduction, just get straight to the point."</li>
+        </ul>
+
+        <p>That last one is my favourite. Telling the AI what <em>not</em> to do is just as powerful as telling it what to do. When I tell it "do not start with a generic introduction" or "do not use the phrase 'in today's world'", the output is immediately more natural and useful.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="putting-it-together">What does a really good prompt look like?</h2>
+
+        <p>Let me put all five fixes together in one example. Say you need to write a LinkedIn post about a new service your business is offering.</p>
+
+        <div class="prompt-example bg-red-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-red-800 mb-1">What most people type:</p>
+          <p class="text-sm text-red-700 italic">"Write a LinkedIn post about my new AI training service."</p>
+        </div>
+
+        <div class="prompt-example bg-green-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-green-800 mb-2">What you should type:</p>
+          <p class="text-sm text-green-700 italic">"You are a LinkedIn content writer who specialises in B2B services. Write a LinkedIn post announcing my new AI training workshops for small businesses in the North East of England. The tone should be professional but approachable - not salesy. Keep it under 150 words. Include a clear call to action at the end. Do not use hashtags. Do not start with 'Excited to announce' or anything similar. Here is an example of a post I have written before that got good engagement: [paste example]."</p>
+        </div>
+
+        <p>That prompt includes a role, specific context, constraints on length and tone, things to avoid, and an example. The result will be incomparably better.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="quick-reference">Quick reference: the 5 rules for better prompts</h2>
+
+        <div class="bg-violet-50/50 rounded-2xl p-6">
+          <ol class="list-decimal pl-5 space-y-3">
+            <li><strong>Be specific.</strong> Give the AI enough detail to work with. Who, what, why, how long, what tone.</li>
+            <li><strong>Set a role.</strong> Tell the AI who to be. "You are a..." makes a huge difference.</li>
+            <li><strong>Iterate.</strong> Refine the output through follow-up messages. Do not settle for the first draft.</li>
+            <li><strong>Show examples.</strong> Paste in samples of what you want. The AI will match them.</li>
+            <li><strong>Set constraints.</strong> Specify length, format, tone, audience, and what to avoid.</li>
+          </ol>
+        </div>
+
+        <h2 class="text-2xl font-bold pt-6" id="beyond-the-basics">Want to go beyond the basics? There is a technique most people do not know about</h2>
+
+        <p>The five rules above will dramatically improve your results. But there is a technique I use almost every day that takes things to another level entirely.</p>
+
+        <p>The first time I tried it, I was genuinely shocked at the difference. It completely changed how I approach every AI conversation. I am not going to give the full method away here because it is one of the most valuable things we teach. But I will say this: once you learn it, you will never go back to writing prompts the old way.</p>
+
+        <div class="bg-gradient-to-br from-violet-600 to-indigo-700 rounded-2xl p-7 my-6 text-white relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+          <div class="relative">
+            <p class="font-bold text-lg mb-2">How to 10x your prompting skills</p>
+            <p class="text-violet-100 text-sm mb-4 leading-relaxed">Our online course includes a full module on advanced techniques that go way beyond what we have covered here. It is the fastest way to go from getting okay results to getting outstanding ones.</p>
+            <a href="/#online-ai-course" class="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-violet-700 font-semibold text-sm rounded-xl hover:bg-violet-50 transition-colors">
+              View the course
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold pt-6" id="whats-next">What should I try next?</h2>
+
+        <p>The best way to improve is to practise. Take something you need to write this week - an email, a report, a social media post - and try applying all five rules to your prompt. Compare the result with what you would normally get.</p>
+
+        <p>Or if you want us to train your team directly, <a href="/#contact" class="text-violet-600 font-medium hover:text-violet-800 transition-colors">get in touch about a workshop</a>. We run half-day sessions where your team practises these techniques with their own real work tasks. It is the fastest way to level up.</p>
+
+      </div>
+
+      <!-- Related articles -->
+      <div class="mt-12 pt-10 border-t border-gray-100">
+        <h3 class="text-lg font-bold mb-6">You might also like</h3>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <a href="/blog/what-is-ai" class="p-5 rounded-xl border border-gray-100 hover:border-violet-200 transition-colors group">
+            <span class="text-xs text-violet-600 font-medium">Getting started</span>
+            <p class="font-bold mt-1 group-hover:text-violet-600 transition-colors">What is AI? A plain English guide</p>
+          </a>
+          <a href="/blog/ai-automation-save-time" class="p-5 rounded-xl border border-gray-100 hover:border-violet-200 transition-colors group">
+            <span class="text-xs text-violet-600 font-medium">Automation</span>
+            <p class="font-bold mt-1 group-hover:text-violet-600 transition-colors">How we saved 10 hours a week with AI automation</p>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- CTA Banner -->
+  <section class="py-16 section-purple">
+    <div class="max-w-2xl mx-auto px-6 text-center">
+      <h2 class="text-2xl font-extrabold mb-3">Want to master AI prompting?</h2>
+      <p class="text-gray-500 mb-6">Our online course includes a full module on advanced prompting techniques with hands-on exercises you can try straight away.</p>
+      <a href="/#online-ai-course" class="inline-flex gradient-btn text-white text-sm font-semibold px-8 py-3.5 rounded-xl">View the course</a>
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 text-gray-400 py-10">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p class="text-sm">&copy; 2026 Smash Your AI. All rights reserved.</p>
+      <div class="flex gap-6 text-sm">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <a href="/blog" class="hover:text-white transition-colors">Blog</a>
+        <a href="/privacy" class="hover:text-white transition-colors">Privacy policy</a>
+      </div>
+    </div>
+  </footer>
+
+<script src="/shared-nav.js"></script>
+</body>
+</html>

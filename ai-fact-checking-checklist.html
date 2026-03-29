@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GMMV8EBM39"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GMMV8EBM39');
+  </script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The AI Fact-Checking Checklist - Smash Your AI</title>
+  <meta name="description" content="A practical checklist for fact-checking AI-generated content. Verify accuracy, spot hallucinations, and ensure quality before publishing.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://smashyourai.com/ai-fact-checking-checklist">
+  <meta property="og:title" content="The AI Fact-Checking Checklist - Smash Your AI">
+  <meta property="og:description" content="A practical checklist for fact-checking AI-generated content. Verify accuracy, spot hallucinations, and ensure quality before publishing.">
+  <meta property="og:url" content="https://smashyourai.com/ai-fact-checking-checklist">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/images/og-default.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+
+    body {
+      background: white;
+      color: #1f2937;
+      font-size: 11pt;
+      line-height: 1.6;
+    }
+
+    /* Print styles */
+    @media print {
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .page { page-break-after: always; }
+      .page:last-child { page-break-after: avoid; }
+      .no-break { page-break-inside: avoid; }
+    }
+
+    /* Screen styles - simulate A4 pages */
+    @media screen {
+      body { background: #e5e7eb; padding: 40px 0; }
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0 auto 40px;
+        background: white;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        border-radius: 4px;
+      }
+    }
+
+    .page {
+      padding: 50px 55px;
+      position: relative;
+    }
+
+    /* Cover page */
+    .cover {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 297mm;
+      background: linear-gradient(180deg, #fef2f2 0%, #fef9ee 40%, white 100%);
+    }
+
+    .cover-logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #8b5cf6, #4f46e5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .cover-logo svg {
+      width: 32px;
+      height: 32px;
+      color: white;
+    }
+
+    .cover-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(239, 68, 68, 0.1);
+      color: #dc2626;
+      font-size: 10pt;
+      font-weight: 600;
+      border-radius: 20px;
+      margin-bottom: 32px;
+    }
+
+    .cover h1 {
+      font-size: 32pt;
+      font-weight: 800;
+      color: #111827;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      max-width: 480px;
+    }
+
+    .cover h1 span {
+      background: linear-gradient(135deg, #8b5cf6, #6366f1, #4f46e5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .cover p {
+      font-size: 13pt;
+      color: #6b7280;
+      max-width: 380px;
+      margin-bottom: 40px;
+    }
+
+    .cover-footer {
+      position: absolute;
+      bottom: 40px;
+      color: #9ca3af;
+      font-size: 9pt;
+    }
+
+    /* Page header */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 36px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid #f3f4f6;
+    }
+
+    .page-header-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .page-header-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, #8b5cf6, #4f46e5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .page-header-icon svg {
+      width: 14px;
+      height: 14px;
+      color: white;
+    }
+
+    .page-header-brand {
+      font-size: 9pt;
+      font-weight: 700;
+      color: #6b7280;
+    }
+
+    .page-header-title {
+      font-size: 9pt;
+      color: #9ca3af;
+    }
+
+    /* Section titles */
+    .section-title {
+      font-size: 18pt;
+      font-weight: 800;
+      color: #111827;
+      margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+      font-size: 11pt;
+      color: #6b7280;
+      margin-bottom: 28px;
+    }
+
+    /* Warning zone boxes */
+    .warning-zone {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 28px;
+    }
+
+    .warning-zone h3 {
+      font-size: 12pt;
+      font-weight: 700;
+      color: #991b1b;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .warning-zone ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .warning-zone li {
+      padding: 6px 0;
+      font-size: 10.5pt;
+      color: #7f1d1d;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .warning-zone li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #ef4444;
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
+
+    /* Checklist steps */
+    .check-step {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+      padding: 20px;
+      background: #f9fafb;
+      border-radius: 12px;
+      border-left: 4px solid #8b5cf6;
+    }
+
+    .check-step-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #8b5cf6, #4f46e5);
+      color: white;
+      font-weight: 800;
+      font-size: 14pt;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .check-step h4 {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 4px;
+    }
+
+    .check-step p {
+      font-size: 10pt;
+      color: #6b7280;
+      line-height: 1.5;
+    }
+
+    /* Traffic light system */
+    .traffic-light {
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 14px;
+    }
+
+    .traffic-green {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .traffic-amber {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+    }
+
+    .traffic-red {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+    }
+
+    .traffic-light h4 {
+      font-size: 11pt;
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .traffic-green h4 { color: #166534; }
+    .traffic-amber h4 { color: #92400e; }
+    .traffic-red h4 { color: #991b1b; }
+
+    .traffic-light p {
+      font-size: 10pt;
+      line-height: 1.5;
+    }
+
+    .traffic-green p { color: #15803d; }
+    .traffic-amber p { color: #a16207; }
+    .traffic-red p { color: #b91c1c; }
+
+    .traffic-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .dot-green { background: #22c55e; }
+    .dot-amber { background: #f59e0b; }
+    .dot-red { background: #ef4444; }
+
+    /* Quick check box */
+    .quick-check {
+      background: linear-gradient(135deg, #f5f3ff, #eef2ff);
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 28px;
+    }
+
+    .quick-check h3 {
+      font-size: 12pt;
+      font-weight: 700;
+      color: #4c1d95;
+      margin-bottom: 14px;
+    }
+
+    .quick-check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 6px 0;
+      font-size: 10pt;
+      color: #5b21b6;
+    }
+
+    .checkbox {
+      width: 18px;
+      height: 18px;
+      border: 2px solid #8b5cf6;
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Promo page */
+    .promo-section {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .promo-section h3 {
+      font-size: 14pt;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 8px;
+    }
+
+    .promo-section p {
+      font-size: 10pt;
+      color: #6b7280;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .promo-card {
+      background: #f9fafb;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+      text-align: left;
+    }
+
+    .promo-card h4 {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 6px;
+    }
+
+    .promo-card p {
+      font-size: 9.5pt;
+      color: #6b7280;
+      text-align: left;
+    }
+
+    .promo-card .price {
+      display: inline-block;
+      background: linear-gradient(135deg, #8b5cf6, #4f46e5);
+      color: white;
+      font-size: 9pt;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 12px;
+      margin-top: 8px;
+    }
+
+    /* Page footer */
+    .page-footer {
+      position: absolute;
+      bottom: 30px;
+      left: 55px;
+      right: 55px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 8pt;
+      color: #d1d5db;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1: Cover -->
+  <div class="page cover">
+    <div class="cover-logo">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+      </svg>
+    </div>
+    <span class="cover-badge">Free checklist</span>
+    <h1>The AI <span>fact-checking</span> checklist</h1>
+    <p>How to catch AI mistakes before they catch you. A practical guide to verifying AI outputs.</p>
+    <div class="cover-footer">smashyourai.com</div>
+  </div>
+
+  <!-- PAGE 2: When AI gets it wrong + The 5-step check -->
+  <div class="page">
+    <div class="page-header">
+      <div class="page-header-logo">
+        <div class="page-header-icon">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+        </div>
+        <span class="page-header-brand">Smash Your AI</span>
+      </div>
+      <span class="page-header-title">The AI fact-checking checklist</span>
+    </div>
+
+    <!-- Warning zone -->
+    <div class="warning-zone">
+      <h3>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#991b1b" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+        When AI is most likely to be wrong
+      </h3>
+      <ul>
+        <li>Specific dates, numbers, and statistics</li>
+        <li>Niche or highly technical facts</li>
+        <li>Recent events (after the model's training cutoff)</li>
+        <li>URLs, web links, and email addresses</li>
+        <li>Quotes attributed to real people</li>
+        <li>Legal, medical, or financial specifics</li>
+        <li>Academic citations and references</li>
+      </ul>
+    </div>
+
+    <!-- 5-step fact-check -->
+    <h2 class="section-title">The 5-step fact-check</h2>
+    <p class="section-subtitle">Run through these before you use any AI output for anything important.</p>
+
+    <div class="check-step">
+      <div class="check-step-number">1</div>
+      <div>
+        <h4>Does it sound too perfect?</h4>
+        <p>If the AI gives you a very specific statistic, a perfectly fitting quote, or a suspiciously convenient fact, treat it with extra scepticism. The more specific and convenient the claim, the more likely it was fabricated. AI is confident even when it is wrong.</p>
+      </div>
+    </div>
+
+    <div class="check-step">
+      <div class="check-step-number">2</div>
+      <div>
+        <h4>Cross-reference the key facts</h4>
+        <p>Pick the 3-5 most important claims and verify them with a quick search. You do not need to check every sentence. Focus on the facts that matter most: statistics, dates, names, and any claim you plan to share publicly or use in a professional context.</p>
+      </div>
+    </div>
+
+    <div class="check-step">
+      <div class="check-step-number">3</div>
+      <div>
+        <h4>Ask the AI for sources</h4>
+        <p>Tell the AI: "Provide sources for the claims you just made." If it cannot provide real, verifiable sources, or if the links do not work, treat those claims as unverified. Real sources have real URLs that load real pages.</p>
+      </div>
+    </div>
+
+    <div class="check-step">
+      <div class="check-step-number">4</div>
+      <div>
+        <h4>Use Perplexity for research tasks</h4>
+        <p>Perplexity.ai provides sourced answers by default. Every claim is linked to a real source you can check. When accuracy matters more than creativity, use Perplexity instead of ChatGPT or Claude for research.</p>
+      </div>
+    </div>
+
+    <div class="check-step">
+      <div class="check-step-number">5</div>
+      <div>
+        <h4>Trust your own expertise</h4>
+        <p>If something does not sound right based on your own knowledge and experience, it probably is not right. AI can be confidently, convincingly wrong. Your expertise is the final filter.</p>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>smashyourai.com</span>
+      <span>Page 2 of 3</span>
+    </div>
+  </div>
+
+  <!-- PAGE 3: Traffic light system + quick reference -->
+  <div class="page">
+    <div class="page-header">
+      <div class="page-header-logo">
+        <div class="page-header-icon">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+        </div>
+        <span class="page-header-brand">Smash Your AI</span>
+      </div>
+      <span class="page-header-title">The AI fact-checking checklist</span>
+    </div>
+
+    <h2 class="section-title">The trust traffic light</h2>
+    <p class="section-subtitle">Use this to decide how much checking an AI output needs.</p>
+
+    <div class="traffic-light traffic-green">
+      <h4><span class="traffic-dot dot-green"></span> Green: trust more, check less</h4>
+      <p><strong>Brainstorming and idea generation.</strong> First drafts and outlines. Reformatting or restructuring your own content. Summarising documents you provided. Code structure and boilerplate. Grammar and spelling corrections. Explaining concepts in simple language.</p>
+    </div>
+
+    <div class="traffic-light traffic-amber">
+      <h4><span class="traffic-dot dot-amber"></span> Amber: verify the key facts</h4>
+      <p><strong>Blog posts and articles.</strong> Presentations and slide content. Reports and proposals. Competitor research. Product descriptions. Social media content with factual claims. Email campaigns with specific details. Job descriptions and company profiles.</p>
+    </div>
+
+    <div class="traffic-light traffic-red">
+      <h4><span class="traffic-dot dot-red"></span> Red: always verify everything</h4>
+      <p><strong>Statistics and data points.</strong> Legal information or contracts. Medical or health advice. Financial guidance or projections. Academic citations and references. Anything published as fact under your name. Content about real people. Regulatory or compliance information.</p>
+    </div>
+
+    <!-- Quick before-you-publish check -->
+    <div class="quick-check">
+      <h3>Before you publish or send: the final check</h3>
+      <div class="quick-check-item">
+        <div class="checkbox"></div>
+        <span>Have I verified all statistics and specific numbers?</span>
+      </div>
+      <div class="quick-check-item">
+        <div class="checkbox"></div>
+        <span>Do all dates and names check out?</span>
+      </div>
+      <div class="quick-check-item">
+        <div class="checkbox"></div>
+        <span>Are any quotes attributed correctly and accurate?</span>
+      </div>
+      <div class="quick-check-item">
+        <div class="checkbox"></div>
+        <span>Do any URLs or links actually work?</span>
+      </div>
+      <div class="quick-check-item">
+        <div class="checkbox"></div>
+        <span>Does the content match my own knowledge and experience?</span>
+      </div>
+      <div class="quick-check-item">
+        <div class="checkbox"></div>
+        <span>Would I be comfortable if someone asked me to prove this?</span>
+      </div>
+      <div class="quick-check-item">
+        <div class="checkbox"></div>
+        <span>Have I removed or rewritten anything I could not verify?</span>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>smashyourai.com</span>
+      <span>Page 3 of 4</span>
+    </div>
+  </div>
+
+  <!-- PAGE 4: Promo -->
+  <div class="page">
+    <div class="page-header">
+      <div class="page-header-logo">
+        <div class="page-header-icon">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+        </div>
+        <span class="page-header-brand">Smash Your AI</span>
+      </div>
+      <span class="page-header-title">The AI fact-checking checklist</span>
+    </div>
+
+    <div style="text-align: center; margin-bottom: 40px; padding-top: 40px;">
+      <h2 class="section-title">Want to get more from AI?</h2>
+      <p class="section-subtitle" style="max-width: 420px; margin: 0 auto;">We help businesses and individuals use AI with confidence. Here are a few ways we can help you go further.</p>
+    </div>
+
+    <div class="promo-card">
+      <h4>The AI prompt library</h4>
+      <p>168 ready-to-use prompts across 15 categories. Stop staring at a blank screen and start getting results you can actually use. Every prompt has been tested and refined.</p>
+      <span class="price">From &pound;9.99</span>
+    </div>
+
+    <div class="promo-card">
+      <h4>AI in a Day workshop</h4>
+      <p>A hands-on workshop where your team practises with real work tasks. We cover prompting, tools, automation, and how to fact-check AI outputs. Available in-person or virtual.</p>
+      <span class="price">From &pound;14.99</span>
+    </div>
+
+    <div class="promo-card">
+      <h4>Online AI course</h4>
+      <p>Go from complete beginner to confident AI user at your own pace. Covers everything from your first prompt to advanced techniques and automation. Lifetime access included.</p>
+      <span class="price">&pound;99 lifetime access</span>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px;">
+      <p style="font-size: 12pt; font-weight: 700; color: #111827; margin-bottom: 6px;">Visit us at smashyourai.com</p>
+      <p style="font-size: 10pt; color: #6b7280;">Follow us for daily AI tips and practical guides</p>
+    </div>
+
+    <div class="page-footer">
+      <span>&copy; 2026 Smash Your AI. All rights reserved.</span>
+      <span>Page 4 of 4</span>
+    </div>
+  </div>
+
+</body>
+</html>

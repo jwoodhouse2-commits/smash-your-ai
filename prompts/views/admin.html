@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GMMV8EBM39"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GMMV8EBM39');
+  </script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Smash Your AI prompt library</title>
+  <meta name="description" content="Admin panel for managing the Smash Your AI prompt library.">
+  <meta name="robots" content="noindex, nofollow">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    * { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+    .gradient-text {
+      background: linear-gradient(135deg, #8b5cf6, #6366f1, #4f46e5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased min-h-screen">
+
+  <div class="max-w-4xl mx-auto px-6 py-10">
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-10">
+      <div>
+        <h1 class="text-2xl font-extrabold">Prompt library <span class="gradient-text">admin</span></h1>
+        <p class="text-sm text-gray-500 mt-1">Manage users and content</p>
+      </div>
+      <a href="/prompts" class="text-sm font-medium text-violet-600 hover:text-violet-800 transition-colors">&larr; Back to library</a>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10" id="stats-grid">
+      <div class="bg-white rounded-xl border border-gray-200 p-5">
+        <p class="text-sm text-gray-500">Total prompts</p>
+        <p class="text-2xl font-bold mt-1" id="stat-total">-</p>
+      </div>
+      <div class="bg-white rounded-xl border border-gray-200 p-5">
+        <p class="text-sm text-gray-500">Free prompts</p>
+        <p class="text-2xl font-bold mt-1" id="stat-free">-</p>
+      </div>
+      <div class="bg-white rounded-xl border border-gray-200 p-5">
+        <p class="text-sm text-gray-500">Total users</p>
+        <p class="text-2xl font-bold mt-1" id="stat-users">-</p>
+      </div>
+      <div class="bg-white rounded-xl border border-gray-200 p-5">
+        <p class="text-sm text-gray-500">Paid users</p>
+        <p class="text-2xl font-bold mt-1 text-violet-600" id="stat-paid">-</p>
+      </div>
+    </div>
+
+    <!-- Content breakdown -->
+    <div class="bg-white rounded-xl border border-gray-200 p-6 mb-10">
+      <h2 class="font-bold text-lg mb-4">Content by type</h2>
+      <div id="type-breakdown" class="space-y-3">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+
+    <!-- Users -->
+    <div class="bg-white rounded-xl border border-gray-200 p-6">
+      <h2 class="font-bold text-lg mb-4">Users</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-gray-100">
+              <th class="text-left py-3 px-2 font-medium text-gray-500">Email</th>
+              <th class="text-left py-3 px-2 font-medium text-gray-500">Signed up</th>
+              <th class="text-left py-3 px-2 font-medium text-gray-500">Status</th>
+              <th class="text-right py-3 px-2 font-medium text-gray-500">Action</th>
+            </tr>
+          </thead>
+          <tbody id="users-table">
+            <!-- Populated by JS -->
+          </tbody>
+        </table>
+        <p id="no-users" class="text-center text-gray-400 py-8 hidden">No users yet</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Get admin password from URL if present
+    const urlParams = new URLSearchParams(window.location.search);
+    const adminPw = urlParams.get('password') || '';
+    const authParam = adminPw ? `?password=${encodeURIComponent(adminPw)}` : '';
+
+    async function loadStats() {
+      try {
+        const res = await fetch(`/prompts/admin/stats${authParam}`);
+        if (!res.ok) {
+          document.body.innerHTML = '<div class="flex items-center justify-center min-h-screen"><p class="text-gray-500 text-lg">Admin access required.</p></div>';
+          return;
+        }
+        const data = await res.json();
+
+        const total = data.freeCount + data.premiumCount;
+        document.getElementById('stat-total').textContent = total;
+        document.getElementById('stat-free').textContent = data.freeCount;
+        document.getElementById('stat-users').textContent = data.userCount;
+        document.getElementById('stat-paid').textContent = data.paidCount;
+
+        const typeLabels = {
+          'llm-prompt': 'LLM prompts',
+          'image-prompt': 'Image prompts',
+          'custom-gpt': 'Custom GPTs',
+          'fundamental': 'Fundamentals'
+        };
+
+        const breakdown = document.getElementById('type-breakdown');
+        breakdown.innerHTML = Object.entries(data.typeCounts).map(([type, count]) => `
+          <div class="flex items-center justify-between">
+            <span class="text-gray-700">${typeLabels[type] || type}</span>
+            <span class="font-medium">${count}</span>
+          </div>
+        `).join('');
+      } catch (e) {
+        console.error('Failed to load stats:', e);
+      }
+    }
+
+    async function loadUsers() {
+      try {
+        const res = await fetch(`/prompts/admin/users${authParam}`);
+        if (!res.ok) return;
+        const data = await res.json();
+
+        const tbody = document.getElementById('users-table');
+        const noUsers = document.getElementById('no-users');
+
+        if (data.users.length === 0) {
+          noUsers.classList.remove('hidden');
+          return;
+        }
+
+        noUsers.classList.add('hidden');
+        tbody.innerHTML = data.users.map(user => `
+          <tr class="border-b border-gray-50 hover:bg-gray-50">
+            <td class="py-3 px-2">${user.email}</td>
+            <td class="py-3 px-2 text-gray-500">${new Date(user.created_at).toLocaleDateString('en-GB')}</td>
+            <td class="py-3 px-2">
+              <span class="px-2.5 py-1 rounded-full text-xs font-medium ${user.has_paid ? 'bg-green-50 text-green-700' : 'bg-gray-100 text-gray-600'}">
+                ${user.has_paid ? 'Paid' : 'Free'}
+              </span>
+              ${user.is_admin ? '<span class="px-2.5 py-1 rounded-full text-xs font-medium bg-violet-50 text-violet-700 ml-1">Admin</span>' : ''}
+            </td>
+            <td class="py-3 px-2 text-right">
+              <button onclick="togglePaid(${user.id})" class="text-sm text-violet-600 hover:text-violet-800 font-medium">
+                ${user.has_paid ? 'Revoke access' : 'Grant access'}
+              </button>
+            </td>
+          </tr>
+        `).join('');
+      } catch (e) {
+        console.error('Failed to load users:', e);
+      }
+    }
+
+    async function togglePaid(userId) {
+      try {
+        const res = await fetch(`/prompts/admin/users/${userId}/toggle-paid${authParam}`, {
+          method: 'POST'
+        });
+        if (res.ok) {
+          loadUsers();
+          loadStats();
+        }
+      } catch (e) {
+        console.error('Failed to toggle paid status:', e);
+      }
+    }
+
+    // Load on page ready
+    loadStats();
+    loadUsers();
+  </script>
+</body>
+</html>

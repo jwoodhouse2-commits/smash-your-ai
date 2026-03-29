@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GMMV8EBM39"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GMMV8EBM39');
+  </script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Use AI to Write Social Media Posts (That Actually Sound Like You) - Smash Your AI</title>
+  <meta name="description" content="Learn how to use AI to write social media posts that sound like you, not a robot. Platform-specific tips, before/after prompt examples, and the paste-your-voice technique that changes everything.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:image" content="/images/blog/ai-social-media.jpg">
+  <link rel="canonical" href="https://smashyourai.com/blog/ai-social-media-posts">
+  <meta property="og:title" content="How to Use AI to Write Social Media Posts (That Actually Sound Like You) - Smash Your AI">
+  <meta property="og:description" content="Learn how to use AI to write social media posts that sound like you, not a robot. Platform-specific tips, before/after prompt examples, and the paste-your-voice technique that changes everything.">
+  <meta property="og:url" content="https://smashyourai.com/blog/ai-social-media-posts">
+  <meta property="og:type" content="article">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>tailwind.config = { theme: { extend: { fontFamily: { sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'] } } } }</script>
+  <style>
+    * { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+    .gradient-text { background: linear-gradient(135deg, #8b5cf6, #6366f1, #4f46e5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .gradient-btn { background: linear-gradient(135deg, #8b5cf6, #6366f1); transition: all 0.2s ease; }
+    .gradient-btn:hover { background: linear-gradient(135deg, #7c3aed, #4f46e5); transform: translateY(-1px); box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4); }
+    .section-purple { background: linear-gradient(180deg, rgba(139, 92, 246, 0.03) 0%, rgba(99, 102, 241, 0.06) 50%, rgba(139, 92, 246, 0.03) 100%); }
+    article h2 { scroll-margin-top: 100px; }
+    .prompt-example { border-left: 3px solid #8b5cf6; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Use AI to Write Social Media Posts (That Actually Sound Like You)",
+    "description": "Learn how to use AI to write social media posts that sound like you, not a robot. Platform-specific tips, before/after prompt examples, and the paste-your-voice technique that changes everything.",
+    "author": { "@type": "Person", "name": "James" },
+    "publisher": { "@type": "Organization", "name": "Smash Your AI" },
+    "datePublished": "2026-03-29",
+    "dateModified": "2026-03-29"
+  }
+  </script>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-lg border-b border-gray-100 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5">
+        <img src="/images/logo.png" alt="Smash Your AI" class="h-7 w-auto">
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Home</a>
+        <a href="/#ai-training-services" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Services</a>
+        <span class="text-sm font-medium text-gray-400 cursor-default relative group">Online course
+          <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Coming soon</span>
+        </span>
+        <a href="/#about-us" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">About us</a>
+        <div class="relative group">
+          <button class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors inline-flex items-center gap-1">
+            Resources
+            <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200 absolute top-full right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+            <a href="/prompts/" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              Prompt library
+            </a>
+            <a href="/content-calendars/" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              Content calendars
+            </a>
+            <a href="/quiz" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+              AI readiness quiz
+            </a>
+            <a href="/savings-calculator" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              AI savings calculator
+            </a>
+            <div class="border-t border-gray-100 my-1"></div>
+            <a href="/blog" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+              Blog
+            </a>
+          </div>
+        </div>
+        <a href="/#contact" class="gradient-btn text-white text-sm font-semibold px-5 py-2.5 rounded-xl">Get in touch</a>
+        <div id="shared-auth-area"></div>
+      </div>
+      <button class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3">
+      <a href="/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">Home</a>
+      <a href="/#ai-training-services" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">Services</a>
+      <span class="block text-sm font-medium text-gray-400 py-2">Online course (coming soon)</span>
+      <a href="/#about-us" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">About us</a>
+      <div class="border-t border-gray-100 pt-2 mt-1">
+        <span class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Resources</span>
+        <a href="/prompts/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Prompt library</a>
+        <a href="/content-calendars/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Content calendars</a>
+        <a href="/quiz" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">AI readiness quiz</a>
+        <a href="/savings-calculator" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">AI savings calculator</a>
+        <a href="/blog" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Blog</a>
+      </div>
+      <a href="/#contact" class="block gradient-btn text-white text-sm font-semibold px-5 py-2.5 rounded-xl text-center">Get in touch</a>
+      <div id="shared-auth-area-mobile"></div>
+    </div>
+  </nav>
+
+  <!-- Article -->
+  <article class="pt-32 pb-20 md:pt-40 md:pb-28">
+    <div class="max-w-3xl mx-auto px-6">
+      <!-- Breadcrumb -->
+      <nav class="text-sm text-gray-400 mb-6">
+        <a href="/" class="hover:text-violet-600 transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <a href="/blog" class="hover:text-violet-600 transition-colors">Blog</a>
+        <span class="mx-2">/</span>
+        <span class="text-gray-600">AI social media posts</span>
+      </nav>
+
+      <!-- Header -->
+      <div class="mb-10">
+        <span class="text-xs text-violet-600 font-medium px-2.5 py-1 bg-violet-50 rounded-md">Business</span>
+        <h1 class="text-3xl md:text-4xl font-extrabold mt-4 mb-4">How to Use AI to Write Social Media Posts (That Actually Sound Like You)</h1>
+        <div class="flex items-center gap-4 text-sm text-gray-400 mb-5">
+          <span>29 March 2026</span>
+          <span>-</span>
+          <span>9 min read</span>
+        </div>
+        <div class="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-violet-50 to-indigo-50 border-l-4 border-violet-500">
+          <img src="/images/james-headshot.png" alt="James, co-founder of Smash Your AI" class="w-11 h-11 rounded-full object-cover shrink-0">
+          <div>
+            <p class="font-semibold text-sm text-gray-900">James</p>
+            <p class="text-xs text-gray-500">Co-founder of Smash Your AI - 18 years in education, now helping businesses and individuals get real results from AI.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured image -->
+      <!-- IMAGE: Hero image showing a person at a laptop with social media icons floating around them. Source from Freepik or create branded graphic with violet/indigo tones. Dimensions: 1200x630 -->
+      <img src="/images/blog/ai-social-media.jpg" alt="Using AI to write social media posts on a laptop" class="w-full rounded-2xl mb-10">
+
+      <!-- Article content -->
+      <div class="space-y-6 text-gray-700 leading-relaxed">
+
+        <p>Last year, ChatGPT told me I was in the top 0.1% of users worldwide. I use AI every single day &mdash; for our business, for content, for training other businesses. And the number one thing people ask me about? Social media.</p>
+
+        <p>"Can AI actually write my social media posts for me?"</p>
+
+        <p>Short answer: yes. But if you do it the lazy way, your audience will know. They'll scroll right past. Let me show you how to do it properly.</p>
+
+        <!-- IMAGE: Screenshot showing a generic AI-generated LinkedIn post vs a natural-sounding one, side by side -->
+
+        <h2 class="text-2xl font-bold text-gray-900 pt-4">Why most AI social media posts sound like a robot wrote them</h2>
+
+        <p>You've seen them. We all have. Those LinkedIn posts that start with "In today's fast-paced digital landscape..." or Instagram captions stuffed with words like "leverage" and "synergy."</p>
+
+        <p>They sound like that because the person typed something like this:</p>
+
+        <div class="prompt-example bg-red-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-red-800 mb-1">Bad prompt:</p>
+          <p class="text-sm text-red-700 italic">"Write me a social media post about my business."</p>
+        </div>
+
+        <p>That's it. No context. No voice. No direction. So AI does what AI does &mdash; it writes something that sounds like everyone and no one at the same time.</p>
+
+        <p>Here's the thing: <strong>AI doesn't know your voice unless you teach it.</strong> It doesn't know your audience. It doesn't know that you call your customers "folks" not "esteemed clients." It's guessing. And generic guesses get generic results.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 pt-4">The fix: give AI your voice (the paste-your-examples technique)</h2>
+
+        <p>This is the single biggest thing I teach businesses when I run AI training sessions. And it takes about 30 seconds.</p>
+
+        <p><strong>Paste 3-5 of your best-performing posts into the chat.</strong> Then tell AI to match that style.</p>
+
+        <div class="prompt-example bg-green-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-green-800 mb-1">Better prompt:</p>
+          <p class="text-sm text-green-700 italic">"Here are 4 of my recent LinkedIn posts that got great engagement. Study the tone, sentence length, and how I open each post. Then write a new post about [topic] in the same style. Keep it under 150 words."</p>
+        </div>
+
+        <p>Then paste your examples below the prompt. That's it.</p>
+
+        <p>When I first tried this for our own business, the difference was night and day. The AI stopped writing like a corporate press release and started writing like me &mdash; short sentences, direct, a bit casual. I barely had to edit anything.</p>
+
+        <p>Here are a few things worth pasting in:</p>
+
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Your best posts</strong> &mdash; the ones that got the most likes, comments, or shares</li>
+          <li><strong>Words you actually use</strong> &mdash; e.g. "I'd say" not "one might argue"</li>
+          <li><strong>Words you'd never use</strong> &mdash; tell AI to avoid them ("Never use the words leverage, synergy, or game-changer")</li>
+          <li><strong>How you open posts</strong> &mdash; do you ask a question? Share a stat? Tell a story?</li>
+        </ul>
+
+        <!-- IMAGE: A simple diagram showing: Your examples + Clear instructions = Posts that sound like you. Branded graphic style. -->
+
+        <h2 class="text-2xl font-bold text-gray-900 pt-4">What works on each platform (they're not all the same)</h2>
+
+        <p>One of the biggest mistakes I see is people writing one post and copying it across every platform. LinkedIn is not Instagram. X is not Facebook. Each one has its own style, length, and audience expectation.</p>
+
+        <p>Here's a quick breakdown:</p>
+
+        <div class="overflow-x-auto my-6">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-violet-50">
+              <tr>
+                <th class="text-left px-4 py-3 font-semibold text-gray-900">Platform</th>
+                <th class="text-left px-4 py-3 font-semibold text-gray-900">Best tone</th>
+                <th class="text-left px-4 py-3 font-semibold text-gray-900">Ideal length</th>
+                <th class="text-left px-4 py-3 font-semibold text-gray-900">What performs well</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr>
+                <td class="px-4 py-3 font-medium">LinkedIn</td>
+                <td class="px-4 py-3">Professional but personal</td>
+                <td class="px-4 py-3">100&ndash;200 words</td>
+                <td class="px-4 py-3">Stories, lessons learned, opinions</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-medium">Instagram</td>
+                <td class="px-4 py-3">Casual, visual-first</td>
+                <td class="px-4 py-3">30&ndash;100 words (caption)</td>
+                <td class="px-4 py-3">Behind-the-scenes, tips, reels</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-medium">Facebook</td>
+                <td class="px-4 py-3">Friendly, conversational</td>
+                <td class="px-4 py-3">50&ndash;150 words</td>
+                <td class="px-4 py-3">Questions, stories, community posts</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-medium">X (Twitter)</td>
+                <td class="px-4 py-3">Sharp, punchy</td>
+                <td class="px-4 py-3">Under 280 characters</td>
+                <td class="px-4 py-3">Hot takes, threads, quick tips</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>When you're prompting AI, <strong>always tell it which platform you're writing for.</strong> This one detail completely changes the output.</p>
+
+        <div class="prompt-example bg-red-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-red-800 mb-1">Bad prompt:</p>
+          <p class="text-sm text-red-700 italic">"Write a post about our new product launch."</p>
+        </div>
+
+        <div class="prompt-example bg-green-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-green-800 mb-1">Better prompt:</p>
+          <p class="text-sm text-green-700 italic">"Write a LinkedIn post announcing our new product launch. Tone: professional but excited. Start with a bold opening line. Keep it under 150 words. End with a question to drive comments."</p>
+        </div>
+
+        <h2 class="text-2xl font-bold text-gray-900 pt-4">Platform-specific prompt tips</h2>
+
+        <p>Here are some things I've learned from writing hundreds of AI-assisted posts across different platforms:</p>
+
+        <h3 class="text-xl font-bold text-gray-900 pt-2">LinkedIn</h3>
+
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Tell AI to use <strong>short paragraphs</strong> (1-2 sentences each) &mdash; this is how LinkedIn posts look on mobile</li>
+          <li>Ask for a <strong>hook in the first line</strong> that makes people click "see more"</li>
+          <li>End with a <strong>question or call to action</strong> to drive comments</li>
+          <li>Avoid hashtag spam &mdash; 3-5 relevant hashtags max</li>
+        </ul>
+
+        <h3 class="text-xl font-bold text-gray-900 pt-2">Instagram</h3>
+
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Captions matter less than the image, but a good caption boosts saves and shares</li>
+          <li>Tell AI to write <strong>for carousels</strong> &mdash; "Write 7 slides for an Instagram carousel about [topic]. Each slide should have a heading and 1-2 short sentences."</li>
+          <li>Ask for <strong>emoji placement</strong> that feels natural, not forced</li>
+        </ul>
+
+        <h3 class="text-xl font-bold text-gray-900 pt-2">Facebook</h3>
+
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Facebook rewards <strong>conversation</strong> &mdash; ask AI to write posts that invite replies</li>
+          <li>Longer storytelling posts work well here, especially in groups</li>
+          <li>Tell AI: "Write this like I'm talking to a friend, not presenting at a conference"</li>
+        </ul>
+
+        <h3 class="text-xl font-bold text-gray-900 pt-2">X (Twitter)</h3>
+
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Ask AI to <strong>cut ruthlessly</strong> &mdash; "Say this in under 200 characters"</li>
+          <li>For threads, prompt: "Write a 5-tweet thread about [topic]. Each tweet should stand alone but flow into the next."</li>
+          <li>Tell it to avoid corporate language &mdash; X audiences see through it instantly</li>
+        </ul>
+
+        <!-- IMAGE: Side-by-side comparison of the same message adapted for LinkedIn vs Instagram vs X. Could be a branded mockup graphic. -->
+
+        <h2 class="text-2xl font-bold text-gray-900 pt-4">Use AI for ideas first, full posts second</h2>
+
+        <p>Here's something I wish I'd figured out sooner. The best way to use AI for social media isn't to ask it to write finished posts straight away. It's to use it as a brainstorming partner first.</p>
+
+        <p>When I'm planning content for the week, I'll start with something like:</p>
+
+        <div class="prompt-example bg-green-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-green-800 mb-1">Great prompt for ideas:</p>
+          <p class="text-sm text-green-700 italic">"I run a small business that does AI training for companies. Give me 10 LinkedIn post ideas for this week. Mix of educational tips, behind-the-scenes, and opinion pieces. My audience is business owners and managers."</p>
+        </div>
+
+        <p>From that list, I'll pick 3-4 ideas I actually like. Then I'll prompt AI to write those specific posts in my voice.</p>
+
+        <p>This two-step approach &mdash; <strong>ideas first, writing second</strong> &mdash; gives you much better results than asking for finished posts cold. It also means you stay in control of what you're actually saying.</p>
+
+        <p>If you want to skip the brainstorming and jump straight to a full month of planned content, our <a href="/content-calendars/" class="text-violet-600 hover:text-violet-800 font-medium underline">content calendars</a> give you 30 days of post ideas already mapped out by platform and content type. They're designed to work with AI &mdash; each idea includes a prompt-ready brief.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 pt-4">The refine and iterate approach</h2>
+
+        <p>Don't accept the first draft. Ever. I've been using AI daily for over 4 years now, and I still go back and forth 2-3 times on every post.</p>
+
+        <p>Here's what that looks like in practice:</p>
+
+        <ol class="list-decimal pl-6 space-y-2">
+          <li><strong>First prompt:</strong> Get the initial draft</li>
+          <li><strong>Second prompt:</strong> Refine the tone &mdash; "Make this more casual" or "Shorten the opening"</li>
+          <li><strong>Third prompt:</strong> Tighten it &mdash; "Cut this to 100 words without losing the main point"</li>
+          <li><strong>Your edit:</strong> Read it out loud. If it sounds like something you'd actually say, it's ready. If not, tweak it by hand.</li>
+        </ol>
+
+        <p>That last step is crucial. <strong>AI gets you 80% there. The last 20% is you.</strong> A quick personal touch &mdash; swapping a word, adding a real detail from your day &mdash; makes all the difference.</p>
+
+        <div class="prompt-example bg-green-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-green-800 mb-1">Useful refining prompts:</p>
+          <p class="text-sm text-green-700 italic">"This is good but too formal. Rewrite it like I'm telling a mate over coffee."</p>
+          <p class="text-sm text-green-700 italic mt-2">"Keep the same message but make the first line more attention-grabbing."</p>
+          <p class="text-sm text-green-700 italic mt-2">"Add a specific example to make this feel less generic."</p>
+        </div>
+
+        <!-- IMAGE: A flowchart showing: Idea > First draft > Refine tone > Tighten length > Personal edit > Post. Simple branded graphic. -->
+
+        <h2 class="text-2xl font-bold text-gray-900 pt-4">Prompt templates you can steal right now</h2>
+
+        <p>Here are some templates I use regularly. Copy them, swap in your details, and you're good to go.</p>
+
+        <div class="overflow-x-auto my-6">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-violet-50">
+              <tr>
+                <th class="text-left px-4 py-3 font-semibold text-gray-900">Post type</th>
+                <th class="text-left px-4 py-3 font-semibold text-gray-900">Prompt template</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr>
+                <td class="px-4 py-3 font-medium">Tip / educational</td>
+                <td class="px-4 py-3">"Write a [platform] post sharing one practical tip about [topic]. Open with a surprising stat or bold claim. Keep it under [X] words. Tone: helpful and direct."</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-medium">Behind-the-scenes</td>
+                <td class="px-4 py-3">"Write a [platform] post about what happened today at work: [brief description]. Make it feel real and unpolished. Tone: honest and relatable."</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-medium">Opinion / hot take</td>
+                <td class="px-4 py-3">"Write a [platform] post sharing my opinion that [your opinion]. Back it up with one real example. End with a question. Tone: confident but not arrogant."</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-medium">Product / service promo</td>
+                <td class="px-4 py-3">"Write a [platform] post about [product/service]. Lead with the problem it solves, not the features. Include a clear call to action. Tone: enthusiastic but not salesy."</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-medium">Story / personal</td>
+                <td class="px-4 py-3">"Write a [platform] post telling the story of [brief outline]. Draw out a lesson or takeaway at the end. Tone: personal and conversational."</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Want 168 more ready-to-use prompts like these? Our <a href="/prompts/" class="text-violet-600 hover:text-violet-800 font-medium underline">prompt library</a> covers social media, content creation, business strategy, and more &mdash; all tested and refined from real use.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 pt-4">What AI is great at (and what it's not)</h2>
+
+        <p>After years of doing this, here's where I'd draw the line:</p>
+
+        <div class="overflow-x-auto my-6">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-violet-50">
+              <tr>
+                <th class="text-left px-4 py-3 font-semibold text-gray-900">AI is great at</th>
+                <th class="text-left px-4 py-3 font-semibold text-gray-900">You're still better at</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr>
+                <td class="px-4 py-3">Generating ideas when you're stuck</td>
+                <td class="px-4 py-3">Knowing what your audience actually cares about</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3">Writing first drafts fast</td>
+                <td class="px-4 py-3">Adding personal stories and real details</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3">Adapting one post for multiple platforms</td>
+                <td class="px-4 py-3">Reading the room on timing and sensitivity</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3">Suggesting hashtags and hooks</td>
+                <td class="px-4 py-3">Deciding what not to post</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3">Rephrasing and tightening copy</td>
+                <td class="px-4 py-3">Making it sound like a human being</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>AI is a tool, not a replacement for your brain. The people getting the best results are the ones who use AI to speed up the process &mdash; but still bring their own personality, experience, and judgment to the final post.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 pt-4">A real workflow you can use this week</h2>
+
+        <p>Here's exactly what I do every Monday to plan the week's social media. Takes me about 30 minutes for 5 platforms.</p>
+
+        <ol class="list-decimal pl-6 space-y-2">
+          <li><strong>Check the content calendar</strong> &mdash; see what's planned for this week (topic, content type, platform)</li>
+          <li><strong>Brainstorm with AI</strong> &mdash; paste the week's themes and ask for 3 angle options per post</li>
+          <li><strong>Pick the winners</strong> &mdash; choose the angles that feel most "me"</li>
+          <li><strong>Draft with AI</strong> &mdash; use the paste-your-voice technique from earlier, one post at a time</li>
+          <li><strong>Refine</strong> &mdash; go back and forth 2-3 times, tighten the copy</li>
+          <li><strong>Personal edit</strong> &mdash; read each one out loud, tweak anything that sounds off</li>
+          <li><strong>Schedule</strong> &mdash; load them into your scheduler and you're done for the week</li>
+        </ol>
+
+        <p>30 minutes. A week's worth of posts. All in your voice. That's the power of using AI properly.</p>
+
+        <!-- IMAGE: A weekly planning mockup or calendar graphic showing social media posts mapped to days. Branded with violet tones. -->
+
+        <h2 class="text-2xl font-bold text-gray-900 pt-4">Quick recap</h2>
+
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Don't ask AI to "write a post"</strong> &mdash; give it your voice, your audience, and your platform</li>
+          <li><strong>Paste your best-performing posts</strong> as examples so AI can match your style</li>
+          <li><strong>Always specify the platform</strong> &mdash; LinkedIn, Instagram, Facebook, and X all need different approaches</li>
+          <li><strong>Use AI for ideas first,</strong> then full posts &mdash; two-step approach wins every time</li>
+          <li><strong>Refine, don't accept</strong> &mdash; go back and forth 2-3 times, then add your personal touch</li>
+          <li><strong>AI gets you 80% there</strong> &mdash; the last 20% is what makes it sound like you</li>
+        </ul>
+
+        <p>If you want to take this further, grab our <a href="/content-calendars/" class="text-violet-600 hover:text-violet-800 font-medium underline">content calendars</a> for a month of planned post ideas, or check out the <a href="/prompts/" class="text-violet-600 hover:text-violet-800 font-medium underline">prompt library</a> for 168 ready-to-use prompts across social media, content creation, and business.</p>
+
+      </div>
+
+      <!-- Related articles -->
+      <div class="mt-12 pt-10 border-t border-gray-100">
+        <h3 class="text-lg font-bold mb-6">You might also like</h3>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <a href="/blog/chatgpt-prompting-mistakes" class="p-5 rounded-xl border border-gray-100 hover:border-violet-200 transition-colors group">
+            <span class="text-xs text-violet-600 font-medium">Prompting</span>
+            <p class="font-bold mt-1 group-hover:text-violet-600 transition-colors">5 ChatGPT prompting mistakes most people make</p>
+          </a>
+          <a href="/blog/ai-automation-save-time" class="p-5 rounded-xl border border-gray-100 hover:border-violet-200 transition-colors group">
+            <span class="text-xs text-violet-600 font-medium">Automation</span>
+            <p class="font-bold mt-1 group-hover:text-violet-600 transition-colors">How we saved 10 hours a week with AI automation</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- CTA Banner -->
+  <section class="py-16 section-purple">
+    <div class="max-w-2xl mx-auto px-6 text-center">
+      <h2 class="text-2xl font-extrabold mb-3">Plan a month of social media in 30 minutes</h2>
+      <p class="text-gray-500 mb-6">Our content calendars give you 30 days of post ideas, mapped by platform and content type. Designed to work with AI so you can go from idea to published post in minutes.</p>
+      <a href="/content-calendars/" class="inline-flex gradient-btn text-white text-sm font-semibold px-8 py-3.5 rounded-xl">Browse content calendars</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-10">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p class="text-sm">&copy; 2026 Smash Your AI. All rights reserved.</p>
+      <div class="flex gap-6 text-sm">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <a href="/blog" class="hover:text-white transition-colors">Blog</a>
+        <a href="/privacy" class="hover:text-white transition-colors">Privacy</a>
+        <a href="/terms" class="hover:text-white transition-colors">Terms</a>
+      </div>
+    </div>
+  </footer>
+<script src="/shared-nav.js"></script>
+</body>
+</html>

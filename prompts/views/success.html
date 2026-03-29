@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment successful - Smash Your AI</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: { extend: { fontFamily: { sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'] } } }
+    }
+  </script>
+  <style>
+    * { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+    .gradient-btn { background: linear-gradient(135deg, #8b5cf6, #6366f1); }
+    .gradient-btn:hover { background: linear-gradient(135deg, #7c3aed, #4f46e5); }
+    @keyframes checkmark { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    .animate-check { animation: checkmark 0.5s ease-out 0.2s both; }
+    @keyframes fadeUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    .animate-fade-up { animation: fadeUp 0.5s ease-out 0.4s both; }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center p-4">
+  <div class="max-w-md w-full text-center">
+    <!-- Success checkmark -->
+    <div class="animate-check w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+      <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+      </svg>
+    </div>
+
+    <div class="animate-fade-up">
+      <h1 class="text-3xl font-extrabold text-gray-900 mb-2">You're in!</h1>
+      <p class="text-gray-600 mb-8">Payment successful. You now have full access to the AI Starter Bundle - every prompt, workbook, calendar, and every future update we add.</p>
+
+      <div class="space-y-3">
+        <a href="/dashboard" class="block w-full gradient-btn text-white font-semibold py-3 rounded-xl text-sm text-center transition-all">
+          Go to your dashboard
+        </a>
+        <a href="/prompts" class="block w-full text-violet-600 font-semibold py-3 rounded-xl text-sm text-center border border-violet-200 hover:bg-violet-50 transition-colors">
+          Browse the prompt library
+        </a>
+      </div>
+
+      <p class="text-xs text-gray-400 mt-6">A receipt has been sent to your email by Stripe.</p>
+    </div>
+  </div>
+</body>
+</html>

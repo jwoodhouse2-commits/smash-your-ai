@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GMMV8EBM39"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GMMV8EBM39');
+  </script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How much time could AI save you? Free calculator | Smash Your AI</title>
+  <meta name="description" content="Use our free AI savings calculator to find out how many hours per week AI could save you. Move the sliders, get instant results. No signup required.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://smashyourai.com/savings-calculator">
+  <meta property="og:title" content="How much time could AI save you? Free calculator">
+  <meta property="og:description" content="Use our free AI savings calculator to find out how many hours per week AI could save you. Instant results, no signup required.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://smashyourai.com/savings-calculator">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:image" content="/images/og-default.jpg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "AI Savings Calculator",
+    "description": "Calculate how much time and money AI could save you each week.",
+    "url": "https://smashyourai.com/savings-calculator",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "GBP"
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "Smash Your AI",
+      "url": "https://smashyourai.com"
+    }
+  }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    * { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+    .gradient-text {
+      background: linear-gradient(135deg, #8b5cf6, #6366f1, #4f46e5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .gradient-btn {
+      background: linear-gradient(135deg, #8b5cf6, #6366f1);
+      transition: all 0.2s ease;
+    }
+    .gradient-btn:hover {
+      background: linear-gradient(135deg, #7c3aed, #4f46e5);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
+    }
+    .hero-gradient {
+      background: radial-gradient(ellipse at top right, rgba(139, 92, 246, 0.08), transparent 50%),
+                  radial-gradient(ellipse at bottom left, rgba(99, 102, 241, 0.06), transparent 50%);
+    }
+    .section-purple-light {
+      background: rgba(139, 92, 246, 0.025);
+    }
+
+    /* Range slider styling */
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: #e5e7eb;
+      outline: none;
+      cursor: pointer;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: white;
+      border: 3px solid #8b5cf6;
+      box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+      cursor: pointer;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+    input[type="range"]::-webkit-slider-thumb:hover {
+      box-shadow: 0 3px 12px rgba(139, 92, 246, 0.5);
+      transform: scale(1.1);
+    }
+    input[type="range"]::-webkit-slider-thumb:active {
+      transform: scale(1.15);
+    }
+    input[type="range"]::-moz-range-thumb {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: white;
+      border: 3px solid #8b5cf6;
+      box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+      cursor: pointer;
+    }
+    input[type="range"]::-moz-range-track {
+      height: 6px;
+      border-radius: 3px;
+      background: #e5e7eb;
+    }
+    input[type="range"]::-moz-range-progress {
+      height: 6px;
+      border-radius: 3px;
+      background: linear-gradient(135deg, #8b5cf6, #6366f1);
+    }
+
+    /* Mobile: larger thumb */
+    @media (max-width: 768px) {
+      input[type="range"]::-webkit-slider-thumb {
+        width: 32px;
+        height: 32px;
+        border-width: 4px;
+      }
+      input[type="range"]::-moz-range-thumb {
+        width: 32px;
+        height: 32px;
+        border-width: 4px;
+      }
+    }
+
+    /* Bar chart animation */
+    .bar-fill {
+      transition: width 0.4s ease;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in-up {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    .fade-in-up-delay-1 { animation-delay: 0.2s; opacity: 0; }
+    .fade-in-up-delay-2 { animation-delay: 0.4s; opacity: 0; }
+    .fade-in-up-delay-3 { animation-delay: 0.6s; opacity: 0; }
+  </style>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-lg border-b border-gray-100 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5">
+        <img src="/images/logo.png" alt="Smash Your AI" class="h-7 w-auto">
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Home</a>
+        <a href="/#ai-training-services" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Services</a>
+        <span class="text-sm font-medium text-gray-400 cursor-default relative group">Online course
+          <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Coming soon</span>
+        </span>
+        <a href="/#about-us" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">About us</a>
+        <div class="relative group">
+          <button class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors inline-flex items-center gap-1">
+            Resources
+            <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200 absolute top-full right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+            <a href="/prompts/" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              Prompt library
+            </a>
+            <a href="/content-calendars/" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              Content calendars
+            </a>
+            <a href="/quiz" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+              AI readiness quiz
+            </a>
+            <a href="/savings-calculator" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              AI savings calculator
+            </a>
+            <div class="border-t border-gray-100 my-1"></div>
+            <a href="/blog" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+              Blog
+            </a>
+          </div>
+        </div>
+        <a href="/#contact" class="gradient-btn text-white text-sm font-semibold px-5 py-2.5 rounded-xl">Get in touch</a>
+        <div id="shared-auth-area"></div>
+      </div>
+      <button class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3">
+      <a href="/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">Home</a>
+      <a href="/#ai-training-services" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">Services</a>
+      <span class="block text-sm font-medium text-gray-400 py-2">Online course (coming soon)</span>
+      <a href="/#about-us" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">About us</a>
+      <div class="border-t border-gray-100 pt-2 mt-1">
+        <span class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Resources</span>
+        <a href="/prompts/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Prompt library</a>
+        <a href="/content-calendars/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Content calendars</a>
+        <a href="/quiz" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">AI readiness quiz</a>
+        <a href="/savings-calculator" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">AI savings calculator</a>
+        <a href="/blog" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Blog</a>
+      </div>
+      <a href="/#contact" class="block gradient-btn text-white text-sm font-semibold px-5 py-2.5 rounded-xl text-center">Get in touch</a>
+      <div id="shared-auth-area-mobile"></div>
+    </div>
+  </nav>
+
+  <main class="pt-28 pb-20 min-h-screen">
+
+    <!-- Hero section -->
+    <section class="hero-gradient pb-12">
+      <div class="max-w-3xl mx-auto px-6 text-center">
+        <div class="fade-in-up">
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-50 text-violet-700 text-sm font-medium mb-6">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Free calculator
+          </span>
+        </div>
+        <h1 class="fade-in-up fade-in-up-delay-1 text-4xl md:text-5xl font-extrabold leading-tight mb-6">
+          How much time could <span class="gradient-text">AI save you</span>?
+        </h1>
+        <p class="fade-in-up fade-in-up-delay-2 text-lg text-gray-600 leading-relaxed mb-6 max-w-lg mx-auto">
+          Move the sliders to match your typical week and see your personalised savings estimate.
+        </p>
+        <div class="fade-in-up fade-in-up-delay-2 flex flex-wrap items-center justify-center gap-6 text-sm text-gray-500">
+          <span class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-violet-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Takes 30 seconds
+          </span>
+          <span class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-violet-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/></svg>
+            No signup required
+          </span>
+          <span class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-violet-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            Instant results
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calculator section -->
+    <section class="max-w-5xl mx-auto px-6 py-12">
+      <div class="grid lg:grid-cols-5 gap-10">
+
+        <!-- Sliders column -->
+        <div class="lg:col-span-3 space-y-8">
+
+          <!-- Slider: Emails -->
+          <div class="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+            <div class="flex items-center justify-between mb-2">
+              <label class="text-base font-semibold text-gray-900" for="slider-emails">How many emails do you write per week?</label>
+              <span id="val-emails" class="text-lg font-bold text-violet-600 min-w-[3ch] text-right">15</span>
+            </div>
+            <p class="text-sm text-gray-400 mb-4">Include replies, cold outreach, follow-ups</p>
+            <input type="range" id="slider-emails" min="0" max="50" value="15" oninput="updateCalculations()">
+            <div class="flex justify-between text-xs text-gray-400 mt-1"><span>0</span><span>50</span></div>
+          </div>
+
+          <!-- Slider: Social media -->
+          <div class="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+            <div class="flex items-center justify-between mb-2">
+              <label class="text-base font-semibold text-gray-900" for="slider-social">How many social media posts do you create per month?</label>
+              <span id="val-social" class="text-lg font-bold text-violet-600 min-w-[3ch] text-right">4</span>
+            </div>
+            <p class="text-sm text-gray-400 mb-4">Across all platforms</p>
+            <input type="range" id="slider-social" min="0" max="30" value="4" oninput="updateCalculations()">
+            <div class="flex justify-between text-xs text-gray-400 mt-1"><span>0</span><span>30</span></div>
+          </div>
+
+          <!-- Slider: Reports -->
+          <div class="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+            <div class="flex items-center justify-between mb-2">
+              <label class="text-base font-semibold text-gray-900" for="slider-reports">How many hours per week on reports, proposals, or documents?</label>
+              <span id="val-reports" class="text-lg font-bold text-violet-600 min-w-[3ch] text-right">3</span>
+            </div>
+            <p class="text-sm text-gray-400 mb-4">Include presentations and spreadsheets</p>
+            <input type="range" id="slider-reports" min="0" max="20" value="3" oninput="updateCalculations()">
+            <div class="flex justify-between text-xs text-gray-400 mt-1"><span>0</span><span>20</span></div>
+          </div>
+
+          <!-- Slider: Admin -->
+          <div class="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+            <div class="flex items-center justify-between mb-2">
+              <label class="text-base font-semibold text-gray-900" for="slider-admin">How many hours per week on repetitive admin?</label>
+              <span id="val-admin" class="text-lg font-bold text-violet-600 min-w-[3ch] text-right">2</span>
+            </div>
+            <p class="text-sm text-gray-400 mb-4">Scheduling, data entry, filing, invoicing</p>
+            <input type="range" id="slider-admin" min="0" max="15" value="2" oninput="updateCalculations()">
+            <div class="flex justify-between text-xs text-gray-400 mt-1"><span>0</span><span>15</span></div>
+          </div>
+
+          <!-- Slider: Research -->
+          <div class="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+            <div class="flex items-center justify-between mb-2">
+              <label class="text-base font-semibold text-gray-900" for="slider-research">How many hours per week on research?</label>
+              <span id="val-research" class="text-lg font-bold text-violet-600 min-w-[3ch] text-right">1</span>
+            </div>
+            <p class="text-sm text-gray-400 mb-4">Competitor research, market research, learning</p>
+            <input type="range" id="slider-research" min="0" max="10" value="1" oninput="updateCalculations()">
+            <div class="flex justify-between text-xs text-gray-400 mt-1"><span>0</span><span>10</span></div>
+          </div>
+
+          <!-- Slider: Hourly rate -->
+          <div class="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+            <div class="flex items-center justify-between mb-2">
+              <label class="text-base font-semibold text-gray-900" for="slider-rate">What do you value your time at? (per hour)</label>
+              <span id="val-rate" class="text-lg font-bold text-violet-600 min-w-[4ch] text-right">&pound;40</span>
+            </div>
+            <p class="text-sm text-gray-400 mb-4">Your hourly rate or salary equivalent</p>
+            <input type="range" id="slider-rate" min="15" max="150" value="40" oninput="updateCalculations()">
+            <div class="flex justify-between text-xs text-gray-400 mt-1"><span>&pound;15</span><span>&pound;150</span></div>
+          </div>
+
+        </div>
+
+        <!-- Results column (sticky on desktop) -->
+        <div class="lg:col-span-2">
+          <div class="lg:sticky lg:top-28 space-y-6">
+
+            <!-- Hero numbers -->
+            <div class="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm text-center">
+              <p class="text-sm font-medium text-gray-500 mb-2">AI could save you</p>
+              <p class="text-5xl md:text-6xl font-extrabold leading-tight mb-1">
+                <span id="result-weekly" class="gradient-text">3.5</span>
+              </p>
+              <p class="text-lg font-semibold text-gray-700 mb-6">hours per week</p>
+
+              <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="bg-gray-50 rounded-xl p-4">
+                  <p id="result-annual-hours" class="text-2xl font-extrabold text-gray-900">168</p>
+                  <p class="text-sm text-gray-500">hours per year</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-4">
+                  <p id="result-annual-money" class="text-2xl font-extrabold text-gray-900">&pound;6,720</p>
+                  <p class="text-sm text-gray-500">value per year</p>
+                </div>
+              </div>
+
+              <p id="context-line" class="text-sm text-gray-500 leading-relaxed"></p>
+            </div>
+
+            <!-- Bar chart breakdown -->
+            <div class="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+              <h3 class="text-sm font-bold text-gray-900 mb-4">Breakdown by category</h3>
+              <div class="space-y-4">
+
+                <div>
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="text-sm text-gray-600">Email drafting</span>
+                    <span id="bar-label-emails" class="text-sm font-semibold text-gray-900">1.3 hrs</span>
+                  </div>
+                  <div class="w-full bg-gray-100 rounded-full h-3">
+                    <div id="bar-emails" class="bar-fill h-3 rounded-full bg-gradient-to-r from-violet-500 to-violet-400" style="width: 0%"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="text-sm text-gray-600">Social media</span>
+                    <span id="bar-label-social" class="text-sm font-semibold text-gray-900">0.2 hrs</span>
+                  </div>
+                  <div class="w-full bg-gray-100 rounded-full h-3">
+                    <div id="bar-social" class="bar-fill h-3 rounded-full bg-gradient-to-r from-indigo-500 to-indigo-400" style="width: 0%"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="text-sm text-gray-600">Reports and documents</span>
+                    <span id="bar-label-reports" class="text-sm font-semibold text-gray-900">1.4 hrs</span>
+                  </div>
+                  <div class="w-full bg-gray-100 rounded-full h-3">
+                    <div id="bar-reports" class="bar-fill h-3 rounded-full bg-gradient-to-r from-purple-500 to-purple-400" style="width: 0%"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="text-sm text-gray-600">Admin tasks</span>
+                    <span id="bar-label-admin" class="text-sm font-semibold text-gray-900">0.7 hrs</span>
+                  </div>
+                  <div class="w-full bg-gray-100 rounded-full h-3">
+                    <div id="bar-admin" class="bar-fill h-3 rounded-full bg-gradient-to-r from-fuchsia-500 to-fuchsia-400" style="width: 0%"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="text-sm text-gray-600">Research</span>
+                    <span id="bar-label-research" class="text-sm font-semibold text-gray-900">0.6 hrs</span>
+                  </div>
+                  <div class="w-full bg-gray-100 rounded-full h-3">
+                    <div id="bar-research" class="bar-fill h-3 rounded-full bg-gradient-to-r from-blue-500 to-blue-400" style="width: 0%"></div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Recommendation -->
+            <div id="recommendation-card" class="bg-violet-50 rounded-2xl border border-violet-100 p-6">
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center shrink-0 mt-0.5">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                </div>
+                <div>
+                  <h3 class="text-sm font-bold text-violet-900 mb-1">Your biggest opportunity</h3>
+                  <p id="recommendation-text" class="text-sm text-violet-800 leading-relaxed"></p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA section -->
+    <section class="section-purple-light py-16">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="text-2xl md:text-3xl font-extrabold text-center mb-10">Ready to start saving time?</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <a href="/lead-magnet.html" class="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-all group text-center">
+            <div class="w-12 h-12 rounded-xl bg-violet-50 flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            </div>
+            <h3 class="font-bold text-gray-900 mb-2">Get our free prompt guide</h3>
+            <p class="text-sm text-gray-500 mb-4">10 tested prompts to start saving time today</p>
+            <span class="text-sm font-semibold text-violet-600 group-hover:translate-x-1 transition-transform inline-block">Download free &rarr;</span>
+          </a>
+          <a href="/quiz.html" class="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-all group text-center">
+            <div class="w-12 h-12 rounded-xl bg-violet-50 flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+            </div>
+            <h3 class="font-bold text-gray-900 mb-2">Take the AI readiness quiz</h3>
+            <p class="text-sm text-gray-500 mb-4">Find out how AI-ready your business is</p>
+            <span class="text-sm font-semibold text-violet-600 group-hover:translate-x-1 transition-transform inline-block">Start the quiz &rarr;</span>
+          </a>
+          <a href="/prompts/" class="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-all group text-center">
+            <div class="w-12 h-12 rounded-xl bg-violet-50 flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+            </div>
+            <h3 class="font-bold text-gray-900 mb-2">Browse the prompt library</h3>
+            <p class="text-sm text-gray-500 mb-4">168 ready-to-use prompts for every task</p>
+            <span class="text-sm font-semibold text-violet-600 group-hover:translate-x-1 transition-transform inline-block">View prompts &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Share section -->
+    <section class="py-12">
+      <div class="max-w-2xl mx-auto px-6 text-center">
+        <p class="text-sm text-gray-500 mb-4">Know someone who could benefit from this?</p>
+        <button onclick="shareResults()" id="share-btn" class="gradient-btn text-white text-sm font-semibold px-6 py-3 rounded-xl inline-flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+          Share your results
+        </button>
+      </div>
+    </section>
+
+    <!-- Email capture section -->
+    <section class="pb-16">
+      <div class="max-w-xl mx-auto px-6">
+        <div class="bg-gray-50 rounded-2xl border border-gray-200 p-6 md:p-8">
+          <h3 class="text-lg font-bold text-gray-900 text-center mb-2">Want a detailed breakdown sent to your inbox?</h3>
+          <p class="text-sm text-gray-500 text-center mb-6">We will send your personalised savings report with tips to get started.</p>
+          <form id="email-form" onsubmit="handleEmailSubmit(event)" class="space-y-4">
+            <div class="grid md:grid-cols-2 gap-4">
+              <div>
+                <label for="capture-name" class="block text-sm font-medium text-gray-700 mb-1.5">First name</label>
+                <input type="text" id="capture-name" name="name" required placeholder="e.g. Sarah" class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500/30 focus:border-violet-400 transition-all bg-white">
+              </div>
+              <div>
+                <label for="capture-email" class="block text-sm font-medium text-gray-700 mb-1.5">Email address</label>
+                <input type="email" id="capture-email" name="email" required placeholder="sarah@example.com" class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500/30 focus:border-violet-400 transition-all bg-white">
+              </div>
+            </div>
+            <button type="submit" id="email-submit-btn" class="w-full gradient-btn text-white text-sm font-semibold px-8 py-3.5 rounded-xl inline-flex items-center justify-center gap-2">
+              Send my savings report
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </button>
+            <p class="text-xs text-gray-400 text-center">No spam, unsubscribe anytime. See our <a href="/privacy" class="underline hover:text-violet-600">privacy policy</a>.</p>
+          </form>
+          <div id="email-success" class="hidden text-center py-4">
+            <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-3">
+              <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <p class="font-semibold text-gray-900">Check your inbox</p>
+            <p class="text-sm text-gray-500 mt-1">Your savings report is on its way.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-12">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <span class="text-sm font-semibold text-white">Smash Your AI</span>
+        </div>
+        <div class="flex items-center gap-6 text-sm">
+          <a href="/privacy" class="hover:text-white transition-colors">Privacy</a>
+          <a href="/terms" class="hover:text-white transition-colors">Terms</a>
+          <a href="/blog" class="hover:text-white transition-colors">Blog</a>
+          <a href="/#contact" class="hover:text-white transition-colors">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Animated number state
+    const animatedValues = {
+      weekly: { current: 0, target: 0 },
+      annual: { current: 0, target: 0 },
+      money: { current: 0, target: 0 }
+    };
+    let animationId = null;
+
+    // Category savings for bar chart and recommendations
+    const savings = {
+      emails: 0,
+      social: 0,
+      reports: 0,
+      admin: 0,
+      research: 0
+    };
+
+    function getSliderValues() {
+      return {
+        emails: parseInt(document.getElementById('slider-emails').value),
+        social: parseInt(document.getElementById('slider-social').value),
+        reports: parseInt(document.getElementById('slider-reports').value),
+        admin: parseInt(document.getElementById('slider-admin').value),
+        research: parseInt(document.getElementById('slider-research').value),
+        rate: parseInt(document.getElementById('slider-rate').value)
+      };
+    }
+
+    function updateSliderFill(slider) {
+      const min = parseFloat(slider.min);
+      const max = parseFloat(slider.max);
+      const val = parseFloat(slider.value);
+      const percent = ((val - min) / (max - min)) * 100;
+      slider.style.background = `linear-gradient(to right, #8b5cf6 0%, #6366f1 ${percent}%, #e5e7eb ${percent}%, #e5e7eb 100%)`;
+    }
+
+    function updateCalculations() {
+      const v = getSliderValues();
+
+      // Update displayed values
+      document.getElementById('val-emails').textContent = v.emails;
+      document.getElementById('val-social').textContent = v.social;
+      document.getElementById('val-reports').textContent = v.reports;
+      document.getElementById('val-admin').textContent = v.admin;
+      document.getElementById('val-research').textContent = v.research;
+      document.getElementById('val-rate').innerHTML = '&pound;' + v.rate;
+
+      // Update slider fills
+      document.querySelectorAll('input[type="range"]').forEach(updateSliderFill);
+
+      // Calculate savings per category (hours per week)
+      savings.emails = (v.emails * 8 * 0.65) / 60;
+      savings.social = (v.social * 25 * 0.60) / 60 / 4.33;
+      savings.reports = v.reports * 0.45;
+      savings.admin = v.admin * 0.35;
+      savings.research = v.research * 0.55;
+
+      const weeklyTotal = savings.emails + savings.social + savings.reports + savings.admin + savings.research;
+      const annualHours = weeklyTotal * 48;
+      const annualMoney = annualHours * v.rate;
+
+      // Set animation targets
+      animatedValues.weekly.target = weeklyTotal;
+      animatedValues.annual.target = annualHours;
+      animatedValues.money.target = annualMoney;
+
+      // Start animation if not already running
+      if (!animationId) {
+        animateNumbers();
+      }
+
+      // Update bar chart
+      updateBarChart(weeklyTotal);
+
+      // Update context line
+      updateContextLine(weeklyTotal, annualHours);
+
+      // Update recommendation
+      updateRecommendation();
+    }
+
+    function animateNumbers() {
+      let allDone = true;
+
+      // Animate weekly
+      const weeklyDiff = animatedValues.weekly.target - animatedValues.weekly.current;
+      if (Math.abs(weeklyDiff) > 0.01) {
+        animatedValues.weekly.current += weeklyDiff * 0.15;
+        allDone = false;
+      } else {
+        animatedValues.weekly.current = animatedValues.weekly.target;
+      }
+
+      // Animate annual
+      const annualDiff = animatedValues.annual.target - animatedValues.annual.current;
+      if (Math.abs(annualDiff) > 0.5) {
+        animatedValues.annual.current += annualDiff * 0.15;
+        allDone = false;
+      } else {
+        animatedValues.annual.current = animatedValues.annual.target;
+      }
+
+      // Animate money
+      const moneyDiff = animatedValues.money.target - animatedValues.money.current;
+      if (Math.abs(moneyDiff) > 1) {
+        animatedValues.money.current += moneyDiff * 0.15;
+        allDone = false;
+      } else {
+        animatedValues.money.current = animatedValues.money.target;
+      }
+
+      // Update DOM
+      document.getElementById('result-weekly').textContent = animatedValues.weekly.current.toFixed(1);
+      document.getElementById('result-annual-hours').textContent = Math.round(animatedValues.annual.current).toLocaleString();
+      document.getElementById('result-annual-money').innerHTML = '&pound;' + Math.round(animatedValues.money.current).toLocaleString();
+
+      if (allDone) {
+        animationId = null;
+      } else {
+        animationId = requestAnimationFrame(animateNumbers);
+      }
+    }
+
+    function updateBarChart(weeklyTotal) {
+      const maxBar = Math.max(savings.emails, savings.social, savings.reports, savings.admin, savings.research, 0.01);
+
+      const categories = ['emails', 'social', 'reports', 'admin', 'research'];
+      categories.forEach(cat => {
+        const percent = (savings[cat] / maxBar) * 100;
+        document.getElementById('bar-' + cat).style.width = Math.max(percent, savings[cat] > 0 ? 3 : 0) + '%';
+        document.getElementById('bar-label-' + cat).textContent = savings[cat].toFixed(1) + ' hrs';
+      });
+    }
+
+    function updateContextLine(weeklyHours, annualHours) {
+      const workingDays = (annualHours / 8).toFixed(0);
+      const el = document.getElementById('context-line');
+
+      if (weeklyHours === 0) {
+        el.textContent = 'Move the sliders above to see how much time AI could save you.';
+      } else if (weeklyHours < 3) {
+        el.textContent = 'Even small savings add up. That is over ' + workingDays + ' full working days per year you could get back.';
+      } else if (weeklyHours < 8) {
+        el.textContent = 'That is like getting an extra half day every week. Over a year, that is ' + workingDays + ' full working days.';
+      } else if (weeklyHours < 15) {
+        el.textContent = 'That is like hiring a part-time assistant. Over a year, that is ' + workingDays + ' full working days you are currently losing.';
+      } else {
+        el.textContent = 'You are leaving serious time on the table. That is ' + workingDays + ' full working days per year.';
+      }
+    }
+
+    function updateRecommendation() {
+      const categories = [
+        { key: 'emails', value: savings.emails },
+        { key: 'social', value: savings.social },
+        { key: 'reports', value: savings.reports },
+        { key: 'admin', value: savings.admin },
+        { key: 'research', value: savings.research }
+      ];
+
+      categories.sort((a, b) => b.value - a.value);
+      const biggest = categories[0];
+
+      const recommendations = {
+        emails: 'Your biggest opportunity is email. AI can draft, refine, and personalise emails in seconds. Our prompt library includes 23 email-specific prompts that our clients use every day.',
+        social: 'Content creation is where you will see the fastest wins. AI can generate posts, captions, and content plans in minutes. Check out our done-for-you content calendars.',
+        reports: 'Document creation is eating your time. AI excels at first drafts, summaries, and structured reports. Our AI in a Day workshop covers exactly this.',
+        admin: 'Repetitive admin is the silent time killer. AI can automate scheduling, data entry, and routine tasks. Our advanced workshop covers AI automation in depth.',
+        research: 'Research does not have to take hours. Tools like Perplexity and NotebookLM can cut research time dramatically. Read our comparison guide to find the right tool.'
+      };
+
+      const el = document.getElementById('recommendation-text');
+      if (biggest.value === 0) {
+        el.textContent = 'Move the sliders to see where AI could help you the most.';
+      } else {
+        el.textContent = recommendations[biggest.key];
+      }
+    }
+
+    function shareResults() {
+      const weeklyHours = animatedValues.weekly.target.toFixed(1);
+      const shareText = 'I just found out AI could save me ' + weeklyHours + ' hours per week. Find out your number:';
+      const shareUrl = window.location.href.split('?')[0];
+
+      if (navigator.share) {
+        navigator.share({
+          title: 'How much time could AI save you?',
+          text: shareText,
+          url: shareUrl
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(shareText + ' ' + shareUrl).then(() => {
+          const btn = document.getElementById('share-btn');
+          const original = btn.innerHTML;
+          btn.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Link copied to clipboard';
+          setTimeout(() => { btn.innerHTML = original; }, 2500);
+        });
+      }
+    }
+
+    function handleEmailSubmit(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('capture-name').value;
+      const email = document.getElementById('capture-email').value;
+      const v = getSliderValues();
+      const weeklyHours = animatedValues.weekly.target.toFixed(1);
+      const annualHours = Math.round(animatedValues.annual.target);
+      const annualMoney = Math.round(animatedValues.money.target);
+
+      const formData = new FormData();
+      formData.append('_subject', 'AI Savings Calculator: ' + name + ' - ' + weeklyHours + ' hrs/week');
+      formData.append('name', name);
+      formData.append('email', email);
+      formData.append('weekly_hours_saved', weeklyHours);
+      formData.append('annual_hours_saved', annualHours);
+      formData.append('annual_value', annualMoney);
+      formData.append('emails_per_week', v.emails);
+      formData.append('social_posts_per_month', v.social);
+      formData.append('report_hours_per_week', v.reports);
+      formData.append('admin_hours_per_week', v.admin);
+      formData.append('research_hours_per_week', v.research);
+      formData.append('hourly_rate', v.rate);
+      formData.append('email_saving_hrs', savings.emails.toFixed(1));
+      formData.append('social_saving_hrs', savings.social.toFixed(1));
+      formData.append('reports_saving_hrs', savings.reports.toFixed(1));
+      formData.append('admin_saving_hrs', savings.admin.toFixed(1));
+      formData.append('research_saving_hrs', savings.research.toFixed(1));
+
+      const btn = document.getElementById('email-submit-btn');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      fetch('https://formspree.io/f/xeerklqd', {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        document.getElementById('email-form').classList.add('hidden');
+        document.getElementById('email-success').classList.remove('hidden');
+      }).catch(() => {
+        document.getElementById('email-form').classList.add('hidden');
+        document.getElementById('email-success').classList.remove('hidden');
+      });
+    }
+
+    // Initialise on load
+    document.addEventListener('DOMContentLoaded', () => {
+      updateCalculations();
+    });
+  </script>
+<script src="/shared-nav.js"></script>
+</body>
+</html>

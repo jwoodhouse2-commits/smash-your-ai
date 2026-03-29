@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GMMV8EBM39"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GMMV8EBM39');
+  </script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What is AI? A plain English guide to artificial intelligence - Smash Your AI</title>
+  <meta name="description" content="What is AI and how does it actually work? A jargon-free guide to artificial intelligence, large language models, prompts, and how businesses and individuals can use AI tools like ChatGPT in 2026.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:image" content="/images/blog/what-is-ai.jpg">
+  <link rel="canonical" href="https://smashyourai.com/blog/what-is-ai">
+  <meta property="og:title" content="What is AI? A plain English guide to artificial intelligence - Smash Your AI">
+  <meta property="og:description" content="What is AI and how does it actually work? A jargon-free guide to artificial intelligence, large language models, prompts, and how businesses and individuals can use AI tools like ChatGPT in 2026.">
+  <meta property="og:url" content="https://smashyourai.com/blog/what-is-ai">
+  <meta property="og:type" content="article">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: { extend: { fontFamily: { sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'] } } }
+    }
+  </script>
+  <style>
+    * { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+    .gradient-text { background: linear-gradient(135deg, #8b5cf6, #6366f1, #4f46e5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .gradient-btn { background: linear-gradient(135deg, #8b5cf6, #6366f1); transition: all 0.2s ease; }
+    .gradient-btn:hover { background: linear-gradient(135deg, #7c3aed, #4f46e5); transform: translateY(-1px); box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4); }
+    .section-purple { background: linear-gradient(180deg, rgba(139, 92, 246, 0.03) 0%, rgba(99, 102, 241, 0.06) 50%, rgba(139, 92, 246, 0.03) 100%); }
+    article h2 { scroll-margin-top: 100px; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What is AI? A plain English guide to artificial intelligence",
+    "description": "A jargon-free guide to artificial intelligence for beginners. Learn what AI is, how it works, and key terms explained in simple language.",
+    "author": { "@type": "Person", "name": "James" },
+    "publisher": { "@type": "Organization", "name": "Smash Your AI" },
+    "datePublished": "2026-03-10",
+    "dateModified": "2026-03-10"
+  }
+  </script>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-lg border-b border-gray-100 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5">
+        <img src="/images/logo.png" alt="Smash Your AI" class="h-7 w-auto">
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Home</a>
+        <a href="/#ai-training-services" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Services</a>
+        <span class="text-sm font-medium text-gray-400 cursor-default relative group">Online course
+          <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Coming soon</span>
+        </span>
+        <a href="/#about-us" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">About us</a>
+        <div class="relative group">
+          <button class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors inline-flex items-center gap-1">
+            Resources
+            <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200 absolute top-full right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+            <a href="/prompts/" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              Prompt library
+            </a>
+            <a href="/content-calendars/" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              Content calendars
+            </a>
+            <a href="/quiz" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+              AI readiness quiz
+            </a>
+            <a href="/savings-calculator" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              AI savings calculator
+            </a>
+            <div class="border-t border-gray-100 my-1"></div>
+            <a href="/blog" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+              Blog
+            </a>
+          </div>
+        </div>
+        <a href="/#contact" class="gradient-btn text-white text-sm font-semibold px-5 py-2.5 rounded-xl">Get in touch</a>
+        <div id="shared-auth-area"></div>
+      </div>
+      <button class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3">
+      <a href="/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">Home</a>
+      <a href="/#ai-training-services" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">Services</a>
+      <span class="block text-sm font-medium text-gray-400 py-2">Online course (coming soon)</span>
+      <a href="/#about-us" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">About us</a>
+      <div class="border-t border-gray-100 pt-2 mt-1">
+        <span class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Resources</span>
+        <a href="/prompts/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Prompt library</a>
+        <a href="/content-calendars/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Content calendars</a>
+        <a href="/quiz" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">AI readiness quiz</a>
+        <a href="/savings-calculator" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">AI savings calculator</a>
+        <a href="/blog" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Blog</a>
+      </div>
+      <a href="/#contact" class="block gradient-btn text-white text-sm font-semibold px-5 py-2.5 rounded-xl text-center">Get in touch</a>
+      <div id="shared-auth-area-mobile"></div>
+    </div>
+  </nav>
+
+  <article class="pt-32 pb-20 md:pt-40 md:pb-28">
+    <div class="max-w-3xl mx-auto px-6">
+
+      <!-- Breadcrumb -->
+      <nav class="text-sm text-gray-400 mb-6">
+        <a href="/" class="hover:text-violet-600 transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <a href="/blog" class="hover:text-violet-600 transition-colors">Blog</a>
+        <span class="mx-2">/</span>
+        <span class="text-gray-600">What is AI?</span>
+      </nav>
+
+      <!-- Header -->
+      <div class="mb-10">
+        <span class="text-xs text-violet-600 font-medium px-2.5 py-1 bg-violet-50 rounded-md">Getting started</span>
+        <h1 class="text-3xl md:text-4xl font-extrabold mt-4 mb-4">What is AI? A plain English guide to artificial intelligence</h1>
+        <div class="flex items-center gap-4 text-sm text-gray-400 mb-5">
+          <span>10 March 2026</span>
+          <span>-</span>
+          <span>8 min read</span>
+        </div>
+        <div class="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-violet-50 to-indigo-50 border-l-4 border-violet-500">
+          <img src="/images/james-headshot.png" alt="James, co-founder of Smash Your AI" class="w-11 h-11 rounded-full object-cover shrink-0">
+          <div>
+            <p class="font-semibold text-sm text-gray-900">James</p>
+            <p class="text-xs text-gray-500">Co-founder of Smash Your AI - 18 years in education, now helping businesses and individuals get real results from AI.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured image -->
+      <img src="/images/blog/what-is-ai.jpg" alt="A plain English guide to understanding artificial intelligence" class="w-full rounded-2xl mb-10">
+
+      <!-- Article content -->
+      <div class="space-y-6 text-gray-700 leading-relaxed">
+
+        <p class="text-lg">If you have heard the term "AI" thrown around but are not quite sure what it actually means, you are not alone. Most people I speak to have a vague idea that it is something to do with robots or computers being clever. But the reality is much simpler and much more useful than that.</p>
+
+        <p>I have been using AI tools every day for the past two years. I use them to run my businesses, create educational content, automate tasks, and even build software. But when I first started, I had the same questions you probably have right now.</p>
+
+        <p>So let me break it all down in plain English. No jargon. No computer science degree required.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="what-does-ai-actually-mean">What does AI actually mean?</h2>
+
+        <p>AI stands for <strong>artificial intelligence</strong>. At its simplest, it means a computer system that can do things that would normally need human intelligence. Things like understanding language, recognising patterns, making decisions, and generating content.</p>
+
+        <p>When most people talk about AI in 2026, they are talking about tools like <strong>ChatGPT, Claude, and Google Gemini</strong>. These are AI assistants you can type to (or talk to) and they respond in natural, human-like language.</p>
+
+        <p>Think of it like having a very knowledgeable colleague sitting next to you. You can ask them questions, get them to write things for you, brainstorm ideas, analyse data, or help you solve problems. Except this colleague never sleeps, never gets tired, and can process information incredibly fast.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="how-does-ai-work">How does AI actually work?</h2>
+
+        <p>You do not need to understand the technical details to use AI well. But a basic understanding helps.</p>
+
+        <p>The AI tools most people use are built on something called a <strong>large language model</strong> (LLM). Here is what that means:</p>
+
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Large</strong> - it has been trained on a massive amount of text from books, websites, articles, and more.</li>
+          <li><strong>Language</strong> - it works with human language. You type in English (or other languages) and it responds in English.</li>
+          <li><strong>Model</strong> - it is a mathematical model that predicts what words should come next, based on everything it has learned.</li>
+        </ul>
+
+        <p>That last point is key. AI does not "think" the way you and I do. It predicts the most likely next word based on patterns it has seen in its training data. But it does this so well that the results often feel genuinely intelligent.</p>
+
+        <p>When I first used ChatGPT, I asked it to explain photosynthesis to a Year 7 student. The response was so good that I double-checked it against my own notes. It was spot on. That was the moment I realised this was going to change everything.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="key-ai-terms-explained">What are the key AI terms I need to know?</h2>
+
+        <p>There is a lot of jargon in the AI world. Here are the terms you will actually encounter, explained simply:</p>
+
+        <div class="bg-violet-50/50 rounded-2xl p-6 space-y-4">
+          <div>
+            <p class="font-bold text-gray-900">Prompt</p>
+            <p class="text-sm">The instruction or question you type into an AI tool. "Write me an email to a client about a late delivery" is a prompt. The better your prompt, the better the result. This is a skill you can learn.</p>
+          </div>
+          <div>
+            <p class="font-bold text-gray-900">LLM (large language model)</p>
+            <p class="text-sm">The technology behind tools like ChatGPT and Claude. It is the engine that powers the AI. You do not need to know how it works, just like you do not need to know how a car engine works to drive one.</p>
+          </div>
+          <div>
+            <p class="font-bold text-gray-900">ChatGPT</p>
+            <p class="text-sm">Made by OpenAI. The most well-known AI chatbot. Free to use with a paid option for more powerful features. This is where most people start.</p>
+          </div>
+          <div>
+            <p class="font-bold text-gray-900">Claude</p>
+            <p class="text-sm">Made by Anthropic. Similar to ChatGPT but often better at longer, more detailed tasks. This is my personal favourite for writing and analysis work.</p>
+          </div>
+          <div>
+            <p class="font-bold text-gray-900">Gemini</p>
+            <p class="text-sm">Made by Google. Tightly integrated with Google products like Docs, Gmail, and Search. Useful if you already live in the Google ecosystem.</p>
+          </div>
+          <div>
+            <p class="font-bold text-gray-900">Hallucination</p>
+            <p class="text-sm">When an AI confidently gives you incorrect information. It sounds right but it is wrong. This happens because the AI is predicting words, not checking facts. Always verify important information.</p>
+          </div>
+          <div>
+            <p class="font-bold text-gray-900">Token</p>
+            <p class="text-sm">The unit that AI uses to process text. Roughly speaking, one token equals about three-quarters of a word. You do not need to worry about this unless you are hitting usage limits.</p>
+          </div>
+          <div>
+            <p class="font-bold text-gray-900">Custom GPT</p>
+            <p class="text-sm">A version of ChatGPT that you can customise with your own instructions, knowledge, and personality. Like creating a specialist assistant for a specific job.</p>
+          </div>
+          <div>
+            <p class="font-bold text-gray-900">Automation</p>
+            <p class="text-sm">Using AI to do repetitive tasks without you having to do them manually. For example, automatically summarising emails, generating reports, or processing data.</p>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold pt-6" id="what-can-ai-do">What can AI actually do for me?</h2>
+
+        <p>This is the question that matters most. To give you a flavour, here are some real examples of things I use AI for every single week. This is not an exhaustive list - it barely scratches the surface - but it should give you an idea of just how versatile these tools are.</p>
+
+        <div class="overflow-x-auto my-6">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead>
+              <tr class="bg-violet-50">
+                <th class="text-left px-5 py-3 font-bold text-gray-900 border-b border-gray-200">Task</th>
+                <th class="text-left px-5 py-3 font-bold text-gray-900 border-b border-gray-200">What I use AI for</th>
+                <th class="text-left px-5 py-3 font-bold text-gray-900 border-b border-gray-200">Real example</th>
+              </tr>
+            </thead>
+            <tbody class="text-gray-600">
+              <tr class="border-b border-gray-100">
+                <td class="px-5 py-3 font-medium text-gray-900">Writing</td>
+                <td class="px-5 py-3">Drafting emails, reports, blog posts, lesson plans, marketing copy</td>
+                <td class="px-5 py-3">I draft all my client emails using AI. It does not replace my voice, but it gives me a solid first draft in seconds that I then tweak.</td>
+              </tr>
+              <tr class="border-b border-gray-100 bg-gray-50/50">
+                <td class="px-5 py-3 font-medium text-gray-900">Research</td>
+                <td class="px-5 py-3">Summarising long documents, comparing options, finding information</td>
+                <td class="px-5 py-3">I uploaded a 40-page exam specification and asked AI to pull out every topic students need to know. Took 30 seconds instead of an hour.</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="px-5 py-3 font-medium text-gray-900">Data analysis</td>
+                <td class="px-5 py-3">Spotting trends in spreadsheets, creating summaries, flagging issues</td>
+                <td class="px-5 py-3">I paste in our weekly analytics data and ask AI to identify the most important trends and write a summary. It does it in seconds.</td>
+              </tr>
+              <tr class="border-b border-gray-100 bg-gray-50/50">
+                <td class="px-5 py-3 font-medium text-gray-900">Brainstorming</td>
+                <td class="px-5 py-3">Generating ideas for projects, campaigns, content, or solving problems</td>
+                <td class="px-5 py-3">When we were naming this business, I asked AI for 50 brand name ideas based on our existing brands. Several made the shortlist.</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="px-5 py-3 font-medium text-gray-900">Automation</td>
+                <td class="px-5 py-3">Setting up workflows that run on their own without manual effort</td>
+                <td class="px-5 py-3">Our weekly business reports now generate themselves automatically every Monday morning. No human input needed.</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3 font-medium text-gray-900">Building tools</td>
+                <td class="px-5 py-3">Creating websites, apps, and custom software with AI doing the coding</td>
+                <td class="px-5 py-3">I built an entire AI tutoring platform for students. The AI wrote the code, I directed the project. It would have cost tens of thousands to outsource.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="text-sm text-gray-500 italic">These are just a few examples from my own week. Other people use AI for things like translating documents, creating presentations, scheduling, customer service, coding, image generation, video editing, and much more. The list grows every month as new tools and features launch.</p>
+
+        <p>When I built our AI tutor for students who cannot afford 1:1 tuition, I used AI to help write the code, design the interface, and create the content. A project that would have cost tens of thousands of pounds to outsource was done in a fraction of the time and cost. That is the kind of thing that is possible when you know how to use these tools well.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="is-ai-going-to-take-my-job">Is AI going to take my job?</h2>
+
+        <p>This is the fear I hear most often. And I understand it.</p>
+
+        <p>Here is my honest take after two years of using AI intensively: <strong>AI is not going to take your job. But someone who knows how to use AI might.</strong></p>
+
+        <p>The people who learn to work with AI will be more productive, more efficient, and more valuable. The people who ignore it will find themselves at a disadvantage. That is not a threat, it is just the reality of how technology works. The same thing happened with the internet, with email, with spreadsheets.</p>
+
+        <p>The good news is that learning to use AI is not difficult. You do not need a technical background. If you can type a question, you can use AI.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="how-do-i-get-started-with-ai">How do I get started with AI?</h2>
+
+        <p>If you are brand new to AI, here is exactly what I would do:</p>
+
+        <ol class="list-decimal pl-6 space-y-3">
+          <li><strong>Go to ChatGPT</strong> (chat.openai.com) and create a free account. It takes two minutes.</li>
+          <li><strong>Ask it a question about something you know well.</strong> This lets you judge the quality of its answers. If you are an accountant, ask it a tax question. If you are a teacher, ask it to explain a topic. You will be surprised.</li>
+          <li><strong>Try giving it a real task.</strong> Ask it to draft an email you have been putting off. Or summarise a long document. Or brainstorm names for a project.</li>
+          <li><strong>Experiment with how you ask.</strong> Notice that vague questions get vague answers. Specific, detailed prompts get specific, useful results. This is the single most important skill in AI.</li>
+          <li><strong>Try another tool.</strong> Once you are comfortable with ChatGPT, try Claude (claude.ai) or Gemini (gemini.google.com). Each has different strengths.</li>
+        </ol>
+
+        <p>That is it. No courses needed to get started. No special software. Just curiosity and a willingness to experiment.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="common-misconceptions">What are the most common misconceptions about AI?</h2>
+
+        <p>I hear these all the time, so let me clear them up:</p>
+
+        <ul class="list-disc pl-6 space-y-3">
+          <li><strong>"AI is always right."</strong> It is not. AI can and does make mistakes. Always check important facts. Think of it as a very fast assistant who occasionally gets things wrong.</li>
+          <li><strong>"AI is only for tech people."</strong> Completely false. The best AI tools are designed for everyday people. If you can use Google, you can use ChatGPT.</li>
+          <li><strong>"AI is just a fad."</strong> Every major tech company in the world is investing billions into AI. This is not going away. It is the biggest shift in technology since the smartphone.</li>
+          <li><strong>"AI will make us all lazy."</strong> In my experience, the opposite is true. AI frees up time so you can focus on the work that actually matters - the creative, strategic, human stuff.</li>
+          <li><strong>"Free AI tools are rubbish."</strong> The free versions of ChatGPT and Gemini are genuinely powerful. You can get a huge amount done without spending a penny.</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold pt-6" id="top-tips">Top tips for getting the best results from AI</h2>
+
+        <p>Before you dive in, here are my top tips based on two years of daily AI use. These will save you a lot of trial and error.</p>
+
+        <div class="bg-violet-50/50 rounded-2xl p-6 my-4">
+          <ol class="list-decimal pl-5 space-y-4">
+            <li>
+              <strong>Turn on memory.</strong> Most AI tools now have a memory feature that remembers things about you across conversations. Turn it on. Tell it your name, your job, the kind of work you do, and how you like responses formatted. This means you do not have to repeat yourself every time you start a new chat. In ChatGPT, go to Settings and turn on Memory. In Claude, it is called Project Knowledge.
+            </li>
+            <li>
+              <strong>Be specific with your prompts.</strong> The single biggest factor in getting good results is how you ask. "Write me an email" gives you something generic. "Write a professional but friendly 4-sentence email to my team confirming Monday's meeting is moved to 10am" gives you something you can actually use. We cover this in depth in our article on <a href="/blog/chatgpt-prompting-mistakes" class="text-violet-600 font-medium hover:text-violet-800 transition-colors">the 5 biggest prompting mistakes</a>.
+            </li>
+            <li>
+              <strong>Give it a role.</strong> Starting your prompt with "You are a..." dramatically improves the output. "You are a patient teacher explaining this to a complete beginner" produces completely different results to just asking the question on its own.
+            </li>
+            <li>
+              <strong>Treat it as a conversation, not a search engine.</strong> If the first answer is not quite right, do not give up. Say "make it shorter", "change the tone", or "focus more on the benefits." The more you refine, the better the result gets.
+            </li>
+            <li>
+              <strong>Always check important facts.</strong> AI is brilliant but it is not perfect. It can and does get things wrong, especially with specific dates, statistics, and niche details. If accuracy matters, verify it.
+            </li>
+            <li>
+              <strong>Start with one task and master it.</strong> Do not try to use AI for everything on day one. Pick one thing you do regularly - maybe drafting emails or summarising documents - and use AI for that one task every day for a week. Once it feels natural, add another.
+            </li>
+            <li>
+              <strong>Save your best prompts.</strong> When you write a prompt that gets a great result, save it somewhere. Build up a collection of prompts that work for your common tasks. Over time, you will have a personal toolkit that makes you incredibly efficient.
+            </li>
+          </ol>
+        </div>
+
+        <h2 class="text-2xl font-bold pt-6" id="whats-next">What should I do next?</h2>
+
+        <p>If this article has got you curious, brilliant. That is all you need to get started.</p>
+
+        <p>I would recommend reading our article on <a href="/blog/chatgpt-prompting-mistakes" class="text-violet-600 font-medium hover:text-violet-800 transition-colors">the 5 biggest prompting mistakes people make</a> next. It will help you get much better results from day one.</p>
+
+        <p>And if you want a structured path to learn all of this properly, our <a href="/#online-ai-course" class="text-violet-600 font-medium hover:text-violet-800 transition-colors">online AI course</a> walks you through everything step by step, from your first prompt to building custom AI tools.</p>
+
+        <p>Got questions? <a href="/#contact" class="text-violet-600 font-medium hover:text-violet-800 transition-colors">Drop us a message</a>. We are always happy to help.</p>
+
+      </div>
+
+      <!-- Related articles -->
+      <div class="mt-12 pt-10 border-t border-gray-100">
+        <h3 class="text-lg font-bold mb-6">You might also like</h3>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <a href="/blog/chatgpt-prompting-mistakes" class="p-5 rounded-xl border border-gray-100 hover:border-violet-200 transition-colors group">
+            <span class="text-xs text-violet-600 font-medium">Prompting</span>
+            <p class="font-bold mt-1 group-hover:text-violet-600 transition-colors">5 ChatGPT prompting mistakes most people make</p>
+          </a>
+          <a href="/blog/ai-for-beginners" class="p-5 rounded-xl border border-gray-100 hover:border-violet-200 transition-colors group">
+            <span class="text-xs text-violet-600 font-medium">Getting started</span>
+            <p class="font-bold mt-1 group-hover:text-violet-600 transition-colors">AI for beginners: where to start in 2026</p>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- CTA Banner -->
+  <section class="py-16 section-purple">
+    <div class="max-w-2xl mx-auto px-6 text-center">
+      <h2 class="text-2xl font-extrabold mb-3">Want to learn AI properly?</h2>
+      <p class="text-gray-500 mb-6">Our online course takes you from complete beginner to confident AI user. Step-by-step videos, written guides, and hands-on challenges.</p>
+      <a href="/#online-ai-course" class="inline-flex gradient-btn text-white text-sm font-semibold px-8 py-3.5 rounded-xl">View the course</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-10">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p class="text-sm">&copy; 2026 Smash Your AI. All rights reserved.</p>
+      <div class="flex gap-6 text-sm">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <a href="/blog" class="hover:text-white transition-colors">Blog</a>
+        <a href="/privacy" class="hover:text-white transition-colors">Privacy policy</a>
+      </div>
+    </div>
+  </footer>
+
+<script src="/shared-nav.js"></script>
+</body>
+</html>

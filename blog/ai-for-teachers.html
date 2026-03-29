@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GMMV8EBM39"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GMMV8EBM39');
+  </script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI for Teachers: A Practical Getting Started Guide - Smash Your AI</title>
+  <meta name="description" content="10 practical ways teachers can use AI right now to save time on lesson planning, marking, reports, and more. Written by a former teacher with 18 years in education.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:image" content="/images/blog/ai-for-teachers.jpg">
+  <link rel="canonical" href="https://smashyourai.com/blog/ai-for-teachers">
+  <meta property="og:title" content="AI for Teachers: A Practical Getting Started Guide - Smash Your AI">
+  <meta property="og:description" content="10 practical ways teachers can use AI right now to save time on lesson planning, marking, reports, and more. Written by a former teacher with 18 years in education.">
+  <meta property="og:url" content="https://smashyourai.com/blog/ai-for-teachers">
+  <meta property="og:type" content="article">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>tailwind.config = { theme: { extend: { fontFamily: { sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'] } } } }</script>
+  <style>
+    * { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+    .gradient-text { background: linear-gradient(135deg, #8b5cf6, #6366f1, #4f46e5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .gradient-btn { background: linear-gradient(135deg, #8b5cf6, #6366f1); transition: all 0.2s ease; }
+    .gradient-btn:hover { background: linear-gradient(135deg, #7c3aed, #4f46e5); transform: translateY(-1px); box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4); }
+    .section-purple { background: linear-gradient(180deg, rgba(139, 92, 246, 0.03) 0%, rgba(99, 102, 241, 0.06) 50%, rgba(139, 92, 246, 0.03) 100%); }
+    article h2 { scroll-margin-top: 100px; }
+    .prompt-example { border-left: 3px solid #8b5cf6; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI for teachers: a practical getting started guide",
+    "description": "10 practical ways teachers can use AI right now, with example prompts and tool recommendations.",
+    "author": { "@type": "Person", "name": "James" },
+    "publisher": { "@type": "Organization", "name": "Smash Your AI" },
+    "datePublished": "2026-03-16",
+    "dateModified": "2026-03-16"
+  }
+  </script>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-lg border-b border-gray-100 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5">
+        <img src="/images/logo.png" alt="Smash Your AI" class="h-7 w-auto">
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Home</a>
+        <a href="/#ai-training-services" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Services</a>
+        <span class="text-sm font-medium text-gray-400 cursor-default relative group">Online course
+          <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Coming soon</span>
+        </span>
+        <a href="/#about-us" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">About us</a>
+        <div class="relative group">
+          <button class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors inline-flex items-center gap-1">
+            Resources
+            <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200 absolute top-full right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+            <a href="/prompts/" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              Prompt library
+            </a>
+            <a href="/content-calendars/" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              Content calendars
+            </a>
+            <a href="/quiz" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+              AI readiness quiz
+            </a>
+            <a href="/savings-calculator" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              AI savings calculator
+            </a>
+            <div class="border-t border-gray-100 my-1"></div>
+            <a href="/blog" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+              Blog
+            </a>
+          </div>
+        </div>
+        <a href="/#contact" class="gradient-btn text-white text-sm font-semibold px-5 py-2.5 rounded-xl">Get in touch</a>
+        <div id="shared-auth-area"></div>
+      </div>
+      <button class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3">
+      <a href="/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">Home</a>
+      <a href="/#ai-training-services" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">Services</a>
+      <span class="block text-sm font-medium text-gray-400 py-2">Online course (coming soon)</span>
+      <a href="/#about-us" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">About us</a>
+      <div class="border-t border-gray-100 pt-2 mt-1">
+        <span class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Resources</span>
+        <a href="/prompts/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Prompt library</a>
+        <a href="/content-calendars/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Content calendars</a>
+        <a href="/quiz" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">AI readiness quiz</a>
+        <a href="/savings-calculator" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">AI savings calculator</a>
+        <a href="/blog" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Blog</a>
+      </div>
+      <a href="/#contact" class="block gradient-btn text-white text-sm font-semibold px-5 py-2.5 rounded-xl text-center">Get in touch</a>
+      <div id="shared-auth-area-mobile"></div>
+    </div>
+  </nav>
+
+  <article class="pt-32 pb-20 md:pt-40 md:pb-28">
+    <div class="max-w-3xl mx-auto px-6">
+
+      <!-- Breadcrumb -->
+      <nav class="text-sm text-gray-400 mb-6">
+        <a href="/" class="hover:text-violet-600 transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <a href="/blog" class="hover:text-violet-600 transition-colors">Blog</a>
+        <span class="mx-2">/</span>
+        <span class="text-gray-600">AI for teachers</span>
+      </nav>
+
+      <!-- Header -->
+      <div class="mb-10">
+        <span class="text-xs text-violet-600 font-medium px-2.5 py-1 bg-violet-50 rounded-md">Getting started</span>
+        <h1 class="text-3xl md:text-4xl font-extrabold mt-4 mb-4">AI for teachers: a practical getting started guide</h1>
+        <div class="flex items-center gap-4 text-sm text-gray-400 mb-5">
+          <span>16 March 2026</span>
+          <span>-</span>
+          <span>10 min read</span>
+        </div>
+        <div class="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-violet-50 to-indigo-50 border-l-4 border-violet-500">
+          <img src="/images/james-headshot.png" alt="James, co-founder of Smash Your AI" class="w-11 h-11 rounded-full object-cover shrink-0">
+          <div>
+            <p class="font-semibold text-sm text-gray-900">James</p>
+            <p class="text-xs text-gray-500">Co-founder of Smash Your AI - 18 years in education, now helping businesses and individuals get real results from AI.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured image -->
+      <img src="/images/blog/ai-for-teachers.jpg" alt="A practical guide to using AI as a teacher for lesson planning, marking, and more" class="w-full rounded-2xl mb-10">
+
+      <!-- Article content -->
+      <div class="space-y-6 text-gray-700 leading-relaxed">
+
+        <p class="text-lg">I spent 18 years in education. I know exactly how little free time teachers have. Between lesson planning, marking, reports, emails, meetings, and actually teaching, there is barely a minute left in the day.</p>
+
+        <p>That is exactly why AI is such a game-changer for the profession. Not because it replaces teachers. It absolutely does not. But because it can take hours of admin and preparation work and compress it into minutes.</p>
+
+        <p>I have run AI workshops for school staff and the reaction is always the same. Scepticism at the start, genuine excitement by the end. Once teachers see what AI can do for them in practice, they immediately see the potential.</p>
+
+        <p>This guide covers ten practical things you can start using AI for right now, with example prompts you can copy and paste. No technical knowledge required.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="lesson-planning">1. Lesson planning</h2>
+
+        <p>This is the big one. AI can generate a full lesson plan in under a minute. It will not be perfect, and you will absolutely want to tweak it, but it gives you an <strong>excellent starting point</strong> instead of a blank page.</p>
+
+        <div class="prompt-example bg-green-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-green-800 mb-1">Example prompt:</p>
+          <p class="text-sm text-green-700 italic">"Create a one-hour lesson plan for a Year 9 class on the causes of World War One. Include a starter activity, main teaching content, a group activity, and a plenary. The class is mixed ability with some students on the SEN register who need scaffolded support. Include differentiation suggestions."</p>
+        </div>
+
+        <p>The more detail you give it about your class, the specification you are following, and your teaching style, the better the output. I always recommend telling it the exam board and year group at minimum.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="differentiation">2. Differentiation</h2>
+
+        <p>Creating differentiated resources is one of the most time-consuming parts of teaching. AI makes it dramatically faster. You can take an existing resource and ask it to create multiple versions in seconds.</p>
+
+        <div class="prompt-example bg-green-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-green-800 mb-1">Example prompt:</p>
+          <p class="text-sm text-green-700 italic">"Here is a worksheet I have created for my top set Year 10 science class. [Paste worksheet content.] Create two additional versions: one for a middle ability group that simplifies the language and adds sentence starters, and one for lower ability students that includes word banks and partially completed answers."</p>
+        </div>
+
+        <p>This used to take me 30 to 45 minutes per resource. With AI, it takes about two minutes plus a quick review.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="marking-feedback">3. Marking and feedback</h2>
+
+        <p>Let me be clear. AI should not replace your professional judgement when marking. But it can <strong>help you write feedback comments faster</strong>, especially for formative assessment where you are giving developmental feedback.</p>
+
+        <div class="prompt-example bg-green-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-green-800 mb-1">Example prompt:</p>
+          <p class="text-sm text-green-700 italic">"I am marking a GCSE English Language Paper 1 Question 5 response. The student has written a descriptive piece about a storm. They use some good vocabulary but their sentence structures are repetitive and they have not used paragraphs effectively. Write three specific, encouraging feedback comments that identify what they did well and give clear targets for improvement. Use student-friendly language suitable for a Year 10 student."</p>
+        </div>
+
+        <p>You still need to read the student's work yourself. But having AI draft the feedback comment saves you from writing the same developmental points over and over for 30 students.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="report-writing">4. Report writing</h2>
+
+        <p>If there is one task that every teacher dreads, it is writing reports. Especially when you teach 200 students and need to write something individual for each one. AI will not write a fully personalised report without your input, but it can generate a solid first draft from bullet points.</p>
+
+        <div class="prompt-example bg-green-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-green-800 mb-1">Example prompt:</p>
+          <p class="text-sm text-green-700 italic">"Write a school report comment for a Year 8 student in computer science. Key points: strong understanding of computational thinking, excellent in practical programming tasks, needs to improve written explanations in theory work, always contributes well in class discussions. Keep it to 3-4 sentences, professional but warm. Use the student's name: Alex."</p>
+        </div>
+
+        <p>Some teachers I have worked with have cut their report writing time by 60% or more using this approach. The trick is to jot down three or four key points per student, then let AI turn those into polished sentences.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="email-drafting">5. Email drafting</h2>
+
+        <p>Teachers send a lot of emails. To parents, to colleagues, to senior leadership. Many of these are sensitive and need careful wording. AI is excellent at drafting professional, thoughtful emails quickly.</p>
+
+        <div class="prompt-example bg-green-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-green-800 mb-1">Example prompt:</p>
+          <p class="text-sm text-green-700 italic">"Draft a professional but empathetic email to a parent whose child has been consistently late to my lessons. This is the second time I am raising the issue. I want to be firm but not confrontational. I would like to suggest a meeting to discuss how we can work together. Sign off as Mr Smith, Head of Year 9."</p>
+        </div>
+
+        <p>This is especially useful for those tricky emails where you stare at the screen for ten minutes trying to find the right tone. AI gives you a starting point and you adjust from there.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="resource-creation">6. Resource creation</h2>
+
+        <p>Need a reading comprehension? A cloze exercise? A card sort? A set of revision flashcards? AI can create these in seconds.</p>
+
+        <div class="prompt-example bg-green-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-green-800 mb-1">Example prompt:</p>
+          <p class="text-sm text-green-700 italic">"Create a set of 15 revision flashcards for AQA GCSE Biology Topic 4: Bioenergetics. Each card should have a question on one side and a concise answer on the other. Include a mix of definition questions, process questions, and application questions. Make sure the content is accurate to the AQA specification."</p>
+        </div>
+
+        <p>Always check the accuracy of AI-generated subject content. I will come to that in more detail later. But as a time-saver for creating the structure and format of resources, it is hard to beat.</p>
+
+        <!-- Mid-article CTA -->
+        <div class="bg-gradient-to-br from-violet-600 to-indigo-700 rounded-2xl p-7 my-6 text-white relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+          <div class="relative">
+            <p class="font-bold text-lg mb-2">We run AI workshops for school staff</p>
+            <p class="text-violet-100 text-sm mb-4 leading-relaxed">Our AI in a Day training is designed specifically for education. Your staff will leave with practical skills they can use the very next day. Half-day and full-day options available.</p>
+            <a href="/ai-in-a-day" class="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-violet-700 font-semibold text-sm rounded-xl hover:bg-violet-50 transition-colors">
+              Find out more
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold pt-6" id="quiz-generation">7. Quiz generation</h2>
+
+        <p>Need a quick starter quiz? A set of multiple choice questions for revision? AI is incredibly fast at this.</p>
+
+        <div class="prompt-example bg-green-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-green-800 mb-1">Example prompt:</p>
+          <p class="text-sm text-green-700 italic">"Create a 10-question multiple choice quiz on the topic of fractions for a Year 7 maths class. Include 4 options for each question with one correct answer. Start with easier questions and increase difficulty. Include the answer key at the end."</p>
+        </div>
+
+        <p>You can also ask it to generate questions at specific difficulty levels, in specific formats (short answer, extended writing, true/false), or targeting specific misconceptions. The more specific you are, the more useful the output.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="parent-communication">8. Parent communication</h2>
+
+        <p>Beyond individual emails, AI can help you draft letters, newsletters, and communications that go out to whole year groups or the entire parent body.</p>
+
+        <div class="prompt-example bg-green-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-green-800 mb-1">Example prompt:</p>
+          <p class="text-sm text-green-700 italic">"Write a letter to Year 11 parents about the upcoming mock exams. Include key dates (mocks start 15 January, results issued 2 February), revision tips for students, information about the revision timetable on the school website, and encouragement. Keep the tone supportive and professional. The letter is from the Head of Year 11, Mrs Johnson."</p>
+        </div>
+
+        <h2 class="text-2xl font-bold pt-6" id="cpd">9. CPD and professional development</h2>
+
+        <p>AI can help with your own learning too. You can use it to summarise educational research papers, explain new pedagogical approaches, or help you prepare for interviews and professional conversations.</p>
+
+        <div class="prompt-example bg-green-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-green-800 mb-1">Example prompt:</p>
+          <p class="text-sm text-green-700 italic">"Summarise the key principles of Rosenshine's Principles of Instruction in plain English. For each principle, give me one practical example of how I could apply it in a secondary school computer science lesson."</p>
+        </div>
+
+        <h2 class="text-2xl font-bold pt-6" id="sen-support">10. SEN support</h2>
+
+        <p>AI can help you adapt materials for students with specific needs much faster. Whether it is simplifying language, creating visual aids, or generating social stories, it can save the SENCO and class teachers significant time.</p>
+
+        <div class="prompt-example bg-green-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-green-800 mb-1">Example prompt:</p>
+          <p class="text-sm text-green-700 italic">"I have a student with dyslexia in my Year 8 English class. Rewrite the following passage using shorter sentences, simpler vocabulary, and clear paragraph breaks. Keep the same meaning and key content but make it more accessible. [Paste original text.]"</p>
+        </div>
+
+        <h2 class="text-2xl font-bold pt-6" id="best-tools-for-teachers">Which AI tools are best for teachers?</h2>
+
+        <p>You do not need to spend any money. Here are three completely free tools that every teacher should know about.</p>
+
+        <div class="space-y-4 my-4">
+          <div class="bg-violet-50/50 rounded-xl p-5">
+            <p class="font-bold text-gray-900 mb-2">ChatGPT (free)</p>
+            <p class="text-sm text-gray-600">The best all-rounder. Good at everything from lesson planning to resource creation to email drafting. Go to chat.openai.com and sign up. You will be using it within two minutes.</p>
+          </div>
+          <div class="bg-violet-50/50 rounded-xl p-5">
+            <p class="font-bold text-gray-900 mb-2">Gemini in Google Workspace</p>
+            <p class="text-sm text-gray-600">If your school uses Google Workspace for Education, you may already have access to Gemini built into Docs, Sheets, and Gmail. Check with your IT department. This is incredibly useful because it works right where you already are.</p>
+          </div>
+          <div class="bg-violet-50/50 rounded-xl p-5">
+            <p class="font-bold text-gray-900 mb-2">NotebookLM (by Google)</p>
+            <p class="text-sm text-gray-600">A brilliant free tool that lets you upload documents and then ask questions about them. Upload a specification, a textbook chapter, or exam papers, and it will help you create resources based on that specific content. Read our <a href="/blog/notebooklm-guide" class="text-violet-600 font-medium hover:text-violet-800 transition-colors">full NotebookLM guide</a> for more detail.</p>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold pt-6" id="ai-tutor-for-students">An AI tutor built specifically for GCSE and A Level</h2>
+
+        <p>This is something I am particularly proud of. We built <a href="https://smashyourrevision.com" class="text-violet-600 font-medium hover:text-violet-800 transition-colors">Smash Your Revision</a>, a free AI-powered revision tutor designed specifically for UK students and teachers.</p>
+
+        <p>Unlike generic AI tools, Smash Your Revision is trained on actual exam board specifications. Students select their subject and exam board (OCR, AQA, or Edexcel), and the AI tutor helps them revise topic by topic, with exam-style question practice and mark scheme feedback built in.</p>
+
+        <p><strong>What makes it different from just using ChatGPT:</strong></p>
+
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Specification-aligned content.</strong> Every response is tied to the actual spec points students need to know. No irrelevant tangents.</li>
+          <li><strong>Exam question practice.</strong> Students can practise exam-style questions and get feedback based on real mark schemes, including exam technique guidance.</li>
+          <li><strong>Progress tracking by spec point.</strong> Students (and teachers) can see exactly which areas of the specification have been covered and where the gaps are.</li>
+          <li><strong>Teacher mode.</strong> Teachers get tools for lesson planning, resource creation, task differentiation, and class management, all aligned to the specification.</li>
+        </ul>
+
+        <p>It currently covers Computer Science, Biology, Chemistry, Physics, Maths, English Literature, and English Language at GCSE level. And it is completely free to use.</p>
+
+        <p>I built it because I kept seeing students using ChatGPT for revision and getting generic, sometimes inaccurate answers that were not aligned to their exam board. A Year 11 student revising for AQA Biology does not need a general explanation of photosynthesis. They need the specific detail that AQA will test them on, in the format their exam will use. That is what Smash Your Revision delivers.</p>
+
+        <p>If you are a teacher, I would encourage you to try it yourself at <a href="https://smashyourrevision.com" class="text-violet-600 font-medium hover:text-violet-800 transition-colors">smashyourrevision.com</a> and consider recommending it to your students. It works particularly well as a homework or independent revision tool alongside your classroom teaching.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="privacy-and-safeguarding">Privacy and safeguarding</h2>
+
+        <p>This is important, so please read this section carefully.</p>
+
+        <p><strong>Do not put student names, personal data, or any identifiable information into AI tools.</strong> Use generic names or descriptions instead. "A Year 9 student who is struggling with algebra" is fine. "John Smith in 9B who has an EHCP" is not.</p>
+
+        <p>Most AI tools process your inputs on external servers and may use them for training. Your school's data protection policy almost certainly prohibits sharing student data with third-party services without proper agreements in place.</p>
+
+        <p>Some practical rules to follow:</p>
+
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Never enter real student names. Use placeholder names or initials.</li>
+          <li>Never paste in confidential information from IEPs, EHCPs, or safeguarding records.</li>
+          <li>Check your school's AI policy before using any tools. If there is not one yet, suggest creating one.</li>
+          <li>If your school has a data processing agreement with Google Workspace, Gemini within that ecosystem may be the safest option.</li>
+        </ul>
+
+        <p>When I run workshops for schools, privacy is always the first thing we cover. It is non-negotiable. AI is incredibly useful, but not at the expense of student safety.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="but-isnt-this-cheating">But is this not cheating?</h2>
+
+        <p>I get this question in every single workshop. And I understand the concern. If we tell students not to use AI to do their homework, is it hypocritical for teachers to use AI for their work?</p>
+
+        <p>No. And here is why.</p>
+
+        <p>The reason we want students to do their own work is because the <em>process</em> of doing it is how they learn. A student who gets AI to write their essay has not learned how to write an essay.</p>
+
+        <p>But a teacher who uses AI to draft a parent letter has not skipped any learning. They already know how to write a letter. They are just doing it faster so they have more time for the things that actually matter, like planning engaging lessons and supporting their students.</p>
+
+        <p><strong>AI is a productivity tool for teachers, not a shortcut around professional expertise.</strong> You still need to check everything it produces. You still need to apply your professional judgement. You still need to know your students, your subject, and your curriculum. AI just takes some of the time-consuming admin off your plate.</p>
+
+        <p>Think of it like a calculator. We do not let Year 7 students use calculators in a mental maths test because we want them to learn the skill. But we absolutely expect adults to use calculators for their tax returns. The tool is the same. The context is different.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="one-warning">One important warning: always check the facts</h2>
+
+        <p>AI can and does get things wrong. I once used AI to generate exam revision content and it confidently cited a specification point that did not exist. It looked completely plausible. If I had not checked, students would have been revising something that was never going to come up.</p>
+
+        <p><strong>Always verify subject-specific content against the specification or textbook.</strong> AI is excellent at generating structure, format, and language. But it can hallucinate facts, especially in niche subject areas. Use it as a starting point, not a final authority.</p>
+
+        <p>For more on this, read our guide on <a href="/blog/how-to-fact-check-ai" class="text-violet-600 font-medium hover:text-violet-800 transition-colors">how to tell when AI is wrong</a>.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="getting-started">Where to start</h2>
+
+        <p>If you have read this far and you are thinking "okay, I want to try this", here is what I suggest.</p>
+
+        <ol class="list-decimal pl-6 space-y-2">
+          <li>Go to chat.openai.com and create a free account. It takes two minutes.</li>
+          <li>Pick one task from this article. Just one. Maybe drafting a parent email or creating a quiz.</li>
+          <li>Copy one of the example prompts above, adapt it for your subject and year group, and try it.</li>
+          <li>See what comes out. Edit it. Refine it. Get a feel for what AI can do.</li>
+          <li>Try one new task per week. Within a month, you will have AI working for you across multiple areas.</li>
+        </ol>
+
+        <p>The teachers who get the most from AI are not tech experts. They are the ones who start small, stay consistent, and gradually build it into their workflow. You do not need to revolutionise your practice overnight. Just save yourself 20 minutes this week. Then next week, save 20 more.</p>
+
+        <p>If your school would like a structured introduction to AI for your staff, <a href="/#contact" class="text-violet-600 font-medium hover:text-violet-800 transition-colors">get in touch</a>. We run practical, hands-on workshops where teachers work on their own real tasks, not generic examples. It is the fastest way to get your whole team up to speed.</p>
+
+      </div>
+
+      <!-- Related articles -->
+      <div class="mt-12 pt-10 border-t border-gray-100">
+        <h3 class="text-lg font-bold mb-6">You might also like</h3>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <a href="/blog/chatgpt-prompting-mistakes" class="p-5 rounded-xl border border-gray-100 hover:border-violet-200 transition-colors group">
+            <span class="text-xs text-violet-600 font-medium">Prompting</span>
+            <p class="font-bold mt-1 group-hover:text-violet-600 transition-colors">5 ChatGPT prompting mistakes most people make</p>
+          </a>
+          <a href="/blog/how-to-fact-check-ai" class="p-5 rounded-xl border border-gray-100 hover:border-violet-200 transition-colors group">
+            <span class="text-xs text-violet-600 font-medium">Getting started</span>
+            <p class="font-bold mt-1 group-hover:text-violet-600 transition-colors">How to tell when AI is wrong: a fact-checking guide</p>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- CTA Banner -->
+  <section class="py-16 section-purple">
+    <div class="max-w-2xl mx-auto px-6 text-center">
+      <h2 class="text-2xl font-extrabold mb-3">Want to learn AI properly?</h2>
+      <p class="text-gray-500 mb-6">Our online course covers everything from your first prompt to advanced techniques, with practical exercises designed for real-world tasks.</p>
+      <a href="/#online-ai-course" class="inline-flex gradient-btn text-white text-sm font-semibold px-8 py-3.5 rounded-xl">View the course</a>
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 text-gray-400 py-10">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p class="text-sm">&copy; 2026 Smash Your AI. All rights reserved.</p>
+      <div class="flex gap-6 text-sm">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <a href="/blog" class="hover:text-white transition-colors">Blog</a>
+        <a href="/privacy" class="hover:text-white transition-colors">Privacy policy</a>
+      </div>
+    </div>
+  </footer>
+
+<script src="/shared-nav.js"></script>
+</body>
+</html>

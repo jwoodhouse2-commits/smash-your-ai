@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GMMV8EBM39"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GMMV8EBM39');
+  </script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How AI-ready is your business? Free quiz | Smash Your AI</title>
+  <meta name="description" content="Take our free 2-minute quiz to find out how AI-ready your business is. Get a personalised score, strengths, quick wins, and recommendations.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://smashyourai.com/quiz">
+  <meta property="og:title" content="How AI-ready is your business? Free quiz">
+  <meta property="og:description" content="Take our free 2-minute quiz to find out how AI-ready your business is. Get personalised recommendations.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://smashyourai.com/quiz">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:image" content="/images/og-default.jpg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    * { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+    .gradient-text {
+      background: linear-gradient(135deg, #8b5cf6, #6366f1, #4f46e5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .gradient-btn {
+      background: linear-gradient(135deg, #8b5cf6, #6366f1);
+      transition: all 0.2s ease;
+    }
+    .gradient-btn:hover {
+      background: linear-gradient(135deg, #7c3aed, #4f46e5);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
+    }
+    .hero-gradient {
+      background: radial-gradient(ellipse at top right, rgba(139, 92, 246, 0.08), transparent 50%),
+                  radial-gradient(ellipse at bottom left, rgba(99, 102, 241, 0.06), transparent 50%);
+    }
+    .section-purple-light {
+      background: rgba(139, 92, 246, 0.025);
+    }
+
+    /* Quiz-specific styles */
+    .option-card {
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .option-card:hover {
+      border-color: #8b5cf6;
+      background: rgba(139, 92, 246, 0.03);
+    }
+    .option-card.selected {
+      border-color: #8b5cf6;
+      background: rgba(139, 92, 246, 0.08);
+      box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.3);
+    }
+    .option-card.selected .option-radio {
+      background: linear-gradient(135deg, #8b5cf6, #6366f1);
+      border-color: #8b5cf6;
+    }
+    .option-card.selected .option-radio::after {
+      content: '';
+      display: block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .option-radio {
+      position: relative;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid #d1d5db;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    /* Progress bar */
+    .progress-fill {
+      transition: width 0.4s ease;
+    }
+
+    /* Slide animations */
+    .slide-container {
+      position: relative;
+      overflow: hidden;
+    }
+    .slide {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .slide-enter {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    .slide-active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .slide-exit {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+
+    /* Score ring */
+    .score-ring {
+      transform: rotate(-90deg);
+    }
+    .score-ring-bg {
+      stroke: #e5e7eb;
+    }
+    .score-ring-fill {
+      stroke-dasharray: 283;
+      stroke-linecap: round;
+      transition: stroke-dashoffset 1.5s ease;
+    }
+    .score-ring-fill.beginner { stroke: #ef4444; }
+    .score-ring-fill.curious { stroke: #f59e0b; }
+    .score-ring-fill.adopter { stroke: #22c55e; }
+    .score-ring-fill.leader { stroke: #eab308; }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in-up {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    .fade-in-up-delay-1 { animation-delay: 0.2s; opacity: 0; }
+    .fade-in-up-delay-2 { animation-delay: 0.4s; opacity: 0; }
+    .fade-in-up-delay-3 { animation-delay: 0.6s; opacity: 0; }
+    .fade-in-up-delay-4 { animation-delay: 0.8s; opacity: 0; }
+  </style>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-lg border-b border-gray-100 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5">
+        <img src="/images/logo.png" alt="Smash Your AI" class="h-7 w-auto">
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Home</a>
+        <a href="/#ai-training-services" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Services</a>
+        <span class="text-sm font-medium text-gray-400 cursor-default relative group">Online course
+          <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Coming soon</span>
+        </span>
+        <a href="/#about-us" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">About us</a>
+        <div class="relative group">
+          <button class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors inline-flex items-center gap-1">
+            Resources
+            <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200 absolute top-full right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+            <a href="/prompts/" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              Prompt library
+            </a>
+            <a href="/content-calendars/" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              Content calendars
+            </a>
+            <a href="/quiz" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+              AI readiness quiz
+            </a>
+            <a href="/savings-calculator" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              AI savings calculator
+            </a>
+            <div class="border-t border-gray-100 my-1"></div>
+            <a href="/blog" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+              Blog
+            </a>
+          </div>
+        </div>
+        <a href="/#contact" class="gradient-btn text-white text-sm font-semibold px-5 py-2.5 rounded-xl">Get in touch</a>
+        <div id="shared-auth-area"></div>
+      </div>
+      <button class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3">
+      <a href="/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">Home</a>
+      <a href="/#ai-training-services" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">Services</a>
+      <span class="block text-sm font-medium text-gray-400 py-2">Online course (coming soon)</span>
+      <a href="/#about-us" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">About us</a>
+      <div class="border-t border-gray-100 pt-2 mt-1">
+        <span class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Resources</span>
+        <a href="/prompts/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Prompt library</a>
+        <a href="/content-calendars/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Content calendars</a>
+        <a href="/quiz" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">AI readiness quiz</a>
+        <a href="/savings-calculator" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">AI savings calculator</a>
+        <a href="/blog" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Blog</a>
+      </div>
+      <a href="/#contact" class="block gradient-btn text-white text-sm font-semibold px-5 py-2.5 rounded-xl text-center">Get in touch</a>
+      <div id="shared-auth-area-mobile"></div>
+    </div>
+  </nav>
+
+  <!-- Quiz Container -->
+  <main class="pt-28 pb-20 min-h-screen">
+    <div class="max-w-2xl mx-auto px-6">
+
+      <!-- SCREEN 1: Intro -->
+      <div id="screen-intro" class="text-center">
+        <div class="fade-in-up">
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-50 text-violet-700 text-sm font-medium mb-6">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+            Free 2-minute quiz
+          </span>
+        </div>
+        <h1 class="fade-in-up fade-in-up-delay-1 text-4xl md:text-5xl font-extrabold leading-tight mb-6">
+          How <span class="gradient-text">AI-ready</span> is your business?
+        </h1>
+        <p class="fade-in-up fade-in-up-delay-2 text-lg text-gray-600 leading-relaxed mb-4 max-w-lg mx-auto">
+          Answer 10 quick questions and get a personalised score, your strengths, and specific recommendations to help you get more from AI.
+        </p>
+        <div class="fade-in-up fade-in-up-delay-2 flex items-center justify-center gap-6 text-sm text-gray-500 mb-10">
+          <span class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-violet-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Takes 2 minutes
+          </span>
+          <span class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-violet-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            10 questions
+          </span>
+          <span class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-violet-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+            Personalised results
+          </span>
+        </div>
+        <button onclick="showScreen('email')" class="fade-in-up fade-in-up-delay-3 gradient-btn text-white text-base font-semibold px-10 py-4 rounded-xl inline-flex items-center gap-2">
+          Start the quiz
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </button>
+      </div>
+
+      <!-- SCREEN 2: Email Capture -->
+      <div id="screen-email" class="hidden">
+        <div class="bg-white rounded-2xl border border-gray-200 p-8 md:p-10 shadow-sm">
+          <div class="text-center mb-8">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <h2 class="text-2xl font-bold mb-2">Before we start</h2>
+            <p class="text-gray-500">Enter your details so we can send your personalised results.</p>
+          </div>
+          <form id="email-form" onsubmit="handleEmailSubmit(event)" class="space-y-4">
+            <div>
+              <label for="quiz-name" class="block text-sm font-medium text-gray-700 mb-1.5">First name</label>
+              <input type="text" id="quiz-name" name="name" required placeholder="e.g. Sarah" class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500/30 focus:border-violet-400 transition-all">
+            </div>
+            <div>
+              <label for="quiz-email" class="block text-sm font-medium text-gray-700 mb-1.5">Email address</label>
+              <input type="email" id="quiz-email" name="email" required placeholder="sarah@example.com" class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500/30 focus:border-violet-400 transition-all">
+            </div>
+            <div>
+              <label for="quiz-industry" class="block text-sm font-medium text-gray-700 mb-1.5">Your industry</label>
+              <select id="quiz-industry" name="industry" required class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500/30 focus:border-violet-400 transition-all bg-white">
+                <option value="">Select your industry</option>
+                <option value="Retail">Retail</option>
+                <option value="Professional Services">Professional services</option>
+                <option value="Hospitality">Hospitality</option>
+                <option value="Health & Wellness">Health and wellness</option>
+                <option value="Construction & Trades">Construction and trades</option>
+                <option value="Education">Education</option>
+                <option value="Manufacturing">Manufacturing</option>
+                <option value="Creative & Agency">Creative and agency</option>
+                <option value="Tech">Tech</option>
+                <option value="Food & Drink">Food and drink</option>
+                <option value="Property">Property</option>
+                <option value="Finance">Finance</option>
+                <option value="Legal">Legal</option>
+                <option value="Charity & Non-profit">Charity and non-profit</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="flex items-start gap-3 pt-2">
+              <input type="checkbox" id="quiz-consent" name="consent" required class="mt-1 w-4 h-4 rounded border-gray-300 text-violet-600 focus:ring-violet-500">
+              <label for="quiz-consent" class="text-sm text-gray-500 leading-relaxed">
+                Send me my personalised results and occasional AI tips (no spam, unsubscribe anytime)
+              </label>
+            </div>
+            <button type="submit" class="w-full gradient-btn text-white text-base font-semibold px-8 py-3.5 rounded-xl mt-4 inline-flex items-center justify-center gap-2">
+              Start the quiz
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </button>
+            <p class="text-xs text-gray-400 text-center pt-2">
+              We'll email your results and may send relevant AI tips. You can unsubscribe anytime. See our <a href="/privacy" class="underline hover:text-violet-600">privacy policy</a>.
+            </p>
+          </form>
+        </div>
+      </div>
+
+      <!-- SCREEN 3: Quiz Questions -->
+      <div id="screen-quiz" class="hidden">
+        <!-- Progress bar -->
+        <div class="mb-8">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-sm font-medium text-gray-500">Question <span id="q-current">1</span> of 10</span>
+            <span id="q-percent" class="text-sm font-medium text-violet-600">10%</span>
+          </div>
+          <div class="w-full bg-gray-100 rounded-full h-2">
+            <div id="progress-bar" class="progress-fill bg-gradient-to-r from-violet-500 to-indigo-600 h-2 rounded-full" style="width: 10%"></div>
+          </div>
+        </div>
+
+        <!-- Question area -->
+        <div id="question-area">
+          <h2 id="q-title" class="text-2xl md:text-3xl font-bold mb-8"></h2>
+          <div id="q-options" class="space-y-3"></div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex items-center justify-between mt-10">
+          <button id="btn-back" onclick="prevQuestion()" class="text-sm font-medium text-gray-500 hover:text-violet-600 transition-colors flex items-center gap-1.5 invisible">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            Back
+          </button>
+          <button id="btn-next" onclick="nextQuestion()" class="gradient-btn text-white text-sm font-semibold px-8 py-3 rounded-xl inline-flex items-center gap-2 opacity-50 cursor-not-allowed" disabled>
+            Next
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- SCREEN 4: Results -->
+      <div id="screen-results" class="hidden">
+        <!-- Score ring -->
+        <div class="text-center mb-10">
+          <div class="relative inline-block mb-6">
+            <svg class="score-ring w-44 h-44" viewBox="0 0 100 100">
+              <circle class="score-ring-bg" cx="50" cy="50" r="45" fill="none" stroke-width="6"/>
+              <circle id="score-ring-circle" class="score-ring-fill" cx="50" cy="50" r="45" fill="none" stroke-width="6" stroke-dashoffset="283"/>
+            </svg>
+            <div class="absolute inset-0 flex flex-col items-center justify-center">
+              <span id="score-number" class="text-4xl font-extrabold text-gray-900">0</span>
+              <span class="text-sm text-gray-400 font-medium">out of 30</span>
+            </div>
+          </div>
+          <div class="fade-in-up">
+            <span id="result-badge" class="inline-block px-5 py-2 rounded-full text-sm font-bold mb-4"></span>
+            <h2 id="result-title" class="text-3xl md:text-4xl font-extrabold mb-3"></h2>
+            <p id="result-subtitle" class="text-lg text-gray-500 max-w-lg mx-auto"></p>
+          </div>
+        </div>
+
+        <!-- Strengths & Quick wins -->
+        <div class="grid md:grid-cols-2 gap-6 mb-10">
+          <div class="fade-in-up fade-in-up-delay-1 bg-green-50 rounded-2xl p-6 border border-green-100">
+            <div class="flex items-center gap-2 mb-4">
+              <div class="w-8 h-8 rounded-lg bg-green-500 flex items-center justify-center">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <h3 class="font-bold text-green-900">Your strengths</h3>
+            </div>
+            <ul id="strengths-list" class="space-y-2.5"></ul>
+          </div>
+          <div class="fade-in-up fade-in-up-delay-2 bg-amber-50 rounded-2xl p-6 border border-amber-100">
+            <div class="flex items-center gap-2 mb-4">
+              <div class="w-8 h-8 rounded-lg bg-amber-500 flex items-center justify-center">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              </div>
+              <h3 class="font-bold text-amber-900">Your quick wins</h3>
+            </div>
+            <ul id="quickwins-list" class="space-y-2.5"></ul>
+          </div>
+        </div>
+
+        <!-- Recommended next steps -->
+        <div class="fade-in-up fade-in-up-delay-3">
+          <h3 class="text-xl font-bold mb-4 text-center">Recommended next steps</h3>
+          <div id="cta-cards" class="space-y-4"></div>
+        </div>
+
+        <!-- Share / retake -->
+        <div class="fade-in-up fade-in-up-delay-4 text-center mt-10 pt-8 border-t border-gray-100">
+          <p class="text-sm text-gray-500 mb-4">Think a colleague could benefit?</p>
+          <button onclick="shareQuiz()" class="text-sm font-semibold text-violet-600 hover:text-violet-800 transition-colors inline-flex items-center gap-1.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+            Share this quiz
+          </button>
+          <span class="mx-3 text-gray-300">|</span>
+          <button onclick="retakeQuiz()" class="text-sm font-semibold text-gray-500 hover:text-gray-700 transition-colors">
+            Retake the quiz
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-12">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <span class="text-sm font-semibold text-white">Smash Your AI</span>
+        </div>
+        <div class="flex items-center gap-6 text-sm">
+          <a href="/privacy" class="hover:text-white transition-colors">Privacy</a>
+          <a href="/terms" class="hover:text-white transition-colors">Terms</a>
+          <a href="/blog" class="hover:text-white transition-colors">Blog</a>
+          <a href="/#contact" class="hover:text-white transition-colors">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Quiz data
+    const questions = [
+      {
+        id: 'ai-usage',
+        title: 'How often do you use AI tools in your business?',
+        options: [
+          { text: 'Never', score: 0 },
+          { text: 'Tried once or twice', score: 1 },
+          { text: 'A few times a month', score: 2 },
+          { text: 'Daily', score: 3 }
+        ]
+      },
+      {
+        id: 'tool-awareness',
+        title: 'How many AI tools could you name?',
+        options: [
+          { text: 'None', score: 0 },
+          { text: '1 to 2', score: 1 },
+          { text: '3 to 4', score: 2 },
+          { text: '5 or more', score: 3 }
+        ]
+      },
+      {
+        id: 'task-identification',
+        title: 'Could you list 3 tasks AI could help with in your business?',
+        options: [
+          { text: 'No idea where to start', score: 0 },
+          { text: 'Maybe one or two', score: 1 },
+          { text: 'Yes, a few come to mind', score: 2 },
+          { text: 'Already using it for several', score: 3 }
+        ]
+      },
+      {
+        id: 'content-creation',
+        title: 'How do you currently create social media posts or emails?',
+        options: [
+          { text: 'Manually every time', score: 0 },
+          { text: 'Use templates but write from scratch', score: 1 },
+          { text: 'Occasionally use AI to help', score: 2 },
+          { text: 'AI-assisted with human editing', score: 3 }
+        ]
+      },
+      {
+        id: 'customer-comms',
+        title: 'How do you handle repetitive customer questions?',
+        options: [
+          { text: 'Answer each one manually', score: 0 },
+          { text: 'Have some templates ready', score: 1 },
+          { text: 'Use auto-replies for common ones', score: 2 },
+          { text: 'AI-assisted or fully automated', score: 3 }
+        ]
+      },
+      {
+        id: 'data-analysis',
+        title: 'How do you analyse business data or customer feedback?',
+        options: [
+          { text: 'Gut feel mostly', score: 0 },
+          { text: 'Spreadsheets and manual review', score: 1 },
+          { text: 'Some analytics tools', score: 2 },
+          { text: 'Using AI or advanced analytics', score: 3 }
+        ]
+      },
+      {
+        id: 'admin-time',
+        title: 'How many hours per week do you spend on repetitive admin?',
+        options: [
+          { text: '10+ hours', score: 0 },
+          { text: '5 to 10 hours', score: 1 },
+          { text: '2 to 5 hours', score: 2 },
+          { text: 'Under 2 hours', score: 3 }
+        ]
+      },
+      {
+        id: 'team-readiness',
+        title: 'How would your team react to using AI tools?',
+        options: [
+          { text: 'Resistant or nervous', score: 0 },
+          { text: 'Unsure but open to it', score: 1 },
+          { text: 'Interested and willing', score: 2 },
+          { text: 'Already using them', score: 3 }
+        ]
+      },
+      {
+        id: 'strategy',
+        title: 'Do you have a plan for how AI fits into your business?',
+        options: [
+          { text: 'Never really thought about it', score: 0 },
+          { text: 'Know it\'s important but no plan yet', score: 1 },
+          { text: 'Starting to explore options', score: 2 },
+          { text: 'Clear roadmap in place', score: 3 }
+        ]
+      },
+      {
+        id: 'investment',
+        title: 'Would you invest time or money in AI training?',
+        options: [
+          { text: 'Not right now', score: 0 },
+          { text: 'Maybe in the future', score: 1 },
+          { text: 'Yes, actively looking', score: 2 },
+          { text: 'Already budgeted for it', score: 3 }
+        ]
+      }
+    ];
+
+    let currentQuestion = 0;
+    let answers = new Array(10).fill(null);
+    let userData = {};
+
+    // Screen management
+    function showScreen(screen) {
+      ['intro', 'email', 'quiz', 'results'].forEach(s => {
+        document.getElementById('screen-' + s).classList.add('hidden');
+      });
+      document.getElementById('screen-' + screen).classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      if (screen === 'quiz') {
+        renderQuestion();
+      }
+    }
+
+    // Email form
+    function handleEmailSubmit(e) {
+      e.preventDefault();
+      userData = {
+        name: document.getElementById('quiz-name').value,
+        email: document.getElementById('quiz-email').value,
+        industry: document.getElementById('quiz-industry').value
+      };
+
+      // Submit to Formspree in background
+      const formData = new FormData();
+      formData.append('name', userData.name);
+      formData.append('email', userData.email);
+      formData.append('industry', userData.industry);
+      formData.append('_subject', 'New AI quiz signup: ' + userData.name);
+
+      fetch('https://formspree.io/f/xeerklqd', {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).catch(() => {}); // Silent fail - quiz still works
+
+      showScreen('quiz');
+    }
+
+    // Render question
+    function renderQuestion() {
+      const q = questions[currentQuestion];
+      const num = currentQuestion + 1;
+      const percent = Math.round((num / 10) * 100);
+
+      document.getElementById('q-current').textContent = num;
+      document.getElementById('q-percent').textContent = percent + '%';
+      document.getElementById('progress-bar').style.width = percent + '%';
+      document.getElementById('q-title').textContent = q.title;
+
+      // Back button visibility
+      document.getElementById('btn-back').style.visibility = currentQuestion > 0 ? 'visible' : 'hidden';
+
+      // Update next button text for last question
+      const btnNext = document.getElementById('btn-next');
+      if (currentQuestion === 9) {
+        btnNext.innerHTML = 'See my results <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>';
+      } else {
+        btnNext.innerHTML = 'Next <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>';
+      }
+
+      // Render options
+      const optionsEl = document.getElementById('q-options');
+      optionsEl.innerHTML = '';
+      q.options.forEach((opt, i) => {
+        const selected = answers[currentQuestion] === i;
+        const div = document.createElement('div');
+        div.className = 'option-card flex items-center gap-4 p-4 rounded-xl border border-gray-200 ' + (selected ? 'selected' : '');
+        div.onclick = () => selectOption(i);
+        div.innerHTML = `
+          <div class="option-radio"></div>
+          <span class="text-sm font-medium text-gray-700">${opt.text}</span>
+        `;
+        optionsEl.appendChild(div);
+      });
+
+      // Enable/disable next button
+      updateNextButton();
+    }
+
+    function selectOption(index) {
+      answers[currentQuestion] = index;
+      // Update visuals
+      document.querySelectorAll('.option-card').forEach((card, i) => {
+        card.classList.toggle('selected', i === index);
+      });
+      updateNextButton();
+    }
+
+    function updateNextButton() {
+      const btn = document.getElementById('btn-next');
+      if (answers[currentQuestion] !== null) {
+        btn.disabled = false;
+        btn.classList.remove('opacity-50', 'cursor-not-allowed');
+      } else {
+        btn.disabled = true;
+        btn.classList.add('opacity-50', 'cursor-not-allowed');
+      }
+    }
+
+    function nextQuestion() {
+      if (answers[currentQuestion] === null) return;
+      if (currentQuestion < 9) {
+        currentQuestion++;
+        renderQuestion();
+      } else {
+        showResults();
+      }
+    }
+
+    function prevQuestion() {
+      if (currentQuestion > 0) {
+        currentQuestion--;
+        renderQuestion();
+      }
+    }
+
+    // Results
+    function showResults() {
+      // Calculate score
+      let totalScore = 0;
+      answers.forEach((answerIndex, qIndex) => {
+        totalScore += questions[qIndex].options[answerIndex].score;
+      });
+
+      // Determine rating
+      let rating, ratingClass, badgeColor, tagline, summary;
+      if (totalScore <= 7) {
+        rating = 'AI Beginner';
+        ratingClass = 'beginner';
+        badgeColor = 'bg-red-100 text-red-700';
+        tagline = "You're leaving hours on the table";
+        summary = `No worries, ${userData.name || 'there'} - most businesses are in the same boat. The good news is that even small changes can save you hours every week. You have massive potential to benefit from AI, and the best time to start is now.`;
+      } else if (totalScore <= 14) {
+        rating = 'AI Curious';
+        ratingClass = 'curious';
+        badgeColor = 'bg-amber-100 text-amber-700';
+        tagline = "You know it's important but haven't taken the leap";
+        summary = `You're on the right track, ${userData.name || 'there'}. You know AI matters, and you've started to explore. Now it's about building confidence and finding the right tools for your specific needs. A little guidance will go a long way.`;
+      } else if (totalScore <= 21) {
+        rating = 'AI Adopter';
+        ratingClass = 'adopter';
+        badgeColor = 'bg-green-100 text-green-700';
+        tagline = "You're ahead of most - time to level up";
+        summary = `Impressive, ${userData.name || 'there'}. You're already using AI more than most businesses. The next step is going deeper - better prompts, more automation, and getting your whole team on board. You're ready for the advanced stuff.`;
+      } else {
+        rating = 'AI Leader';
+        ratingClass = 'leader';
+        badgeColor = 'bg-yellow-100 text-yellow-700';
+        tagline = "You're in the top 10% - let's optimise";
+        summary = `${userData.name || 'There'}, you're ahead of the curve. You're already using AI strategically and your business is benefiting. The opportunity now is to fine-tune your setup, explore cutting-edge tools, and make sure you're getting the absolute maximum from AI.`;
+      }
+
+      showScreen('results');
+
+      // Animate score ring
+      const circle = document.getElementById('score-ring-circle');
+      circle.className = 'score-ring-fill ' + ratingClass;
+      const offset = 283 - (283 * (totalScore / 30));
+      setTimeout(() => { circle.style.strokeDashoffset = offset; }, 100);
+
+      // Animate score number
+      let current = 0;
+      const scoreEl = document.getElementById('score-number');
+      const interval = setInterval(() => {
+        current++;
+        scoreEl.textContent = current;
+        if (current >= totalScore) clearInterval(interval);
+      }, 50);
+
+      // Rating badge and text
+      document.getElementById('result-badge').className = 'inline-block px-5 py-2 rounded-full text-sm font-bold mb-4 ' + badgeColor;
+      document.getElementById('result-badge').textContent = rating;
+      document.getElementById('result-title').textContent = tagline;
+      document.getElementById('result-subtitle').textContent = summary;
+
+      // Strengths (highest scoring answers)
+      const scored = answers.map((ans, i) => ({ q: i, score: questions[i].options[ans].score }));
+      scored.sort((a, b) => b.score - a.score);
+
+      const strengthMessages = {
+        'ai-usage': 'You use AI tools regularly - great habit',
+        'tool-awareness': 'You know what AI tools are out there',
+        'task-identification': 'You can see where AI fits in your business',
+        'content-creation': 'Your content creation is already AI-enhanced',
+        'customer-comms': 'Your customer communication is efficient',
+        'data-analysis': 'You use data to drive decisions',
+        'admin-time': 'You have admin time under control',
+        'team-readiness': 'Your team is ready for AI',
+        'strategy': 'You have a clear AI strategy',
+        'investment': 'You are committed to AI investment'
+      };
+
+      const weakMessages = {
+        'ai-usage': 'Start using AI tools daily - even 10 minutes makes a difference',
+        'tool-awareness': 'Explore tools like ChatGPT, Claude, and Gemini to find your fit',
+        'task-identification': 'Map out your repetitive tasks - those are your AI quick wins',
+        'content-creation': 'Try using AI to draft your next social post or email',
+        'customer-comms': 'Set up AI-assisted replies for your most common questions',
+        'data-analysis': 'Paste your next spreadsheet into ChatGPT and ask for insights',
+        'admin-time': 'Identify your top 3 time-draining admin tasks and automate them',
+        'team-readiness': 'Run a casual team session showing what AI can do - curiosity is contagious',
+        'strategy': 'Block out 30 minutes to write down where AI could help most',
+        'investment': 'Start with free tools and a small time commitment to see the value'
+      };
+
+      const strengthsList = document.getElementById('strengths-list');
+      const strengths = scored.filter(s => s.score >= 2).slice(0, 3);
+      if (strengths.length === 0) {
+        strengthsList.innerHTML = '<li class="text-sm text-green-800">You\'re at the start of your AI journey - that means every improvement will have a big impact</li>';
+      } else {
+        strengthsList.innerHTML = strengths.map(s =>
+          `<li class="flex items-start gap-2 text-sm text-green-800"><svg class="w-4 h-4 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>${strengthMessages[questions[s.q].id]}</li>`
+        ).join('');
+      }
+
+      const quickwinsList = document.getElementById('quickwins-list');
+      const quickwins = scored.filter(s => s.score <= 1).slice(-3).reverse();
+      if (quickwins.length === 0) {
+        quickwinsList.innerHTML = '<li class="text-sm text-amber-800">You\'re doing great across the board - focus on optimising what you already have</li>';
+      } else {
+        quickwinsList.innerHTML = quickwins.map(s =>
+          `<li class="flex items-start gap-2 text-sm text-amber-800"><svg class="w-4 h-4 text-amber-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>${weakMessages[questions[s.q].id]}</li>`
+        ).join('');
+      }
+
+      // CTAs based on score
+      const ctaCards = document.getElementById('cta-cards');
+      let ctas = [];
+
+      if (totalScore <= 7) {
+        ctas = [
+          { icon: '📄', title: 'Download our free AI prompt guide', desc: '10 tested prompts that get dramatically better results. Perfect for getting started.', link: 'lead-magnet.html', btnText: 'Download free', style: 'border-violet-200 bg-violet-50' },
+          { icon: '📖', title: 'Read: AI for beginners', desc: 'Our complete beginner\'s guide to using AI in 2026. No jargon, just practical steps.', link: 'blog/ai-for-beginners.html', btnText: 'Read the guide', style: 'border-gray-200 bg-white' },
+          { icon: '🎓', title: 'Take our online course', desc: 'Go from beginner to confident AI user. Structured lessons, real examples, at your own pace.', link: '#', btnText: 'Learn more', style: 'border-gray-200 bg-white' }
+        ];
+      } else if (totalScore <= 14) {
+        ctas = [
+          { icon: '⚡', title: 'Browse our prompt library', desc: '115+ ready-to-use prompts for every business task. Stop guessing, start getting results.', link: 'prompts/', btnText: 'View prompts', style: 'border-violet-200 bg-violet-50' },
+          { icon: '🎓', title: 'Take our online course', desc: 'Structured AI training that builds your confidence. Practical lessons you can use the same day.', link: '#', btnText: 'Learn more', style: 'border-gray-200 bg-white' },
+          { icon: '📄', title: 'Download our free prompt guide', desc: '10 tested prompts to get you started. Free, no strings attached.', link: 'lead-magnet.html', btnText: 'Download free', style: 'border-gray-200 bg-white' }
+        ];
+      } else if (totalScore <= 21) {
+        ctas = [
+          { icon: '⚡', title: 'Browse our prompt library', desc: '115+ advanced prompts across 15 industries. Level up your AI game.', link: 'prompts/', btnText: 'View prompts', style: 'border-violet-200 bg-violet-50' },
+          { icon: '📅', title: 'Content calendar templates', desc: '30 days of AI-generated social media content for your industry. Ready to post.', link: 'content-calendars/', btnText: 'View calendars', style: 'border-gray-200 bg-white' },
+          { icon: '👥', title: 'Book a group workshop', desc: 'Get your whole team up to speed with a hands-on AI workshop. Virtual or in-person.', link: 'index.html#contact', btnText: 'Get in touch', style: 'border-gray-200 bg-white' }
+        ];
+      } else {
+        ctas = [
+          { icon: '🔍', title: 'Book a free AI audit', desc: 'Let us review your current setup and find opportunities you might be missing. Completely free.', link: 'index.html#contact', btnText: 'Book your audit', style: 'border-violet-200 bg-violet-50' },
+          { icon: '🤝', title: 'Explore consultancy', desc: 'Ongoing AI support, custom automations, and strategic guidance for your business.', link: 'index.html#contact', btnText: 'Learn more', style: 'border-gray-200 bg-white' },
+          { icon: '⏱️', title: 'Book a 1:1 power hour', desc: 'One focused hour to solve your specific AI challenges. Walk away with actionable solutions.', link: 'index.html#contact', btnText: 'Book a session', style: 'border-gray-200 bg-white' }
+        ];
+      }
+
+      ctaCards.innerHTML = ctas.map(cta => `
+        <a href="${cta.link}" class="block p-5 rounded-xl border ${cta.style} hover:shadow-md transition-all group">
+          <div class="flex items-start gap-4">
+            <span class="text-2xl">${cta.icon}</span>
+            <div class="flex-grow">
+              <h4 class="font-bold text-gray-900 mb-1">${cta.title}</h4>
+              <p class="text-sm text-gray-500">${cta.desc}</p>
+            </div>
+            <span class="text-sm font-semibold text-violet-600 shrink-0 group-hover:translate-x-1 transition-transform">${cta.btnText} &rarr;</span>
+          </div>
+        </a>
+      `).join('');
+
+      // Submit results to Formspree (score + answers)
+      const resultsData = new FormData();
+      resultsData.append('_subject', `AI Quiz Results: ${userData.name} - ${rating} (${totalScore}/30)`);
+      resultsData.append('name', userData.name);
+      resultsData.append('email', userData.email);
+      resultsData.append('industry', userData.industry);
+      resultsData.append('score', totalScore);
+      resultsData.append('rating', rating);
+      answers.forEach((ans, i) => {
+        resultsData.append(`q${i+1}_${questions[i].id}`, questions[i].options[ans].text + ` (${questions[i].options[ans].score}/3)`);
+      });
+
+      fetch('https://formspree.io/f/xeerklqd', {
+        method: 'POST',
+        body: resultsData,
+        headers: { 'Accept': 'application/json' }
+      }).catch(() => {});
+    }
+
+    function shareQuiz() {
+      const url = window.location.href.split('?')[0];
+      if (navigator.share) {
+        navigator.share({ title: 'How AI-ready is your business?', text: 'I just took the AI readiness quiz from Smash Your AI. Take it yourself!', url: url });
+      } else {
+        navigator.clipboard.writeText(url).then(() => {
+          const btn = event.target.closest('button');
+          const original = btn.innerHTML;
+          btn.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Link copied!';
+          setTimeout(() => { btn.innerHTML = original; }, 2000);
+        });
+      }
+    }
+
+    function retakeQuiz() {
+      currentQuestion = 0;
+      answers = new Array(10).fill(null);
+      showScreen('intro');
+    }
+  </script>
+<script src="/shared-nav.js"></script>
+</body>
+</html>
