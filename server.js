@@ -127,12 +127,21 @@ app.get('/reset-password', (req, res) => {
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
-// SEO files
+// SEO and root-level files
 app.get('/sitemap.xml', (req, res) => {
   res.type('application/xml').sendFile(path.join(__dirname, 'sitemap.xml'));
 });
 app.get('/robots.txt', (req, res) => {
   res.type('text/plain').sendFile(path.join(__dirname, 'robots.txt'));
+});
+app.get('/favicon.ico', (req, res) => {
+  res.sendFile(path.join(__dirname, 'favicon.ico'));
+});
+app.get('/favicon-32x32.png', (req, res) => {
+  res.sendFile(path.join(__dirname, 'favicon-32x32.png'));
+});
+app.get('/favicon-16x16.png', (req, res) => {
+  res.sendFile(path.join(__dirname, 'favicon-16x16.png'));
 });
 
 // Homepage
