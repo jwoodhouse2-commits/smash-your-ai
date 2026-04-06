@@ -127,6 +127,14 @@ app.get('/reset-password', (req, res) => {
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
+// SEO files
+app.get('/sitemap.xml', (req, res) => {
+  res.type('application/xml').sendFile(path.join(__dirname, 'sitemap.xml'));
+});
+app.get('/robots.txt', (req, res) => {
+  res.type('text/plain').sendFile(path.join(__dirname, 'robots.txt'));
+});
+
 // Homepage
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
