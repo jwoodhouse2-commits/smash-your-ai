@@ -134,14 +134,12 @@ app.get('/sitemap.xml', (req, res) => {
 app.get('/robots.txt', (req, res) => {
   res.type('text/plain').sendFile(path.join(__dirname, 'robots.txt'));
 });
-app.get('/favicon.ico', (req, res) => {
-  res.sendFile(path.join(__dirname, 'favicon.ico'));
-});
-app.get('/favicon-32x32.png', (req, res) => {
-  res.sendFile(path.join(__dirname, 'favicon-32x32.png'));
-});
-app.get('/favicon-16x16.png', (req, res) => {
-  res.sendFile(path.join(__dirname, 'favicon-16x16.png'));
+// Favicons, icons, and manifest
+const rootFiles = ['favicon.ico', 'favicon-16x16.png', 'favicon-32x32.png', 'apple-touch-icon.png', 'android-chrome-192x192.png', 'android-chrome-512x512.png', 'site.webmanifest'];
+rootFiles.forEach(file => {
+  app.get('/' + file, (req, res) => {
+    res.sendFile(path.join(__dirname, file));
+  });
 });
 
 // Homepage
