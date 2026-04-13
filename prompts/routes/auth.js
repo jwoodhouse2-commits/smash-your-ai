@@ -196,6 +196,42 @@ function createAuthRouter(db) {
     }
   });
 
+  // POST /change-password — for logged-in users
+  router.post('/change-password', async (req, res) => {
+    try {
+      if (!req.session.user) {
+        return res.status(401).json({ error: 'You must be logged in.' });
+      }
+
+      const { currentPassword, newPassword } = req.body;
+
+      if (!currentPassword || !newPassword) {
+        return res.status(400).json({ error: 'Current password and new password are required.' });
+      }
+      if (newPassword.length < 6) {
+        return res.status(400).json({ error: 'New password must be at least 6 characters.' });
+      }
+
+      const user = db.prepare('SELECT * FROM users WHERE id = ?').get(req.session.user.id);
+      if (!user) {
+        return res.status(401).json({ error: 'User not found.' });
+      }
+
+      const valid = await bcrypt.compare(currentPassword, user.password_hash);
+      if (!valid) {
+        return res.status(401).json({ error: 'Current password is incorrect.' });
+      }
+
+      const passwordHash = await bcrypt.hash(newPassword, 12);
+      db.prepare("UPDATE users SET password_hash = ?, updated_at = datetime('now') WHERE id = ?").run(passwordHash, user.id);
+
+      res.json({ message: 'Password changed successfully.' });
+    } catch (err) {
+      console.error('Change password error:', err);
+      res.status(500).json({ error: 'Something went wrong. Please try again.' });
+    }
+  });
+
   return router;
 }
 

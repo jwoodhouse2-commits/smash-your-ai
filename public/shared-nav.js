@@ -41,10 +41,10 @@
               Prompt library
             </a>
             <div class="border-t border-gray-100 my-1"></div>
-            <a href="/prompts?login=1" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors" onclick="event.preventDefault(); sharedLogout(); setTimeout(function(){ window.location.href='/prompts?login=1'; }, 500);">
+            <button onclick="showChangePasswordModal()" class="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
               <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg>
               Change password
-            </a>
+            </button>
             <button onclick="sharedLogout()" class="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-red-600 hover:bg-red-50 transition-colors">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
               Log out
@@ -57,7 +57,7 @@
           <div class="border-t border-gray-100 pt-2 mt-1">
             <span class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Account</span>
             <a href="/dashboard" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">My dashboard</a>
-            <a href="/prompts?login=1" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2" onclick="event.preventDefault(); sharedLogout(); setTimeout(function(){ window.location.href='/prompts?login=1'; }, 500);">Change password</a>
+            <button onclick="showChangePasswordModal()" class="block w-full text-left text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Change password</button>
             <button onclick="sharedLogout()" class="block w-full text-left text-sm font-medium text-gray-600 hover:text-red-600 py-2 pl-2">Log out</button>
           </div>
         `;
@@ -77,6 +77,77 @@
   window.sharedLogout = async function() {
     await fetch('/prompts/auth/logout', { method: 'POST' });
     window.location.reload();
+  };
+
+  window.showChangePasswordModal = function() {
+    // Remove existing modal if any
+    const existing = document.getElementById('change-password-modal');
+    if (existing) existing.remove();
+
+    const modal = document.createElement('div');
+    modal.id = 'change-password-modal';
+    modal.style.cssText = 'position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.5);';
+    modal.innerHTML = `
+      <div style="background:white;border-radius:16px;padding:32px;max-width:400px;width:90%;box-shadow:0 25px 50px rgba(0,0,0,0.15);">
+        <h3 style="font-size:18px;font-weight:700;margin:0 0 4px;">Change password</h3>
+        <p style="font-size:13px;color:#6b7280;margin:0 0 20px;">Enter your current password and choose a new one.</p>
+        <form id="change-password-form" style="display:flex;flex-direction:column;gap:12px;">
+          <input type="password" id="cp-current" placeholder="Current password" required style="width:100%;padding:10px 14px;border:1px solid #e5e7eb;border-radius:10px;font-size:14px;outline:none;">
+          <input type="password" id="cp-new" placeholder="New password (min 6 characters)" required minlength="6" style="width:100%;padding:10px 14px;border:1px solid #e5e7eb;border-radius:10px;font-size:14px;outline:none;">
+          <div id="cp-error" style="font-size:13px;color:#dc2626;display:none;"></div>
+          <div id="cp-success" style="font-size:13px;color:#059669;display:none;"></div>
+          <div style="display:flex;gap:8px;margin-top:4px;">
+            <button type="button" onclick="document.getElementById('change-password-modal').remove()" style="flex:1;padding:10px;border:1px solid #e5e7eb;border-radius:10px;font-size:14px;font-weight:600;background:white;cursor:pointer;">Cancel</button>
+            <button type="submit" id="cp-submit" style="flex:1;padding:10px;border:none;border-radius:10px;font-size:14px;font-weight:600;color:white;background:linear-gradient(135deg,#8b5cf6,#6366f1);cursor:pointer;">Update</button>
+          </div>
+        </form>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    // Close on backdrop click
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) modal.remove();
+    });
+
+    document.getElementById('change-password-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const errorEl = document.getElementById('cp-error');
+      const successEl = document.getElementById('cp-success');
+      const submitBtn = document.getElementById('cp-submit');
+      errorEl.style.display = 'none';
+      successEl.style.display = 'none';
+      submitBtn.textContent = 'Updating...';
+      submitBtn.disabled = true;
+
+      try {
+        const res = await fetch('/prompts/auth/change-password', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            currentPassword: document.getElementById('cp-current').value,
+            newPassword: document.getElementById('cp-new').value
+          })
+        });
+        const data = await res.json();
+        if (!res.ok) {
+          errorEl.textContent = data.error;
+          errorEl.style.display = 'block';
+          submitBtn.textContent = 'Update';
+          submitBtn.disabled = false;
+        } else {
+          successEl.textContent = 'Password changed successfully.';
+          successEl.style.display = 'block';
+          submitBtn.textContent = 'Done';
+          setTimeout(function() { modal.remove(); }, 1500);
+        }
+      } catch (err) {
+        errorEl.textContent = 'Something went wrong. Please try again.';
+        errorEl.style.display = 'block';
+        submitBtn.textContent = 'Update';
+        submitBtn.disabled = false;
+      }
+    });
   };
 
   // Run on page load
