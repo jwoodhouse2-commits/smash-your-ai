@@ -46,6 +46,26 @@ const contentStore = loadContent();
 
 const app = express();
 
+// Disable x-powered-by header
+app.disable('x-powered-by');
+
+// --- SEO: Override Replit's cache-control: private headers ---
+// Replit sets "cache-control: private, max-age=0" on all responses,
+// which tells Google the content is user-specific. This middleware
+// sets public caching headers for HTML pages so Google will crawl them.
+app.use((req, res, next) => {
+  // Skip non-GET requests and API/auth/admin routes
+  if (req.method !== 'GET') return next();
+  const path = req.path;
+  if (path.startsWith('/prompts/auth') || path.startsWith('/prompts/admin') || path.startsWith('/prompts/api') || path.startsWith('/prompts/checkout') || path === '/dashboard' || path === '/reset-password' || path === '/checkout/success') {
+    return next();
+  }
+  // Set public cache headers for all public pages
+  res.setHeader('Cache-Control', 'public, max-age=3600, s-maxage=86400');
+  res.removeHeader('Expires');
+  next();
+});
+
 // --- Stripe webhook (MUST be before express.json — needs raw body) ---
 app.post('/webhooks/stripe',
   express.raw({ type: 'application/json' }),
