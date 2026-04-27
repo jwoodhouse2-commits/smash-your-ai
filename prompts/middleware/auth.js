@@ -35,12 +35,10 @@ function requireAdmin(req, res, next) {
   const user = getUser(req);
   const adminPassword = process.env.ADMIN_PASSWORD;
 
-  // Check query param password
   if (req.query.password && req.query.password === adminPassword) {
     return next();
   }
 
-  // Check session user is admin
   if (user && user.is_admin) {
     return next();
   }
@@ -48,4 +46,35 @@ function requireAdmin(req, res, next) {
   return res.status(403).json({ error: 'Admin access required.' });
 }
 
-module.exports = { getUser, requireAuth, requirePaid, requireAdmin };
+// Runtime check (no middleware overhead). Returns boolean.
+function userHasEntitlement(db, userId, productSlug) {
+  if (!userId) return false;
+  const row = db.prepare(
+    'SELECT 1 FROM user_entitlements WHERE user_id = ? AND product_slug = ?'
+  ).get(userId, productSlug);
+  return !!row;
+}
+
+// Factory: returns middleware that 403s for API calls
+function requireEntitlement(db, productSlug) {
+  return (req, res, next) => {
+    if (process.env.PAYWALL_ENABLED !== 'true') return next();
+    const user = getUser(req);
+    if (!user) return res.status(401).json({ error: 'You must be logged in.' });
+    if (user.is_admin) return next();
+    if (userHasEntitlement(db, user.id, productSlug)) {
+      req.user = user;
+      return next();
+    }
+    return res.status(403).json({ error: `You don't have access to this product (${productSlug}).` });
+  };
+}
+
+module.exports = {
+  getUser,
+  requireAuth,
+  requirePaid,
+  requireAdmin,
+  userHasEntitlement,
+  requireEntitlement,
+};

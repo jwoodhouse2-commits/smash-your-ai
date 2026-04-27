@@ -151,9 +151,7 @@
       <div class="hidden md:flex items-center gap-5">
         <a href="/" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Home</a>
         <a href="/#ai-training-services" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Services</a>
-        <span class="text-sm font-medium text-gray-400 cursor-default relative group">Online course
-          <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Coming soon</span>
-        </span>
+        <a href="/course" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Online course</a>
         <a href="#about-us" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">About us</a>
         <div class="relative group">
           <button class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors inline-flex items-center gap-1">
@@ -204,7 +202,7 @@
     <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3">
       <a href="/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">Home</a>
       <a href="/#ai-training-services" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">Services</a>
-      <span class="block text-sm font-medium text-gray-400 py-2">Online course (coming soon)</span>
+      <a href="/course" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">Online course</a>
       <a href="#about-us" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">About us</a>
       <div class="border-t border-gray-100 pt-2 mt-1">
         <span class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Resources</span>
@@ -569,118 +567,132 @@
   <section id="online-ai-course" class="py-20 md:py-28">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-14">
-        <h2 class="text-3xl md:text-4xl font-extrabold mb-4">AI training packages and pricing</h2>
-        <p class="text-gray-500 text-lg max-w-2xl mx-auto">From a self-paced online course to fully tailored business consultancy, pick the option that fits your needs and budget.</p>
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-4">AI training and tools to suit everyone</h2>
+        <p class="text-gray-500 text-lg max-w-2xl mx-auto">Self-serve digital products for individuals, and done-with-you training for businesses.</p>
       </div>
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Tier 1: AI Starter Bundle -->
-        <div class="card-hover bg-white rounded-2xl border border-gray-200 p-8 flex flex-col">
-          <div class="text-sm font-semibold text-violet-600 mb-2">Digital bundle</div>
-          <h3 class="text-2xl font-bold mb-2">AI starter bundle</h3>
-          <p class="text-gray-500 text-sm mb-6 leading-relaxed">Everything you need to start using AI in your business. Ready-made prompts, hands-on workbooks, and content calendars you can use straight away.</p>
-          <div class="mb-6">
+
+      <!-- For individuals and small businesses -->
+      <div class="mb-4">
+        <div class="flex items-center gap-3 mb-6">
+          <h3 class="text-xl md:text-2xl font-extrabold">Learn AI yourself</h3>
+          <span class="text-sm text-gray-400">For individuals and small businesses</span>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 mb-20">
+        <!-- Bundle -->
+        <div id="ai-starter-bundle" class="card-hover bg-white rounded-2xl border border-gray-200 p-7 flex flex-col">
+          <div class="text-xs font-semibold uppercase tracking-wider text-violet-600 mb-2">Digital bundle</div>
+          <h4 class="text-xl font-bold mb-2">AI starter bundle</h4>
+          <p class="text-gray-500 text-sm mb-5 leading-relaxed">Ready-made prompts, workbooks, and content calendars you can use from day one.</p>
+          <div class="mb-5">
             <div class="flex items-baseline gap-2">
-              <span class="text-lg text-gray-400 line-through font-medium">£29.99</span>
-              <span class="text-4xl font-extrabold">£14.99</span>
-              <span class="text-gray-400 text-sm">one-off</span>
+              <span class="text-sm text-gray-400 line-through font-medium">£29.99</span>
+              <span class="text-3xl font-extrabold">£14.99</span>
+              <span class="text-gray-400 text-xs">one-off</span>
             </div>
-            <span class="inline-block mt-2 px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">50% OFF</span>
+            <span class="inline-block mt-2 px-2 py-0.5 bg-green-100 text-green-700 text-xs font-bold rounded-full">50% OFF</span>
           </div>
-          <ul class="space-y-3 mb-8 flex-grow">
-            <li class="flex items-start gap-3 text-sm text-gray-600">
-              <svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              168 ready-made AI prompts
-            </li>
-            <li class="flex items-start gap-3 text-sm text-gray-600">
-              <svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              2 hands-on AI workbooks
-            </li>
-            <li class="flex items-start gap-3 text-sm text-gray-600">
-              <svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Content calendars for 6 industries
-            </li>
-            <li class="flex items-start gap-3 text-sm text-gray-600">
-              <svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Week 1 action plan to get results fast
-            </li>
-            <li class="flex items-start gap-3 text-sm text-gray-600">
-              <svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <span><strong>Lifetime free updates</strong><span class="block font-normal">Every new prompt, template, and resource we add is yours at no extra cost</span></span>
-            </li>
+          <ul class="space-y-2.5 mb-6 flex-grow text-sm text-gray-600">
+            <li class="flex items-start gap-2.5"><svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>168 ready-made AI prompts</li>
+            <li class="flex items-start gap-2.5"><svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>2 hands-on workbooks</li>
+            <li class="flex items-start gap-2.5"><svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>6 industry content calendars</li>
+            <li class="flex items-start gap-2.5"><svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Week 1 action plan</li>
+            <li class="flex items-start gap-2.5"><svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Lifetime free updates</li>
           </ul>
-          <a href="/prompts?unlock=1" class="block text-center gradient-btn text-white text-sm font-semibold px-6 py-3 rounded-xl">
-            Get the bundle
-          </a>
-          <p class="text-xs text-gray-400 text-center mt-3">Pay once, benefit forever. No subscription needed. 50% off for a limited time.</p>
+          <a href="/prompts?unlock=1" class="block text-center gradient-btn text-white text-sm font-semibold px-6 py-2.5 rounded-xl">Get the bundle</a>
         </div>
-        <!-- Tier 2: Workshop -->
-        <div class="card-hover rounded-2xl border-2 border-violet-500 p-8 flex flex-col relative bg-white">
-          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-violet-500 to-indigo-600 text-white text-xs font-semibold">
-            Most popular
-          </div>
-          <div class="text-sm font-semibold text-violet-600 mb-2">Team training</div>
-          <h3 class="text-2xl font-bold mb-2">AI team workshops</h3>
-          <p class="text-gray-500 text-sm mb-6 leading-relaxed">Half-day or full-day training sessions for your team. We come to your workplace or meet online, and train your staff on the AI tools most relevant to your business.</p>
-          <div class="mb-6">
-            <div class="flex items-baseline gap-1">
-              <span class="text-4xl font-extrabold">Custom</span>
+
+        <!-- Course + Bundle (Most popular) -->
+        <div class="card-hover rounded-2xl border-2 border-violet-500 bg-white p-7 flex flex-col relative shadow-lg">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-violet-500 to-indigo-600 text-white text-xs font-semibold whitespace-nowrap">Most popular</div>
+          <div class="text-xs font-semibold uppercase tracking-wider text-violet-600 mb-2">Everything</div>
+          <h4 class="text-xl font-bold mb-2">Course + Starter Bundle</h4>
+          <p class="text-gray-500 text-sm mb-5 leading-relaxed">The full online course plus every tool in the bundle. One login, one price, saves around £5.</p>
+          <div class="mb-5">
+            <div class="flex items-baseline gap-2">
+              <span class="text-sm text-gray-400 line-through font-medium">£63.98</span>
+              <span class="text-3xl font-extrabold">£59.99</span>
+              <span class="text-gray-400 text-xs">one-off</span>
             </div>
-            <div class="text-sm text-gray-400 mt-1">based on team size and needs</div>
+            <span class="inline-block mt-2 px-2 py-0.5 bg-violet-100 text-violet-700 text-xs font-bold rounded-full">Best value</span>
           </div>
-          <ul class="space-y-3 mb-8 flex-grow">
-            <li class="flex items-start gap-3 text-sm text-gray-600">
-              <svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Tailored to your industry and workflows
-            </li>
-            <li class="flex items-start gap-3 text-sm text-gray-600">
-              <svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <span>In-person across the North East<span class="block text-gray-400">or remote UK-wide</span></span>
-            </li>
-            <li class="flex items-start gap-3 text-sm text-gray-600">
-              <svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Hands-on with real business scenarios
-            </li>
-            <li class="flex items-start gap-3 text-sm text-gray-600">
-              <svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Follow-up resources for all attendees
-            </li>
+          <ul class="space-y-2.5 mb-6 flex-grow text-sm text-gray-600">
+            <li class="flex items-start gap-2.5"><svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>All 3 course tiers (41 lessons)</li>
+            <li class="flex items-start gap-2.5"><svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Everything in the Starter Bundle</li>
+            <li class="flex items-start gap-2.5"><svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Tick-box progress tracking</li>
+            <li class="flex items-start gap-2.5"><svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Lifetime updates for both</li>
           </ul>
-          <a href="#contact" class="block text-center gradient-btn text-white text-sm font-semibold px-6 py-3 rounded-xl">
-            Book a workshop
-          </a>
+          <a href="/course#pricing" class="block text-center gradient-btn text-white text-sm font-semibold px-6 py-2.5 rounded-xl">See the deal</a>
         </div>
-        <!-- Tier 3: 1:1 Consultancy -->
+
+        <!-- Course alone -->
+        <div class="card-hover bg-white rounded-2xl border border-gray-200 p-7 flex flex-col">
+          <div class="text-xs font-semibold uppercase tracking-wider text-violet-600 mb-2">Online course</div>
+          <h4 class="text-xl font-bold mb-2">Smash Your AI course</h4>
+          <p class="text-gray-500 text-sm mb-5 leading-relaxed">Beginner to Claude Code, in 41 short readable lessons. Module 1 is free, so dive in before you buy.</p>
+          <div class="mb-5">
+            <div class="flex items-baseline gap-2">
+              <span class="text-3xl font-extrabold">£49</span>
+              <span class="text-gray-400 text-xs">one-off</span>
+            </div>
+            <span class="inline-block mt-2 px-2 py-0.5 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-full">Module 1 free</span>
+          </div>
+          <ul class="space-y-2.5 mb-6 flex-grow text-sm text-gray-600">
+            <li class="flex items-start gap-2.5"><svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Beginner, Intermediate, Advanced</li>
+            <li class="flex items-start gap-2.5"><svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Short lessons, 5 to 15 min each</li>
+            <li class="flex items-start gap-2.5"><svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Interactive quizzes and exercises</li>
+            <li class="flex items-start gap-2.5"><svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Lifetime access and updates</li>
+          </ul>
+          <a href="/course" class="block text-center gradient-btn text-white text-sm font-semibold px-6 py-2.5 rounded-xl">See the course</a>
+        </div>
+      </div>
+
+      <!-- For businesses -->
+      <div class="mb-4">
+        <div class="flex items-center gap-3 mb-6">
+          <h3 class="text-xl md:text-2xl font-extrabold">Bring AI to your business</h3>
+          <span class="text-sm text-gray-400">For teams and growing businesses</span>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Team workshops -->
         <div class="card-hover bg-white rounded-2xl border border-gray-200 p-8 flex flex-col">
-          <div class="text-sm font-semibold text-violet-600 mb-2">Bespoke</div>
-          <h3 class="text-2xl font-bold mb-2">1:1 AI consultancy</h3>
-          <p class="text-gray-500 text-sm mb-6 leading-relaxed">A customised plan built around your specific business. We audit your current setup, identify the biggest opportunities, and implement AI solutions alongside you.</p>
+          <div class="text-xs font-semibold uppercase tracking-wider text-violet-600 mb-2">Team training</div>
+          <h4 class="text-2xl font-bold mb-2">AI team workshops</h4>
+          <p class="text-gray-500 text-sm mb-6 leading-relaxed">Half-day or full-day sessions tailored to your team. In-person across the North East or remote UK-wide. We train your staff on the AI tools most relevant to your business.</p>
           <div class="mb-6">
             <div class="flex items-baseline gap-1">
-              <span class="text-4xl font-extrabold">Custom</span>
+              <span class="text-3xl font-extrabold">Custom</span>
             </div>
-            <div class="text-sm text-gray-400 mt-1">setup fee + optional monthly retainer</div>
+            <div class="text-sm text-gray-400 mt-1">Based on team size and needs</div>
           </div>
-          <ul class="space-y-3 mb-8 flex-grow">
-            <li class="flex items-start gap-3 text-sm text-gray-600">
-              <svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <strong>Free AI audit</strong> to get started
-            </li>
-            <li class="flex items-start gap-3 text-sm text-gray-600">
-              <svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Bespoke implementation and training plan
-            </li>
-            <li class="flex items-start gap-3 text-sm text-gray-600">
-              <svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Ongoing monthly support available
-            </li>
-            <li class="flex items-start gap-3 text-sm text-gray-600">
-              <svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Local visits or remote sessions
-            </li>
+          <ul class="space-y-3 mb-8 flex-grow text-sm text-gray-600">
+            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Tailored to your industry and workflows</li>
+            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Hands-on with real business scenarios</li>
+            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>In-person or remote</li>
+            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Follow-up resources for all attendees</li>
           </ul>
-          <a href="#contact" class="block text-center gradient-btn text-white text-sm font-semibold px-6 py-3 rounded-xl">
-            Get your free AI audit
-          </a>
+          <a href="#contact" class="block text-center gradient-btn text-white text-sm font-semibold px-6 py-3 rounded-xl">Book a workshop</a>
+        </div>
+
+        <!-- 1:1 Consultancy -->
+        <div class="card-hover bg-white rounded-2xl border border-gray-200 p-8 flex flex-col">
+          <div class="text-xs font-semibold uppercase tracking-wider text-violet-600 mb-2">Bespoke</div>
+          <h4 class="text-2xl font-bold mb-2">1:1 AI consultancy</h4>
+          <p class="text-gray-500 text-sm mb-6 leading-relaxed">A customised plan built around your specific business. We audit your setup, identify the biggest opportunities, and implement AI solutions alongside you.</p>
+          <div class="mb-6">
+            <div class="flex items-baseline gap-1">
+              <span class="text-3xl font-extrabold">Custom</span>
+            </div>
+            <div class="text-sm text-gray-400 mt-1">Setup fee plus optional monthly retainer</div>
+          </div>
+          <ul class="space-y-3 mb-8 flex-grow text-sm text-gray-600">
+            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><strong>Free AI audit</strong> to get started</li>
+            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Bespoke implementation and training plan</li>
+            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Ongoing monthly support available</li>
+            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-violet-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Local visits or remote sessions</li>
+          </ul>
+          <a href="#contact" class="block text-center gradient-btn text-white text-sm font-semibold px-6 py-3 rounded-xl">Get your free AI audit</a>
         </div>
       </div>
 

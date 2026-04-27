@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GMMV8EBM39"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GMMV8EBM39');
+  </script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Design: The New AI Tool That Could Replace Your Designer - Smash Your AI</title>
+  <meta name="description" content="Anthropic just launched Claude Design, an AI that builds slides, one-pagers, prototypes and more. Here is my honest take after using it on real client work.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:image" content="https://smashyourai.com/images/blog/claude-design.jpg">
+  <link rel="canonical" href="https://smashyourai.com/blog/claude-design-guide">
+  <meta property="og:title" content="Claude Design: The New AI Tool That Could Replace Your Designer - Smash Your AI">
+  <meta property="og:description" content="Anthropic just launched Claude Design, an AI that builds slides, one-pagers, prototypes and more. Here is my honest take after using it on real client work.">
+  <meta property="og:url" content="https://smashyourai.com/blog/claude-design-guide">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Smash Your AI">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude Design: The New AI Tool That Could Replace Your Designer - Smash Your AI">
+  <meta name="twitter:description" content="Anthropic just launched Claude Design, an AI that builds slides, one-pagers, prototypes and more. Here is my honest take after using it on real client work.">
+  <meta name="twitter:image" content="https://smashyourai.com/images/blog/claude-design.jpg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>tailwind.config = { theme: { extend: { fontFamily: { sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'] } } } }</script>
+  <style>
+    * { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+    .gradient-text { background: linear-gradient(135deg, #8b5cf6, #6366f1, #4f46e5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .gradient-btn { background: linear-gradient(135deg, #8b5cf6, #6366f1); transition: all 0.2s ease; }
+    .gradient-btn:hover { background: linear-gradient(135deg, #7c3aed, #4f46e5); transform: translateY(-1px); box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4); }
+    .section-purple { background: linear-gradient(180deg, rgba(139, 92, 246, 0.03) 0%, rgba(99, 102, 241, 0.06) 50%, rgba(139, 92, 246, 0.03) 100%); }
+    article h2 { scroll-margin-top: 100px; }
+    .prompt-example { border-left: 3px solid #8b5cf6; }
+    .term { border-bottom: 1px dotted #8b5cf6; cursor: help; position: relative; font-weight: 600; color: #4f46e5; }
+    .term:hover::after, .term:focus::after { content: attr(data-definition); position: absolute; bottom: 125%; left: 0; background: #1f2937; color: white; padding: 10px 14px; border-radius: 10px; font-size: 13px; font-weight: 400; width: 260px; z-index: 30; line-height: 1.5; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3); }
+    .term:hover::before, .term:focus::before { content: ""; position: absolute; bottom: 115%; left: 18px; border: 6px solid transparent; border-top-color: #1f2937; z-index: 30; }
+    .post-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .post-nav a { display: flex; flex-direction: row; gap: 0.875rem; align-items: center; padding: 0.875rem 1rem; border: 1px solid #e5e7eb; border-radius: 0.75rem; transition: all 0.2s ease; text-decoration: none; }
+    .post-nav a:hover { border-color: #c4b5fd; background: #f5f3ff; transform: translateY(-2px); }
+    .post-nav img.thumb { width: 56px; height: 56px; border-radius: 0.5rem; object-fit: cover; flex-shrink: 0; }
+    .post-nav .text { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+    .post-nav .label { font-size: 0.7rem; color: #8b5cf6; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.2rem; }
+    .post-nav .title { font-size: 0.9rem; font-weight: 700; color: #1f2937; line-height: 1.3; }
+    .post-nav .full { grid-column: 1 / -1; }
+    .related-card { display: flex; gap: 0.875rem; align-items: center; padding: 0.875rem 1rem; border-radius: 0.75rem; border: 1px solid #f3f4f6; transition: all 0.2s ease; }
+    .related-card:hover { border-color: #c4b5fd; background: #faf5ff; }
+    .related-card img.thumb { width: 72px; height: 72px; border-radius: 0.5rem; object-fit: cover; flex-shrink: 0; }
+    @media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Claude Design: the new AI tool that could replace your designer",
+    "description": "An honest first look at Anthropic's new Claude Design product and what it means for small businesses.",
+    "author": { "@type": "Person", "name": "James" },
+    "publisher": { "@type": "Organization", "name": "Smash Your AI" },
+    "datePublished": "2026-04-18",
+    "dateModified": "2026-04-20"
+  }
+  </script>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-lg border-b border-gray-100 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5">
+        <img src="/images/logo.png" alt="Smash Your AI" class="h-9 w-auto">
+      </a>
+      <div class="hidden md:flex items-center gap-5">
+        <a href="/" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Home</a>
+        <a href="/#ai-training-services" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Services</a>
+        <a href="/course" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Online course</a>
+        <a href="/#about-us" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">About us</a>
+        <div class="relative group">
+          <button class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors inline-flex items-center gap-1">
+            Resources
+            <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200 absolute top-full right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+            <a href="/prompts/" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              Prompt library
+            </a>
+            <a href="/content-calendars/" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              Content calendars
+            </a>
+            <a href="/ai-in-a-day" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+              AI in a day workbook
+            </a>
+            <a href="/ai-in-a-day-advanced" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+              AI in a day advanced
+            </a>
+            <a href="/quiz" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+              AI readiness quiz
+            </a>
+            <a href="/savings-calculator" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              AI savings calculator
+            </a>
+            <div class="border-t border-gray-100 my-1"></div>
+            <a href="/blog" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-violet-600 hover:bg-violet-50 transition-colors">
+              <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+              Blog
+            </a>
+          </div>
+        </div>
+        <a href="/#contact" class="gradient-btn text-white text-sm font-semibold px-5 py-2.5 rounded-xl">Get in touch</a>
+        <div id="shared-auth-area"></div>
+      </div>
+      <button class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3">
+      <a href="/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">Home</a>
+      <a href="/#ai-training-services" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">Services</a>
+      <a href="/course" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">Online course</a>
+      <a href="/#about-us" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2">About us</a>
+      <div class="border-t border-gray-100 pt-2 mt-1">
+        <span class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Resources</span>
+        <a href="/prompts/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Prompt library</a>
+        <a href="/content-calendars/" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Content calendars</a>
+        <a href="/ai-in-a-day" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">AI in a day workbook</a>
+        <a href="/ai-in-a-day-advanced" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">AI in a day advanced</a>
+        <a href="/quiz" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">AI readiness quiz</a>
+        <a href="/savings-calculator" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">AI savings calculator</a>
+        <a href="/blog" class="block text-sm font-medium text-gray-600 hover:text-violet-600 py-2 pl-2">Blog</a>
+      </div>
+      <a href="/#contact" class="block gradient-btn text-white text-sm font-semibold px-5 py-2.5 rounded-xl text-center">Get in touch</a>
+      <div id="shared-auth-area-mobile"></div>
+    </div>
+  </nav>
+
+  <article class="pt-32 pb-20 md:pt-40 md:pb-28">
+    <div class="max-w-3xl mx-auto px-6">
+
+      <!-- Breadcrumb -->
+      <nav class="text-sm text-gray-400 mb-6">
+        <a href="/" class="hover:text-violet-600 transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <a href="/blog" class="hover:text-violet-600 transition-colors">Blog</a>
+        <span class="mx-2">/</span>
+        <span class="text-gray-600">Claude Design</span>
+      </nav>
+
+      <!-- Header -->
+      <div class="mb-10">
+        <span class="text-xs text-violet-600 font-medium px-2.5 py-1 bg-violet-50 rounded-md">Tools</span>
+        <h1 class="text-3xl md:text-4xl font-extrabold mt-4 mb-4">Claude Design: the new AI tool that could replace your designer</h1>
+        <div class="flex items-center gap-4 text-sm text-gray-400 mb-5">
+          <span>18 April 2026</span>
+          <span>-</span>
+          <span>7 min read</span>
+        </div>
+        <div class="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-violet-50 to-indigo-50 border-l-4 border-violet-500">
+          <img src="/images/james-headshot.png" alt="James, co-founder of Smash Your AI" class="w-11 h-11 rounded-full object-cover shrink-0">
+          <div>
+            <p class="font-semibold text-sm text-gray-900">James</p>
+            <p class="text-xs text-gray-500">Co-founder of Smash Your AI, heavy AI user since 2022, top 0.1% of ChatGPT users in 2025.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured image -->
+      <img src="/images/blog/claude-design.jpg" alt="A laptop showing a slide deck and prototype created with Claude Design, an AI design tool by Anthropic" class="w-full rounded-2xl mb-10">
+
+      <!-- Article content -->
+      <div class="space-y-6 text-gray-700 leading-relaxed">
+
+        <p class="text-lg">Last week, <a href="https://www.anthropic.com/" class="text-violet-600 font-medium hover:text-violet-800 transition-colors" target="_blank" rel="noopener">Anthropic</a> quietly launched <a href="https://www.anthropic.com/news/claude-design-anthropic-labs" class="text-violet-600 font-medium hover:text-violet-800 transition-colors" target="_blank" rel="noopener">something</a> that I think is going to change a lot of small businesses. It is called Claude Design, and it lets you build slide decks, one-pagers, prototypes, and visuals just by describing what you want.</p>
+
+        <p>I have been testing it for 48 hours on real client work. Here is my honest take.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="what-is-claude-design">What is Claude Design?</h2>
+
+        <p><strong>Claude Design</strong> is a new product from <a href="https://www.anthropic.com/" class="text-violet-600 font-medium hover:text-violet-800 transition-colors" target="_blank" rel="noopener">Anthropic</a>, the same company that makes the <a href="https://claude.ai/" class="text-violet-600 font-medium hover:text-violet-800 transition-colors" target="_blank" rel="noopener">Claude AI chatbot</a>. It is built on their latest model (Claude Opus 4.7) and is designed to create visuals for you. Not just images, but actual working layouts.</p>
+
+        <p>The pitch, in plain English: you describe what you want (a pitch deck for your new plumbing business, a one-pager for a product launch, a rough prototype for a landing page), and Claude builds the whole thing. You can edit it, ask for changes, and export it.</p>
+
+        <p>Right now it is available to paying Claude users (<a href="https://www.anthropic.com/pricing" class="text-violet-600 font-medium hover:text-violet-800 transition-colors" target="_blank" rel="noopener">Pro, Max, Team, and Enterprise</a>) as a research preview. Pro starts at around £15 a month.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="what-it-actually-makes">What it can actually make</h2>
+
+        <p>In the last two days I have used it to generate:</p>
+
+        <ul class="list-disc pl-6 space-y-2">
+          <li>A 12 slide pitch deck for a consulting business.</li>
+          <li>A one-page flyer for a local tutoring service.</li>
+          <li>A basic landing page prototype for a new product idea.</li>
+          <li>A simple process diagram showing how a customer order flows through a business.</li>
+          <li>A branded social media image template.</li>
+        </ul>
+
+        <p>The quality ranges from "surprisingly good" to "I would actually send this to a client". Not Apple keynote level. But better than what most small businesses have on their websites today.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="what-its-great-at">What it is genuinely great at</h2>
+
+        <div class="space-y-3 my-4">
+          <div class="bg-green-50/50 rounded-xl p-5">
+            <p class="font-bold text-gray-900 mb-1">Speed</p>
+            <p class="text-sm text-gray-600">A pitch deck that would have taken me 3 hours in PowerPoint took about 20 minutes, including revisions. If your team writes a lot of pitches, proposals, or internal slides, the time saving is enormous.</p>
+          </div>
+          <div class="bg-green-50/50 rounded-xl p-5">
+            <p class="font-bold text-gray-900 mb-1">Getting out of a blank page</p>
+            <p class="text-sm text-gray-600">Designers know the hardest part of any brief is the first draft. Claude Design gives you a full first draft in minutes. You then tweak rather than build from scratch.</p>
+          </div>
+          <div class="bg-green-50/50 rounded-xl p-5">
+            <p class="font-bold text-gray-900 mb-1">Structure and hierarchy</p>
+            <p class="text-sm text-gray-600">It is really good at knowing what belongs on a slide. Headline. Supporting points. A stat. A visual. That is exactly the structure most business slides need.</p>
+          </div>
+          <div class="bg-green-50/50 rounded-xl p-5">
+            <p class="font-bold text-gray-900 mb-1">Small business collateral</p>
+            <p class="text-sm text-gray-600">If you run a plumbing firm, a cafe, a tutoring business, or a small consultancy, this might be the single most useful AI tool launched this year. You can make professional-looking materials without hiring a designer.</p>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold pt-6" id="where-it-struggles">Where it still struggles</h2>
+
+        <p>Let me be honest about what it cannot do, because the marketing around these tools is always a bit rosy.</p>
+
+        <div class="space-y-3 my-4">
+          <div class="bg-red-50 rounded-xl p-5 border-l-4 border-red-400">
+            <p class="font-bold text-red-900 mb-1">Brand-level polish</p>
+            <p class="text-sm text-red-800">If you have a strong, distinctive brand, Claude Design's output can feel a bit generic. A proper designer adds nuance that AI cannot quite replicate yet.</p>
+          </div>
+          <div class="bg-red-50 rounded-xl p-5 border-l-4 border-red-400">
+            <p class="font-bold text-red-900 mb-1">Exact brand colours and fonts</p>
+            <p class="text-sm text-red-800">It will use colours and fonts that roughly match your brand, but if your branding has to be pixel perfect, you will need to tidy up the output in a proper tool like Figma or Canva.</p>
+          </div>
+          <div class="bg-red-50 rounded-xl p-5 border-l-4 border-red-400">
+            <p class="font-bold text-red-900 mb-1">Complex multi-page work</p>
+            <p class="text-sm text-red-800">A 30 page annual report or a full website still needs a human designer driving the project. The tool is at its best on shorter pieces.</p>
+          </div>
+          <div class="bg-red-50 rounded-xl p-5 border-l-4 border-red-400">
+            <p class="font-bold text-red-900 mb-1">Consistency across many pieces</p>
+            <p class="text-sm text-red-800">Each output is great. Making 20 of them that feel like one brand family is harder. That is where Canva's template features still win.</p>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold pt-6" id="compared-to-canva">How does it compare to Canva?</h2>
+
+        <p>This is the question I have had three times in two days. Here is my honest answer.</p>
+
+        <p>Canva is still better if you want lots of templates, strong brand management, and collaboration with a team. Claude Design is better if you want to describe what you need and have something usable in minutes without touching a template library.</p>
+
+        <p>For most small businesses, I would say use both:</p>
+
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Claude Design for the first draft.</strong> Tell it what you need, get a layout, get the copy, get a starting point.</li>
+          <li><a href="https://www.canva.com/" class="text-violet-600 font-medium hover:text-violet-800 transition-colors" target="_blank" rel="noopener"><strong>Canva</strong></a> or <a href="https://www.figma.com/" class="text-violet-600 font-medium hover:text-violet-800 transition-colors" target="_blank" rel="noopener"><strong>Figma</strong></a> for finishing. Polish the output, add your exact brand colours and fonts, make small visual tweaks.</li>
+        </ul>
+
+        <!-- Mid-article CTA -->
+        <div class="my-10 p-6 md:p-8 rounded-2xl border-2 border-violet-200 bg-gradient-to-br from-violet-50 to-indigo-50 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-violet-200/30 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+          <div class="relative">
+            <p class="text-xs font-bold text-violet-600 uppercase tracking-wider mb-2">168 PROMPTS FOR REAL BUSINESS WORK</p>
+            <h3 class="text-xl font-extrabold text-gray-900 mb-2">Get the prompts we actually use ourselves</h3>
+            <p class="text-gray-600 text-sm mb-4">Our prompt library includes ready-to-use prompts for pitch decks, one-pagers, landing pages, and brand content. Tested on Claude, ChatGPT, and Gemini. Lifetime access for £14.99.</p>
+            <a href="/prompts?unlock=1" class="inline-flex gradient-btn text-white text-sm font-semibold px-6 py-3 rounded-xl items-center gap-2">
+              Get the bundle
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold pt-6" id="who-should-use">Who should actually use this?</h2>
+
+        <p>Based on my testing, here is who will get the most out of Claude Design this year.</p>
+
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Small business owners</strong> who need pitch decks, flyers, one-pagers, or sales materials and currently either do without or pay a freelancer.</li>
+          <li><strong>Freelancers and consultants</strong> who need to produce client-facing materials quickly.</li>
+          <li><strong>Teachers and educators</strong> making resources, handouts, or department presentations.</li>
+          <li><strong>Internal marketing teams</strong> producing lots of short-format content at speed.</li>
+          <li><strong>Startup founders</strong> building investor decks and early product mockups.</li>
+        </ul>
+
+        <p>If you are a professional designer, this does not replace you. It makes your junior tasks faster and lets you focus on the work AI still cannot do.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="how-to-get-great-results">How to get great results from it</h2>
+
+        <p>The same rules that work for every AI apply here, but with two extra bits of advice.</p>
+
+        <p><strong>1. Give it a clear brief, not just a topic.</strong></p>
+
+        <div class="prompt-example bg-red-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-red-800 mb-1">Weak prompt:</p>
+          <p class="text-sm text-red-700 italic">"Make me a pitch deck for my plumbing business."</p>
+        </div>
+
+        <div class="prompt-example bg-green-50/50 rounded-xl p-5 my-4">
+          <p class="text-sm font-medium text-green-800 mb-1">Strong prompt:</p>
+          <p class="text-sm text-green-700 italic">"Create a 10 slide pitch deck for a family-run plumbing business in Newcastle pitching to commercial property managers. Include: cover slide with our name Smith and Sons Plumbing, the problem we solve (unreliable emergency callouts), our proposition (24 hour response, fixed prices, 15 years experience), three case studies, team slide with 4 engineers, pricing, testimonials, contact. Use navy blue and white, professional but warm tone."</p>
+        </div>
+
+        <p><strong>2. Give it visual references.</strong></p>
+
+        <p>If you have a website, a logo, or another deck you like the look of, describe it. "Match the look of Monzo's marketing" or "clean, lots of white space, like an Apple product page" gives Claude a much clearer target.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="the-bigger-picture">The bigger picture</h2>
+
+        <p>Claude Design is part of a pattern you are going to see a lot of in 2026. AI companies are moving beyond pure text chatbots into full production tools. ChatGPT now generates interactive lessons and shopping comparisons. Gemini does deep research and video generation. Claude now does design.</p>
+
+        <p>The practical takeaway for you? A small business in 2026 can produce decks, websites, social posts, and marketing materials at the quality level that used to require a team of three or four people. You just need to know how to drive the tools.</p>
+
+        <h2 class="text-2xl font-bold pt-6" id="the-honest-verdict">The honest verdict</h2>
+
+        <p>Is it perfect? No. Is it the single biggest productivity boost a small business can get this year? Quite possibly. If you run any kind of business that produces written materials, pitch decks, or one-pagers, I would genuinely recommend spending an afternoon with Claude Design this week.</p>
+
+        <p>If you want to get more out of Claude, ChatGPT, and Gemini generally, <a href="/course" class="text-violet-600 font-medium hover:text-violet-800 transition-colors">our online course</a> walks through all three of them step by step. And our <a href="/prompts?unlock=1" class="text-violet-600 font-medium hover:text-violet-800 transition-colors">prompt library</a> includes ready-to-use prompts for slides, one-pagers, and landing pages that work across all three tools.</p>
+
+        <p>If you have tried Claude Design already and have thoughts, I would genuinely love to hear them. <a href="/#contact" class="text-violet-600 font-medium hover:text-violet-800 transition-colors">Get in touch</a> and let me know what you have built with it.</p>
+
+      </div>
+
+      <!-- Prev/Next navigation -->
+      <nav class="mt-12 pt-10 border-t border-gray-100" aria-label="Article navigation">
+        <div class="post-nav">
+          <a href="/blog/ai-deepfake-scams-warning" class="prev">
+            <img src="/images/blog/thumbs/ai-deepfake-scams.jpg" alt="" class="thumb">
+            <span class="text">
+              <span class="label">&larr; Previous</span>
+              <span class="title">AI deepfake scams in 2026: how to spot one before it gets you</span>
+            </span>
+          </a>
+          <a href="/blog/what-is-claude" class="next">
+            <img src="/images/blog/thumbs/what-is-claude.jpg" alt="" class="thumb">
+            <span class="text">
+              <span class="label">Next &rarr;</span>
+              <span class="title">What is Claude? A plain English tour of Claude, Cowork, Design, and Code</span>
+            </span>
+          </a>
+        </div>
+      </nav>
+
+      <!-- Related articles -->
+      <div class="mt-10 pt-8 border-t border-gray-100">
+        <h3 class="text-lg font-bold mb-6">You might also like</h3>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <a href="/blog/chatgpt-vs-claude-vs-gemini" class="related-card group">
+            <img src="/images/blog/thumbs/chatgpt-vs-claude.jpg" alt="" class="thumb">
+            <span class="text" style="display:flex; flex-direction:column;">
+              <span class="text-xs text-violet-600 font-medium">Tools</span>
+              <span class="font-bold text-sm text-gray-900 group-hover:text-violet-600 transition-colors mt-0.5">ChatGPT vs Claude vs Gemini: which one should you actually use?</span>
+            </span>
+          </a>
+          <a href="/blog/ai-image-generation-business" class="related-card group">
+            <img src="/images/blog/thumbs/ai-image-generation.jpg" alt="" class="thumb">
+            <span class="text" style="display:flex; flex-direction:column;">
+              <span class="text-xs text-violet-600 font-medium">Tools</span>
+              <span class="font-bold text-sm text-gray-900 group-hover:text-violet-600 transition-colors mt-0.5">AI image generation for your business</span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- CTA Banner -->
+  <section class="py-16 section-purple">
+    <div class="max-w-2xl mx-auto px-6 text-center">
+      <h2 class="text-2xl font-extrabold mb-3">Want to learn AI properly?</h2>
+      <p class="text-gray-500 mb-6">Our online course covers everything from your first prompt to advanced techniques, with practical exercises designed for real-world tasks.</p>
+      <a href="/#online-ai-course" class="inline-flex gradient-btn text-white text-sm font-semibold px-8 py-3.5 rounded-xl">View the course</a>
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 text-gray-400 py-10">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p class="text-sm">&copy; 2026 Smash Your AI. All rights reserved.</p>
+      <div class="flex gap-6 text-sm">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <a href="/blog" class="hover:text-white transition-colors">Blog</a>
+        <a href="/privacy" class="hover:text-white transition-colors">Privacy policy</a>
+      </div>
+    </div>
+  </footer>
+
+<script src="/shared-nav.js"></script>
+</body>
+</html>

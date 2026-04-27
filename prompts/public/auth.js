@@ -1,6 +1,20 @@
 // Auth state
 let currentUser = null;
 
+async function mergeLocalCourseProgress() {
+  try {
+    const raw = localStorage.getItem('courseProgress');
+    if (!raw) return;
+    const keys = JSON.parse(raw);
+    if (!Array.isArray(keys) || keys.length === 0) return;
+    await fetch('/api/course/progress/merge', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ lessonKeys: keys })
+    });
+  } catch (e) {}
+}
+
 async function checkAuth() {
   try {
     const res = await fetch('/prompts/auth/me');
@@ -41,6 +55,12 @@ function closeAuthModal() {
   // Hide forgot password success if showing
   const forgotSuccess = document.getElementById('forgot-success');
   if (forgotSuccess) forgotSuccess.classList.add('hidden');
+  // If user arrived here from a ?next= param but didn't log in, bounce them back.
+  if (window._authNextUrl && !currentUser) {
+    const next = window._authNextUrl;
+    window._authNextUrl = null;
+    window.location.href = next;
+  }
 }
 
 function showLogin() {
@@ -101,15 +121,22 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
 
     currentUser = data.user;
     updateAuthUI();
-    closeAuthModal();
+    await mergeLocalCourseProgress();
     form.reset();
     // Refresh content to unlock items
     if (typeof loadContent === 'function') loadContent();
 
-    // If there was a pending checkout, start it
+    // Priority: pending checkout > next URL > stay and close modal
     if (window._pendingCheckout) {
       window._pendingCheckout = false;
+      closeAuthModal();
       startCheckout();
+    } else if (window._authNextUrl) {
+      const next = window._authNextUrl;
+      window._authNextUrl = null;
+      window.location.href = next;
+    } else {
+      closeAuthModal();
     }
   } catch (err) {
     errorEl.textContent = 'Something went wrong. Please try again.';
@@ -141,14 +168,20 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
 
     currentUser = data.user;
     updateAuthUI();
-    closeAuthModal();
+    await mergeLocalCourseProgress();
     form.reset();
     if (typeof loadContent === 'function') loadContent();
 
-    // If there was a pending checkout, start it
     if (window._pendingCheckout) {
       window._pendingCheckout = false;
+      closeAuthModal();
       startCheckout();
+    } else if (window._authNextUrl) {
+      const next = window._authNextUrl;
+      window._authNextUrl = null;
+      window.location.href = next;
+    } else {
+      closeAuthModal();
     }
   } catch (err) {
     errorEl.textContent = 'Something went wrong. Please try again.';
@@ -248,13 +281,19 @@ async function startCheckout() {
   }
 }
 
-// Handle query params on page load (?login=1, ?unlock=1)
+// Handle query params on page load (?login=1, ?unlock=1, ?next=/somewhere)
 document.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(window.location.search);
 
+  // Capture ?next= so login success / modal dismiss can return there.
+  // Only accept same-origin relative paths to prevent open-redirect abuse.
+  const rawNext = params.get('next');
+  if (rawNext && rawNext.startsWith('/') && !rawNext.startsWith('//')) {
+    window._authNextUrl = rawNext;
+  }
+
   if (params.get('login') === '1') {
     showAuthModal();
-    // Clean URL
     window.history.replaceState({}, '', window.location.pathname);
   }
 

@@ -63,12 +63,15 @@
         `;
       }
     } else {
+      // Return user to where they were if they cancel or finish login
+      const returnPath = window.location.pathname.startsWith('/prompts') ? '' : window.location.pathname + window.location.search;
+      const loginHref = returnPath ? '/prompts?login=1&next=' + encodeURIComponent(returnPath) : '/prompts?login=1';
       authArea.innerHTML = `
-        <a href="/prompts?login=1" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Log in</a>
+        <a href="${loginHref}" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Log in</a>
       `;
       if (mobileAuthArea) {
         mobileAuthArea.innerHTML = `
-          <a href="/prompts?login=1" class="block text-sm font-medium text-violet-600 py-2">Log in / Create account</a>
+          <a href="${loginHref}" class="block text-sm font-medium text-violet-600 py-2">Log in / Create account</a>
         `;
       }
     }

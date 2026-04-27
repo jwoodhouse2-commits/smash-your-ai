@@ -5,9 +5,8 @@ function createWebhookHandler(db) {
     const sig = req.headers['stripe-signature'];
     const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
 
-    // If no webhook secret configured yet (pre-deploy), skip verification
     if (!endpointSecret) {
-      console.warn('STRIPE_WEBHOOK_SECRET not set — webhook signature verification skipped');
+      console.warn('STRIPE_WEBHOOK_SECRET not set. Webhook signature verification skipped.');
       return res.status(400).json({ error: 'Webhook secret not configured.' });
     }
 
@@ -21,17 +20,34 @@ function createWebhookHandler(db) {
 
     if (event.type === 'checkout.session.completed') {
       const session = event.data.object;
-      const userId = session.client_reference_id;
+      const userIdRaw = session.client_reference_id;
+      const productSlug = (session.metadata && session.metadata.product_slug) || 'bundle';
 
-      if (userId && session.payment_status === 'paid') {
+      if (userIdRaw && session.payment_status === 'paid') {
+        const userId = parseInt(userIdRaw, 10);
+        // A combo grants multiple underlying entitlements. Easy to extend later.
+        const slugsToGrant = productSlug === 'course-plus-bundle'
+          ? ['course-plus-bundle', 'course', 'bundle']
+          : [productSlug];
         try {
-          db.prepare(
-            'UPDATE users SET has_paid = 1, stripe_customer_id = ?, stripe_session_id = ?, updated_at = datetime(\'now\') WHERE id = ?'
-          ).run(session.customer, session.id, parseInt(userId, 10));
+          const insert = db.prepare(`
+            INSERT OR IGNORE INTO user_entitlements (user_id, product_slug, stripe_session_id)
+            VALUES (?, ?, ?)
+          `);
+          for (const slug of slugsToGrant) {
+            insert.run(userId, slug, session.id);
+          }
 
-          console.log(`Payment confirmed for user ${userId} (session ${session.id})`);
+          // Keep the legacy has_paid flag in sync for any purchase that includes the bundle.
+          if (slugsToGrant.includes('bundle')) {
+            db.prepare(
+              "UPDATE users SET has_paid = 1, stripe_customer_id = ?, stripe_session_id = ?, updated_at = datetime('now') WHERE id = ?"
+            ).run(session.customer, session.id, userId);
+          }
+
+          console.log(`Entitlements granted: user ${userId} → ${slugsToGrant.join(', ')} (session ${session.id})`);
         } catch (err) {
-          console.error('Failed to update user after payment:', err);
+          console.error('Failed to write entitlement after payment:', err);
         }
       }
     }
