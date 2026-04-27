@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GMMV8EBM39"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GMMV8EBM39');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Smash Your AI Course: Beginner to Claude Code</title>
+  <meta name="description" content="A step-by-step online AI course for individuals and small businesses. Three tiers: beginner AI fundamentals, intermediate prompting and custom GPTs, and advanced Claude Code and agentic workflows.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://smashyourai.com/course">
+  <meta property="og:title" content="The Smash Your AI Course: Beginner to Claude Code">
+  <meta property="og:description" content="A clear, step-by-step online AI course. Free preview, one-off payment, lifetime access.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://smashyourai.com/course">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: { extend: { fontFamily: { sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'] } } }
+    }
+  </script>
+  <style>
+    * { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+    .gradient-text { background: linear-gradient(135deg, #8b5cf6, #6366f1, #4f46e5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .gradient-btn { background: linear-gradient(135deg, #8b5cf6, #6366f1); transition: all 0.2s ease; }
+    .gradient-btn:hover { background: linear-gradient(135deg, #7c3aed, #4f46e5); transform: translateY(-1px); box-shadow: 0 10px 25px -5px rgba(99,102,241,0.4); }
+    .hero-gradient { background: radial-gradient(ellipse at top right, rgba(139,92,246,0.08), transparent 50%), radial-gradient(ellipse at bottom left, rgba(99,102,241,0.06), transparent 50%); }
+    .card-hover { transition: all 0.3s ease; }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -12px rgba(99,102,241,0.15); }
+
+    /* Model-comparison sandbox (dark theme) */
+    .model-sandbox { margin: 0 auto; padding: 1.6rem 1.7rem 1.75rem; border-radius: 22px;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      border: 1px solid #334155; color: #e2e8f0; max-width: 56rem;
+      box-shadow: 0 30px 60px -20px rgba(15,23,42,0.45); }
+    .model-sandbox.ms-compact { padding: 1.2rem 1.3rem; }
+    .ms-headline { display: flex; align-items: center; gap: .75rem; margin-bottom: .9rem; flex-wrap: wrap; }
+    .ms-badge { display: inline-block; font-size: .68rem; font-weight: 800; letter-spacing: .08em;
+      text-transform: uppercase; color: #c4b5fd; background: rgba(139,92,246,.18);
+      padding: .24rem .6rem; border-radius: 999px; border: 1px solid rgba(139,92,246,.35); }
+    .ms-title { font-size: 1.25rem; font-weight: 800; color: #f8fafc; margin: 0; letter-spacing: -0.01em; line-height: 1.25; }
+    .ms-picker { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; margin-bottom: .85rem; }
+    .ms-picker-label { font-size: .78rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+    .ms-picker-chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .ms-chip { display: inline-flex; align-items: center; gap: .5rem; padding: .45rem .75rem;
+      background: rgba(255,255,255,0.04); border: 1px solid #334155; border-radius: 999px;
+      cursor: pointer; transition: all .15s; font-size: .82rem; color: #cbd5e1; position: relative; }
+    .ms-chip:hover { background: rgba(255,255,255,0.08); border-color: #475569; }
+    .ms-chip.selected { background: rgba(139,92,246,.18); border-color: #8b5cf6; color: #f8fafc; }
+    .ms-chip-input { position: absolute; opacity: 0; pointer-events: none; }
+    .ms-chip-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; }
+    .ms-chip-label { font-weight: 600; }
+    .ms-chip-speed { font-size: .7rem; color: #94a3b8; background: rgba(255,255,255,0.06); padding: .1rem .4rem; border-radius: 4px; }
+    .ms-textarea { width: 100%; min-height: 80px; padding: .85rem 1rem; border-radius: 12px;
+      border: 1.5px solid #334155; font-family: inherit; font-size: .95rem; line-height: 1.5;
+      background: rgba(255,255,255,0.04); color: #f1f5f9; resize: vertical; transition: border-color .15s, box-shadow .15s; box-sizing: border-box; }
+    .ms-textarea::placeholder { color: #64748b; }
+    .ms-textarea:focus { outline: none; border-color: #8b5cf6; box-shadow: 0 0 0 3px rgba(139,92,246,0.2); }
+    .ms-actions { display: flex; align-items: center; gap: 1rem; margin-top: .85rem; flex-wrap: wrap; }
+    .ms-run { padding: .72rem 1.4rem; font-size: .95rem; font-weight: 700; color: #fff;
+      background: linear-gradient(135deg,#8b5cf6,#6366f1); border: none; border-radius: 10px;
+      cursor: pointer; font-family: inherit; transition: transform .15s, box-shadow .15s, opacity .15s; }
+    .ms-run:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 10px 25px -5px rgba(99,102,241,.5); }
+    .ms-run:disabled { opacity: .7; cursor: wait; }
+    .ms-hint { font-size: .78rem; color: #94a3b8; }
+    .ms-error { margin-top: .75rem; padding: .7rem .9rem; background: rgba(239,68,68,.12); border: 1px solid rgba(239,68,68,.35); border-radius: 8px; color: #fecaca; font-size: .88rem; }
+    .ms-grid { display: grid; gap: .85rem; margin-top: 1.1rem; }
+    .ms-grid:empty { margin-top: 0; }
+    .ms-grid-1 { grid-template-columns: 1fr; }
+    .ms-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .ms-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    @media (max-width: 720px) { .ms-grid-2, .ms-grid-3 { grid-template-columns: 1fr; } }
+    .ms-panel { background: rgba(255,255,255,0.04); border: 1px solid #334155; border-radius: 12px;
+      padding: .9rem 1rem 1rem; display: flex; flex-direction: column; min-height: 220px; }
+    .ms-panel[data-state="streaming"] { border-color: #8b5cf6; box-shadow: 0 0 0 2px rgba(139,92,246,.15); }
+    .ms-panel[data-state="done"] { border-color: #10b981; }
+    .ms-panel[data-state="error"] { border-color: #ef4444; }
+    .ms-panel-head { display: flex; align-items: center; justify-content: space-between; gap: .5rem;
+      padding-bottom: .45rem; margin-bottom: .5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .ms-panel-title { display: flex; align-items: center; gap: .5rem; font-size: .92rem; color: #f1f5f9; }
+    .ms-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; }
+    .ms-vendor { font-size: .7rem; color: #94a3b8; text-transform: uppercase; letter-spacing: .06em; font-weight: 700; }
+    .ms-meta { display: flex; justify-content: space-between; gap: .5rem; font-size: .75rem; color: #94a3b8; margin-bottom: .55rem; }
+    .ms-panel[data-state="streaming"] .ms-status::before {
+      content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+      background: #8b5cf6; margin-right: .4rem; animation: msPulse 1s ease-in-out infinite;
+    }
+    @keyframes msPulse { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
+    .ms-body { font-size: .89rem; line-height: 1.55; color: #e2e8f0;
+      word-break: break-word; flex-grow: 1; overflow-y: auto; max-height: 420px; }
+    .ms-body p { margin: 0 0 .65em; }
+    .ms-body p:last-child { margin-bottom: 0; }
+    .ms-body ul, .ms-body ol { margin: 0 0 .65em; padding-left: 1.25em; }
+    .ms-body ul:last-child, .ms-body ol:last-child { margin-bottom: 0; }
+    .ms-body li { margin: .15em 0; }
+    .ms-body strong { font-weight: 700; color: #f8fafc; }
+    .ms-body em { font-style: italic; }
+    .ms-body code { background: rgba(255,255,255,0.1); padding: .08em .35em;
+      border-radius: 4px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: .85em; color: #f8fafc; }
+    .ms-body h3, .ms-body h4, .ms-body h5 { margin: .5em 0 .3em; color: #f8fafc; font-weight: 700; }
+  </style>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+  <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-lg border-b border-gray-100 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5">
+        <img src="/images/logo.png" alt="Smash Your AI" class="h-9 w-auto">
+      </a>
+      <div class="hidden md:flex items-center gap-5">
+        <a href="/" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Home</a>
+        <a href="/#ai-training-services" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">Services</a>
+        <a href="/course" class="text-sm font-medium text-violet-600 transition-colors">Online course</a>
+        <a href="/#about-us" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors">About us</a>
+        <a href="/#contact" class="gradient-btn text-white text-sm font-semibold px-5 py-2.5 rounded-xl">Get in touch</a>
+        <div id="shared-auth-area"></div>
+      </div>
+      <button class="md:hidden p-2 rounded-lg hover:bg-gray-100" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3">
+      <a href="/" class="block text-sm font-medium text-gray-600 py-2">Home</a>
+      <a href="/#ai-training-services" class="block text-sm font-medium text-gray-600 py-2">Services</a>
+      <a href="/course" class="block text-sm font-medium text-violet-600 py-2">Online course</a>
+      <a href="/#about-us" class="block text-sm font-medium text-gray-600 py-2">About us</a>
+      <a href="/#contact" class="block gradient-btn text-white text-sm font-semibold px-5 py-2.5 rounded-xl text-center">Get in touch</a>
+      <div id="shared-auth-area-mobile"></div>
+    </div>
+  </nav>
+
+  <section class="hero-gradient pt-28 pb-16">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-50 text-violet-700 text-sm font-medium mb-6">
+          <span class="w-2 h-2 bg-violet-500 rounded-full animate-pulse"></span>
+          New: the complete Smash Your AI course
+        </span>
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">Learn AI from <span class="gradient-text">beginner to Claude Code</span>, without the jargon.</h1>
+        <p class="text-lg md:text-xl text-gray-600 leading-relaxed mb-8 max-w-2xl">A clear, step-by-step course for individuals and small businesses. Three tiers, short readable lessons, tick-box progress. Module 1 is free, so you can dive in before you decide.</p>
+        <div id="course-cta-area" class="flex flex-col sm:flex-row gap-4"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-gradient-to-b from-white to-gray-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-8">
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-50 text-violet-700 text-xs font-semibold mb-3">
+          <span class="w-1.5 h-1.5 bg-violet-500 rounded-full animate-pulse"></span>
+          Live in your browser
+        </span>
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-3">See what you'll actually learn. Right now.</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Type any prompt. Watch ChatGPT and Claude answer side by side. This is the tool we use on real lessons to teach you which AI to reach for, and when.</p>
+      </div>
+
+      <div class="model-sandbox"
+           data-headline="Same prompt, two AIs. Which wins?"
+           data-default-prompt="Write a short, warm LinkedIn post (40 words max) announcing a free AI workshop in Newcastle for small business owners."
+           data-models="gpt-4o-mini,claude-haiku">
+      </div>
+
+      <p class="text-xs text-gray-400 text-center mt-4 max-w-xl mx-auto">
+        Free to try, no sign-up needed for the first few runs. Inside the course, you get unlimited comparisons and a dedicated "which tool for which job" module.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-4">Three tiers. One course. One price.</h2>
+      <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12" id="course-stats-line">Start where you are. Finish further than you thought possible.</p>
+      <div class="grid md:grid-cols-3 gap-6" id="tier-cards">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-4">The full outline</h2>
+      <p class="text-gray-600 text-center mb-10 max-w-xl mx-auto">Every module and lesson, laid out. No surprises.</p>
+      <div id="course-outline" class="space-y-8">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-gray-50" id="pricing">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-3xl font-extrabold mb-3 text-center">Pick what suits you</h2>
+      <p class="text-gray-600 text-center mb-10 max-w-xl mx-auto">One-off payments. Lifetime access. No subscription ever.</p>
+
+      <div class="grid md:grid-cols-3 gap-5" id="pricing-grid">
+        <!-- Bundle only -->
+        <div class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col">
+          <p class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Tools</p>
+          <h3 class="text-xl font-bold mb-1">AI Starter Bundle</h3>
+          <p class="text-3xl font-extrabold mb-4">£14.99</p>
+          <ul class="text-sm text-gray-600 space-y-2 mb-6 flex-1">
+            <li class="flex gap-2"><span class="text-violet-500">✓</span>168 expert prompts</li>
+            <li class="flex gap-2"><span class="text-violet-500">✓</span>2 workbooks (AI in a Day, Advanced)</li>
+            <li class="flex gap-2"><span class="text-violet-500">✓</span>6 content calendars</li>
+            <li class="flex gap-2"><span class="text-violet-500">✓</span>Week 1 action plan</li>
+          </ul>
+          <button onclick="startCheckoutFor('bundle')" class="w-full border-2 border-gray-200 hover:border-violet-300 text-gray-900 font-semibold py-2.5 rounded-xl text-sm">Get the bundle</button>
+        </div>
+
+        <!-- Course only -->
+        <div class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col">
+          <p class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Learn</p>
+          <h3 class="text-xl font-bold mb-1">The Course</h3>
+          <p class="text-3xl font-extrabold mb-4">£49</p>
+          <ul class="text-sm text-gray-600 space-y-2 mb-6 flex-1">
+            <li class="flex gap-2"><span class="text-violet-500">✓</span>All 3 tiers: Beginner to Claude Code</li>
+            <li class="flex gap-2"><span class="text-violet-500">✓</span>~44 short readable lessons</li>
+            <li class="flex gap-2"><span class="text-violet-500">✓</span>Tick-box progress tracking</li>
+            <li class="flex gap-2"><span class="text-violet-500">✓</span>Free updates for life</li>
+          </ul>
+          <button onclick="startCourseCheckout()" class="w-full border-2 border-gray-200 hover:border-violet-300 text-gray-900 font-semibold py-2.5 rounded-xl text-sm">Get the course</button>
+        </div>
+
+        <!-- Combo -->
+        <div class="bg-white border-2 border-violet-500 rounded-2xl p-6 flex flex-col relative shadow-lg">
+          <span class="absolute -top-3 left-6 gradient-btn text-white text-xs font-bold px-3 py-1 rounded-full">Best value</span>
+          <p class="text-xs font-bold uppercase tracking-wider text-violet-600 mb-2">Everything</p>
+          <h3 class="text-xl font-bold mb-1">Course + Bundle</h3>
+          <div class="mb-4 flex items-baseline gap-2">
+            <p class="text-3xl font-extrabold">£59.99</p>
+            <p class="text-sm text-gray-400 line-through">£63.98</p>
+          </div>
+          <ul class="text-sm text-gray-600 space-y-2 mb-6 flex-1">
+            <li class="flex gap-2"><span class="text-violet-500">✓</span>Everything in the bundle</li>
+            <li class="flex gap-2"><span class="text-violet-500">✓</span>Everything in the course</li>
+            <li class="flex gap-2"><span class="text-violet-500">✓</span>Save about £5 vs separately</li>
+            <li class="flex gap-2"><span class="text-violet-500">✓</span>One login, one dashboard</li>
+          </ul>
+          <button onclick="startCheckoutFor('course-plus-bundle')" class="w-full gradient-btn text-white font-semibold py-2.5 rounded-xl text-sm">Get everything</button>
+        </div>
+      </div>
+
+      <p class="text-sm text-gray-500 mt-8 text-center">Digital products are non-refundable. Module 1 of the Beginner tier is free, so you can try the course before you buy. <button onclick="openBundleModal()" class="text-violet-600 underline hover:text-violet-800">See what's in the bundle</button>.</p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-3xl font-extrabold mb-8 text-center">Common questions</h2>
+      <div class="space-y-4">
+        <details class="border border-gray-200 rounded-xl p-5">
+          <summary class="font-semibold cursor-pointer">Do I need any experience with AI to start?</summary>
+          <p class="text-gray-600 mt-3 text-sm">No. The Beginner tier assumes zero knowledge. If you've opened ChatGPT once and felt lost, you're exactly who we made this for.</p>
+        </details>
+        <details class="border border-gray-200 rounded-xl p-5">
+          <summary class="font-semibold cursor-pointer">Is this different from the £14.99 AI Starter Bundle?</summary>
+          <p class="text-gray-600 mt-3 text-sm">Yes. The Starter Bundle gives you prompts, workbooks and calendars. Tools you use. The course teaches you the <em>why</em> and the <em>how</em>, so you can build your own. They complement each other nicely.</p>
+        </details>
+        <details class="border border-gray-200 rounded-xl p-5">
+          <summary class="font-semibold cursor-pointer">What if I only want the beginner tier?</summary>
+          <p class="text-gray-600 mt-3 text-sm">The whole course is one price. You'll naturally grow into the later tiers at your own pace. Module 1 of the Beginner tier is free, so you can try before you buy.</p>
+        </details>
+        <details class="border border-gray-200 rounded-xl p-5">
+          <summary class="font-semibold cursor-pointer">Can I get a refund?</summary>
+          <p class="text-gray-600 mt-3 text-sm">Digital products are non-refundable under UK Consumer Contracts Regulations 2013, so we don't offer refunds. That's why Module 1 is free. Use it to decide.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-10 border-t border-gray-100">
+    <div class="max-w-6xl mx-auto px-6 text-center text-sm text-gray-500">
+      <p>© <span id="year"></span> Smash Your AI. <a href="/privacy" class="hover:text-violet-600">Privacy</a> · <a href="/terms" class="hover:text-violet-600">Terms</a></p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="/shared-nav.js"></script>
+  <script src="/bundle-modal.js"></script>
+  <script src="/model-sandbox.js"></script>
+  <script>
+    async function startCheckoutFor(productSlug) {
+      try {
+        const me = await fetch('/prompts/auth/me').then(r => r.json());
+        if (!me.user) {
+          const next = encodeURIComponent(window.location.pathname + window.location.search);
+          window.location.href = '/prompts?login=1&next=' + next;
+          return;
+        }
+        const res = await fetch('/prompts/checkout/create-session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ product: productSlug })
+        });
+        const data = await res.json();
+        if (data.url) window.location.href = data.url;
+        else if (data.redirect) window.location.href = data.redirect;
+        else if (data.error) alert(data.error);
+      } catch (err) {
+        alert('Something went wrong. Please try again.');
+      }
+    }
+    function startCourseCheckout() { return startCheckoutFor('course'); }
+
+    // Render the hero CTA based on auth + entitlement state.
+    async function renderCourseCta() {
+      const area = document.getElementById('course-cta-area');
+      const bottomBuy = document.getElementById('course-buy-area-bottom');
+      let status;
+      try {
+        status = await fetch('/api/course/status').then(r => r.json());
+      } catch (e) { status = { loggedIn: false, hasEntitlement: false }; }
+
+      if (status.hasEntitlement) {
+        const lessonPath = status.nextLessonKey ? '/course/' + status.nextLessonKey : '/course/beginner';
+        const progress = status.completedCount > 0
+          ? `${status.completedCount} of ${status.totalLessons} lessons done. Pick up where you left off.`
+          : 'Your course is ready. Start with lesson 1.';
+        area.innerHTML = `
+          <a href="${lessonPath}" class="gradient-btn text-white font-semibold px-6 py-3 rounded-xl inline-flex items-center justify-center gap-2">
+            Continue the course
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+          <a href="/dashboard" class="border-2 border-gray-200 hover:border-violet-300 text-gray-900 font-semibold px-6 py-3 rounded-xl inline-flex items-center justify-center">
+            Go to dashboard
+          </a>`;
+        const hint = document.createElement('p');
+        hint.className = 'mt-3 text-sm text-gray-500';
+        hint.textContent = progress;
+        area.parentElement.appendChild(hint);
+
+        // Hide the pricing section since they already own it.
+        const pricing = document.getElementById('pricing');
+        if (pricing) pricing.style.display = 'none';
+      } else {
+        area.innerHTML = `
+          <a href="/course/beginner/what-is-ai/welcome" class="gradient-btn text-white font-semibold px-6 py-3 rounded-xl inline-flex items-center justify-center gap-2">
+            Start free preview
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+          <button onclick="startCourseCheckout()" class="border-2 border-gray-200 hover:border-violet-300 text-gray-900 font-semibold px-6 py-3 rounded-xl inline-flex items-center justify-center">
+            Buy the full course, £49
+          </button>`;
+      }
+    }
+
+    renderCourseCta();
+
+    // Render the tier-cards row and the full module outline from the server's in-memory data.
+    async function renderCourseOutline() {
+      let data;
+      try {
+        data = await fetch('/api/course/outline').then(r => r.json());
+      } catch (e) { return; }
+      if (!data || !data.tiers) return;
+
+      // Stats line
+      const statsLine = document.getElementById('course-stats-line');
+      if (statsLine && data.totals) {
+        statsLine.textContent = `${data.totals.lessons} lessons across ${data.tiers.reduce((s, t) => s + t.modules.length, 0)} modules. About ${Math.round(data.totals.minutes / 60)} hours of reading and hands-on time.`;
+      }
+
+      // Tier cards (top row)
+      const tierCards = document.getElementById('tier-cards');
+      if (tierCards) {
+        tierCards.innerHTML = data.tiers.map((tier, idx) => {
+          const firstFreeModule = tier.modules.find(m => m.isFreeModule);
+          const badge = firstFreeModule
+            ? `<span class="inline-block text-xs font-semibold text-emerald-700 bg-emerald-50 px-2 py-1 rounded">Module ${firstFreeModule.globalNumber} free</span>`
+            : `<span class="inline-block text-xs font-semibold text-gray-600 bg-gray-100 px-2 py-1 rounded">🔐 Included with purchase</span>`;
+          const eaBadge = tier.earlyAccess
+            ? `<span class="inline-block text-xs font-semibold text-violet-700 bg-violet-50 px-2 py-1 rounded ml-1">🚧 Early access</span>`
+            : '';
+          return `<a href="/course/${tier.slug}" class="card-hover block bg-white border border-gray-200 rounded-2xl p-6">
+            <div class="w-10 h-10 rounded-xl bg-violet-100 text-violet-600 font-bold flex items-center justify-center mb-4">${idx + 1}</div>
+            <h3 class="text-xl font-bold mb-2">${escapeHtml(tier.title.split(':')[0] || tier.title)}</h3>
+            <p class="text-sm text-gray-500 mb-4">${escapeHtml(tier.blurb)}</p>
+            <p class="text-xs text-gray-400 mb-3">${tier.totalLessons} lessons · ${tier.totalMinutes} min</p>
+            ${badge}${eaBadge}
+          </a>`;
+        }).join('');
+      }
+
+      // Full outline (module-by-module). Every module header and every lesson row
+      // deep-links into the course so users can jump straight to the content.
+      const outline = document.getElementById('course-outline');
+      if (outline) {
+        outline.innerHTML = data.tiers.map(tier => {
+          const tierTotalMin = tier.totalMinutes;
+          const tierTotalLessons = tier.totalLessons;
+          return `
+            <section>
+              <header class="mb-4">
+                <a href="/course/${tier.slug}" class="inline-flex items-center gap-2 group">
+                  <h3 class="text-xl font-bold text-gray-900 mb-1 group-hover:text-violet-700 transition-colors">${escapeHtml(tier.title)}</h3>
+                  <svg class="w-4 h-4 text-gray-300 group-hover:text-violet-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </a>
+                <p class="text-sm text-gray-500">${tierTotalLessons} lessons · ${tierTotalMin} min</p>
+              </header>
+              <div class="space-y-3">
+                ${tier.modules.map(mod => {
+                  const firstLesson = mod.lessons[0];
+                  const moduleHref = firstLesson ? `/course/${tier.slug}/${mod.slug}/${firstLesson.slug}` : `/course/${tier.slug}`;
+                  return `
+                  <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden">
+                    <a href="${moduleHref}" class="group block">
+                      <header class="px-5 py-3.5 bg-gray-50 border-b border-gray-200 flex items-center justify-between gap-3 group-hover:bg-violet-50 transition-colors">
+                        <div class="flex items-center gap-3 min-w-0">
+                          <span class="w-8 h-8 rounded-full bg-violet-100 text-violet-700 text-sm font-bold flex items-center justify-center flex-shrink-0 group-hover:bg-violet-200">${mod.globalNumber}</span>
+                          <div class="min-w-0">
+                            <p class="font-bold text-gray-900 truncate group-hover:text-violet-700">${escapeHtml(mod.title)}</p>
+                            <p class="text-xs text-gray-500">${mod.lessonCount} lesson${mod.lessonCount === 1 ? '' : 's'} · ${mod.minutes} min</p>
+                          </div>
+                        </div>
+                        <div class="flex items-center gap-3 flex-shrink-0">
+                          ${mod.isFreeModule
+                            ? `<span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2 py-1 rounded">Free</span>`
+                            : `<span class="text-xs font-semibold text-gray-600 bg-gray-100 px-2 py-1 rounded">🔐 Paid</span>`
+                          }
+                          <svg class="w-4 h-4 text-gray-300 group-hover:text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </div>
+                      </header>
+                    </a>
+                    <ol class="divide-y divide-gray-100">
+                      ${mod.lessons.map(lesson => `
+                        <li>
+                          <a href="/course/${tier.slug}/${mod.slug}/${lesson.slug}" class="px-5 py-2.5 flex items-center gap-3 text-sm group hover:bg-violet-50 transition-colors">
+                            <span class="text-xs font-semibold text-violet-600 w-10 flex-shrink-0">${String(lesson.globalNumber).padStart(2, '0')}</span>
+                            <span class="flex-1 min-w-0 text-gray-800 group-hover:text-violet-700">${escapeHtml(lesson.title)}</span>
+                            ${lesson.duration ? `<span class="text-xs text-gray-400 flex-shrink-0">${lesson.duration} min</span>` : ''}
+                            <svg class="w-3.5 h-3.5 text-gray-300 group-hover:text-violet-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                          </a>
+                        </li>
+                      `).join('')}
+                    </ol>
+                  </div>`;
+                }).join('')}
+              </div>
+            </section>`;
+        }).join('');
+      }
+    }
+
+    function escapeHtml(s) {
+      return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    }
+
+    renderCourseOutline();
+  </script>
+</body>
+</html>

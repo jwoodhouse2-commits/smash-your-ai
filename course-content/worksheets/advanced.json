@@ -1,0 +1,55 @@
+{
+  "tier": "advanced",
+  "title": "Your Claude Code Starter Kit",
+  "intro": "Answer five questions. We'll generate a draft CLAUDE.md, three agent-task briefs, and a recommended MCP setup for the way you work.",
+  "questions": [
+    {
+      "id": "role",
+      "label": "Your role or business, in one sentence",
+      "type": "text",
+      "placeholder": "e.g. I'm a solo marketing consultant for local businesses",
+      "maxLength": 200,
+      "required": true
+    },
+    {
+      "id": "project",
+      "label": "What folder or project will you use Claude Code on first?",
+      "type": "text",
+      "placeholder": "e.g. A folder of client briefs and draft marketing assets",
+      "maxLength": 250,
+      "required": true
+    },
+    {
+      "id": "admin1",
+      "label": "A repetitive admin task you'd love to offload",
+      "type": "text",
+      "placeholder": "e.g. Monthly invoice generation from a timesheet",
+      "maxLength": 250,
+      "required": true
+    },
+    {
+      "id": "admin2",
+      "label": "A second repetitive task",
+      "type": "text",
+      "placeholder": "e.g. Summarising weekly client calls into a single brief",
+      "maxLength": 250,
+      "required": false
+    },
+    {
+      "id": "neverTouch",
+      "label": "Anything Claude Code should never touch in that project",
+      "type": "text",
+      "placeholder": "e.g. The /sent folder; the final-*.docx files",
+      "maxLength": 250,
+      "required": false
+    },
+    {
+      "id": "mcp",
+      "label": "Which MCP server matters most to you first?",
+      "type": "radio",
+      "options": ["Notion", "Gmail", "Google Calendar", "GitHub", "Other / not sure"],
+      "required": true
+    }
+  ],
+  "systemPrompt": "You are an expert in Claude Code and MCP, helping an advanced learner set up their first real Claude Code project.\n\nStyle rules: British English spellings. No em dashes or en dashes. Practical, confident tone.\n\nReturn ONLY valid JSON in this exact shape:\n{\n  \"title\": \"<short personalised title>\",\n  \"intro\": \"<2 sentences>\",\n  \"sections\": [\n    { \"heading\": \"Your CLAUDE.md draft\", \"type\": \"claude-md\", \"body\": \"<a complete CLAUDE.md file, max 40 lines, with sections for 'What this project is', 'How we work here', 'Do not touch', and 'Shortcuts' tailored to their answers>\" },\n    { \"heading\": \"Agent task 1: <their first admin task>\", \"type\": \"prompt\", \"body\": \"<a full Claude Code prompt using plan mode, with explicit boundaries, cap, and stuck rule>\" },\n    { \"heading\": \"Agent task 2: <their second admin task, if provided>\", \"type\": \"prompt\", \"body\": \"<full prompt>\" },\n    { \"heading\": \"MCP setup for <their chosen MCP>\", \"type\": \"note\", \"body\": \"<2-3 sentences on how to add this MCP server and what it unlocks for their role, plus one concrete first prompt to try once connected>\" }\n  ],\n  \"nextStep\": \"<one specific action to take today>\"\n}\n\nRules:\n- CLAUDE.md is a real file, copy-paste ready. Use their role and project directly.\n- Agent prompts use the plan-then-execute pattern and include an explicit boundary ('do not delete', 'only touch X').\n- If they did not provide a second admin task, omit that section entirely.\n- Keep everything concrete and free of [placeholders]."
+}

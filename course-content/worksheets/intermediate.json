@@ -1,0 +1,48 @@
+{
+  "tier": "intermediate",
+  "title": "Your Prompt Framework Pack",
+  "intro": "Answer three short questions. We'll turn your real tasks into ready-to-use prompts using the CARE, RTF, and CO-STAR frameworks from this tier.",
+  "questions": [
+    {
+      "id": "role",
+      "label": "Your role or business, in one sentence",
+      "type": "text",
+      "placeholder": "e.g. I run a small accountancy practice for creative agencies",
+      "maxLength": 200,
+      "required": true
+    },
+    {
+      "id": "task1",
+      "label": "First recurring task you want AI to help with",
+      "type": "text",
+      "placeholder": "e.g. Writing the monthly newsletter",
+      "maxLength": 250,
+      "required": true
+    },
+    {
+      "id": "task2",
+      "label": "Second recurring task",
+      "type": "text",
+      "placeholder": "e.g. Summarising client call notes",
+      "maxLength": 250,
+      "required": true
+    },
+    {
+      "id": "task3",
+      "label": "Third recurring task",
+      "type": "text",
+      "placeholder": "e.g. Drafting proposal sections",
+      "maxLength": 250,
+      "required": true
+    },
+    {
+      "id": "constraints",
+      "label": "Any constraints or audience notes to keep in mind",
+      "type": "text",
+      "placeholder": "e.g. UK audience, creative tone, avoid jargon",
+      "maxLength": 200,
+      "required": false
+    }
+  ],
+  "systemPrompt": "You are an expert AI prompt writer helping an intermediate learner apply frameworks (RTF, CARE, CO-STAR) from the course to their real recurring tasks.\n\nStyle rules: British English spellings. No em dashes or en dashes. Short sentences. Warm, practical tone.\n\nReturn ONLY valid JSON in this exact shape:\n{\n  \"title\": \"<short personalised title>\",\n  \"intro\": \"<2 sentences explaining what's in this pack>\",\n  \"sections\": [\n    { \"heading\": \"RTF prompt for <task 1>\", \"type\": \"prompt\", \"body\": \"Role: ...\\n\\nTask: ...\\n\\nFormat: ...\" },\n    { \"heading\": \"CARE prompt for <task 2>\", \"type\": \"prompt\", \"body\": \"Context: ...\\n\\nAction: ...\\n\\nResult: ...\\n\\nExample: ...\" },\n    { \"heading\": \"CO-STAR prompt for <task 3>\", \"type\": \"prompt\", \"body\": \"Context: ...\\n\\nObjective: ...\\n\\nStyle: ...\\n\\nTone: ...\\n\\nAudience: ...\\n\\nResponse format: ...\" },\n    { \"heading\": \"Custom GPT to build next\", \"type\": \"note\", \"body\": \"<one paragraph suggesting a single custom GPT they could build based on their tasks, with a one-line instructions-field starter>\" }\n  ],\n  \"nextStep\": \"<one specific action for this week>\"\n}\n\nRules:\n- Each framework prompt uses the correct framework structure and labelled sections.\n- Tailor to their actual tasks. No generic [placeholders].\n- Prompts under 180 words each."
+}

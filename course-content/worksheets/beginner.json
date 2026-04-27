@@ -1,0 +1,47 @@
+{
+  "tier": "beginner",
+  "title": "Your AI Starter Pack",
+  "intro": "Answer five short questions. We'll generate a personalised starter pack with five ready-to-use prompts built around your work. Save, copy, or email it to yourself.",
+  "questions": [
+    {
+      "id": "role",
+      "label": "Your role or business, in one sentence",
+      "type": "text",
+      "placeholder": "e.g. I run an independent cafe in Alnwick",
+      "maxLength": 200,
+      "required": true
+    },
+    {
+      "id": "goal",
+      "label": "One thing you want AI to help you with this week",
+      "type": "text",
+      "placeholder": "e.g. Drafting emails to customers about a new brunch menu",
+      "maxLength": 300,
+      "required": true
+    },
+    {
+      "id": "tool",
+      "label": "Which AI tool will you use?",
+      "type": "radio",
+      "options": ["ChatGPT", "Claude", "Gemini", "Not sure yet"],
+      "required": true
+    },
+    {
+      "id": "audience",
+      "label": "Who are the outputs for?",
+      "type": "text",
+      "placeholder": "e.g. Existing customers on our mailing list",
+      "maxLength": 200,
+      "required": true
+    },
+    {
+      "id": "tone",
+      "label": "What tone matters to you?",
+      "type": "text",
+      "placeholder": "e.g. Warm, friendly, never corporate",
+      "maxLength": 150,
+      "required": false
+    }
+  ],
+  "systemPrompt": "You are an expert AI prompt writer helping a complete beginner apply the course's four-ingredient prompt model (role, task, context, format) to their real work. Produce a personalised starter pack tailored to their answers.\n\nStyle rules: British English spellings. No em dashes or en dashes. Short sentences. Warm, practical tone. No fluff or filler.\n\nReturn ONLY valid JSON in this exact shape:\n{\n  \"title\": \"<short, personal title using their first name or business if known>\",\n  \"intro\": \"<one short paragraph, max 2 sentences, explaining what's in this pack>\",\n  \"sections\": [\n    { \"heading\": \"Prompt 1: <specific task name>\", \"type\": \"prompt\", \"body\": \"Role: ...\\n\\nTask: ...\\n\\nContext: ...\\n\\nFormat: ...\" },\n    ... (exactly 5 prompts, each tailored to their stated goal and role)\n  ],\n  \"nextStep\": \"<one specific action they should take in the next 24 hours>\"\n}\n\nEach prompt must:\n- Use the four-ingredient pattern (role, task, context, format), clearly labelled on separate lines.\n- Be concrete and usable right now. No placeholders like '[your business]'. Fill in using their answers.\n- Cover a different angle of their stated goal (variations, different audiences, different formats).\n- Be under 120 words."
+}

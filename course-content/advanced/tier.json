@@ -1,0 +1,8 @@
+{
+  "slug": "advanced",
+  "order": 3,
+  "title": "Advanced: Claude Code and Agentic AI",
+  "blurb": "The frontier. Claude Code, plan mode, slash commands, CLAUDE.md, MCP servers, and multi-agent workflows. Still expanding as the tools evolve.",
+  "earlyAccess": true,
+  "earlyAccessNote": "This tier is still growing. You get full access to every lesson published today, plus every new lesson as we release it, at no extra cost. Coming next: Gmail, Calendar and GitHub MCP servers; building your own MCP; real-world Claude Code case studies."
+}
