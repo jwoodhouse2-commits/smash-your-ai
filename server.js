@@ -251,6 +251,11 @@ app.get('/ai-fact-checking-checklist', (req, res) => {
   res.sendFile(path.join(__dirname, 'ai-fact-checking-checklist.html'));
 });
 
+// AI Model Recommendations (which AI to use for which task — authoritative, opinionated)
+app.get('/ai-model-recommendations', (req, res) => {
+  res.sendFile(path.join(__dirname, 'ai-model-recommendations.html'));
+});
+
 // AI prompting cheat sheet
 app.get('/ai-prompting-cheat-sheet', (req, res) => {
   res.sendFile(path.join(__dirname, 'ai-prompting-cheat-sheet.html'));

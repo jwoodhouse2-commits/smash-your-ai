@@ -1,0 +1,142 @@
+[
+  {
+    "id": "skill-001",
+    "type": "claude-skill",
+    "title": "Lead Qualifier",
+    "description": "Paste a LinkedIn URL or a few details about a prospect. Claude scores the fit against your ideal customer profile and drafts a tailored outreach angle. Built for solo founders and sales teams who want to stop wasting time on the wrong leads.",
+    "category": "Sales and business",
+    "industryTags": [
+      "Any",
+      "Sales",
+      "Small business",
+      "B2B services",
+      "Consultancy"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "Claude.ai Pro or Claude Code (Skills feature). Free tier of Claude.ai cannot install Skills.",
+    "toolTips": "In Claude.ai, click your profile > Settings > Skills > Create Skill. Paste the SKILL.md content below.",
+    "content": "---\nname: lead-qualifier\ndescription: Score a prospect against an ideal customer profile and draft a tailored first-touch outreach angle.\n---\n\n# Lead Qualifier\n\nYou help the user qualify sales leads against their ideal customer profile (ICP) and draft a first-touch outreach angle.\n\n## How to use this skill\n\nThe user will give you one of:\n- A LinkedIn profile URL or a paste of their About section\n- A company website URL or a description\n- A short paragraph describing the prospect\n\nThey may also share their ICP. If they have not, ask once: \"What does your ideal customer look like? Industry, size, role, pain you solve.\"\n\n## What to do\n\n1. Extract every signal you can about the prospect: industry, size, role, seniority, recent moves, public commentary, tooling references.\n2. Score the fit out of 10 against the ICP. Show your working in 2-4 lines, not a paragraph.\n3. Flag any disqualifiers (wrong region, wrong company size, missing budget signal, recently funded vs not funded, etc.).\n4. Suggest one specific outreach angle. It must reference something concrete from their profile, not generic flattery.\n5. Draft a 50-80 word first-touch message in the user's voice if they have shared examples, otherwise in plain professional British English.\n\n## Constraints\n\n- Be honest. If the fit is 4/10, say 4/10 and explain.\n- Never invent facts about the prospect. If the source is thin, say so.\n- The outreach draft must be specific enough that the prospect could not receive the same message from anyone else.\n- No emoji. No \"hope this finds you well\". No buzzwords.\n- UK English spelling. No em dashes - use a comma or full stop.\n\n## Output format\n\n**Fit score: X/10**\n\n**Why:**\n- [signal 1]\n- [signal 2]\n- [signal 3]\n\n**Disqualifiers:** [none, or list them]\n\n**Outreach angle:** [one sentence]\n\n**First-touch draft:**\n[the message]\n",
+    "howToUse": [
+      "Open Claude.ai and go to Settings > Skills > Create Skill",
+      "Name the skill 'lead-qualifier' (lowercase with hyphens)",
+      "Paste the full SKILL.md content from the prompt below",
+      "Save and start a new chat",
+      "Paste a LinkedIn URL or prospect description and ask: 'qualify this lead against my ICP'"
+    ],
+    "whyItWorks": "Most sales reps either qualify too softly (everyone is a fit) or skip the step entirely and fire generic templates. This skill forces an honest score and demands one concrete angle from the prospect's actual profile, which is the difference between a reply rate of 2% and 15%.",
+    "makeItYourOwn": "Add your own ICP into the skill body so you do not have to retype it every time. Add a tone-of-voice paragraph if your outreach has a strong personality. If you sell to multiple segments, create a copy of the skill per segment (lead-qualifier-saas, lead-qualifier-agencies, etc.) so each one knows its target.",
+    "isFree": true
+  },
+  {
+    "id": "skill-002",
+    "type": "claude-skill",
+    "title": "Weekly Status Report Writer",
+    "description": "Hand Claude your week's calendar, key emails, and a couple of bullet points. It produces a polished status update for your manager, board, or team in your voice. Replaces 30 minutes of \"how do I phrase this\" every Friday.",
+    "category": "Operations",
+    "industryTags": [
+      "Any",
+      "Founders",
+      "Operations",
+      "Project management",
+      "Consultancy"
+    ],
+    "difficulty": "beginner",
+    "toolRecommendation": "Claude.ai Pro or Claude Code (Skills feature).",
+    "toolTips": "Best paired with Calendar and Gmail MCP servers if you have them connected, so Claude can pull the inputs itself.",
+    "content": "---\nname: weekly-status-report\ndescription: Turn the week's calendar entries, key emails and rough bullets into a polished status update.\n---\n\n# Weekly Status Report Writer\n\nYou help the user write their weekly status report.\n\n## Inputs\n\nThe user gives you any combination of:\n- A list of meetings they had this week\n- A handful of key emails or Slack threads\n- Rough bullet points (\"finished migration, started auth work, blocked on legal\")\n- The audience (\"my CEO\", \"the board\", \"my team\", \"my client\")\n\nIf the audience is missing, ask once.\n\n## What to do\n\n1. Group the week's activity into three buckets: shipped, in flight, blocked.\n2. For each bucket, write 2-4 bullets. Each bullet is one line, action-led, named.\n3. Add a one-sentence \"headline\" at the top: the single most important thing the reader should know.\n4. Add a \"next week\" section with 2-3 specific commitments, dated where possible.\n5. Keep the tone matched to the audience: punchier for execs, more detailed for clients, more candid for the team.\n6. Total length: 150-250 words. If the inputs are thin, ask one focused question rather than padding.\n\n## Constraints\n\n- Lead with outcomes, not effort. \"Cut auth latency 40%\" not \"worked on auth performance\".\n- Specific numbers wherever the user has supplied them. Round to 1 decimal place.\n- Never claim something is done if the user said it is in progress.\n- UK English spelling. No em dashes.\n- No bullet should start with \"worked on\" or \"continued\".\n\n## Output format\n\n**Headline:** [one sentence]\n\n**Shipped this week**\n- [bullet]\n- [bullet]\n\n**In flight**\n- [bullet]\n- [bullet]\n\n**Blocked**\n- [bullet, with what is needed and from whom]\n\n**Next week**\n- [specific commitment]\n- [specific commitment]\n",
+    "howToUse": [
+      "Create the skill in Claude.ai (Settings > Skills > Create Skill)",
+      "Name it 'weekly-status-report'",
+      "Paste the SKILL.md content below",
+      "Every Friday, paste your inputs and ask: 'write my weekly update for my CEO'",
+      "Refine once, copy, paste into email"
+    ],
+    "whyItWorks": "Status reports fail in two ways: they ramble (writer is performing effort) or they undersell (writer is being modest). The bucketing structure forces honesty about state, the outcome-led bullet rule kills the rambling, and the audience tag tunes the punch. The same inputs to the same skill produce a board-grade update or a Slack-grade update by changing one line.",
+    "makeItYourOwn": "Paste 2-3 of your past status reports into the skill body as examples. Claude will pick up your phrasing patterns. If you report into multiple audiences regularly (manager + investor + clients), keep three copies of the skill with different example sets. If you use a specific format your manager loves, encode it in the Output format section.",
+    "isFree": false
+  },
+  {
+    "id": "skill-003",
+    "type": "claude-skill",
+    "title": "Competitor Weekly Digest",
+    "description": "Give Claude 5 competitor URLs. It checks their blogs, social, pricing pages, and product pages for changes since last week and writes a tight bulleted brief. Run it Monday morning to know what moved over the weekend.",
+    "category": "Marketing and content",
+    "industryTags": [
+      "Any",
+      "Marketing",
+      "Strategy",
+      "Founders",
+      "Product"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "Claude.ai Pro or Claude Code (Skills feature) with web fetch enabled. Pairs well with the Playwright MCP.",
+    "toolTips": "Run it on a schedule by saving the prompt as a Slash Command in Claude Code, or set a calendar reminder to paste it Monday at 9am.",
+    "content": "---\nname: competitor-weekly-digest\ndescription: Scan 5 competitor sites for changes in the last 7 days and produce a tight bulleted brief.\n---\n\n# Competitor Weekly Digest\n\nYou help the user track competitor moves week-on-week.\n\n## Inputs\n\nThe user provides 5 competitor URLs (homepage is enough). They may also tell you what to watch for: pricing, blog posts, hiring, product launches, social posts.\n\n## What to do\n\n1. For each competitor, fetch the homepage, the blog index, and the pricing page if they have one.\n2. Look for what is new vs evergreen: blog posts dated in the last 7 days, pricing changes, hero copy changes, new features mentioned, hiring spikes (if their /careers page is public).\n3. Output one section per competitor with a heading. Under each:\n   - **What moved:** bulleted, dated\n   - **Why it matters:** one sentence\n4. End with a \"Take\" section: 3 bullets summarising the week's pattern across competitors.\n5. If a competitor had nothing new this week, say so in one line. Do not pad.\n\n## Constraints\n\n- Only report changes you can actually see. Never speculate about internal moves.\n- Date every change. If a date is not visible, say \"undated, looks recent\".\n- Keep each competitor section under 80 words. The entire digest should be readable in 3 minutes.\n- UK English spelling. No em dashes. No buzzwords like \"synergy\" or \"disruption\".\n- If a site is paywalled or blocked, log it and move on.\n\n## Output format\n\n**Week of [date range]**\n\n## [Competitor 1 name] - [their site]\n**What moved:**\n- [change 1, dated]\n- [change 2, dated]\n\n**Why it matters:** [one sentence]\n\n[repeat for each]\n\n## Take\n- [pattern 1]\n- [pattern 2]\n- [pattern 3]\n",
+    "howToUse": [
+      "Create the skill in Claude.ai (Settings > Skills > Create Skill)",
+      "Name it 'competitor-weekly-digest'",
+      "Paste the full SKILL.md content into Instructions",
+      "Each Monday, paste your 5 competitor URLs and run it",
+      "Save the output to a single Notion or Google Doc to track patterns over months"
+    ],
+    "whyItWorks": "Most competitor watching is either ad-hoc panic (\"did you see they launched X?\") or so structured it never happens. This skill forces a 5-minute weekly cadence with a tight format you actually want to read. The \"Take\" section is the alpha - it surfaces patterns no single competitor would reveal in isolation.",
+    "makeItYourOwn": "Add your own competitor list and ICP into the skill body so you do not retype URLs every week. If you care about specific signals (e.g. \"flag any mention of pricing under £20/month\"), encode them as instructions. For B2B SaaS, also point it at G2/Capterra review pages for lagging-indicator signal.",
+    "isFree": false
+  },
+  {
+    "id": "skill-004",
+    "type": "claude-skill",
+    "title": "Job Description Writer",
+    "description": "Hand Claude a role title, the must-haves, and your company stage. It writes a polished job description with the right structure for LinkedIn or your careers page, including a salary band suggestion based on UK market rates.",
+    "category": "HR and recruitment",
+    "industryTags": [
+      "Any",
+      "HR",
+      "Recruitment",
+      "Founders",
+      "Small business"
+    ],
+    "difficulty": "beginner",
+    "toolRecommendation": "Claude.ai Pro or Claude Code (Skills feature).",
+    "toolTips": "Best paired with the Playwright MCP if you want Claude to crib market rate data from sites like LinkedIn Jobs or Glassdoor.",
+    "content": "---\nname: job-description-writer\ndescription: Turn a role title, must-haves and company stage into a polished job description plus a UK salary band suggestion.\n---\n\n# Job Description Writer\n\nYou help the user write a job description that attracts the right candidates and filters out the wrong ones.\n\n## Inputs\n\nThe user gives you:\n- Role title (e.g. \"Senior Backend Engineer\", \"Marketing Lead\")\n- Must-haves (skills, experience, location preference, in-office vs remote)\n- Nice-to-haves\n- Company stage and size (e.g. \"Seed-stage SaaS, 8 people, Manchester-based\")\n- Optional: their existing JDs as voice examples\n\nIf any of these are missing, ask in one batch before writing.\n\n## What to do\n\n1. Open with a 2-3 sentence pitch on why this role exists right now. Anchor it in the company's current moment.\n2. Write a \"What you will do\" section with 4-6 specific bullets. Each must be an outcome, not a task.\n3. Write a \"What we are looking for\" section. Split into Must-have and Nice-to-have. No more than 5 must-haves - if there are more, you are filtering too hard.\n4. Add a \"What you can expect from us\" section with 3-4 bullets covering working pattern, learning budget, equity if applicable, real perks (not table tennis).\n5. Suggest a UK salary band based on role + level + location. Base it on visible market data (London commands a premium, remote-UK is typically 90% of London for similar roles).\n6. End with a single-line application instruction.\n\n## Constraints\n\n- No corporate jargon. \"Drive synergies\" is banned. \"Self-starter\" is banned.\n- Specific over vague. \"Improve checkout conversion by 10%\" beats \"optimise the funnel\".\n- Inclusive language. Use \"you\" not \"he/she\". Avoid masculine-coded words like \"rockstar\", \"ninja\".\n- Be honest about ambiguity. Seed-stage is not a Big Tech career path - say so.\n- UK English spelling. No em dashes.\n- Salary band must be a range, not a point figure. State the assumptions.\n\n## Output format\n\n## [Role title] at [Company]\n\n[2-3 sentence pitch]\n\n**What you will do**\n- [bullet]\n\n**What we are looking for**\n*Must have:*\n- [bullet]\n\n*Nice to have:*\n- [bullet]\n\n**What you can expect from us**\n- [bullet]\n\n**Salary:** £X - £Y (assumes [seniority] in [location], [remote/hybrid/in-office])\n\n**To apply:** [one sentence]\n",
+    "howToUse": [
+      "Create the skill in Claude.ai (Settings > Skills > Create Skill)",
+      "Name it 'job-description-writer'",
+      "Paste the SKILL.md content into the skill body",
+      "Trigger with: 'I need a JD for [role title]. Here are the must-haves: ...'",
+      "Refine once, then post on LinkedIn or your careers page"
+    ],
+    "whyItWorks": "Most JDs fail in two ways: they list 17 must-haves (so the only candidates who apply are the over-confident) or they are written in HR-bot voice (so good candidates scroll past). This skill caps the must-haves at 5, demands outcome-led bullets, and writes in plain English. The salary band rule alone doubles application rates - candidates filter on it within the first 3 seconds.",
+    "makeItYourOwn": "Paste 1-2 of your past JDs that worked into the skill body as voice examples. Add your benefits package as a fixed snippet so it is always accurate. If you have specific UK market data (e.g. you've recently hired the same role and know what you paid), feed that in - the salary band gets sharper.",
+    "isFree": false
+  },
+  {
+    "id": "skill-005",
+    "type": "claude-skill",
+    "title": "Email Triage",
+    "description": "Paste your inbox or connect Gmail and ask Claude to triage. It groups emails by urgency, drafts replies for the easy ones, and flags what actually needs you. Reclaims 30-60 minutes a day if you are drowning in email.",
+    "category": "Personal development",
+    "industryTags": [
+      "Any",
+      "Founders",
+      "Knowledge work",
+      "Consultancy",
+      "Operations"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "Claude.ai Pro or Claude Code (Skills feature). Best paired with the Gmail MCP so Claude can read and draft directly.",
+    "toolTips": "If you do not have Gmail MCP set up, paste the subject + sender + first 200 chars of each email. Claude is happy with that as input.",
+    "content": "---\nname: email-triage\ndescription: Group an inbox by urgency, draft replies to the easy ones, surface what actually needs you.\n---\n\n# Email Triage\n\nYou help the user clear an email backlog without spending an hour on it.\n\n## Inputs\n\nThe user gives you:\n- The contents of their inbox (via Gmail MCP if connected, or pasted)\n- Their typical reply style (or you infer from past emails if available)\n- Optional: their current calendar so you can suggest meeting times in replies\n\n## What to do\n\n1. Bucket every email into one of four states:\n   - **Reply now** (you can write the full reply, no human input needed)\n   - **Reply with a question** (you can draft, but you need a one-line answer from the user before sending)\n   - **Needs a decision** (only the user can answer, but you can summarise what they need to decide)\n   - **Archive** (newsletters, promos, FYI threads where no reply is expected)\n2. For \"Reply now\" emails, write the full draft in their voice. Match the formality of the incoming email.\n3. For \"Reply with a question\" emails, write the draft up to the point where the user's input is needed. Frame the question as a single closed choice where possible.\n4. For \"Needs a decision\" emails, summarise the situation in 2 lines and the choices in 1 line.\n5. List the Archive emails by sender + subject only - no commentary.\n\n## Constraints\n\n- Never send anything. Always draft for the user to review.\n- Match the original email's formality. Reply to a one-line email with a one-line response.\n- Never apologise for slow replies unless the user has told you to.\n- Suggest meeting times only if you have visibility of their calendar.\n- UK English spelling. No em dashes.\n- Surface anything time-sensitive at the top, regardless of bucket.\n\n## Output format\n\n**Time-sensitive (act today)**\n- [subject] from [sender] - [why]\n\n**Reply now (X drafts ready)**\n\n*[Subject 1]*\nFrom: [sender]\nReply: [full draft]\n\n[repeat]\n\n**Reply with a question (X awaiting your input)**\n\n*[Subject]*\nFrom: [sender]\nDraft: [partial draft]\nQuestion for you: [single closed question]\n\n**Needs a decision**\n*[Subject]* - [2-line summary]. Choices: [option A] or [option B].\n\n**Archive (X items)**\n- [sender]: [subject]\n",
+    "howToUse": [
+      "Create the skill in Claude.ai (Settings > Skills > Create Skill)",
+      "Name it 'email-triage'",
+      "Paste the full SKILL.md content",
+      "Connect the Gmail MCP if you have it, or paste your inbox manually",
+      "Run it once a day - 9am or right after lunch are the best moments"
+    ],
+    "whyItWorks": "Email is mostly four jobs done badly: replying to easy ones, asking one question to unblock a hard one, making a decision, and ignoring noise. This skill separates the four jobs and only hands you the third one. It will not save you on email volume - it will save you on the cognitive cost of switching between modes 50 times a day.",
+    "makeItYourOwn": "Paste 5-10 examples of your past replies into the skill body. Claude picks up your voice fast - sentence length, sign-off, formality. Add a list of senders to never archive (your boss, biggest clients) so they always surface to the top regardless of subject.",
+    "isFree": false
+  }
+]

@@ -1,0 +1,77 @@
+[
+  {
+    "id": "auto-001",
+    "type": "automation",
+    "title": "Coming soon: Gmail to Notion summariser (Make.com)",
+    "description": "An end-to-end Make.com flow that watches a Gmail label, summarises every new email with Claude, and appends the summary to a Notion database. Saves 30 minutes a day on inbox triage. Launching with our first 5 templates in June.",
+    "category": "Operations",
+    "industryTags": [
+      "Any",
+      "Founders",
+      "Knowledge work",
+      "Operations"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "Make.com (free tier supports this)",
+    "toolTips": "Coming soon. Sign up for the newsletter and we will send you the JSON template the moment it lands.",
+    "content": "<p><strong>Status:</strong> coming soon (June 2026).</p><p>This automation will:</p><ol><li>Watch a Gmail label of your choice (e.g. 'Newsletters', 'Customer feedback', 'Sales replies').</li><li>For every new email, run the body through Claude with a summarisation prompt.</li><li>Append the summary, sender, and original link to a Notion database row.</li><li>Optionally tag it with sentiment (positive/neutral/negative) so you can spot patterns.</li></ol><p>You will get the importable Make.com JSON, a 5-minute video walking through the setup, and the exact Claude prompt we use.</p><p><strong>To get notified when it launches:</strong> sign up for the weekly newsletter from any signup box on this site.</p>",
+    "howToUse": [
+      "Coming soon",
+      "Sign up to the newsletter to be first in line",
+      "Bundle members get every automation template free as part of lifetime access"
+    ],
+    "whyItWorks": "Email is the highest-friction inbox most knowledge workers face. The summariser flips the cost of skimming from O(n) to O(1) - one glance at Notion is enough to know which thread deserves your attention. We use this exact flow internally.",
+    "makeItYourOwn": "Replace the Notion database with a Slack channel, an Airtable base, or a Google Sheet. Replace the Claude summariser with GPT-4o mini for cheaper runs at scale. Add a webhook trigger so you can manually run it on a single email.",
+    "isFree": true
+  },
+  {
+    "id": "auto-002",
+    "type": "automation",
+    "title": "Coming soon: RSS feed to LinkedIn carousel (n8n)",
+    "description": "An n8n workflow that watches an RSS feed (your blog, a competitor's blog, an industry newsletter) and turns each new post into a 5-slide LinkedIn carousel ready for review. Cuts content repurposing from 30 mins to 3.",
+    "category": "Marketing and content",
+    "industryTags": [
+      "Any",
+      "Marketing",
+      "Solo founders",
+      "Content creators"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "n8n (self-hosted free, or n8n Cloud)",
+    "toolTips": "Coming soon. The template will work with any blog that has an RSS feed - WordPress, Ghost, Webflow, or our own /blog feed.",
+    "content": "<p><strong>Status:</strong> coming soon (June 2026).</p><p>This automation will:</p><ol><li>Watch an RSS feed for new posts.</li><li>Extract the headline, key points, and a closing thought.</li><li>Generate 5 slide-ready snippets (hook, point 1, point 2, point 3, CTA) in Claude.</li><li>Drop them into a Google Doc named after the post, ready for you to copy into Canva or Figma.</li></ol><p>Includes the n8n workflow JSON, a 5-minute install video, and a prompt template you can fork for X threads or Instagram Reels.</p>",
+    "howToUse": [
+      "Coming soon",
+      "Sign up to the newsletter to be notified when it launches",
+      "Bundle members get every automation template free as part of lifetime access"
+    ],
+    "whyItWorks": "The hard bit of repurposing is not the writing. It is deciding what to keep and what to cut. By forcing a 5-slide structure with named beats (hook, points, CTA), the workflow does the editorial work. You only review.",
+    "makeItYourOwn": "Replace LinkedIn carousels with X threads (5 tweets), Instagram Reels scripts, or a daily Slack digest. Filter the RSS by category if your source is a multi-author site. Add a translation step if you publish in two languages.",
+    "isFree": false
+  },
+  {
+    "id": "auto-003",
+    "type": "automation",
+    "title": "Coming soon: Calendar block to weekly summary (Zapier)",
+    "description": "A Zapier flow that watches a calendar block (e.g. 'Deep work block', '1:1 with Sarah', 'Customer call') and writes a weekly summary of how you spent your time, who you spent it with, and what came out of each block.",
+    "category": "Operations",
+    "industryTags": [
+      "Any",
+      "Founders",
+      "Managers",
+      "Knowledge work"
+    ],
+    "difficulty": "beginner",
+    "toolRecommendation": "Zapier (free tier supports this for one calendar)",
+    "toolTips": "Coming soon. Will work with Google Calendar and Microsoft 365.",
+    "content": "<p><strong>Status:</strong> coming soon (June 2026).</p><p>This automation will:</p><ol><li>Watch your calendar for events tagged with specific keywords (e.g. 'Deep work', 'Customer call', '1:1').</li><li>At the end of each week, compile the events by tag.</li><li>Run them through Claude with a summarisation prompt that produces a polished weekly recap.</li><li>Drop the recap into a Notion page or send it to you in Slack.</li></ol><p>Includes the Zapier template, a one-page PDF of the prompt we use, and a sample output.</p>",
+    "howToUse": [
+      "Coming soon",
+      "Sign up to the newsletter to be notified",
+      "Bundle members get every automation template free"
+    ],
+    "whyItWorks": "Most people end the week with a vague sense of how they spent it. This flow turns 'busy week' into 'spent 14 hours on customer calls, 6 on deep work, 3 on internal meetings' - which makes time-budget conversations with yourself or your manager actually possible.",
+    "makeItYourOwn": "Add a sentiment dimension so the summary flags weeks where you spent more than 30% of time in low-energy categories. Pipe the output into a personal coaching journal. Use the same trigger to drive automatic CRM updates after every 'Customer call' tagged event.",
+    "isFree": false
+  }
+]
