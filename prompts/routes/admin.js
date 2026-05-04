@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const bcrypt = require('bcryptjs');
 const { requireAdmin } = require('../middleware/auth');
 
 function createAdminRouter(db, contentStore) {
@@ -51,6 +52,50 @@ function createAdminRouter(db, contentStore) {
     const paidCount = db.prepare('SELECT COUNT(*) as count FROM users WHERE has_paid = 1').get().count;
 
     res.json({ typeCounts, freeCount, premiumCount, userCount, paidCount });
+  });
+
+  // POST /bootstrap-test-user - idempotent test account creator.
+  // Survives Autoscale ephemeral DB resets: just hit this endpoint after any
+  // redeploy and you get a working test@test.com / testtest with full course
+  // access. Body or query: { email?, password? }.
+  router.post('/bootstrap-test-user', async (req, res) => {
+    try {
+      const email = (req.body && req.body.email) || req.query.email || 'test@test.com';
+      const password = (req.body && req.body.password) || req.query.password_set || 'testtest';
+
+      let user = db.prepare('SELECT id, email FROM users WHERE email = ?').get(email);
+      if (!user) {
+        const passwordHash = await bcrypt.hash(password, 12);
+        const result = db.prepare(
+          'INSERT INTO users (email, password_hash, has_paid, is_admin) VALUES (?, ?, 1, 1)'
+        ).run(email, passwordHash);
+        user = { id: result.lastInsertRowid, email };
+      } else {
+        const passwordHash = await bcrypt.hash(password, 12);
+        db.prepare(
+          "UPDATE users SET password_hash = ?, has_paid = 1, is_admin = 1, updated_at = datetime('now') WHERE id = ?"
+        ).run(passwordHash, user.id);
+      }
+
+      const grant = db.prepare(
+        'INSERT OR IGNORE INTO user_entitlements (user_id, product_slug, stripe_session_id) VALUES (?, ?, ?)'
+      );
+      for (const slug of ['bundle', 'course', 'course-plus-bundle']) {
+        grant.run(user.id, slug, `bootstrap-${Date.now()}`);
+      }
+
+      res.json({
+        ok: true,
+        user_id: user.id,
+        email,
+        password_set: password,
+        entitlements: ['bundle', 'course', 'course-plus-bundle'],
+        is_admin: true,
+      });
+    } catch (err) {
+      console.error('bootstrap-test-user failed:', err);
+      res.status(500).json({ ok: false, error: err.message });
+    }
   });
 
   return router;
