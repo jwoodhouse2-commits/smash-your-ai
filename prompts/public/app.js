@@ -151,6 +151,7 @@ async function openDetail(id) {
     }
 
     const isGpt = item.type === 'custom-gpt';
+    const isSkill = item.type === 'claude-skill';
 
     let html = `
       <button class="absolute top-4 right-4 p-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="closeDetail()">
@@ -211,6 +212,37 @@ async function openDetail(id) {
               </button>
             </div>
             <div class="bg-gray-900 text-gray-100 rounded-xl p-5 text-sm font-mono leading-relaxed overflow-x-auto whitespace-pre-wrap" id="prompt-text">${escapeHtml(item.content)}</div>
+          </div>
+        `;
+      } else if (isSkill) {
+        // Claude Skill - render markdown with separate frontmatter card, plus Download SKILL.md
+        const { frontmatter, body } = splitSkillContent(item.content);
+        const skillName = (frontmatter.match(/^name:\s*(.+)$/m) || [, item.id])[1].trim();
+        const skillDesc = (frontmatter.match(/^description:\s*(.+)$/m) || [, ''])[1].trim();
+        const renderedBody = window.marked ? window.marked.parse(body) : `<pre>${escapeHtml(body)}</pre>`;
+        html += `
+          <div class="mb-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="font-bold text-gray-900 text-sm">SKILL.md</h3>
+              <div class="flex gap-2">
+                <button class="copy-btn px-3 py-1.5 rounded-lg text-xs font-medium text-violet-600 border border-violet-200 hover:bg-violet-50 flex items-center gap-1.5" onclick="copySkillContent(this)">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                  Copy
+                </button>
+                <button class="copy-btn px-3 py-1.5 rounded-lg text-xs font-medium text-white gradient-btn flex items-center gap-1.5" onclick="downloadSkill('${skillName.replace(/'/g, "\\'")}')">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/></svg>
+                  Download SKILL.md
+                </button>
+              </div>
+            </div>
+            <div class="bg-white border border-gray-200 border-l-4 border-l-violet-500 rounded-xl p-5">
+              <div class="skill-frontmatter">
+                <div><span class="fm-key">name:</span> ${escapeHtml(skillName)}</div>
+                <div><span class="fm-key">description:</span> ${escapeHtml(skillDesc)}</div>
+              </div>
+              <div class="skill-md">${renderedBody}</div>
+            </div>
+            <textarea id="prompt-text" class="hidden">${escapeHtml(item.content)}</textarea>
           </div>
         `;
       } else {
@@ -302,6 +334,47 @@ function escapeHtml(str) {
   const div = document.createElement('div');
   div.textContent = str;
   return div.innerHTML;
+}
+
+// Split SKILL.md into frontmatter + body
+function splitSkillContent(raw) {
+  const match = raw.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
+  if (match) return { frontmatter: match[1], body: match[2].trimStart() };
+  return { frontmatter: '', body: raw };
+}
+
+// Copy full SKILL.md content
+function copySkillContent(btn) {
+  const text = document.getElementById('prompt-text').value;
+  navigator.clipboard.writeText(text).then(() => {
+    const originalHTML = btn.innerHTML;
+    btn.innerHTML = `
+      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+      Copied!
+    `;
+    btn.classList.add('text-green-600', 'border-green-200');
+    btn.classList.remove('text-violet-600', 'border-violet-200');
+    setTimeout(() => {
+      btn.innerHTML = originalHTML;
+      btn.classList.remove('text-green-600', 'border-green-200');
+      btn.classList.add('text-violet-600', 'border-violet-200');
+    }, 2000);
+  });
+}
+
+// Download SKILL.md as a file
+function downloadSkill(skillName) {
+  const text = document.getElementById('prompt-text').value;
+  const safeName = (skillName || 'skill').replace(/[^a-z0-9-]/gi, '-').toLowerCase();
+  const blob = new Blob([text], { type: 'text/markdown;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${safeName}.md`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 }
 
 // Sidebar setup
