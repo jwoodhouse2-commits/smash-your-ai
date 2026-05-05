@@ -138,5 +138,726 @@
     "whyItWorks": "Email is mostly four jobs done badly: replying to easy ones, asking one question to unblock a hard one, making a decision, and ignoring noise. This skill separates the four jobs and only hands you the third one. It will not save you on email volume - it will save you on the cognitive cost of switching between modes 50 times a day.",
     "makeItYourOwn": "Paste 5-10 examples of your past replies into the skill body. Claude picks up your voice fast - sentence length, sign-off, formality. Add a list of senders to never archive (your boss, biggest clients) so they always surface to the top regardless of subject.",
     "isFree": false
+  },
+  {
+    "id": "skill-006",
+    "type": "claude-skill",
+    "title": "Sales Call Summary",
+    "description": "Paste a call transcript or rough notes. Claude returns the CRM fields, action items, and the next concrete step. Saves 15 minutes of post-call admin per deal.",
+    "category": "Sales and business",
+    "industryTags": [
+      "Any",
+      "Sales",
+      "B2B services",
+      "Account management",
+      "Consultancy",
+      "Founders"
+    ],
+    "difficulty": "beginner",
+    "toolRecommendation": "Claude.ai Pro/Max/Team or Claude Code. Free tier of Claude.ai cannot install Skills.",
+    "toolTips": "Paste your CRM's exact field names into the skill body so the output drops straight into Salesforce, HubSpot or Pipedrive without renaming.",
+    "content": "---\nname: sales-call-summary\ndescription: Turn a sales call transcript or rough notes into CRM-ready fields, action items and a next step\n---\n\n# Sales Call Summary\n\nYou help the user turn a sales call into a CRM-ready summary, action items, and a single concrete next step.\n\n## Inputs\n- A call transcript (Fathom, Otter, Gong, Zoom) or rough notes\n- Optional: deal stage, deal value, who else was on the call\n- Optional: the user's CRM field list (e.g. Pain, Budget, Timeline, Champion)\n\nIf the deal stage is missing, ask once.\n\n## What to do\n1. Pull the named attendees and their roles on each side.\n2. Fill the CRM fields. Default set if the user has not given you one: Pain, Current solution, Budget signal, Timeline, Decision process, Champion, Blocker.\n3. List 3-6 action items. Each one names an owner (user or prospect) and a date.\n4. Write a 2-3 line deal narrative for the manager review: what advanced, what stalled, why.\n5. End with one concrete next step in a single sentence. Not \"follow up\". Something like \"Send pricing for 50-seat tier by Thursday and book a 30-minute technical call with their CTO.\"\n6. Flag anything the rep said they would do that they should not have committed to.\n\n## Constraints\n- Quote directly when a buyer signal is strong (\"if you can do under 8 weeks we're in\"). Quotes go in the field, not paraphrased.\n- Empty fields stay empty with \"not discussed\". Never invent.\n- UK English spelling. No em dashes.\n- No buzzwords. \"Synergy\", \"alignment\", \"circle back\" are banned.\n\n## Output format\n\n**Deal:** [company] - [stage] - [value if known]\n**Attendees:** [names and roles]\n\n**CRM fields**\n- **Pain:** [text or \"not discussed\"]\n- **Current solution:** [text]\n- **Budget signal:** [text, quoted if strong]\n- **Timeline:** [text]\n- **Decision process:** [text]\n- **Champion:** [name and why]\n- **Blocker:** [text]\n\n**Action items**\n- [owner] to [action] by [date]\n\n**Deal narrative:** [2-3 lines]\n\n**Next step:** [one specific sentence]\n\n**Watch out:** [anything the rep over-committed to, or \"none\"]\n",
+    "howToUse": [
+      "Click Download SKILL.md above to save sales-call-summary.md.",
+      "Claude.ai (Pro/Max/Team): Settings > Capabilities > Skills > Upload skill, drop the file in. Claude Code: place at ~/.claude/skills/sales-call-summary/SKILL.md and restart.",
+      "After a call, paste the transcript or your rough notes. Add deal stage and value if you know them.",
+      "Tell Claude: 'summarise this call'. The skill will ask once if the stage is missing.",
+      "Copy the CRM fields straight into your deal record, paste action items into your task tool, and send the next-step email."
+    ],
+    "whyItWorks": "Reps either skip CRM updates entirely or write \"good call, will follow up\" which tells the manager nothing. This skill forces a structured pull of buyer signals (with direct quotes for the strong ones), a single concrete next step instead of a vague follow-up, and a watch-out flag for over-commitments. The manager review narrative gives sales leaders forecast-grade detail without a separate ask.",
+    "makeItYourOwn": "Paste your CRM's exact field names into the skill body so the output maps 1:1. If you sell a complex product, add a checklist of qualifying signals you actually look for (champion, economic buyer, technical evaluator). If your team uses MEDDIC or SPICED, swap the default field set for that framework.",
+    "isFree": false
+  },
+  {
+    "id": "skill-007",
+    "type": "claude-skill",
+    "title": "Cold Email Sequencer",
+    "description": "Hand Claude a product, an ICP, and your voice samples. It drafts a 3-touch cold email sequence with each touch escalating differently, not just resending the same pitch.",
+    "category": "Sales and business",
+    "industryTags": [
+      "Any",
+      "Sales",
+      "B2B services",
+      "Marketing",
+      "Founders",
+      "Consultancy"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "Claude.ai Pro/Max/Team or Claude Code. Free tier of Claude.ai cannot install Skills.",
+    "toolTips": "Paste 3-5 of your best past cold emails into the skill body as voice samples. Claude picks up sentence length, sign-off and opener style fast.",
+    "content": "---\nname: cold-email-sequencer\ndescription: Draft a 3-touch cold email sequence where each touch escalates with a different angle, not the same pitch resent\n---\n\n# Cold Email Sequencer\n\nYou help the user draft a 3-touch cold email sequence to a named prospect or ICP segment.\n\n## Inputs\n- Product or service one-liner\n- ICP description (industry, role, size, pain)\n- Optional: a specific named prospect with details\n- Optional: 2-5 of the user's past cold emails as voice samples\n- Send window (default: Touch 1 day 0, Touch 2 day 4, Touch 3 day 9)\n\nIf voice samples are missing, write in plain professional British English and tell the user it will sound sharper if they paste examples next time.\n\n## What to do\n1. **Touch 1 - Specific hook.** 50-80 words. Open with one concrete observation about the prospect or their segment. State the pain in their language. Make a single small ask (15-minute call, or a yes/no question). No product pitch beyond one sentence.\n2. **Touch 2 - New angle, not a bump.** 40-60 words. Do not say \"just bumping this\" or \"in case you missed it\". Bring a fresh angle: a peer's result, a teardown of their current approach, a relevant data point. New subject line.\n3. **Touch 3 - Permission close.** 30-50 words. Acknowledge no reply, ask a single closed question that gives them an easy out (\"Worth picking this up in Q3, or should I close the file?\"). New subject line.\n4. Write subject lines that look like a colleague wrote them. Lower case, under 7 words, no exclamation marks.\n5. End with a one-line note on what to A/B test if the sequence underperforms.\n\n## Constraints\n- Each touch must do a different job. If touch 2 is just touch 1 reworded, rewrite it.\n- No \"hope this finds you well\". No \"quick question\". No \"circling back\".\n- Specific over generic. Reference something only the prospect would recognise.\n- UK English spelling. No em dashes. No emoji.\n- Total reading time per email under 20 seconds.\n\n## Output format\n\n**Sequence for:** [prospect or segment]\n**Cadence:** Day 0, Day 4, Day 9\n\n**Touch 1**\nSubject: [subject]\n[email body]\n\n**Touch 2**\nSubject: [subject]\n[email body]\n\n**Touch 3**\nSubject: [subject]\n[email body]\n\n**A/B test idea:** [one line]\n",
+    "howToUse": [
+      "Click Download SKILL.md above to save cold-email-sequencer.md.",
+      "Claude.ai (Pro/Max/Team): Settings > Capabilities > Skills > Upload skill, drop the file in. Claude Code: place at ~/.claude/skills/cold-email-sequencer/SKILL.md and restart.",
+      "Paste your product one-liner, ICP description, and (ideally) 2-5 of your best past cold emails as voice samples.",
+      "Ask Claude: 'draft a 3-touch sequence for [named prospect or segment]'. Add any specific details you want referenced.",
+      "Load the three drafts into your sending tool (Apollo, Instantly, Smartlead, or Gmail) and queue them on the day 0 / 4 / 9 cadence."
+    ],
+    "whyItWorks": "Most cold sequences fail because touch 2 and touch 3 are the same email with \"just bumping this\" stapled to the top. Prospects ignore the bump and the rep blames the channel. This skill forces each touch to do a different job: specific hook, new angle, permission close. The permission close on touch 3 also recovers responses from prospects who feel they owe you the courtesy of a no, which is a 5-10% reply rate on its own.",
+    "makeItYourOwn": "Paste 3-5 of your best past cold emails into the skill body as voice samples. Add your ICP and product one-liner inline so you stop retyping them. If you sell to multiple segments, save the skill as cold-email-sequencer-saas, cold-email-sequencer-agencies and so on, each with its own ICP and proof points baked in.",
+    "isFree": true
+  },
+  {
+    "id": "skill-008",
+    "type": "claude-skill",
+    "title": "Customer Testimonial Collector",
+    "description": "Paste a review, support email, or NPS comment. Claude pulls out the website-ready quote, suggests permission-request language, and tags the persona it would work hardest for.",
+    "category": "Sales and business",
+    "industryTags": [
+      "Any",
+      "Marketing",
+      "Customer success",
+      "B2B services",
+      "Small business",
+      "Founders"
+    ],
+    "difficulty": "beginner",
+    "toolRecommendation": "Claude.ai Pro/Max/Team or Claude Code. Free tier of Claude.ai cannot install Skills.",
+    "toolTips": "Run it on your support inbox or NPS export weekly. The volume of usable quotes already sat in your help desk will surprise you.",
+    "content": "---\nname: customer-testimonial-collector\ndescription: Mine a review, support email or NPS comment for a website-ready quote, draft permission-request language, and tag the persona it converts hardest for\n---\n\n# Customer Testimonial Collector\n\nYou help the user turn raw customer feedback into website-ready testimonials with permission language and persona tags.\n\n## Inputs\n- A customer review, support email, NPS verbatim, or call snippet\n- Customer name and company if available\n- Optional: the user's persona segments (e.g. \"freelance designer\", \"agency owner\", \"in-house marketer\")\n\nIf the source is anonymous, flag it and proceed without permission language.\n\n## What to do\n1. Identify the strongest one or two sentences. The strongest quote is specific, names a result, and sounds like a human.\n2. Write a clean website-ready version. You may tighten grammar and trim filler, but never change meaning, never add a number that was not there, never invent a job title.\n3. If a number is mentioned (\"saved us 4 hours a week\"), keep it exactly. Numbers are the testimonial.\n4. Tag which persona this testimonial would convert hardest. Pick from the user's list, or suggest one.\n5. Draft a 3-4 sentence permission-request email or DM in friendly British English. Make it easy to say yes. Default: ask if you can use the quote with their first name + company, and offer to share the final placement.\n6. Suggest one supporting asset: a logo on the homepage, a 60-second video clip ask, or a longer case study.\n\n## Constraints\n- Never publish without permission. Always output the permission request.\n- Never edit a number. If the number is fuzzy (\"loads of time\"), flag it.\n- UK English spelling. No em dashes.\n- No marketing fluff. The cleaned quote should still sound like the customer wrote it.\n\n## Output format\n\n**Source:** [type, e.g. NPS verbatim from June export]\n**Customer:** [name, role, company - or \"anonymous\"]\n\n**Website-ready quote**\n\"[the cleaned quote]\"\n- [First name], [Role], [Company]\n\n**Why this one works:** [one sentence]\n\n**Persona it converts hardest:** [tag]\n\n**Permission request (email or DM)**\n[the message]\n\n**Supporting asset to ask for:** [one suggestion]\n",
+    "howToUse": [
+      "Click Download SKILL.md above to save customer-testimonial-collector.md.",
+      "Claude.ai (Pro/Max/Team): Settings > Capabilities > Skills > Upload skill, drop the file in. Claude Code: place at ~/.claude/skills/customer-testimonial-collector/SKILL.md and restart.",
+      "Paste a review, support thank-you email, NPS comment, or call snippet. Add the customer's name and company if you have them.",
+      "Ask Claude: 'pull a testimonial from this'. The skill returns the cleaned quote, persona tag, and a permission-request message.",
+      "Send the permission message, wait for the yes, then drop the quote on your homepage, pricing page, or sales deck."
+    ],
+    "whyItWorks": "Most teams have testimonials buried in their support inbox and never use them, because turning a raw email into a clean website quote feels like a job for the marketing manager who is already busy. This skill makes it a 30-second task. The persona tag turns one quote into a placement decision (homepage hero vs niche landing page), and the permission email is the part most founders skip and then can't legally use the quote.",
+    "makeItYourOwn": "Add your persona segments into the skill body so the tags stay consistent across the team. If you have a brand voice guide for testimonials (e.g. \"never edit out swearing, our customers like it\"), encode it in the Constraints. Add a list of customers you've already asked permission from so you never double-ask.",
+    "isFree": false
+  },
+  {
+    "id": "skill-009",
+    "type": "claude-skill",
+    "title": "Customer Churn Analyser",
+    "description": "Paste a CRM export or list of accounts with usage signals. Claude ranks them by churn risk with reasons, suggests the save-play for the top 3, and flags any you should let go.",
+    "category": "Sales and business",
+    "industryTags": [
+      "Any",
+      "Customer success",
+      "SaaS",
+      "Account management",
+      "Operations",
+      "Founders"
+    ],
+    "difficulty": "advanced",
+    "toolRecommendation": "Claude.ai Pro/Max/Team or Claude Code. Free tier of Claude.ai cannot install Skills.",
+    "toolTips": "Pair with a CSV export from your CRM or product analytics. Claude Code with the Filesystem MCP can read the CSV directly without copy-pasting rows.",
+    "content": "---\nname: customer-churn-analyser\ndescription: Rank a list of accounts by churn risk with reasons, draft save-plays for the top three, and flag accounts you should let go\n---\n\n# Customer Churn Analyser\n\nYou help the user prioritise account saves by ranking churn risk, drafting save-plays for the top three risks, and flagging accounts that aren't worth saving.\n\n## Inputs\n- A list of accounts (CSV paste, table, or text). Per account ideally: name, plan, MRR, contract end date, last login, usage trend, NPS or recent ticket sentiment, primary contact\n- The user's average customer LTV and rough cost-to-save (e.g. \"a save play costs 2 hours of CS time\")\n\nIf MRR or LTV is missing, ask once.\n\n## What to do\n1. Score every account 1-10 on churn risk. Show the 2-3 signals that drove the score per account, in one line.\n2. Sort by risk descending, but also weight by MRR. A 9/10 risk on a £50/month account is below a 7/10 risk on a £2k/month account.\n3. For the top 3 priority accounts, write a save-play:\n   - **Hypothesis:** what you think is actually going wrong\n   - **The play:** the specific action (call, training session, exec sponsor intro, pricing concession with limits)\n   - **Owner and timeline:** who acts and by when\n   - **Win condition:** what tells you it worked\n4. Flag any accounts you should let churn. Reasons: tiny MRR with high support cost, wrong-fit ICP, signals point to founder/contact change beyond your control, repeated bad-faith asks. Be honest.\n5. End with a portfolio view: total MRR at risk, expected save rate (be conservative, 30-50% on top plays is realistic), net at risk.\n\n## Constraints\n- Never recommend a save play with no win condition. \"Send a check-in email\" is not a play.\n- Discounts are a last resort. If you suggest one, cap it and time-box it.\n- Don't invent signals. If the data on an account is thin, score it lower-confidence and say what's missing.\n- UK English spelling. No em dashes. No buzzwords like \"customer-centric\" or \"value realisation\".\n\n## Output format\n\n**Portfolio summary**\n- Accounts reviewed: [n]\n- Total MRR at risk (score 7+): £[x]\n- Realistic net at risk after saves: £[y]\n\n**Risk-ranked list**\n| Rank | Account | MRR | Risk | Top signals |\n|---|---|---|---|---|\n| 1 | [name] | £[x] | [n]/10 | [signal 1; signal 2] |\n\n**Top 3 save-plays**\n\n**1. [Account]**\n- **Hypothesis:** [one line]\n- **The play:** [specific action]\n- **Owner:** [name] - **By:** [date]\n- **Win condition:** [what tells you it worked]\n\n[repeat for 2 and 3]\n\n**Let them go**\n- [Account]: [one line on why]\n",
+    "howToUse": [
+      "Click Download SKILL.md above to save customer-churn-analyser.md.",
+      "Claude.ai (Pro/Max/Team): Settings > Capabilities > Skills > Upload skill, drop the file in. Claude Code: place at ~/.claude/skills/customer-churn-analyser/SKILL.md and restart.",
+      "Export a list of accounts from your CRM or product analytics with name, MRR, contract end date, last login, and recent ticket or NPS signal.",
+      "Paste the list (or point Claude Code at the CSV) and ask: 'run the churn analysis, my LTV is £X and a save play costs Y hours'.",
+      "Take the top 3 save-plays into your CS standup this week, and put the let-them-go list on the agenda for your next renewal review."
+    ],
+    "whyItWorks": "Most CS teams either treat every red account the same (and burn the team out) or only react when notice has been given (too late). This skill forces an MRR-weighted prioritisation, makes you commit to a win condition before spending time, and gives you explicit permission to let bad-fit accounts go. The let-them-go list is the bit most teams skip and the bit that protects your save rate from looking artificially low.",
+    "makeItYourOwn": "Encode your typical save-plays into the skill body (e.g. exec sponsor call, custom training, time-boxed discount cap). Add your real save rate by segment so the portfolio summary calibrates against your actual numbers. If you have a structured health score (product usage + relationship + commercial), point the skill at it instead of the default signal list.",
+    "isFree": false
+  },
+  {
+    "id": "skill-010",
+    "type": "claude-skill",
+    "title": "Meeting Prep Brief",
+    "description": "Paste an attendee name + company. Claude pulls together a one-pager with their role, recent moves, public commentary, your shared history, and three angles to open on. Read it on the way to the call.",
+    "category": "Operations",
+    "industryTags": [
+      "Any",
+      "Sales",
+      "Founders",
+      "Consultancy",
+      "Account management"
+    ],
+    "difficulty": "beginner",
+    "toolRecommendation": "Claude.ai Pro/Max/Team or Claude Code. Free tier of Claude.ai cannot install Skills.",
+    "toolTips": "Pairs well with the Gmail and Calendar MCPs so Claude can pull your shared history without you pasting it.",
+    "content": "---\nname: meeting-prep-brief\ndescription: Build a one-page brief on a meeting attendee covering role, recent moves, public commentary and three opening angles\n---\n\n# Meeting Prep Brief\n\nYou help the user walk into a meeting knowing more about the other person than they know about you.\n\n## Inputs\n- Attendee name and company\n- Optional: LinkedIn URL, company URL, the meeting purpose\n- Optional: prior emails or notes the user has with this person\n\nIf the meeting purpose is missing, ask once: \"What is this meeting actually about?\"\n\n## What to do\n1. Confirm role and seniority. If there is ambiguity (two people with the same name at the company), surface it and stop.\n2. Pull recent moves: job changes in the last 18 months, promotions, public posts, talks given, articles written.\n3. Capture public commentary: 2-3 of their most recent or most engaged-with posts. Note the topic and tone.\n4. Check shared history: any prior emails, meetings, mutual contacts, shared employers.\n5. Suggest three opening angles. Each must reference something specific from the brief, not generic small talk.\n6. Flag one thing to avoid: a topic they have publicly disagreed on, a competitor they came from, a sensitive area.\n\n## Constraints\n- Never invent. If a source is thin, say so on that line.\n- Keep the whole brief under 350 words. It must be scannable in 2 minutes.\n- UK English spelling. No em dashes.\n- No flattery in the angles. Specific reference beats compliment.\n\n## Output format\n**[Name], [Role] at [Company]**\n\n**Recent moves**\n- [point, dated]\n\n**Public commentary**\n- [post or theme, with tone]\n\n**Shared history**\n- [point, or \"none on record\"]\n\n**Three angles to open on**\n1. [angle, referencing a specific item above]\n2. [angle]\n3. [angle]\n\n**Avoid:** [one line]\n",
+    "howToUse": [
+      "Click Download SKILL.md above to save meeting-prep-brief.md.",
+      "Claude.ai (Pro/Max/Team): Settings > Capabilities > Skills > Upload skill, drop the file in. Claude Code: place at ~/.claude/skills/meeting-prep-brief/SKILL.md and restart.",
+      "Open a chat the night before or on the way to the call. Paste the attendee name, company, and a LinkedIn URL if you have one.",
+      "Ask: 'prep me for my call with Sarah Chen at Acme tomorrow, we are discussing their renewal'.",
+      "Claude returns a one-page brief covering role, recent moves, public commentary, shared history, three opening angles, and one thing to avoid."
+    ],
+    "whyItWorks": "Most meeting prep is either skipped entirely or done as a 5-minute LinkedIn skim that produces nothing useful. The structured brief forces three concrete opening angles tied to real signal, which is what actually changes the first 90 seconds of a call. The \"avoid\" line saves more meetings than the angles win.",
+    "makeItYourOwn": "Add your own bio and recent posts into the skill body so Claude can find shared ground from both sides, not just theirs. If you take a lot of investor or partner calls, add a snippet describing your current company stage so the angles are calibrated. Add a list of topics you never want to be drawn on.",
+    "isFree": false
+  },
+  {
+    "id": "skill-011",
+    "type": "claude-skill",
+    "title": "Quarterly OKR Drafter",
+    "description": "Hand Claude last quarter's notes plus your three big goals. It returns a clean OKR set with measurable KRs that won't be gameable, and flags any objective without a credible KR.",
+    "category": "Operations",
+    "industryTags": [
+      "Any",
+      "Founders",
+      "Operations",
+      "Product",
+      "Strategy"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "Claude.ai Pro/Max/Team or Claude Code. Free tier of Claude.ai cannot install Skills.",
+    "toolTips": "Run it twice: once at the team level, then again per individual contributor with the team OKRs pasted in as context, so personal OKRs ladder up cleanly.",
+    "content": "---\nname: quarterly-okr-drafter\ndescription: Turn last quarter's notes and three big goals into a clean OKR set with non-gameable key results\n---\n\n# Quarterly OKR Drafter\n\nYou help the user draft a quarterly OKR set that holds up to scrutiny.\n\n## Inputs\n- Last quarter's notes: what shipped, what slipped, what was learned\n- Three big goals for the new quarter, in plain English\n- Team or function (e.g. \"Marketing, 4 people\", \"whole company, 22 people\")\n- Optional: the company's annual goal so you can check ladder-up\n\nIf the three goals are missing, ask once for them. Do not invent goals.\n\n## What to do\n1. Translate each goal into one Objective. Objectives are qualitative and ambitious, not numbers.\n2. For each Objective, draft 3 Key Results. Each KR must be:\n   - Measurable with a clear number and deadline\n   - Outcome-led, not activity-led (\"reach 200 paying customers\" not \"run 50 sales calls\")\n   - Hard to game without actually moving the underlying outcome\n3. For every KR, add a one-line check: \"how would someone fake this without doing the real work?\". If the answer is easy, rewrite the KR.\n4. Flag any Objective where you cannot draft a credible KR. Say so plainly. Do not pad with vanity metrics.\n5. Cross-check ladder-up: each Objective should map to the company's annual goal if one was supplied.\n6. Return the set ranked by ambition. Mark which one is the stretch.\n\n## Constraints\n- No more than 3 Objectives. No more than 3 KRs each. If the user pushes for more, push back.\n- KRs must include the unit and the deadline.\n- Never use \"improve\", \"increase\", \"optimise\" without a specific number.\n- UK English spelling. No em dashes.\n\n## Output format\n**Quarter: [QX YYYY]**\n\n**Objective 1: [text]**\n- KR1: [metric, target, deadline]. Game check: [one line]\n- KR2: [...]\n- KR3: [...]\n\n[repeat]\n\n**Stretch:** [which objective is the stretch and why]\n\n**Flagged:** [any objective without a credible KR]\n",
+    "howToUse": [
+      "Click Download SKILL.md above to save quarterly-okr-drafter.md.",
+      "Claude.ai (Pro/Max/Team): Settings > Capabilities > Skills > Upload skill, drop the file in. Claude Code: place at ~/.claude/skills/quarterly-okr-drafter/SKILL.md and restart.",
+      "Paste last quarter's review notes plus your three big goals for the new quarter. Add team size and the annual goal if you have one.",
+      "Ask: 'draft our Q3 OKRs from these notes and goals'.",
+      "Claude returns 3 Objectives with 3 measurable KRs each, a game check on every KR, the stretch flagged, and any objective that lacks a credible KR called out."
+    ],
+    "whyItWorks": "Most OKR drafts fail because the KRs are activity counts dressed up as outcomes, or because nobody asks how each KR could be faked. The game check is the single highest-leverage move in the whole process. Capping at 3 Objectives forces real prioritisation rather than the usual list of nine.",
+    "makeItYourOwn": "Paste your company's annual goal into the skill body so every quarterly run checks ladder-up automatically. If your team has a known anti-pattern (e.g. always over-indexing on output metrics), add a one-line warning to flag it. For finance or sales teams, add the metrics dictionary so the KR units stay consistent.",
+    "isFree": true
+  },
+  {
+    "id": "skill-012",
+    "type": "claude-skill",
+    "title": "Performance Review Prep",
+    "description": "Paste the role description and the year's evidence (wins, misses, peer feedback). Claude drafts a balanced review that names specific behaviours, not vague competencies.",
+    "category": "Operations",
+    "industryTags": [
+      "Any",
+      "HR",
+      "Founders",
+      "Operations",
+      "Management"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "Claude.ai Pro/Max/Team or Claude Code. Free tier of Claude.ai cannot install Skills.",
+    "toolTips": "Run the same skill once for the self-review and once for the manager-written review with the same evidence pack, so the two documents reference the same facts.",
+    "content": "---\nname: performance-review-prep\ndescription: Turn a role description and a year of evidence into a balanced performance review that names specific behaviours\n---\n\n# Performance Review Prep\n\nYou help the user write a performance review that reads as fair, specific and useful.\n\n## Inputs\n- Role description (or job title plus a short summary of what the role is meant to deliver)\n- The year's evidence: wins, misses, projects shipped, projects slipped\n- Peer feedback (raw quotes if possible)\n- The reviewer's relationship to the subject (manager, skip-level, peer, self)\n- Optional: previous review and the development goals it set\n\nIf the evidence pack is thin, ask for it before writing. Do not pad.\n\n## What to do\n1. Group evidence into three buckets: strengths, growth areas, missed expectations.\n2. For each bucket, write 2-4 points. Every point must:\n   - Name a specific behaviour, not a competency label (\"escalated the API outage within 12 minutes\" not \"strong ownership\")\n   - Cite the project, date or peer who flagged it\n3. If a competency framework is used (e.g. \"Customer Focus\", \"Execution\"), map each behaviour to one competency at the end, not as the headline.\n4. Cross-check last year's development goals against this year's evidence. Mark each as met, partially met or not met.\n5. Suggest 2-3 development goals for next year. Each must be observable and have a deadline.\n6. Flag any contradiction in the inputs (peer feedback says one thing, manager evidence says another). Surface it, do not hide it.\n\n## Constraints\n- No \"hard worker\", \"team player\", \"self-starter\". Banned.\n- No general praise without an example attached.\n- Match the formality of the company's review template if the user supplies one.\n- UK English spelling. No em dashes.\n- Never invent evidence. If the user has not given you a misses bucket, ask before assuming all-positive.\n\n## Output format\n**Subject: [Name], [Role]. Period: [dates]. Reviewer: [relationship]**\n\n**Headline assessment:** [two sentences]\n\n**Strengths**\n- [behaviour with specific example, dated]\n\n**Growth areas**\n- [behaviour with specific example, dated]\n\n**Missed expectations**\n- [behaviour with specific example, dated, or \"none\"]\n\n**Last year's goals**\n- [goal]: met / partial / not met. [one-line evidence]\n\n**Development goals for next period**\n- [goal, observable, deadline]\n\n**Contradictions surfaced**\n- [point, or \"none\"]\n",
+    "howToUse": [
+      "Click Download SKILL.md above to save performance-review-prep.md.",
+      "Claude.ai (Pro/Max/Team): Settings > Capabilities > Skills > Upload skill, drop the file in. Claude Code: place at ~/.claude/skills/performance-review-prep/SKILL.md and restart.",
+      "Gather the year's evidence: role description, wins, misses, peer feedback quotes, last year's goals if you have them. Paste them into a chat.",
+      "Ask: 'draft a performance review for Alex covering this period using the evidence below'.",
+      "Claude returns a balanced review with strengths, growth areas, missed expectations, an audit of last year's goals, 2-3 next-period goals, and any contradictions in the evidence flagged."
+    ],
+    "whyItWorks": "Most reviews are bad in one of two ways: vague praise that does not help the person grow, or a list of grievances dressed as feedback. The behaviour-not-competency rule fixes the first problem. The contradiction-surfacing rule fixes the second by forcing the reviewer to look at peer feedback honestly rather than cherry-picking. The development goals come out observable, which is what makes next year's review easier to write.",
+    "makeItYourOwn": "Paste your company's competency framework into the skill body so the mapping step uses your real labels. If you have a house style for review headlines, add an example. Managers running multiple reviews in a cycle should add a snippet listing things they want to never write again (\"strong execution\" etc.) so the skill polices it.",
+    "isFree": false
+  },
+  {
+    "id": "skill-013",
+    "type": "claude-skill",
+    "title": "Investor Update Writer",
+    "description": "Drop in this month's KPIs, the wins, the misses, and one line on the elephant in the room. Claude returns a polished investor update that sounds like a founder, not a marketing email.",
+    "category": "Operations",
+    "industryTags": [
+      "Any",
+      "Founders",
+      "Startups",
+      "Finance",
+      "Operations"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "Claude.ai Pro/Max/Team or Claude Code. Free tier of Claude.ai cannot install Skills.",
+    "toolTips": "Save your KPI table as a fixed snippet in the skill body so you only update the numbers each month, not the structure.",
+    "content": "---\nname: investor-update-writer\ndescription: Turn this month's KPIs, wins, misses and one elephant into a polished founder-voice investor update\n---\n\n# Investor Update Writer\n\nYou help the user write a monthly investor update that builds trust by being specific and honest.\n\n## Inputs\n- This month's KPIs (revenue, growth rate, runway, headcount, key product metrics)\n- 2-4 wins from the month\n- 1-3 misses or things that slipped\n- One line on the elephant in the room (the thing investors will ask if you do not raise it first)\n- Asks: hires, intros, customer leads, advice\n- Optional: last month's update for tone matching\n\nIf the elephant line is missing, ask once. Do not let the user skip it.\n\n## What to do\n1. Open with a one-line headline. The single most important thing this month.\n2. Show the KPI table cleanly. Include MoM change. Round to 1 decimal place. Flag anomalies.\n3. Wins section: 2-4 bullets. Each names the customer, the deal size or the metric move. No \"great progress on...\" language.\n4. Misses section: 1-3 bullets. Each names what slipped, why, and what you are doing about it.\n5. The elephant: address it head-on in 2-3 sentences. Do not spin.\n6. Asks: 3-5 specific asks. Each is a name, a company, or a role you want introductions to. Vague asks get vague help.\n7. Close with runway and what milestone the next round will be raised against, if relevant.\n\n## Constraints\n- Founder voice, not marketing voice. First person, plain language.\n- Numbers always. \"Up 12%\" not \"up significantly\".\n- Never bury bad news. The elephant goes near the top, not in a footnote.\n- Length: 400-600 words plus the KPI table. Investors skim.\n- UK English spelling. No em dashes. No \"excited to announce\". No \"crushed it\".\n\n## Output format\n**[Company] - [Month YYYY] update**\n\n**Headline:** [one sentence]\n\n**KPIs**\n| Metric | This month | Last month | MoM |\n| --- | --- | --- | --- |\n| [...] | | | |\n\n**Wins**\n- [bullet, named]\n\n**Misses**\n- [bullet, with the fix]\n\n**The elephant: [one-line topic]**\n[2-3 sentence honest take]\n\n**Asks**\n- [specific intro request]\n\n**Runway and next milestone:** [one line]\n",
+    "howToUse": [
+      "Click Download SKILL.md above to save investor-update-writer.md.",
+      "Claude.ai (Pro/Max/Team): Settings > Capabilities > Skills > Upload skill, drop the file in. Claude Code: place at ~/.claude/skills/investor-update-writer/SKILL.md and restart.",
+      "On the first of the month, paste this month's KPIs, 2-4 wins, 1-3 misses, one line on the elephant in the room, and your specific asks.",
+      "Ask: 'write our investor update for April'.",
+      "Claude returns a 400-600 word update with a headline, KPI table, wins, misses, the elephant addressed head-on, named asks, and a runway line, in founder voice."
+    ],
+    "whyItWorks": "The two failure modes for investor updates are spin (which destroys trust on the first miss) and silence (which destroys trust faster). Forcing the elephant line near the top is what separates founders investors back twice from founders investors back once. The named-asks rule turns the update from a status broadcast into a tool that actually pulls help in.",
+    "makeItYourOwn": "Paste your KPI table structure into the skill body so the columns are always consistent. Add 1-2 of your previous updates as voice examples. If your investors care about specific metrics (LTV/CAC, payback period, NRR), bake those into the table so you cannot accidentally drop them. Add a fixed runway calculation snippet if your finance person provides one.",
+    "isFree": false
+  },
+  {
+    "id": "skill-014",
+    "type": "claude-skill",
+    "title": "SEO Keyword Brief",
+    "description": "Hand Claude a target keyword. It analyses the live SERP, returns search intent, the entities Google is rewarding, an outline that beats the top 3 results, and the questions People Also Ask.",
+    "category": "Marketing and content",
+    "industryTags": [
+      "Any",
+      "Marketing",
+      "Content",
+      "SEO",
+      "Founders",
+      "Agency"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "Claude.ai Pro/Max/Team or Claude Code with web fetch enabled. Pairs well with the Playwright MCP.",
+    "toolTips": "Run Claude with the Playwright MCP so it can render the actual SERP and read People Also Ask boxes that static fetch tools miss.",
+    "content": "---\nname: seo-keyword-brief\ndescription: Take a target keyword, analyse the live SERP and return intent, entities, an outline and PAA questions\n---\n\n# SEO Keyword Brief\n\nYou help the user produce a content brief that has a real chance of ranking, based on the live SERP rather than guesswork.\n\n## Inputs\n- A target keyword or phrase\n- Optional: the user's domain and a one-line description of their angle\n- Optional: the country to search from (default UK)\n\nIf the country is missing, assume google.co.uk.\n\n## What to do\n1. Fetch the top 10 organic results for the keyword. Note the title, URL, and a 1-line summary of each.\n2. Classify search intent in one word: informational, commercial, transactional, or navigational. Justify in one line.\n3. List the entities and subtopics that appear in at least 3 of the top 10 results. These are what Google is rewarding.\n4. Pull the People Also Ask questions and any related searches shown on the SERP.\n5. Draft an outline (H1, H2s, H3s) that covers every entity from step 3, answers every PAA question, and adds one angle the top 3 do not cover.\n6. Suggest a target word count based on the median of the top 5 results, plus a meta title and meta description under 60 and 155 characters.\n\n## Constraints\n- Never invent SERP results. If a fetch fails, say so and stop.\n- Outline must be specific, not generic. \"What is X\" is allowed once, not five times.\n- UK English spelling. No em dashes.\n- No keyword stuffing. The outline should read like something a human would want to read.\n\n## Output format\n\n**Keyword:** [keyword]\n**Intent:** [one word] - [one-line justification]\n\n**Top 10 SERP**\n1. [title] - [domain]\n[repeat]\n\n**Entities Google rewards**\n- [entity 1]\n- [entity 2]\n\n**People Also Ask**\n- [question]\n\n**Outline**\nH1: [title]\n  H2: [section]\n    H3: [sub-section]\n\n**Target length:** [X] words\n**Meta title:** [under 60 chars]\n**Meta description:** [under 155 chars]\n",
+    "howToUse": [
+      "Click Download SKILL.md above to save seo-keyword-brief.md.",
+      "Claude.ai (Pro/Max/Team): Settings > Capabilities > Skills > Upload skill, drop the file in. Claude Code: place at ~/.claude/skills/seo-keyword-brief/SKILL.md and restart.",
+      "Make sure web fetch is on (Claude.ai web search, or the Playwright/Fetch MCP in Claude Code).",
+      "Start a new chat and ask: 'run the SEO keyword brief for \"best CRM for solo founders\"'.",
+      "Claude returns intent, the top 10 SERP, the entities Google rewards, PAA questions, and a full outline ready to hand to a writer."
+    ],
+    "whyItWorks": "Most briefs are written from the inside out (\"what do we want to say?\") rather than the outside in (\"what is Google already rewarding?\"). This skill forces the second approach. By the time the writer starts, every entity Google expects is on the page and every PAA question is answered, which is most of what ranking actually requires.",
+    "makeItYourOwn": "Add your domain and your existing pillar topics to the skill body so Claude can flag internal linking opportunities. If you have a house style for meta titles (brand suffix, separator), encode it in the Output format. For agencies, keep one copy per client so each brief lands in their voice.",
+    "isFree": true
+  },
+  {
+    "id": "skill-015",
+    "type": "claude-skill",
+    "title": "Content Calendar Generator",
+    "description": "Tell Claude your topic, audience, and posting cadence. It maps 4 weeks of content across formats (long, short, video, email) with hooks pre-written so you never face a blank page on a Monday.",
+    "category": "Marketing and content",
+    "industryTags": [
+      "Any",
+      "Marketing",
+      "Content",
+      "Founders",
+      "Small business",
+      "Agency"
+    ],
+    "difficulty": "beginner",
+    "toolRecommendation": "Claude.ai Pro/Max/Team or Claude Code.",
+    "toolTips": "Drop your last 10 posts into the skill body as voice examples and Claude will stop generating content that sounds like everyone else.",
+    "content": "---\nname: content-calendar-generator\ndescription: Map 4 weeks of content across formats with pre-written hooks based on a topic, audience and cadence\n---\n\n# Content Calendar Generator\n\nYou help the user plan 4 weeks of content without staring at a blank doc on Monday morning.\n\n## Inputs\n- Core topic or pillar (e.g. \"sales enablement for B2B SaaS\")\n- Target audience in one line\n- Cadence per format (e.g. 1 long post, 3 LinkedIn posts, 1 newsletter, 2 short videos per week)\n- Optional: 3-5 past posts that worked, so you can match voice\n\nIf cadence is missing, ask once.\n\n## What to do\n1. Pick 4 weekly themes that ladder up to the pillar. Each theme should answer one real question the audience asks.\n2. For each week, slot every format into a specific day. Friday is a poor day for long posts; Tuesday-Thursday is best for LinkedIn.\n3. For every piece of content, write a working title and a first-line hook of 8-15 words. The hook must do work, not announce.\n4. Mix content types deliberately: 60% educational, 25% opinion, 15% promotional. Flag the promo slots.\n5. Add one experiment per week: a format the user has not tried, or a contrarian angle.\n6. End with a one-line summary of the 4-week arc so the user can see the story.\n\n## Constraints\n- Hooks must be specific. \"5 tips for X\" is banned. Numbers are fine if they are surprising.\n- Never repeat a hook structure across two pieces in the same week.\n- UK English spelling. No em dashes.\n- If a format is missing context (e.g. video without a hook style), ask once before generating.\n- No buzzwords. \"Unlock your potential\" is banned.\n\n## Output format\n\n**Pillar:** [topic]\n**Audience:** [one line]\n**4-week arc:** [one line]\n\n## Week 1: [theme]\n**Mon - LinkedIn post**\nTitle: [working title]\nHook: [8-15 word opening line]\n\n**Wed - Long post**\nTitle: [working title]\nHook: [opening line]\n\n[repeat per slot, per week]\n\n**Experiments this month**\n- Week 1: [experiment]\n- Week 2: [experiment]\n",
+    "howToUse": [
+      "Click Download SKILL.md above to save content-calendar-generator.md.",
+      "Claude.ai (Pro/Max/Team): Settings > Capabilities > Skills > Upload skill, drop the file in. Claude Code: place at ~/.claude/skills/content-calendar-generator/SKILL.md and restart.",
+      "Decide your topic pillar, your audience in one line, and your cadence per format before you start.",
+      "Open a chat and say: 'plan my content for May. Pillar: sales enablement. Audience: B2B SaaS founders. Cadence: 1 long post Wed, 3 LinkedIn posts Tue/Thu/Fri, 1 newsletter Sun.'",
+      "Claude returns 4 weekly themes, every slot filled with a working title and pre-written hook, plus one experiment per week."
+    ],
+    "whyItWorks": "Calendars fail when they are either rigid templates (Monday tip, Tuesday quote) that bore the audience or when they are blank grids with no hook waiting. This skill ladders themes to a pillar so the month tells a story, then pre-writes the first 8-15 words of every piece. Starting from a hook beats starting from nothing every time.",
+    "makeItYourOwn": "Paste 5-10 of your highest-performing past posts into the skill body. Claude will pick up your hook patterns and mirror them. Adjust the 60/25/15 educational/opinion/promo mix to fit your funnel. Add specific events or product launches as fixed dates so the calendar bends around them.",
+    "isFree": false
+  },
+  {
+    "id": "skill-016",
+    "type": "claude-skill",
+    "title": "Newsletter Writer",
+    "description": "Paste this week's links plus 2-3 sentences on what caught your eye. Claude returns a first draft in your voice, with a strong opening line and a clear 'why this matters' thread running through.",
+    "category": "Marketing and content",
+    "industryTags": [
+      "Any",
+      "Marketing",
+      "Content",
+      "Founders",
+      "Consultancy",
+      "Creator"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "Claude.ai Pro/Max/Team or Claude Code with web fetch enabled.",
+    "toolTips": "Drop your last 5 newsletter editions into the skill body so Claude mirrors your sign-off, section names, and rhythm rather than inventing a generic format.",
+    "content": "---\nname: newsletter-writer\ndescription: Turn this week's links plus a few notes into a first-draft newsletter in the user's voice\n---\n\n# Newsletter Writer\n\nYou help the user write their weekly newsletter without spending three hours on it.\n\n## Inputs\n- 3-8 links the user wants to feature\n- 2-3 sentences on what caught their eye for each\n- Optional: their past editions for voice reference\n- Audience in one line (\"product managers at growth-stage SaaS\")\n\nIf voice examples are missing, ask once for the most recent edition.\n\n## What to do\n1. Read every link. Pull the one specific detail that makes the link interesting, not the headline summary.\n2. Find the thread. Most weeks the links cluster around 1-2 themes - lead with that, do not list.\n3. Write the opening line. It should make the reader want to read the next sentence. No \"hope you had a good week\".\n4. For each link, write 60-100 words: what it is, why it matters to the audience, and one specific takeaway.\n5. Add a short closing thought (3-4 sentences) that ties the week together. This is where the user's voice does most work.\n6. Suggest a subject line under 50 characters and a preview text under 90.\n\n## Constraints\n- Never just summarise the link. Always answer \"why should this reader care?\".\n- Match the cadence of the user's past editions. If they use H2 sections, keep them. If they go conversational, stay conversational.\n- UK English spelling. No em dashes.\n- No \"hope this finds you well\". No \"in this issue\" preamble.\n- Total length 600-900 words unless the user has a different norm.\n\n## Output format\n\n**Subject line:** [under 50 chars]\n**Preview text:** [under 90 chars]\n\n---\n\n[Opening line]\n\n[Opening paragraph: the thread of the week]\n\n## [Section heading or first link title]\n[60-100 words on the link]\n\n[Link URL]\n\n[repeat]\n\n## [Closing thought heading]\n[3-4 sentences tying the week together]\n\n[Sign-off]\n",
+    "howToUse": [
+      "Click Download SKILL.md above to save newsletter-writer.md.",
+      "Claude.ai (Pro/Max/Team): Settings > Capabilities > Skills > Upload skill, drop the file in. Claude Code: place at ~/.claude/skills/newsletter-writer/SKILL.md and restart.",
+      "Gather 3-8 links you want to cover this week and 2-3 sentences each on what caught your eye.",
+      "Open a chat and say: 'draft this week's newsletter. Audience: product managers. Links: [paste]. My take on each: [paste].'",
+      "Claude returns a subject line, preview text, opening line, link sections in your voice, and a closing thought."
+    ],
+    "whyItWorks": "Most newsletters fail because they list links instead of carrying a thread. The reader cannot tell why this batch belongs together. This skill forces the writer (and Claude) to find the thread first, then make every link earn its slot by answering \"why should this reader care?\". The opening line rule alone lifts open-to-click rate.",
+    "makeItYourOwn": "Paste your last 5 editions into the skill body so Claude learns your sign-off, section style, and rhythm. Add your audience's top 3 jobs-to-be-done so every \"why this matters\" sentence ties to one. If you run a regular feature (book of the week, reader question), encode it in the Output format.",
+    "isFree": false
+  },
+  {
+    "id": "skill-017",
+    "type": "claude-skill",
+    "title": "Event Recap Composer",
+    "description": "Drop in your session notes, photos, and a couple of speaker quotes. Claude turns it into a blog post worth reading, not a chronological diary.",
+    "category": "Marketing and content",
+    "industryTags": [
+      "Any",
+      "Marketing",
+      "Events",
+      "Communications",
+      "Founders",
+      "Agency"
+    ],
+    "difficulty": "beginner",
+    "toolRecommendation": "Claude.ai Pro/Max/Team or Claude Code.",
+    "toolTips": "Capture quotes verbatim during the event on your phone. Claude can build a great recap from rough notes, but a real quote is worth ten paragraphs of paraphrase.",
+    "content": "---\nname: event-recap-composer\ndescription: Turn session notes, photos and speaker quotes into a non-chronological blog recap worth reading\n---\n\n# Event Recap Composer\n\nYou help the user write an event recap that someone who was not there actually wants to read.\n\n## Inputs\n- Rough notes from the sessions (bullets are fine)\n- 2-5 verbatim speaker quotes\n- Photos with captions if available\n- Audience for the recap (\"our customers\", \"prospects\", \"the wider industry\")\n- The event name, date and location\n\nIf the audience is missing, ask once.\n\n## What to do\n1. Find the 2-3 themes that ran across the day. The recap must be organised by theme, not by session order.\n2. Open with one sentence that captures the headline takeaway. Not \"On Tuesday we hosted...\".\n3. For each theme, write 150-250 words. Lead with what was said, follow with why it matters, anchor with one verbatim quote.\n4. Sprinkle photos with captions that add context, not just \"Speaker on stage\".\n5. End with a \"what we are taking away\" section: 3 specific actions or questions, not platitudes.\n6. Suggest a meta title under 60 characters and an opener for social sharing.\n\n## Constraints\n- No chronological summary. \"At 10am we heard from...\" is banned.\n- Quotes must be verbatim. If the user gave you a paraphrase, mark it as paraphrase.\n- Specific names of speakers and panel titles, never generic \"a panellist said\".\n- UK English spelling. No em dashes.\n- Total length 700-1100 words.\n- No buzzwords. \"Thought leadership\" is banned.\n\n## Output format\n\n**Meta title:** [under 60 chars]\n**Social opener:** [one line]\n\n---\n\n# [Recap title]\n\n[One-sentence headline takeaway]\n\n[Opening paragraph framing the day in 3-4 sentences]\n\n## [Theme 1]\n[150-250 words]\n\n> \"[verbatim quote]\" - [Speaker name, role]\n\n[Photo + caption if relevant]\n\n## [Theme 2]\n[as above]\n\n## What we are taking away\n- [specific action or question]\n- [specific action or question]\n- [specific action or question]\n",
+    "howToUse": [
+      "Click Download SKILL.md above to save event-recap-composer.md.",
+      "Claude.ai (Pro/Max/Team): Settings > Capabilities > Skills > Upload skill, drop the file in. Claude Code: place at ~/.claude/skills/event-recap-composer/SKILL.md and restart.",
+      "Gather your session notes, 2-5 verbatim quotes, photo captions, and the event name, date, and location.",
+      "Open a chat and say: 'write the recap for our [event name] on [date] in [location]. Audience: prospects. Notes: [paste]. Quotes: [paste].'",
+      "Claude returns a meta title, social opener, and a themed recap with quotes and a takeaways section."
+    ],
+    "whyItWorks": "Most event recaps read like a timetable in prose. They are written by the organiser for the organiser. This skill forces a thematic structure, demands a real headline takeaway up top, and uses verbatim quotes as anchors. The reader gets the value of having attended without the chronology that only matters if you were in the room.",
+    "makeItYourOwn": "Add your brand voice and any standing event series (e.g. \"our quarterly summit\") to the skill body. If you cover a recurring industry (fintech, climate tech), include 5-10 audience pain points so the \"why it matters\" paragraphs land harder. Paste a past recap that worked as a voice anchor.",
+    "isFree": false
+  },
+  {
+    "id": "skill-018",
+    "type": "claude-skill",
+    "title": "Pitch Deck Reviewer",
+    "description": "Paste a slide as an image or as text. Claude gives hostile-eye feedback the way a sceptical investor would, including the specific question they would ask and you would not want to answer.",
+    "category": "Marketing and content",
+    "industryTags": [
+      "Any",
+      "Founders",
+      "Startups",
+      "Fundraising",
+      "Sales",
+      "Strategy"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "Claude.ai Pro/Max/Team or Claude Code. Image input via Claude.ai is best for slides with charts.",
+    "toolTips": "Run it slide-by-slide rather than pasting the whole deck at once. The feedback is sharper when Claude is forced to interrogate one slide rather than skim all 12.",
+    "content": "---\nname: pitch-deck-reviewer\ndescription: Hostile-eye review of a single pitch deck slide as a sceptical investor would read it\n---\n\n# Pitch Deck Reviewer\n\nYou help the user pressure-test a pitch deck slide before an investor sees it.\n\n## Inputs\n- A single slide as an image or as a text description (title, body, any chart)\n- Optional: company stage (pre-seed, seed, Series A) and round size\n- Optional: the slide number / type (problem, solution, market, team, traction, ask)\n\nIf stage or slide type is missing, ask once.\n\n## What to do\n1. Read the slide as if you have seen 50 decks this week and have 30 seconds for this one.\n2. State in one line what the slide is trying to say.\n3. State in one line what the slide actually says (which is often different).\n4. List the 3 weakest claims or numbers and why they would draw scrutiny.\n5. Write the single sceptical question this slide invites that the founder would not want to answer. Phrase it as the investor would.\n6. Suggest 2-3 specific edits, ranked by likely impact on whether the investor moves to the next slide.\n7. End with a one-line verdict: \"keep\", \"cut\", or \"rework\".\n\n## Constraints\n- Be honest. Not cruel, but never reassuring for the sake of it.\n- Specific over vague. \"This number is hard to defend\" beats \"this could be stronger\".\n- Never invent traction. If the slide says nothing, say so.\n- UK English spelling. No em dashes.\n- No buzzwords. \"Compelling vision\" is banned.\n\n## Output format\n\n**Slide type:** [problem / solution / market / etc]\n**What it tries to say:** [one line]\n**What it actually says:** [one line]\n\n**Three weakest points**\n1. [weakness] - [why it would draw scrutiny]\n2. [weakness] - [why]\n3. [weakness] - [why]\n\n**The question you do not want to answer**\n\"[investor question, phrased as they would]\"\n\n**Specific edits, ranked**\n1. [edit] - [expected impact]\n2. [edit] - [expected impact]\n3. [edit] - [expected impact]\n\n**Verdict:** keep / cut / rework\n",
+    "howToUse": [
+      "Click Download SKILL.md above to save pitch-deck-reviewer.md.",
+      "Claude.ai (Pro/Max/Team): Settings > Capabilities > Skills > Upload skill, drop the file in. Claude Code: place at ~/.claude/skills/pitch-deck-reviewer/SKILL.md and restart.",
+      "Export each slide as an image (or copy the text content) and have your stage + round size to hand.",
+      "Open a chat, attach the slide image, and say: 'review this slide. Stage: seed. Round size: £1.5m. Slide type: market.'",
+      "Claude returns what the slide says vs intends, the three weakest points, the question you do not want to answer, ranked edits, and a verdict."
+    ],
+    "whyItWorks": "Founders read their own deck through the lens of having lived the story. Investors read it cold and sceptically. This skill simulates the cold read by demanding the gap between what the slide tries to say and what it actually says, then surfacing the one question the founder is hoping nobody asks. Closing that gap before the meeting is most of the work.",
+    "makeItYourOwn": "Add your sector and stage to the skill body so the sceptical questions are domain-accurate. Drop in 2-3 examples of past investor pushback you have heard so Claude calibrates harder. For sales decks instead of fundraising decks, swap \"investor\" for \"VP of the buyer team\" and adjust the question framing.",
+    "isFree": false
+  },
+  {
+    "id": "skill-019",
+    "type": "claude-skill",
+    "title": "Pricing Page Critique",
+    "description": "Paste the URL or screenshot. Claude returns specific, ranked changes (anchor pricing, feature labels, CTA copy, social proof placement) ordered by likely revenue impact.",
+    "category": "Marketing and content",
+    "industryTags": [
+      "Any",
+      "SaaS",
+      "Marketing",
+      "Founders",
+      "Product",
+      "Growth"
+    ],
+    "difficulty": "advanced",
+    "toolRecommendation": "Claude.ai Pro/Max/Team or Claude Code with web fetch enabled. Pairs well with the Playwright MCP for screenshotting the live page.",
+    "toolTips": "Run the critique once for desktop and once for mobile. The two layouts often hide different problems and the mobile fold is usually where revenue leaks.",
+    "content": "---\nname: pricing-page-critique\ndescription: Audit a pricing page and return specific changes ranked by likely revenue impact\n---\n\n# Pricing Page Critique\n\nYou help the user audit their pricing page with the eye of someone who has shipped pricing changes that moved revenue.\n\n## Inputs\n- A pricing page URL or a screenshot\n- Optional: the company's ICP and average deal size\n- Optional: current conversion rate from page view to trial / purchase\n- Viewport (desktop or mobile, default both)\n\nIf the URL is paywalled or requires login, ask the user to send a screenshot.\n\n## What to do\n1. Audit the page across six dimensions: anchor pricing (is the highest tier doing its job?), feature labels (jargon vs benefits?), CTA copy (specific vs generic?), social proof placement (above or below the fold?), pricing transparency (is the actual number visible?), and friction (steps to start).\n2. For each dimension, score 1-5 and give one line on why.\n3. List specific changes, ranked by likely revenue impact. Each change has: what to change, why, and a rough impact estimate (low/medium/high).\n4. Flag anything that looks like it leaks money: hidden pricing, generic CTAs, social proof from logos the buyer will not recognise.\n5. Identify the single highest-impact test the user could run next week.\n6. End with a one-line verdict: ship-as-is, ship with edits, or rebuild.\n\n## Constraints\n- Specific over vague. \"Change CTA from 'Get Started' to 'Start your 14-day trial'\" beats \"strengthen the CTA\".\n- Reference patterns from real pricing pages where useful (Stripe, Linear, Notion) but never copy them blindly.\n- Never quote a conversion lift figure as fact. Use \"likely\", \"typically\", or a range.\n- UK English spelling. No em dashes.\n- No buzzwords. \"Optimise the funnel\" is banned.\n\n## Output format\n\n**Page:** [URL or screenshot]\n**Viewport:** desktop / mobile / both\n\n**Six-dimension audit**\n| Dimension | Score | Why |\n| Anchor pricing | X/5 | [one line] |\n| Feature labels | X/5 | [one line] |\n| CTA copy | X/5 | [one line] |\n| Social proof | X/5 | [one line] |\n| Transparency | X/5 | [one line] |\n| Friction | X/5 | [one line] |\n\n**Changes, ranked by revenue impact**\n1. [change] - [why] - impact: high/medium/low\n2. [change] - [why] - impact: high/medium/low\n[...]\n\n**Money leaks**\n- [leak]\n\n**Highest-impact test to run next week**\n[one paragraph]\n\n**Verdict:** ship-as-is / ship with edits / rebuild\n",
+    "howToUse": [
+      "Click Download SKILL.md above to save pricing-page-critique.md.",
+      "Claude.ai (Pro/Max/Team): Settings > Capabilities > Skills > Upload skill, drop the file in. Claude Code: place at ~/.claude/skills/pricing-page-critique/SKILL.md and restart.",
+      "Make sure web fetch is on (or capture a desktop and mobile screenshot of the live page).",
+      "Open a chat and say: 'critique my pricing page. URL: [link]. ICP: [one line]. Average deal size: £X.'",
+      "Claude returns a six-dimension audit, ranked changes by revenue impact, money leaks, the highest-impact test to run next, and a verdict."
+    ],
+    "whyItWorks": "Most pricing-page critiques are subjective (\"I would change the colour\") or generic (\"add more social proof\"). This skill scores six specific dimensions, ranks every change by likely revenue impact, and isolates the one test worth shipping first. The verdict step forces a call rather than a list of polite suggestions, which is what teams actually need to act.",
+    "makeItYourOwn": "Add your ICP, average deal size, and current conversion rate to the skill body so the impact estimates calibrate to your funnel. Drop in 2-3 pricing pages you admire (and why) so Claude has reference patterns. For multi-product companies, run the skill per product page rather than per top-level pricing page.",
+    "isFree": false
+  },
+  {
+    "id": "skill-020",
+    "type": "claude-skill",
+    "title": "Interview Question Generator",
+    "description": "Paste the job description and the must-haves. Claude returns a behavioural question set with what good and weak answers look like, so anyone on your panel can run a fair interview.",
+    "category": "HR and recruitment",
+    "industryTags": [
+      "Any",
+      "HR",
+      "Recruitment",
+      "Founders",
+      "Small business",
+      "People ops"
+    ],
+    "difficulty": "beginner",
+    "toolRecommendation": "Claude.ai Pro/Max/Team or Claude Code. Free tier of Claude.ai cannot install Skills.",
+    "toolTips": "Paste a recent JD plus the 3 traits you actually hire on into the SKILL.md body, and every interview from then on uses the same calibrated bar.",
+    "content": "---\nname: interview-question-generator\ndescription: Turn a JD and must-haves into a behavioural question set with good and weak answer rubrics for the panel\n---\n\n# Interview Question Generator\n\nYou help the user run a fair, structured interview by generating behavioural questions tied to the must-haves in the JD.\n\n## Inputs\n- The job description (paste or URL)\n- The 3-5 must-haves the user actually hires on\n- The interview length in minutes (default 45)\n- Optional: the seniority level and the team's working style\n\nIf any of these are missing, ask in one batch before generating.\n\n## What to do\n1. Map each must-have to one behavioural question. Use the STAR pattern: ask for a specific past situation, not a hypothetical.\n2. For every question, write a 'what good looks like' rubric in 2-3 bullets. Be specific: name the behaviours, the evidence, the level of detail you expect.\n3. For every question, write a 'what weak looks like' rubric in 2-3 bullets. Common failure modes: vague answers, blaming others, no measurable outcome, taking sole credit for team work.\n4. Add 1-2 follow-up probes per question so a less experienced interviewer knows how to dig.\n5. Time the set to fit the interview length. Leave 5 minutes for candidate questions.\n6. End with a single scoring sheet the panel can fill in: each must-have scored 1-5, with a one-line evidence note.\n\n## Constraints\n- No leading questions. No 'do you think you would be good at X'.\n- No trivia. No brain teasers. No 'sell me this pen'.\n- UK English spelling. No em dashes.\n- Inclusive: avoid culture-fit framing, ask about working styles instead.\n- Every question must be answerable by a candidate from a non-traditional background.\n\n## Output format\n\n**Interview pack: [role] ([X] minutes)**\n\n**Question 1: [must-have it tests]**\n[the question]\n\n*What good looks like:*\n- [bullet]\n\n*What weak looks like:*\n- [bullet]\n\n*Follow-up probes:*\n- [bullet]\n\n[repeat for each question]\n\n**Scoring sheet**\n| Must-have | Score 1-5 | Evidence |\n",
+    "howToUse": [
+      "Click Download SKILL.md above to save interview-question-generator.md.",
+      "Claude.ai (Pro/Max/Team): Settings > Capabilities > Skills > Upload skill, drop the file in. Claude Code: place at ~/.claude/skills/interview-question-generator/SKILL.md and restart.",
+      "Paste your JD, the 3-5 must-haves, and the interview length into a new chat.",
+      "Ask: 'generate the interview pack for this role'. Claude returns questions, rubrics, probes, and a scoring sheet.",
+      "Send the pack to the panel before the interview. Everyone scores against the same rubric, so the debrief is honest, not vibes-based."
+    ],
+    "whyItWorks": "Most panels run interviews on intuition, which is how you end up hiring people who look and sound like you. Forcing each question to map to a must-have, with a rubric for good and weak answers, calibrates the whole panel to the same bar. The follow-up probes mean a junior interviewer extracts the same signal as a senior one.",
+    "makeItYourOwn": "Add your top 3 hiring traits and your scoring rubric language to the skill body so they are baked in. Paste 1-2 of your best past interview questions as voice examples. If you hire for very different roles (engineering vs sales), keep two copies of the skill with different default question banks.",
+    "isFree": true
+  },
+  {
+    "id": "skill-021",
+    "type": "claude-skill",
+    "title": "Onboarding Doc Builder",
+    "description": "Tell Claude the role, the team, and your culture in 3 lines. It returns a 30-day reading list, a week-1 calendar template, and a checklist that gets the new hire shipping by Friday.",
+    "category": "HR and recruitment",
+    "industryTags": [
+      "Any",
+      "HR",
+      "Founders",
+      "Operations",
+      "People ops",
+      "Small business"
+    ],
+    "difficulty": "beginner",
+    "toolRecommendation": "Claude.ai Pro or Claude Code (Skills feature).",
+    "toolTips": "Best paired with Notion or Google Drive MCP so Claude can drop the output straight into your wiki rather than back into chat.",
+    "content": "---\nname: onboarding-doc-builder\ndescription: Generate a 30-day reading list, week-1 calendar template and shipping checklist for a new hire from a 3-line brief\n---\n\n# Onboarding Doc Builder\n\nYou help the user onboard a new hire so they ship something real by the end of week one.\n\n## Inputs\n- Role and seniority (e.g. 'Mid-level backend engineer')\n- The team they are joining (size, what it owns, current focus)\n- Culture in 3 lines (how you work, what you value, what you do not tolerate)\n- Optional: links to your handbook, Notion, or codebase\n\nIf the culture lines are missing, ask once. The pack falls flat without them.\n\n## What to do\n1. Build a 30-day reading list. Bucket into Day 1, Week 1, Weeks 2-4. Each item has a title, a link placeholder, and a one-line 'why this matters'. Cap at 12 items total. More is noise.\n2. Draft a week-1 calendar template: meeting blocks per day, who they meet, what the goal of each meeting is. Leave at least 2 hours of focus time per day.\n3. Write a 'ship by Friday' checklist: 4-6 small but real tasks that get them to a first PR, first sales call shadow, first design review, etc. The checklist must end in something visible to the team.\n4. Add a 30-60-90 expectations summary in 3 short paragraphs. What good looks like at 30, 60, 90 days for this specific role.\n5. Add a single line for the manager: 'Your job in week 1 is X'. Make it concrete.\n\n## Constraints\n- No generic 'set up your laptop' filler. Assume IT handles that.\n- Every reading item must have a 'why this matters' line. If you cannot write one, cut it.\n- The Friday ship target must be small enough to actually happen.\n- UK English spelling. No em dashes.\n- No HR-bot voice. Write like the team's smartest engineer wrote it.\n\n## Output format\n\n**Onboarding pack: [name or role]**\n\n**30-day reading list**\n\n*Day 1*\n- **[title]** - [why this matters]\n\n*Week 1*\n- **[title]** - [why this matters]\n\n*Weeks 2-4*\n- **[title]** - [why this matters]\n\n**Week 1 calendar template**\n- *Mon:* [blocks]\n- *Tue:* [blocks]\n- *Wed:* [blocks]\n- *Thu:* [blocks]\n- *Fri:* [blocks]\n\n**Ship by Friday**\n- [ ] [task]\n\n**30-60-90 expectations**\n*30 days:* [paragraph]\n*60 days:* [paragraph]\n*90 days:* [paragraph]\n\n**Manager's job in week 1:** [one line]\n",
+    "howToUse": [
+      "Click Download SKILL.md above to save onboarding-doc-builder.md.",
+      "Claude.ai (Pro/Max/Team): Settings > Capabilities > Skills > Upload skill, drop the file in. Claude Code: place at ~/.claude/skills/onboarding-doc-builder/SKILL.md and restart.",
+      "Open a chat and paste: role, team, and 3 lines of culture. Add any handbook or wiki links you want Claude to lean on.",
+      "Ask: 'build the onboarding pack for this hire'. The skill returns reading list, calendar, ship checklist, expectations, and manager prompt.",
+      "Drop the output into Notion or a Google Doc and share with the new hire on day one. Reuse the same skill per hire, swapping the brief."
+    ],
+    "whyItWorks": "Most onboarding packs are either a wall of links nobody reads, or a calendar full of meetings that produces nothing visible. This skill forces a small, real shipping target by Friday, which is the single biggest predictor of a new hire feeling the job is going well. The 'why this matters' rule on every reading item kills the dump.",
+    "makeItYourOwn": "Add your handbook links and your 30-60-90 template into the skill body so they are baked in. Paste your team's actual ways-of-working doc as a culture reference. If you onboard into very different functions (eng vs sales vs ops), keep one copy of the skill per function with different ship-by-Friday targets.",
+    "isFree": false
+  },
+  {
+    "id": "skill-022",
+    "type": "claude-skill",
+    "title": "Exit Interview Synthesiser",
+    "description": "Paste 5 anonymised exit interviews. Claude returns the themes, the strongest verbatim quotes, the systemic issues from individual gripes, and 3 specific actions that would change next year's outflow.",
+    "category": "HR and recruitment",
+    "industryTags": [
+      "Any",
+      "HR",
+      "People ops",
+      "Founders",
+      "Operations",
+      "Leadership"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "Claude.ai Pro or Claude Code (Skills feature). Long-context models (Sonnet/Opus) handle larger batches better.",
+    "toolTips": "Anonymise the inputs before pasting: strip names, manager names, specific dates. The skill is sharper on themes than on identifying who said what, and you do not want a leak.",
+    "content": "---\nname: exit-interview-synthesiser\ndescription: Turn 5+ anonymised exit interviews into themes, verbatim quotes, systemic issues and 3 concrete actions\n---\n\n# Exit Interview Synthesiser\n\nYou help the user turn a stack of exit interviews into something the leadership team will actually act on.\n\n## Inputs\n- 5 or more anonymised exit interview transcripts or notes\n- Optional: department or seniority labels per interview (no names)\n- Optional: last year's exit themes for comparison\n\nIf there are fewer than 5 interviews, warn the user that single-source themes are unreliable. Continue if they ask you to.\n\n## What to do\n1. Read every interview end to end before grouping. Do not theme on the first pass.\n2. Cluster the issues into themes. Cap at 6 themes. If you have more, you are slicing too thin. Each theme gets a one-line label and a count of how many interviews mentioned it.\n3. For each theme, pull 1-2 verbatim quotes that are the strongest expression of the issue. Keep them short and exact. Mark anything you have lightly edited for grammar.\n4. Separate individual gripes from systemic issues. A gripe is one person's bad week. A systemic issue is the same complaint from 3+ people across different teams or seniorities. State which is which.\n5. Write 3 specific actions leadership could take. Each action must name the owner role (not a person), the expected effect, and a 90-day measurement. Vague actions like 'improve manager training' are banned.\n6. End with one sentence: the single thing you would change first, and why.\n\n## Constraints\n- Never name individuals. If a name appears in the input, replace with [redacted].\n- Do not invent themes. If something only one person mentioned, it is a gripe, not a theme.\n- Quotes must be verbatim or marked as lightly edited.\n- UK English spelling. No em dashes.\n- Stay neutral. The synthesis is not a defence of management or a hit-piece on it.\n\n## Output format\n\n**Exit interview synthesis: [period covered], n=[count]**\n\n**Themes (ranked by frequency)**\n\n*1. [Theme label] - mentioned in [X] of [N]*\n- *Verbatim:* '[quote]'\n- *What it tells us:* [one line]\n\n[repeat for each theme]\n\n**Systemic vs individual**\n*Systemic (3+ voices, multiple teams):*\n- [issue]\n\n*Individual gripes (single voice, kept for context):*\n- [issue]\n\n**3 actions for leadership**\n1. **[Action]** - Owner: [role]. Expected effect: [outcome]. Measure at 90 days: [metric].\n2. **[Action]** - Owner: [role]. Expected effect: [outcome]. Measure at 90 days: [metric].\n3. **[Action]** - Owner: [role]. Expected effect: [outcome]. Measure at 90 days: [metric].\n\n**Change first:** [one sentence]\n",
+    "howToUse": [
+      "Click Download SKILL.md above to save exit-interview-synthesiser.md.",
+      "Claude.ai (Pro/Max/Team): Settings > Capabilities > Skills > Upload skill, drop the file in. Claude Code: place at ~/.claude/skills/exit-interview-synthesiser/SKILL.md and restart.",
+      "Anonymise your 5+ exit interviews (strip names, manager names, identifying dates) and paste them into a new chat.",
+      "Ask: 'synthesise these exit interviews'. Claude returns ranked themes, verbatim quotes, systemic vs individual split, and 3 specific actions.",
+      "Take the output to your next leadership meeting. The 90-day measurement on every action is what makes it more than another doc nobody reads."
+    ],
+    "whyItWorks": "Exit data usually dies in two places: the individual interview file (where it is invisible), or a sanitised summary deck (where it is toothless). This skill forces a frequency-based ranking, separates systemic patterns from individual gripes, and demands measurable 90-day actions. The 'change first' line stops the report ending in a list of equal-weight ideas nobody owns.",
+    "makeItYourOwn": "Add last year's themes into the skill body so the output naturally compares year-on-year. If you tag exits by reason (involuntary, regretted, retirement), feed those tags in for sharper systemic vs individual splits. For larger orgs, run the skill per department and then run it again over the per-department outputs to find cross-org patterns.",
+    "isFree": false
+  },
+  {
+    "id": "skill-023",
+    "type": "claude-skill",
+    "title": "Daily Standup Writer",
+    "description": "Drop yesterday, today, and any blockers in one line each. Claude turns it into a tight 30-second standup matched to your team's tone, no waffle, no project-management jargon.",
+    "category": "Personal development",
+    "industryTags": [
+      "Any",
+      "Engineering",
+      "Product",
+      "Operations",
+      "Startups",
+      "Project management"
+    ],
+    "difficulty": "beginner",
+    "toolRecommendation": "Claude.ai Pro/Max/Team or Claude Code. Free tier of Claude.ai cannot install Skills.",
+    "toolTips": "Save your team's tone (engineering-direct, product-narrative, ops-formal) in the skill body so you do not retype it every day.",
+    "content": "---\nname: daily-standup-writer\ndescription: Turn rough notes on yesterday, today and blockers into a tight 30-second spoken standup\n---\n\n# Daily Standup Writer\n\nYou help the user write the standup they are about to give in 30 seconds.\n\n## Inputs\n- Yesterday: rough notes on what got done\n- Today: rough notes on what is planned\n- Blockers: anything stuck, with who or what they need\n- Optional: team tone (engineering-direct, product-narrative, ops-formal)\n\nIf tone is missing, default to engineering-direct.\n\n## What to do\n1. Read the rough notes and pull out outcomes, not effort. \"Shipped the migration\" beats \"worked on the migration\".\n2. Compress yesterday into 1-2 short sentences. Drop anything the team does not need to hear.\n3. Compress today into 1-2 short sentences with one specific deliverable.\n4. State blockers as a closed ask: who you need, by when, for what.\n5. If there are no blockers, say \"No blockers\". Do not invent ones.\n6. Total spoken length: 25-35 seconds, around 60-85 words.\n\n## Constraints\n- No \"basically\", \"just\", \"sort of\", \"kind of\".\n- No project-management jargon. \"Velocity\", \"swimlane\", \"capacity\" are banned.\n- Lead with the outcome, not the meeting it came from.\n- UK English spelling. No em dashes.\n\n## Output format\n**Yesterday:** [1-2 sentences]\n\n**Today:** [1-2 sentences]\n\n**Blockers:** [closed ask, or \"No blockers\"]\n",
+    "howToUse": [
+      "Click Download SKILL.md above to save daily-standup-writer.md.",
+      "Claude.ai (Pro/Max/Team): Settings > Capabilities > Skills > Upload skill, drop the file in. Claude Code: place at ~/.claude/skills/daily-standup-writer/SKILL.md and restart.",
+      "Each morning, paste three single-line notes: yesterday, today, blockers.",
+      "Ask Claude: 'write my standup' (add tone if your team is not engineering-direct).",
+      "Read it back in 30 seconds. The format keeps you tight on outcomes and closed asks."
+    ],
+    "whyItWorks": "Standups go bad two ways: rambling about effort, or hiding blockers in vague language. This skill compresses to outcomes and forces blockers into a closed ask, which is the only form that gets unstuck. The 60-85 word cap is the same length as a good voicemail, which is the right ceiling for a daily.",
+    "makeItYourOwn": "Paste your team's tone preference and 2-3 of your past standups into the skill body so Claude picks up your phrasing. If you have a recurring theme (a project the whole team is asking about), add a fixed prompt to mention status on it daily.",
+    "isFree": false
+  },
+  {
+    "id": "skill-024",
+    "type": "claude-skill",
+    "title": "Inbox Zero Replier",
+    "description": "Paste an email batch with three tone presets (warm, formal, brisk). Claude drafts replies you can review in a single sweep, never invents commitments, and flags anything you should answer yourself.",
+    "category": "Personal development",
+    "industryTags": [
+      "Any",
+      "Founders",
+      "Knowledge work",
+      "Consultancy",
+      "Operations",
+      "Sales"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "Claude.ai Pro/Max/Team or Claude Code. Best paired with the Gmail MCP so Claude can read and draft directly.",
+    "toolTips": "Pick one tone preset per session rather than mixing. Switching tone mid-batch costs you the rhythm that makes inbox zero possible.",
+    "content": "---\nname: inbox-zero-replier\ndescription: Draft replies to a batch of emails in a chosen tone, flag anything you should answer yourself\n---\n\n# Inbox Zero Replier\n\nYou help the user clear an inbox batch in one review sweep.\n\n## Inputs\n- A batch of emails (via Gmail MCP, or pasted: subject, sender, first 200 chars)\n- Tone preset: **warm** (friendly, contractions, sign-off \"thanks\"), **formal** (full sentences, no contractions, sign-off \"kind regards\"), or **brisk** (short, no pleasantries, sign-off \"thanks\" or none)\n- Optional: 2-3 of the user's past replies as voice examples\n\nIf tone is missing, ask once.\n\n## What to do\n1. For each email, pick one of three states:\n   - **Drafted:** you can write the full reply, no human input needed\n   - **Flag for you:** only the user can answer (decision, sensitive topic, unknown context)\n   - **Archive:** newsletter, FYI, no reply expected\n2. For Drafted emails, write the full reply in the chosen tone. Match the length of the incoming email roughly 1:1.\n3. Never invent commitments. If the original email asks \"can you do X by Friday?\", do not write \"yes\" unless the user said so.\n4. For Flag for you emails, summarise in 2 lines what they need to answer and why only they can answer it.\n5. List Archive emails by sender + subject only, no commentary.\n\n## Constraints\n- Never send. Always draft for the user to review.\n- No invented dates, prices, names or commitments.\n- Match the original email's formality even within a tone preset.\n- No \"hope this finds you well\".\n- UK English spelling. No em dashes.\n\n## Output format\n**Drafted (X ready to send)**\n\n*[Subject]*\nFrom: [sender]\nReply: [full draft]\n\n[repeat]\n\n**Flag for you (X)**\n*[Subject]* from [sender] - [2-line summary, why only you can answer]\n\n**Archive (X)**\n- [sender]: [subject]\n",
+    "howToUse": [
+      "Click Download SKILL.md above to save inbox-zero-replier.md.",
+      "Claude.ai (Pro/Max/Team): Settings > Capabilities > Skills > Upload skill, drop the file in. Claude Code: place at ~/.claude/skills/inbox-zero-replier/SKILL.md and restart.",
+      "Either connect the Gmail MCP, or paste an email batch with subject, sender, and first 200 chars.",
+      "Pick a tone and ask: 'reply to this batch in brisk tone' (or warm or formal).",
+      "Sweep the drafts once, send the ready ones, answer the flagged ones yourself. Inbox cleared in one pass."
+    ],
+    "whyItWorks": "Inbox zero fails because most people switch tone, mode and depth on every email, which costs more than the replies themselves. Locking one tone for a batch and forcing every email into one of three states (draft, flag, archive) removes the per-email decision overhead. The \"never invent commitments\" rule is the safety belt that lets you actually trust the drafts.",
+    "makeItYourOwn": "Paste 5-10 of your past replies into the skill body so Claude learns your voice for each tone preset. Add a list of senders that should never go to Archive (your boss, biggest clients) so they always surface as Drafted or Flag. If you reply in multiple languages, add a tone preset per language.",
+    "isFree": true
+  },
+  {
+    "id": "skill-025",
+    "type": "claude-skill",
+    "title": "Weekly Review Prep",
+    "description": "Hand Claude your calendar, your task list, and the week's wins. It returns reflection prompts that surface the patterns you would otherwise miss, plus one thing to drop next week.",
+    "category": "Personal development",
+    "industryTags": [
+      "Any",
+      "Founders",
+      "Knowledge work",
+      "Consultancy",
+      "Operations",
+      "Project management"
+    ],
+    "difficulty": "beginner",
+    "toolRecommendation": "Claude.ai Pro/Max/Team or Claude Code. Pairs well with Calendar and task-tool MCPs (Google Calendar, Notion, Todoist) so Claude can pull inputs itself.",
+    "toolTips": "Run it Friday afternoon while the week is still fresh. Monday morning is too late, you have already moved on.",
+    "content": "---\nname: weekly-review-prep\ndescription: Turn the week's calendar, tasks and wins into reflection prompts and a single thing to drop next week\n---\n\n# Weekly Review Prep\n\nYou help the user run a 15-minute weekly review that actually changes next week's behaviour.\n\n## Inputs\n- Calendar entries from the last 7 days (via MCP or pasted)\n- Task list: completed and outstanding\n- Wins: 2-5 things the user is proud of this week\n- Optional: a single goal or theme they set for the week\n\nIf the goal is missing, do not ask. Infer from the wins.\n\n## What to do\n1. Read the inputs and look for patterns: where time went, what got done, what got deferred again.\n2. Generate 5 reflection prompts. Each must be specific to this week's data, not generic. \"You spent 9 hours in recurring meetings, which of them earned the time?\" beats \"how were your meetings?\".\n3. Surface one pattern the user might have missed: a meeting that keeps getting rescheduled, a task that has slipped 3 weeks, a category soaking up time without showing up in wins.\n4. Recommend one thing to drop next week. Be specific. \"Drop the Wednesday product sync, the last 4 had no decisions made\" beats \"reduce meetings\".\n5. End with a one-line celebration of the strongest win.\n\n## Constraints\n- Reflection prompts must be open questions, not yes/no.\n- Do not moralise. \"You only finished 4 of 12 tasks\" is fine. \"You should be more focused\" is not.\n- The drop recommendation must reference a specific item, not a vague category.\n- UK English spelling. No em dashes.\n\n## Output format\n**This week in numbers**\n- Hours in meetings: [X]\n- Tasks completed / outstanding: [X / Y]\n- Wins logged: [X]\n\n**Reflection prompts**\n1. [prompt]\n2. [prompt]\n3. [prompt]\n4. [prompt]\n5. [prompt]\n\n**Pattern you might have missed**\n[1-2 sentences]\n\n**One thing to drop next week**\n[specific item, with why]\n\n**Strongest win**\n[one line]\n",
+    "howToUse": [
+      "Click Download SKILL.md above to save weekly-review-prep.md.",
+      "Claude.ai (Pro/Max/Team): Settings > Capabilities > Skills > Upload skill, drop the file in. Claude Code: place at ~/.claude/skills/weekly-review-prep/SKILL.md and restart.",
+      "Friday afternoon, paste your calendar, your task list (done and outstanding), and 2-5 wins.",
+      "Ask Claude: 'run my weekly review prep'.",
+      "Spend 10 minutes journalling the 5 reflection prompts and act on the one thing to drop. Done in under 15 minutes."
+    ],
+    "whyItWorks": "Most weekly reviews fail because the prompts are generic (\"what went well?\") so the answers are generic too. This skill grounds every prompt in the actual week's data, which makes the reflection specific enough to change behaviour. The single \"thing to drop\" rule is the lever - one removed item per week compounds fast, and it is more achievable than \"add a new system\".",
+    "makeItYourOwn": "Add your annual goals or quarterly themes into the skill body so the prompts can hold them up against the week's actual time spend. If you track values or principles, list them so Claude can flag drift. Adjust the cadence if Friday is busy: a Sunday-evening run with a coffee works equally well.",
+    "isFree": false
+  },
+  {
+    "id": "skill-026",
+    "type": "claude-skill",
+    "title": "Press Release Drafter",
+    "description": "Paste your announcement and one quote from the founder. Claude returns an AP-style press release with quotable quotes, a sharp lede, and clean boilerplate, ready to send to journalists who actually read past the subject line.",
+    "category": "Specialist",
+    "industryTags": [
+      "Any",
+      "PR",
+      "Marketing",
+      "Founders",
+      "Communications",
+      "Startups"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "Claude.ai Pro/Max/Team or Claude Code. Free tier of Claude.ai cannot install Skills.",
+    "toolTips": "Paste your standard boilerplate (company description, founding year, HQ, funding) into the SKILL.md body so it is identical on every release.",
+    "content": "---\nname: press-release-drafter\ndescription: Turn an announcement and a founder quote into an AP-style press release with a sharp lede, clean quotes, and proper boilerplate\n---\n\n# Press Release Drafter\n\nYou help the user draft a press release that a working journalist will actually read.\n\n## Inputs\n- The announcement (funding round, product launch, hire, partnership, milestone)\n- One or two quotes from named people, with role and full name\n- Company boilerplate (or pull from the skill body if stored)\n- Embargo date and time, if any\n\nIf the founder quote is missing, ask once. Do not invent quotes.\n\n## What to do\n1. Write a headline under 12 words. State the news, not the spin.\n2. Write a one-sentence subheadline that adds the why or the size.\n3. Write a lede paragraph: who, what, when, where, why, in 35-50 words.\n4. Add 2-3 body paragraphs with the supporting facts, numbers, and context.\n5. Insert one quote per named person. Quotes must sound spoken, not written. Cut hedging.\n6. Close with the boilerplate paragraph and a press contact line.\n\n## Constraints\n- AP style. Numbers under 10 spelled out, 10 and up as digits.\n- No marketing fluff. Banned: revolutionary, world-class, best-in-class, disrupt, unleash.\n- Every claim is sourced or attributed. No vague \"industry-leading\".\n- UK English spelling. No em dashes.\n- Total length 350-500 words.\n\n## Output format\n**FOR IMMEDIATE RELEASE** (or **EMBARGOED UNTIL [date, time]**)\n\n**[Headline]**\n*[Subheadline]*\n\n[City, Date] - [Lede paragraph]\n\n[Body paragraph 1]\n\n[Body paragraph 2]\n\n\"[Quote].\" said [Name], [Role] at [Company].\n\n[Body paragraph 3 if needed]\n\n**About [Company]**\n[Boilerplate]\n\n**Press contact:** [Name, email, phone]\n",
+    "howToUse": [
+      "Click Download SKILL.md above to save press-release-drafter.md.",
+      "Claude.ai (Pro/Max/Team): Settings > Capabilities > Skills > Upload skill, drop the file in. Claude Code: place at ~/.claude/skills/press-release-drafter/SKILL.md and restart.",
+      "Open a chat and paste the announcement, key facts, and at least one named quote with role.",
+      "Ask: 'draft the press release. We are announcing our Series A on Tuesday under embargo.'",
+      "Claude returns a 350-500 word AP-style release with headline, lede, body, quote, and boilerplate ready to send."
+    ],
+    "whyItWorks": "Most founder-written press releases bury the news under three paragraphs of self-congratulation, then quote the CEO saying \"we are excited\". Journalists bin those in 4 seconds. This skill forces the news into the headline, demands a real lede, and rewrites quotes to sound like a human spoke them, which is the difference between a pickup and a delete.",
+    "makeItYourOwn": "Paste your standard boilerplate into the skill body so it is identical every time. Add 1-2 of your past releases that got picked up as voice examples. If you have a regular embargo policy or a press contact, encode them as defaults so you do not retype on every release.",
+    "isFree": false
+  },
+  {
+    "id": "skill-027",
+    "type": "claude-skill",
+    "title": "Product Feedback Synthesiser",
+    "description": "Paste 10 customer interview transcripts. Claude returns the ranked themes, the strongest verbatim quotes per theme, and the 3 product changes that would address the most pain.",
+    "category": "Specialist",
+    "industryTags": [
+      "Any",
+      "Product",
+      "UX research",
+      "Founders",
+      "SaaS",
+      "Customer success"
+    ],
+    "difficulty": "advanced",
+    "toolRecommendation": "Claude.ai Pro/Max/Team or Claude Code. Long context helps if your transcripts are long.",
+    "toolTips": "If transcripts are very long, drop them in as separate files via Projects (Claude.ai) or as a folder Claude Code can read. The skill handles either.",
+    "content": "---\nname: product-feedback-synthesiser\ndescription: Take 10 customer interview transcripts and return ranked themes, the strongest verbatim quotes, and the 3 highest-leverage product changes\n---\n\n# Product Feedback Synthesiser\n\nYou help the user turn raw customer interviews into ranked, quotable themes and a short list of product changes.\n\n## Inputs\n- Between 5 and 15 customer interview transcripts (text or files)\n- The product or feature under research (one line of context)\n- Optional: the segment each interviewee belongs to (size, plan, role)\n\nIf segment data is missing, ask once. It changes the ranking.\n\n## What to do\n1. Read every transcript end to end before grouping. No skim-summarising.\n2. Tag each pain point, request, and praise. Cluster across interviews.\n3. Rank clusters by frequency first, then by intensity (\"this is killing us\" outranks \"would be nice\").\n4. For each top theme, pull 2-3 verbatim quotes. Quote exactly. Mark the speaker by segment, not name.\n5. Identify the 3 product changes that would address the most pain across the most segments. Be specific about what changes, not just what to fix.\n6. Flag anything that came up only once but sounded like a leading indicator.\n\n## Constraints\n- Never paraphrase a quote. Verbatim or do not include it.\n- Rank by signal, not by how interesting the quote is.\n- A theme needs at least 3 mentions to make the ranked list.\n- UK English spelling. No em dashes.\n- If two themes contradict (\"too simple\" vs \"too complex\"), surface the segment split.\n\n## Output format\n**Research scope:** [N interviews, segments, product area]\n\n**Top themes (ranked)**\n\n**1. [Theme]** - mentioned by [N of N] interviewees, intensity [low/medium/high]\n- \"[verbatim quote]\" - [segment]\n- \"[verbatim quote]\" - [segment]\n\n[repeat for top 5-7 themes]\n\n**Top 3 product changes**\n1. [Specific change] - addresses themes [X, Y]. Affects [segments].\n2. [Specific change] - addresses theme [Z]. Affects [segments].\n3. [Specific change] - addresses theme [W]. Affects [segments].\n\n**Weak signals (single mentions worth watching)**\n- [signal] - [why it matters]\n",
+    "howToUse": [
+      "Click Download SKILL.md above to save product-feedback-synthesiser.md.",
+      "Claude.ai (Pro/Max/Team): Settings > Capabilities > Skills > Upload skill, drop the file in. Claude Code: place at ~/.claude/skills/product-feedback-synthesiser/SKILL.md and restart.",
+      "Drop 10 interview transcripts into a Project (Claude.ai) or a folder Claude Code can read. Tag each with the customer segment.",
+      "Ask: 'synthesise these 10 interviews. The product is our onboarding flow.'",
+      "Claude returns ranked themes, verbatim quotes by segment, and the 3 product changes that would shift the most pain."
+    ],
+    "whyItWorks": "Most founders read 10 transcripts and remember the 2 most quotable lines, then build for those. This skill forces frequency-and-intensity ranking across every transcript, which surfaces the boring-but-common pains that actually move retention. The verbatim-quotes rule kills the temptation to rewrite customers into your own thesis.",
+    "makeItYourOwn": "Add your own segment definitions to the skill body so the rankings are scored against your real customer mix. If you have a fixed product framework (Jobs To Be Done, Kano, RICE), encode the change-recommendation step in that language. For ongoing research, run it monthly and track which themes fade and which compound.",
+    "isFree": false
+  },
+  {
+    "id": "skill-028",
+    "type": "claude-skill",
+    "title": "Brand Voice Extractor",
+    "description": "Paste 10 of your existing posts (or competitors'). Claude returns a voice guide with banned words, sentence-length patterns, the tone-by-channel matrix, and 5 example sentences in your voice.",
+    "category": "Specialist",
+    "industryTags": [
+      "Any",
+      "Marketing",
+      "Content",
+      "Brand",
+      "Communications",
+      "Agencies"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "Claude.ai Pro/Max/Team or Claude Code. Free tier of Claude.ai cannot install Skills.",
+    "toolTips": "Once Claude has produced the voice guide, paste it into the body of every other writing skill you use. That is how you get consistent voice across drafts.",
+    "content": "---\nname: brand-voice-extractor\ndescription: Pattern-match across 10 posts and produce a voice guide with banned words, sentence rhythm, channel matrix, and example sentences\n---\n\n# Brand Voice Extractor\n\nYou help the user reverse-engineer a written voice from real samples.\n\n## Inputs\n- 10 pieces of writing (blog posts, social posts, emails, About pages)\n- Whose voice it is (the user's, their company's, a competitor's)\n- Optional: the channels each sample came from (LinkedIn, Twitter, blog, email)\n\nIf the source mix is unbalanced (10 LinkedIn posts and nothing else), say so and note that the guide will skew to that channel.\n\n## What to do\n1. Read all 10 samples before extracting. Do not generalise from the first 2.\n2. Identify the voice signals: average sentence length, paragraph length, use of questions, use of contractions, use of first vs second vs third person, formality level, humour register.\n3. List 10-15 words or phrases that recur. Mark each as Use or Avoid. \"Avoid\" includes their actual filler words.\n4. List 5-10 banned words the voice never uses, even when the topic invites them.\n5. Build a tone-by-channel matrix if more than one channel was supplied. Same voice, different dial settings per channel.\n6. Write 5 example sentences in the voice across different scenarios (a launch announcement, a customer thanks, a hot take, an apology, a how-to opener).\n\n## Constraints\n- Pattern-match only on what is in the samples. No generic brand-voice cliches.\n- If the samples contradict (some formal, some casual), surface the split rather than averaging.\n- Be specific. \"Friendly\" is not a finding. \"Opens with a question 7 times out of 10\" is.\n- UK English spelling. No em dashes.\n\n## Output format\n**Voice fingerprint**\n- Avg sentence length: [N] words. Range: [low]-[high].\n- Paragraph length: [short/medium/long, with N sentences typical].\n- Person: [first/second/third, mix].\n- Contractions: [yes/no/sometimes].\n- Humour: [register].\n- Formality: [1-5].\n\n**Use these words/phrases**\n- [word or phrase] - appears [N] times\n\n**Avoid these words/phrases**\n- [word or phrase] - never appears, or actively replaced\n\n**Tone-by-channel matrix**\n| Channel | Formality | Length | Hook style |\n| [channel] | [n/5] | [short/long] | [pattern] |\n\n**Example sentences in this voice**\n1. Launch: [sentence]\n2. Thanks: [sentence]\n3. Hot take: [sentence]\n4. Apology: [sentence]\n5. How-to opener: [sentence]\n",
+    "howToUse": [
+      "Click Download SKILL.md above to save brand-voice-extractor.md.",
+      "Claude.ai (Pro/Max/Team): Settings > Capabilities > Skills > Upload skill, drop the file in. Claude Code: place at ~/.claude/skills/brand-voice-extractor/SKILL.md and restart.",
+      "Paste 10 samples of writing in the voice you want to capture. Tag each with the channel if you have several.",
+      "Ask: 'extract the voice from these 10 posts. They are mine, mostly LinkedIn and the company blog.'",
+      "Claude returns a voice fingerprint, banned words, a channel matrix, and 5 example sentences you can paste into other writing skills."
+    ],
+    "whyItWorks": "Brand-voice docs written from scratch always read like aspirational fiction. The voice is in the samples, not in adjectives like \"warm\" and \"approachable\". Forcing the extraction to be measurable (sentence length, banned words, channel matrix) produces a guide you can actually paste into other prompts and get consistent output.",
+    "makeItYourOwn": "Once the voice guide is produced, paste it into the body of every writing skill you have (status reports, press releases, social posts) so they all draft in the same voice. Re-run quarterly with fresh samples to catch voice drift. If you write for multiple brands, keep one extracted voice per brand.",
+    "isFree": false
+  },
+  {
+    "id": "skill-029",
+    "type": "claude-skill",
+    "title": "Pitch Email Opener Tester",
+    "description": "Paste 5 subject and opener variants. Claude returns A/B-ready predictions, ranked, with the reasoning (curiosity gap, pattern interrupt, social proof) so you know why one beats the other.",
+    "category": "Specialist",
+    "industryTags": [
+      "Any",
+      "Sales",
+      "Outbound",
+      "Marketing",
+      "Founders",
+      "B2B"
+    ],
+    "difficulty": "advanced",
+    "toolRecommendation": "Claude.ai Pro/Max/Team or Claude Code. Free tier of Claude.ai cannot install Skills.",
+    "toolTips": "Pair this with your real reply data. After you run a campaign, feed Claude the actual open and reply rates so its priors get sharper for next time.",
+    "content": "---\nname: pitch-email-opener-tester\ndescription: Score 5 subject and opener variants for likely open and reply rate, with named reasoning per variant\n---\n\n# Pitch Email Opener Tester\n\nYou help the user pressure-test outbound subject lines and opening sentences before they hit send on a campaign.\n\n## Inputs\n- 5 variants, each with a subject line and the first 1-2 sentences of the email\n- Target audience (role, seniority, industry)\n- The ask (book a call, reply for info, click a link)\n- Optional: any past performance data the user has\n\nIf audience or ask is missing, ask once before scoring.\n\n## What to do\n1. Score each variant on three axes: Open likelihood, Reply likelihood, Risk of spam-flag. Each scored 1-10.\n2. Name the technique each opener relies on: curiosity gap, pattern interrupt, social proof, specificity, mutual connection, contrarian take, direct ask.\n3. Identify the failure mode of each variant. Every opener has one. State it.\n4. Rank variants 1-5 with a one-line verdict per variant.\n5. Suggest one A/B test pairing where the variants differ on a single axis, so the test result is interpretable.\n6. Flag anything that will trigger spam filters (all caps, RE: fakes, urgent, free, guaranteed) before scoring.\n\n## Constraints\n- Be honest. If all 5 are weak, say all 5 are weak and suggest what is missing.\n- Pattern-match only on what is in the variant. Do not assume copy you cannot see.\n- Predictions are educated guesses, not gospel. State the confidence.\n- UK English spelling. No em dashes.\n- Never suggest deceptive subject lines (fake RE:, fake forwards, manufactured urgency).\n\n## Output format\n**Audience:** [role, seniority, industry]\n**Ask:** [the ask]\n\n**Variant 1:** [subject] / [opener]\n- Technique: [named]\n- Open: [N/10]. Reply: [N/10]. Spam risk: [N/10].\n- Failure mode: [one sentence]\n- Verdict: [one line]\n\n[repeat for each]\n\n**Ranked**\n1. Variant [N] - [why]\n2. Variant [N] - [why]\n3. Variant [N] - [why]\n4. Variant [N] - [why]\n5. Variant [N] - [why]\n\n**Suggested A/B test**\nRun [Variant X] vs [Variant Y]. They differ on [single axis]. If [Y] wins, you have learned [insight].\n\n**Confidence:** [low/medium/high] with reasoning\n",
+    "howToUse": [
+      "Click Download SKILL.md above to save pitch-email-opener-tester.md.",
+      "Claude.ai (Pro/Max/Team): Settings > Capabilities > Skills > Upload skill, drop the file in. Claude Code: place at ~/.claude/skills/pitch-email-opener-tester/SKILL.md and restart.",
+      "Open a chat and paste 5 subject and opener variants, your target audience, and your ask.",
+      "Ask: 'rank these 5 outbound openers for senior product managers at Series B SaaS. The ask is a 20-minute call.'",
+      "Claude returns scored variants with named techniques, failure modes, a ranking, and a clean A/B pairing so you can run an interpretable test."
+    ],
+    "whyItWorks": "Most outbound testing is theatre. Senders ship 5 variants that differ on 4 axes at once and learn nothing from the result. Naming the technique forces you to see what each opener is really doing, and the single-axis A/B suggestion is what turns running tests into actually learning something. The spam-risk flag also stops you from torching your domain reputation.",
+    "makeItYourOwn": "Feed in your historical campaign data so the priors are calibrated to your audience, not generic SaaS data. Add your banned words list (industry-specific spam triggers, words your audience hates). If you sell to multiple verticals, keep one copy of the skill per vertical with the local audience tuned in.",
+    "isFree": false
+  },
+  {
+    "id": "skill-030",
+    "type": "claude-skill",
+    "title": "Social Media Response Writer",
+    "description": "Paste a negative review or a hostile comment. Claude returns 3 reply options at different temperatures, none of which escalate, and flags the cases where silence is the right call.",
+    "category": "Specialist",
+    "industryTags": [
+      "Any",
+      "Customer support",
+      "Marketing",
+      "Founders",
+      "Hospitality",
+      "Ecommerce"
+    ],
+    "difficulty": "intermediate",
+    "toolRecommendation": "Claude.ai Pro/Max/Team or Claude Code. Free tier of Claude.ai cannot install Skills.",
+    "toolTips": "Paste your refund and resolution policy into the SKILL.md body so Claude never offers something you cannot deliver. Saves you walking back promises.",
+    "content": "---\nname: social-media-response-writer\ndescription: Turn a negative review or hostile comment into 3 reply options at different temperatures, with a clear silence-is-better flag when relevant\n---\n\n# Social Media Response Writer\n\nYou help the user respond to negative public feedback without making it worse.\n\n## Inputs\n- The full text of the review or comment\n- The platform (Google, Trustpilot, Twitter, Instagram, TripAdvisor, Reddit)\n- Whether the complaint is factually accurate, partially accurate, or false\n- Optional: the user's resolution policy (refunds, replacements, escalation path)\n\nIf factual accuracy is unclear, ask once. The reply changes a lot based on it.\n\n## What to do\n1. Read the comment for what it is actually asking for: refund, recognition, validation, attention, or revenge.\n2. Decide whether replying is the right move. If the commenter is a known troll, the comment is gathering no traction, or replying gives oxygen, recommend silence.\n3. If replying is right, write 3 versions:\n   - **Cool:** short, neutral, factual, offers a route to resolve in private.\n   - **Warm:** acknowledges the experience, owns what is true, offers a specific next step.\n   - **Firm:** corrects a factual inaccuracy in public, calmly, with evidence.\n4. Keep every reply under 60 words. Long replies on social read as defensive.\n5. Never argue, never sarcasm, never use \"as per\". Always offer an off-platform route for anything beyond a one-line resolve.\n6. Flag any legal or safety concern that should be escalated rather than handled in comments.\n\n## Constraints\n- Never promise a refund or replacement unless the user's policy permits it.\n- Match the platform's register. Google review reply is more formal than a Twitter reply.\n- UK English spelling. No em dashes.\n- Apologise where warranted, but never grovel. One \"sorry\" max.\n- If the commenter used a slur or threat, recommend reporting and not engaging.\n\n## Output format\n**Read of the comment:** [what they actually want]\n\n**Reply or stay silent?** [reply / silence] - [one-line reasoning]\n\nIf reply:\n\n**Cool version**\n[reply, under 60 words]\n\n**Warm version**\n[reply, under 60 words]\n\n**Firm version**\n[reply, under 60 words]\n\n**Recommended:** [Cool/Warm/Firm] because [one sentence]\n\n**Escalate?** [No / Yes - why]\n",
+    "howToUse": [
+      "Click Download SKILL.md above to save social-media-response-writer.md.",
+      "Claude.ai (Pro/Max/Team): Settings > Capabilities > Skills > Upload skill, drop the file in. Claude Code: place at ~/.claude/skills/social-media-response-writer/SKILL.md and restart.",
+      "Paste the review or comment in full, name the platform, and say whether the complaint is accurate, partial, or false.",
+      "Ask: 'draft replies. This is a 1-star Google review and the complaint is partially accurate.'",
+      "Claude returns 3 reply versions at different temperatures, a recommendation, and a silence flag if engaging would make it worse."
+    ],
+    "whyItWorks": "Hostile comments are an emotional ambush, and most replies leak that emotion. Three pre-written temperature versions let you pick the right register cold instead of typing through your annoyance. The silence flag is the most valuable bit: more reputational damage comes from defensive replies that get screenshotted than from comments that quietly aged out.",
+    "makeItYourOwn": "Paste your resolution policy into the skill body so Claude never offers a refund you do not give or a replacement you cannot ship. Add 2-3 examples of past replies you were happy with as voice anchors. If you have a brand spokesperson tone (e.g. always signs off with their first name), encode it.",
+    "isFree": false
   }
 ]
