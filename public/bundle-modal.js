@@ -13,14 +13,14 @@
             <div>
               <p style="font-size:.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:#7c3aed; margin:0 0 .4rem;">AI Starter Bundle · £14.99</p>
               <h2 style="font-size:1.5rem; font-weight:800; margin:0 0 .4rem; color:#111827;">Everything you need to actually use AI.</h2>
-              <p style="font-size:.95rem; color:#6b7280; margin:0 0 1rem; line-height:1.5;">168 ready-to-copy prompts, two workbooks, six content calendars, and a week 1 action plan. Bought once, yours forever.</p>
+              <p style="font-size:.95rem; color:#6b7280; margin:0 0 1rem; line-height:1.5;">200+ ready-to-copy prompts and tools, two workbooks, six content calendars, and a week 1 action plan. Bought once, yours forever.</p>
             </div>
             <button onclick="closeBundleModal()" aria-label="Close" style="border:none; background:#f3f4f6; width:32px; height:32px; border-radius:50%; cursor:pointer; font-size:1.2rem; line-height:1; color:#6b7280; flex-shrink:0;">×</button>
           </div>
         </div>
         <div style="padding:.5rem 1.75rem 0;">
           <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:.65rem;">
-            ${bundleFeature('📝', '168 expert-written prompts', 'ChatGPT, Claude, Midjourney, custom GPTs')}
+            ${bundleFeature('📝', '200+ expert-written prompts and tools', 'ChatGPT, Claude, Midjourney, custom GPTs')}
             ${bundleFeature('📘', 'AI in a Day workbook', 'Beginner-friendly, hands-on')}
             ${bundleFeature('🚀', 'AI in a Day: Advanced', 'Techniques, automations, workflows')}
             ${bundleFeature('📅', '6 content calendars', 'Salons, accountants, PTs, restaurants, estate agents, universal')}

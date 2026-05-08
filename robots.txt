@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /prompts/admin
+Disallow: /ai-in-a-day
+Disallow: /ai-in-a-day-advanced
+Disallow: /content-calendars/calendar-
 Sitemap: https://smashyourai.com/sitemap.xml
